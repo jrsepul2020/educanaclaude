@@ -1,6 +1,10 @@
 node_modules/
 dist/
 .astro/
+.wrangler/
+.vercel/
 .DS_Store
 .env
-.env.production
+.env.*
+!.env.example
+*.log
