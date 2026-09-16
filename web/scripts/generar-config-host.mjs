@@ -13,12 +13,19 @@ import { redirecciones } from '../redirecciones.mjs';
 const vercel = {
   $schema: 'https://openapi.vercel.sh/vercel.json',
   trailingSlash: true,
-  redirects: Object.entries(redirecciones).map(([origen, destino]) => ({
+  /* Se emiten DOS variantes de cada regla, con barra final y sin ella.
+     Las URLs del WordPress antiguo están indexadas CON barra
+     (/tienda/), pero Vercel compara la ruta literal: una regla escrita
+     sin barra no captura la versión con barra y la petición acaba en
+     404. Es el fallo que apareció en el primer despliegue. */
+  redirects: Object.entries(redirecciones).flatMap(([origen, destino]) => {
     // /alumno/[...ruta] → /alumno/:ruta*  (sintaxis de Vercel)
-    source: origen.replace(/\/\[\.\.\.(\w+)\]$/, '/:$1*'),
-    destination: destino,
-    permanent: true,
-  })),
+    const base = origen.replace(/\/\[\.\.\.(\w+)\]$/, '/:$1*');
+    const fuentes = base.includes('.') || base.endsWith('*')
+      ? [base, base.endsWith('*') ? base.replace(/\/:(\w+)\*$/, '/:$1*/') : base + '/']
+      : [base, base + '/'];
+    return [...new Set(fuentes)].map((source) => ({ source, destination: destino, permanent: true }));
+  }),
   headers: [
     {
       source: '/_astro/(.*)',

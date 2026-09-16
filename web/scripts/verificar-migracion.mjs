@@ -78,8 +78,9 @@ const cubierta = (u) => {
 };
 
 const config = existsSync('vercel.json') ? JSON.parse(readFileSync('vercel.json', 'utf8')) : null;
-if (config?.redirects?.length === reglas.size) ok(`vercel.json al día · ${config.redirects.length} redirecciones`);
-else fallo('vercel.json no coincide con el mapa de redirecciones: ejecuta `npm run build`');
+/* Cada regla del mapa emite dos variantes, con barra final y sin ella. */
+if (config?.redirects?.length === reglas.size * 2) ok(`vercel.json al día · ${config.redirects.length} redirecciones (con y sin barra final)`);
+else fallo(`vercel.json no coincide con el mapa: ${config?.redirects?.length ?? 0} reglas, se esperaban ${reglas.size * 2}. Ejecuta \`npm run build\``);
 
 const perdidas = URLS_CON_TRAFICO.filter((u) => !paginas.has(u) && !cubierta(u));
 if (perdidas.length) fallo(`URLs con tráfico que desaparecen sin redirección: ${perdidas.join(', ')}`);

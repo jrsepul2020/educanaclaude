@@ -8,7 +8,17 @@
       "permanent": true
     },
     {
+      "source": "/preparacion-selectividad-sevilla/",
+      "destination": "/curso-selectividad-sevilla-pevau/",
+      "permanent": true
+    },
+    {
       "source": "/pruebas-acceso-universidad",
+      "destination": "/acceso-universidad-mayores-25/",
+      "permanent": true
+    },
+    {
+      "source": "/pruebas-acceso-universidad/",
       "destination": "/acceso-universidad-mayores-25/",
       "permanent": true
     },
@@ -18,7 +28,17 @@
       "permanent": true
     },
     {
+      "source": "/horarios-2/",
+      "destination": "/horarios-cursos/",
+      "permanent": true
+    },
+    {
       "source": "/educaline.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/educaline.html/",
       "destination": "/",
       "permanent": true
     },
@@ -28,7 +48,17 @@
       "permanent": true
     },
     {
+      "source": "/educaline-mantenimiento/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/tienda",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/tienda/",
       "destination": "/contacto/",
       "permanent": true
     },
@@ -38,7 +68,17 @@
       "permanent": true
     },
     {
+      "source": "/carrito/",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
       "source": "/finalizar-compra",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/finalizar-compra/",
       "destination": "/contacto/",
       "permanent": true
     },
@@ -48,7 +88,17 @@
       "permanent": true
     },
     {
+      "source": "/mi-cuenta/",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
       "source": "/mi-perfil",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/mi-perfil/",
       "destination": "/contacto/",
       "permanent": true
     },
@@ -58,7 +108,17 @@
       "permanent": true
     },
     {
+      "source": "/producto/reserva/",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
       "source": "/reserva-clases",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/reserva-clases/",
       "destination": "/contacto/",
       "permanent": true
     },
@@ -68,12 +128,27 @@
       "permanent": true
     },
     {
+      "source": "/alumno/:ruta*/",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
       "source": "/lessons/:ruta*",
       "destination": "/",
       "permanent": true
     },
     {
+      "source": "/lessons/:ruta*/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/courses/:ruta*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/:ruta*/",
       "destination": "/",
       "permanent": true
     }
