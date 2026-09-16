@@ -8,12 +8,8 @@ import Card from '../components/ui/Card.astro';
 import Button from '../components/ui/Button.astro';
 import Testimonios from '../components/blocks/Testimonios.astro';
 
-const equipo = [
-  { n: '[Nombre]', m: 'Matemáticas y Física' },
-  { n: '[Nombre]', m: 'Lengua y Latín' },
-  { n: '[Nombre]', m: 'Inglés · Trinity y Cambridge' },
-  { n: '[Nombre]', m: 'Historia y Economía' },
-];
+/* Sin página de equipo: el profesorado va cambiando y publicar
+   nombres que se quedan viejos es peor que no publicarlos. */
 ---
 <Base
   title="Quiénes somos · Academia Educana"
@@ -63,28 +59,6 @@ const equipo = [
   </Section>
 
   <TrinityBand />
-
-  <Section tone="paper">
-    <Eyebrow>El equipo</Eyebrow>
-    <h2 class="text-(length:--text-h2)">Quién te va a dar clase.</h2>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {equipo.map((p) => (
-        <Card class="gap-0">
-          <div class="flex aspect-square items-center justify-center bg-cream text-[0.72rem] uppercase tracking-[0.1em] text-slate">
-            Foto pendiente
-          </div>
-          <div class="flex flex-col gap-1 p-5">
-            <h3 class="font-semibold">{p.n}</h3>
-            <p class="text-[0.9rem] text-slate">{p.m}</p>
-          </div>
-        </Card>
-      ))}
-    </div>
-    <p class="text-[0.82rem] text-slate">
-      [PENDIENTE: sesión de fotos. Los retratos del profesorado son el soporte del pilar
-      «profesorado propio y estable»; sin caras es una afirmación sin prueba.]
-    </p>
-  </Section>
 
   <Section tone="cream">
     <Testimonios />

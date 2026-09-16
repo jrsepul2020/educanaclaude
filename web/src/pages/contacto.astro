@@ -46,11 +46,12 @@ import { NAP } from '../lib/nap';
         </Card>
 
         <Card class="gap-3 p-6">
-          <h2 class="text-(length:--text-h3)">Horario de atención</h2>
-          <dl class="flex flex-col gap-1.5 text-[0.95rem]">
-            <div class="flex justify-between gap-4"><dt class="text-slate">Lunes a jueves</dt><dd class="tabular">[HORARIO]</dd></div>
-            <div class="flex justify-between gap-4"><dt class="text-slate">Viernes</dt><dd class="tabular">[HORARIO]</dd></div>
-            <div class="flex justify-between gap-4"><dt class="text-slate">Sábado y domingo</dt><dd>Cerrado</dd></div>
+          <h2 class="text-(length:--text-h3)">Otros contactos</h2>
+          <dl class="flex flex-col gap-2 text-[0.95rem]">
+            <div><dt class="text-slate">Bolsa de trabajo</dt>
+              <dd><a href={`mailto:${NAP.emailEmpleo}`} class="hover:text-brand-ink">{NAP.emailEmpleo}</a></dd></div>
+            <div><dt class="text-slate">Administración y asuntos legales</dt>
+              <dd><a href={`mailto:${NAP.emailLegal}`} class="hover:text-brand-ink">{NAP.emailLegal}</a></dd></div>
           </dl>
         </Card>
       </div>
@@ -71,11 +72,10 @@ import { NAP } from '../lib/nap';
       </span>
     </button>
 
-    <div class="grid gap-5 sm:grid-cols-3">
-      <Card class="gap-2 p-5"><h3 class="font-semibold">En metro</h3><p class="text-[0.92rem] text-slate">[PARADA MÁS CERCANA]</p></Card>
-      <Card class="gap-2 p-5"><h3 class="font-semibold">En autobús</h3><p class="text-[0.92rem] text-slate">[LÍNEAS]</p></Card>
-      <Card class="gap-2 p-5"><h3 class="font-semibold">Aparcamiento</h3><p class="text-[0.92rem] text-slate">[INDICACIÓN]</p></Card>
-    </div>
+    <p class="max-w-[64ch] leading-relaxed text-slate">
+      Estamos en el <strong>Edificio Galileo</strong>, en la Avenida de las Ciencias, en pleno
+      Sevilla Este.
+    </p>
   </Section>
 </Base>
 

@@ -4,14 +4,17 @@
 > antes de tocar el DNS. Si falla, no se lanza. No hay excepciones «porque corre prisa»:
 > el tráfico que se pierde en una migración mal hecha tarda meses en volver.
 
-## 0 · Antes de nada: lo que bloquea hoy
+## 0 · Estado: en verde
 ```
-✗ Textos legales sin revisar (3 páginas)
-✗ 29 páginas con datos sin rellenar
+LISTO PARA LANZAR · 0 fallos, 0 avisos
 ```
-Son los dos únicos fallos que quedan. El resto de la verificación está en verde.
-Hasta que el cliente cierre el [doc 08](08-datos-pendientes.md) y los legales,
-**no se puede lanzar**. Todo lo demás de este documento ya está preparado.
+`npm run verificar` pasa entero. Los contenidos, precios y fechas están portados de la web
+actual ([doc 10](10-contenido-portado.md)) y los textos legales, escritos con los datos del
+titular.
+
+**Queda una comprobación que no puede hacer el código:** que la asesoría del cliente valide
+los tres textos legales, sobre todo el apartado de destinatarios y los plazos de conservación.
+Está en la lista de abajo.
 
 ## 1 · Alojamiento: Cloudflare Pages
 | | |
@@ -41,12 +44,15 @@ no tienen equivalente declarativo y caerían en 404.
 - [ ] Verificar que la propiedad de Search Console es de **dominio**, no de prefijo de URL. Si no, crearla ahora: tarda en verificarse.
 - [ ] Crear la propiedad de GA4 y obtener el `PUBLIC_GA4_ID`.
 - [ ] Verificar el dominio del remitente en Resend (registros SPF y DKIM). Sin esto, los avisos del formulario acaban en spam.
+- [ ] **Que la asesoría legal valide los tres textos.** Son los del cliente, adaptados a lo que la web hace ahora, pero la revisión final no la puede hacer una agencia web.
+- [ ] Configurar `EMAIL_EMPLEO=rrhh@academiaeducana.com` para que las candidaturas no vayan al buzón general.
 - [ ] Desplegar en la URL de Cloudflare (`*.pages.dev`) y probarlo todo allí **con `noindex` global**.
 - [ ] Bajar el TTL del DNS a 300 segundos. Así una vuelta atrás tarda cinco minutos y no dos días.
 
 ## 3 · Pruebas en la URL de previsualización
 - [ ] `npm run verificar` en verde.
 - [ ] Enviar los dos formularios de verdad y comprobar que llega el correo.
+- [ ] **Enviar una candidatura con un CV real** y comprobar que el adjunto llega a `rrhh@`. Probar también uno de más de 3 MB: tiene que rebotar con el aviso, no fallar en silencio.
 - [ ] Probar el formulario con el teléfono mal: tiene que volver con el aviso en texto.
 - [ ] Banner de cookies: aceptar, rechazar, recargar. Con «rechazar» no debe cargarse nada de `googletagmanager`.
 - [ ] Probar en un iPhone y un Android reales, no sólo en el simulador del navegador.

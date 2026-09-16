@@ -59,10 +59,42 @@ Dos, reales, de la página de contacto: **Marta** (química) y **Álvaro**. Publ
 
 **Años de experiencia:** la portada dice «más de 15 años» y la página de inglés «más de 20 años». Uso 20+, que es la más reciente. **Conviene unificar y retirar la otra.**
 
-## Lo que sigue sin existir en ninguna parte
-- **Horario de atención al público.** No está en la web actual.
-- **Cómo llegar**: parada de metro, líneas de autobús, aparcamiento.
-- **Nombres del profesorado.** No hay página de equipo.
-- **Precio de las clases particulares, de apoyo, de verano y de invierno.** Sólo hay precio de tres cursos.
-- **Textos legales revisados.**
-- **El número real de alumnos por grupo.**
+## Decisiones del cliente (16-09-2026)
+
+| Asunto | Decisión | Cómo está resuelto |
+|---|---|---|
+| Precios de apoyo, particulares, verano e invierno | **No se publican.** Nos ceñimos a los contenidos actuales | Esas páginas muestran «matrícula gratuita» y «consúltanos», sin inventar importes |
+| Cuadrante de horarios | **En preparación** | `/horarios-cursos/` lleva un aviso visible y el teléfono. La tabla muestra días y franja, no grupos concretos |
+| Profesorado | **No se publica**, porque va cambiando | Retirada la sección de equipo de «Quiénes somos». Publicar nombres que caducan es peor que no publicarlos |
+| Bolsa de trabajo | Contenido de la página actual | Requisitos reales, `rrhh@academiaeducana.com` y subida de CV en PDF, DOC o JPG hasta 3 MB |
+| Textos legales | Datos del responsable facilitados | Los tres textos escritos y publicados |
+
+## Los tres correos, cada uno a lo suyo
+| Correo | Para qué |
+|---|---|
+| `secretaria@academiaeducana.com` | General y matrículas |
+| `info@academiaeducana.com` | Titular del sitio, ejercicio de derechos RGPD y reclamaciones |
+| `rrhh@academiaeducana.com` | Bolsa de trabajo |
+
+## Textos legales
+**Titular:** Ana Moya · NIF 28.885.213-L · Avenida de las Ciencias 25, local 7, Edificio Galileo, 41020 Sevilla · 954 40 96 96 · info@academiaeducana.com
+
+Los tres textos se han **portado del sitio actual** y adaptados a lo que la web nueva hace de verdad:
+
+**Aviso legal.** Portado íntegro. Se le ha añadido el **bloque de identidad del titular**, que faltaba y que exige el artículo 10 de la LSSI. Se ha retirado la «política de comentarios»: describía un sistema de comentarios que no existe.
+
+**Política de privacidad.** Portada y corregida en las finalidades. Se han quitado las que ya no aplican —contratación a través de la plataforma, facturación y entrega, envío de newsletter y comunicaciones comerciales— porque la web nueva no hace nada de eso. Se han añadido las que sí: atender solicitudes de información, gestionar matrículas, gestionar candidaturas de la bolsa de trabajo y analítica bajo consentimiento.
+
+**Política de cookies. Reescrita, no portada.** La anterior no podía publicarse tal cual por dos motivos:
+
+1. Listaba `__utma`, `__utmb`, `__utmc` y `__utmz`, que son cookies de **Universal Analytics**, retirado en 2023. La web nueva usa GA4, que instala `_ga` y `_ga_<ID>`.
+2. Decía que «si continúas navegando, estarás prestando tu consentimiento». **Ese modelo ya no es válido**: el consentimiento tiene que ser una acción afirmativa. El banner que hemos montado pide consentimiento explícito y rechazar cuesta lo mismo que aceptar, así que el texto tenía que decir eso.
+
+También describía cookies de publicidad, geolocalización, registro y redes sociales que esta web no usa. La nueva política dice exactamente lo que hay: una cookie técnica propia y dos de analítica sólo si se aceptan.
+
+> ⚠️ **Conviene que la asesoría del cliente los valide antes de lanzar**, sobre todo el apartado de destinatarios y los plazos de conservación. Está en la lista de comprobación del [doc 09](09-migracion-y-lanzamiento.md).
+
+## Lo único que sigue pendiente
+- **Horario de atención al público.** No está en la web actual y no se ha facilitado. De momento no se publica ningún bloque de horario: mejor eso que un hueco.
+- **Cómo llegar**: metro, autobús y aparcamiento. Es contenido que premia Google Business Profile.
+- **La primera noticia real.** La de ejemplo está en borrador y ya ni se construye en producción.

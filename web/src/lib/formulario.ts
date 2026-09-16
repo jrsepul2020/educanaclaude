@@ -38,10 +38,26 @@ export function textoAviso(datos: FormData, asunto: string): string {
   return `${asunto}\n\n${lineas.join('\n')}\n\nEnviado desde academiaeducana.com`;
 }
 
+/** Validación del currículum: tipos y tamaño que ya pedía la web actual. */
+export const CV_MAX_BYTES = 3 * 1024 * 1024;
+export const CV_TIPOS = ['application/pdf', 'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  'image/jpeg'];
+
+export function validarCv(cv: unknown): Resultado {
+  if (!(cv instanceof File) || cv.size === 0) return { ok: false, estado: 422, motivo: 'cv-falta' };
+  if (cv.size > CV_MAX_BYTES) return { ok: false, estado: 422, motivo: 'cv-grande' };
+  const ext = cv.name.toLowerCase().split('.').pop() ?? '';
+  const tipoOk = CV_TIPOS.includes(cv.type) || ['pdf', 'doc', 'docx', 'jpg', 'jpeg'].includes(ext);
+  if (!tipoOk) return { ok: false, estado: 422, motivo: 'cv-tipo' };
+  return { ok: true, estado: 200 };
+}
+
 export async function enviar(
   env: { RESEND_API_KEY?: string; EMAIL_DESTINO?: string; EMAIL_REMITENTE?: string },
   asunto: string,
   texto: string,
+  adjunto?: { filename: string; content: string },
 ): Promise<Resultado> {
   if (!env.RESEND_API_KEY || !env.EMAIL_DESTINO || !env.EMAIL_REMITENTE) {
     return { ok: false, estado: 503, motivo: 'sin-configurar' };
@@ -49,7 +65,13 @@ export async function enviar(
   const r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: env.EMAIL_REMITENTE, to: [env.EMAIL_DESTINO], subject: asunto, text: texto }),
+    body: JSON.stringify({
+      from: env.EMAIL_REMITENTE,
+      to: [env.EMAIL_DESTINO],
+      subject: asunto,
+      text: texto,
+      ...(adjunto ? { attachments: [adjunto] } : {}),
+    }),
   });
   return r.ok ? { ok: true, estado: 200 } : { ok: false, estado: 502, motivo: `resend-${r.status}` };
 }

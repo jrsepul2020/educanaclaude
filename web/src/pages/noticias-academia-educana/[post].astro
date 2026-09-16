@@ -6,7 +6,10 @@ import Badge from '../../components/ui/Badge.astro';
 import Button from '../../components/ui/Button.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('noticias');
+  /* Los borradores sólo existen en desarrollo: en producción ni se
+     construyen, así no hay páginas a medio escribir accesibles por URL. */
+  const posts = (await getCollection('noticias'))
+    .filter((p) => import.meta.env.DEV || !p.data.borrador);
   return posts.map((p) => ({ params: { post: p.id }, props: { post: p } }));
 }
 const { post } = Astro.props;
