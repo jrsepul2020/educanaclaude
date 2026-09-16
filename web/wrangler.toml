@@ -1,0 +1,12 @@
+# Cloudflare Pages · Academia Educana
+# Despliegue:  npx wrangler pages deploy
+# Requiere haber hecho antes:  npx wrangler login
+
+name = "educana"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist"
+
+# Las variables NO van aquí: son secretos y este archivo se versiona.
+# Se configuran en el panel de Cloudflare Pages → Settings → Variables,
+# o con:  npx wrangler pages secret put RESEND_API_KEY
