@@ -2,8 +2,14 @@
 import Button from '../ui/Button.astro';
 import Badge from '../ui/Badge.astro';
 import Eyebrow from './Eyebrow.astro';
+import PhotoPlaceholder from '../ui/PhotoPlaceholder.astro';
+import { foto } from '../../lib/foto';
 /* El diferencial de la marca. Sobre tinta, con acentos en ÁMBAR:
-   el rojo sobre tinta da 2,88:1 y falla el contraste (doc 02 §2). */
+   el rojo sobre tinta da 2,88:1 y falla el contraste (doc 02 §2).
+   El logotipo Trinity NO es una foto: es un archivo que autoriza
+   Trinity College London. Usa el mismo mecanismo de foto() para que
+   aparezca solo en cuanto se suba, sin tocar código. */
+const src = foto('trinity-sello.png');
 ---
 <section class="bg-blue text-cream py-14 md:py-20">
   <div class="container-page grid items-center gap-10 md:grid-cols-[1.1fr_0.7fr]">
@@ -21,9 +27,11 @@ import Eyebrow from './Eyebrow.astro';
     </div>
     <div class="flex flex-col items-start gap-4">
       <Badge tone="amber">Centro examinador</Badge>
-      <div class="w-full rounded-card border border-dashed border-cream/30 p-9 text-center text-[0.7rem] uppercase tracking-[0.1em] text-cream/55">
-        Logotipo Trinity autorizado<br />+ nº de centro
-      </div>
+      {src
+        ? <img src={src} alt="Sello de centro examinador oficial de Trinity College London" width="260" height="260" class="w-full max-w-56 rounded-card bg-paper p-4" />
+        : <PhotoPlaceholder nombre="trinity-sello.png" medidas="Logotipo oficial en PNG con fondo transparente"
+            nota="No es una foto: pídelo a Trinity College London junto con tu nº de centro examinador."
+            class="w-full rounded-card border-cream/30 bg-transparent text-cream/70" />}
     </div>
   </div>
 </section>

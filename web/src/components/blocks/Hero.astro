@@ -1,13 +1,18 @@
 ---
 import Button from '../ui/Button.astro';
 import Eyebrow from './Eyebrow.astro';
+import PhotoPlaceholder from '../ui/PhotoPlaceholder.astro';
+import { foto } from '../../lib/foto';
 interface Props {
   eyebrow?: string;
   title: string;
   lead: string;
-  image?: { src: string; alt: string };
+  /** Nombre del archivo en public/fotos/, p. ej. "home-hero.jpg" */
+  fotoNombre?: string;
+  fotoMedidas?: string;
 }
-const { eyebrow, title, lead, image } = Astro.props;
+const { eyebrow, title, lead, fotoNombre, fotoMedidas = '1600×1067 px · proporción 3:2' } = Astro.props;
+const src = fotoNombre ? foto(fotoNombre) : null;
 ---
 <section class="bg-cream py-12 md:py-20">
   <div class="container-page grid items-center gap-10 md:grid-cols-[1.05fr_1fr]">
@@ -20,9 +25,11 @@ const { eyebrow, title, lead, image } = Astro.props;
         <Button href="tel:+34954409696" variant="outline">Llamar 954 40 96 96</Button>
       </div>
     </div>
-    {image && (
-      <img src={image.src} alt={image.alt} width="720" height="480" loading="eager" fetchpriority="high"
-           class="rounded-card aspect-3/2 w-full object-cover" />
+    {fotoNombre && (
+      src
+        ? <img src={src} alt="" width="720" height="480" loading="eager" fetchpriority="high"
+               class="rounded-card aspect-3/2 w-full object-cover" />
+        : <PhotoPlaceholder nombre={fotoNombre} medidas={fotoMedidas} class="rounded-card aspect-3/2 w-full" />
     )}
   </div>
 </section>

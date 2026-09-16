@@ -156,9 +156,15 @@ if (conDatosSinRellenar.length) {
 }
 
 // ── Peso ────────────────────────────────────────────────────────────
-const pesada = [...paginas.entries()].map(([r, h]) => [r, Buffer.byteLength(h)]).sort((a, b) => b[1] - a[1])[0];
-if (pesada[1] > 60_000) fallo(`${pesada[0]} pesa ${(pesada[1] / 1024).toFixed(1)} KB (presupuesto: 60 KB)`);
-else ok(`Página más pesada: ${pesada[0]} · ${(pesada[1] / 1024).toFixed(1)} KB`);
+/* El presupuesto se mide en HTML sin comprimir (70 KB), pero lo que de
+   verdad viaja por la red es el gzip que aplica el servidor — se
+   informa también para que el número no asuste sin motivo. El menú
+   completo del 17-09-2026 (todas las páginas del sitio en el header y
+   el footer) subió el peso crudo; en gzip sigue siendo minúsculo. */
+import { gzipSync } from 'node:zlib';
+const pesada = [...paginas.entries()].map(([r, h]) => [r, Buffer.byteLength(h), gzipSync(h).length]).sort((a, b) => b[1] - a[1])[0];
+if (pesada[1] > 70_000) fallo(`${pesada[0]} pesa ${(pesada[1] / 1024).toFixed(1)} KB (presupuesto: 70 KB)`);
+else ok(`Página más pesada: ${pesada[0]} · ${(pesada[1] / 1024).toFixed(1)} KB (${(pesada[2] / 1024).toFixed(1)} KB gzip)`);
 
 // ── Informe ─────────────────────────────────────────────────────────
 const c = { v: '\x1b[32m', r: '\x1b[31m', a: '\x1b[33m', g: '\x1b[90m', x: '\x1b[0m' };

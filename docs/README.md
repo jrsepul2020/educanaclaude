@@ -15,6 +15,7 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 | 07 | [Análisis de Search Console](07-analisis-search-console.md) | **Datos reales de 12 meses. Manda sobre el resto.** |
 | 09 | [Migración y lanzamiento](09-migracion-y-lanzamiento.md) | Manual del día del lanzamiento, orden de operaciones y vuelta atrás |
 | 10 | [Contenido portado](10-contenido-portado.md) | **Precios, fechas y textos sacados de la web actual. Y el conflicto de precios.** |
+| 11 | [Fotografía necesaria](11-fotografia-necesaria.md) | Lista de las 27 fotos que faltan, con nombre exacto, medidas y dónde sale cada una |
 
 ## Decisiones cerradas
 - **Marca única Educana.** El inglés es un servicio, no una marca aparte.
@@ -27,8 +28,7 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 - **Dirección visual A** implementada en los tokens. Cambiar a B o C es editar un archivo.
 
 ## Decisiones pendientes
-1. **Dirección visual:** A · Editorial de barrio *(recomendada)* · B · Cuaderno · C · Señal. → canvas de identidad
-   *(Fraunces + Inter quedan descartadas: demasiado usadas, aspecto de plantilla.)*
+1. ~~Dirección visual~~ → ✅ **Elegida: C · Señal** (Archivo + Public Sans). Implementada en `web/src/styles/tokens.css`.
 2. **Precios en la web:** sí, no, o "desde X €". → doc 05
 3. ⚠️ **Sesión de fotos — ahora es requisito, no mejora.** Las imágenes del cliente son stock, no fotos de la academia. → doc 02 §5
 4. ~~Verificar las dos páginas de PEvAU~~ → ✅ **resuelto con datos: la maestra es `/curso-selectividad-sevilla-pevau/`.** → doc 07 §4

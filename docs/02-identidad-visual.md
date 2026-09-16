@@ -116,3 +116,10 @@ Esto cambia el diagnóstico: **la fotografía deja de ser un activo y pasa a ser
 - **Menores:** consentimiento por escrito, o encuadres de manos, material, pizarra y planos de espalda.
 
 **Mientras no exista esa sesión**, mejor poco y honesto que mucho y falso: fachada, aulas vacías bien iluminadas, material, y composiciones que se apoyen en tipografía y color en vez de en fotos de archivo.
+
+
+## 6. Dirección elegida: C · Señal (17-09-2026)
+El cliente eligió la **dirección C**. Implementada en `web/src/styles/tokens.css`:
+titulares en **Archivo** (peso 800, tracking cerrado), texto en **Public Sans**, esquinas
+cortas (6/4 px, nada de píldoras) y fondo más neutro (#F4F2ED). El rojo y el azul del
+logotipo se mantienen intactos — la dirección visual cambia forma y tipografía, no la paleta.

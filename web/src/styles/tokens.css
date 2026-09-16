@@ -1,20 +1,20 @@
 /* ═══════════════════════════════════════════════════════════════
    EDUCANA · Tokens de diseño — fuente única de verdad
-   Dirección A · "Editorial de barrio" (doc 02)
+   Dirección C · "Señal" — elegida por el cliente (16-09-2026)
 
    PARA CAMBIAR DE DIRECCIÓN VISUAL sólo se toca este archivo:
-   · B · Cuaderno → --font-display: "Bricolage Grotesque Variable"
-                    --font-body:    "Onest Variable"
-                    --radius-card: 24px · --color-cream: #FBF6EC
-   · C · Señal    → --font-display: "Archivo Variable"
-                    --font-body:    "Public Sans Variable"
-                    --radius-card: 4px
+   · A · Editorial   → --font-display: "Newsreader Variable"
+                        --font-body:    "Schibsted Grotesk Variable"
+                        --radius-card: 18px · --radius-pill: 999px
+   · B · Cuaderno     → --font-display: "Bricolage Grotesque Variable"
+                        --font-body:    "Onest Variable"
+                        --radius-card: 24px · --color-cream: #FBF6EC
    Ningún componente lleva un color, una fuente ni un radio suelto.
    ═══════════════════════════════════════════════════════════════ */
 
 @import "tailwindcss";
-@import "@fontsource-variable/newsreader";
-@import "@fontsource-variable/schibsted-grotesk";
+@import "@fontsource-variable/archivo";
+@import "@fontsource-variable/public-sans";
 
 @theme {
   /* ── Color ──────────────────────────────────────────────────
@@ -30,28 +30,38 @@
   --color-blue-deep:  #1A2668;  /* estado hover sobre azul                 */
   --color-ink:        #141A33;  /* texto y controles · 16,04:1 sobre crema */
   --color-ink-soft:   #2A3352;
-  --color-cream:      #FAF7F2;  /* fondo base, cálido                      */
+  --color-cream:      #F4F2ED;  /* fondo base · más neutro que la dirección A */
   --color-paper:      #FFFFFF;
   --color-amber:      #FFC957;  /* destacados y campaña estacional         */
   --color-slate:      #4A5568;  /* texto secundario · 7:1 sobre crema      */
-  --color-line:       rgb(20 33 47 / 0.12);
+  --color-line:       rgb(20 33 47 / 0.14);
   --color-ok:         #1E6B3A;
 
-  /* ── Tipografía ───────────────────────────────────────────── */
-  --font-display: "Newsreader Variable", Georgia, "Times New Roman", serif;
-  --font-body: "Schibsted Grotesk Variable", system-ui, -apple-system, sans-serif;
+  /* ── Tipografía · Dirección C ─────────────────────────────────
+     Titulares: Archivo, peso alto, tracking cerrado — contundencia.
+     Texto: Public Sans, neutra e institucional — impecable en
+     formularios y tablas de horarios.                              */
+  --font-display: "Archivo Variable", "Arial Black", sans-serif;
+  --font-body: "Public Sans Variable", system-ui, -apple-system, sans-serif;
 
   /* Escala fluida: móvil → escritorio, sin media queries */
-  --text-display: clamp(2.5rem, 1.6rem + 4.5vw, 4.5rem);
-  --text-h1: clamp(2rem, 1.4rem + 3vw, 3.5rem);
-  --text-h2: clamp(1.625rem, 1.25rem + 1.9vw, 2.5rem);
+  --text-display: clamp(2.75rem, 1.7rem + 5vw, 4.75rem);
+  --text-h1: clamp(2.125rem, 1.5rem + 3vw, 3.75rem);
+  --text-h2: clamp(1.625rem, 1.25rem + 1.9vw, 2.625rem);
   --text-h3: clamp(1.25rem, 1.1rem + 0.75vw, 1.625rem);
   --text-lead: clamp(1.0625rem, 1rem + 0.4vw, 1.1875rem);
 
-  /* ── Forma ────────────────────────────────────────────────── */
-  --radius-card: 18px;
-  --radius-field: 10px;
-  --radius-pill: 999px;
+  /* Base de texto general: 18px en todo el cuerpo de la web (decisión
+     del cliente, 17-09-2026). text-base pasa de 16px a 18px, así que
+     cualquier texto que no fije su propio tamaño hereda 18px.        */
+  --text-base: 1.125rem;
+  --text-base--line-height: 1.65;
+
+  /* ── Forma · Dirección C ──────────────────────────────────────
+     Nada de píldoras: esquinas cortas y contundentes.               */
+  --radius-card: 6px;
+  --radius-field: 4px;
+  --radius-pill: 4px;
 
   /* ── Movimiento ───────────────────────────────────────────── */
   --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
@@ -69,10 +79,15 @@
     scroll-behavior: smooth;
   }
 
+  /* Texto general de la web: 18px (decisión del cliente). Los
+     tamaños explícitos —badges, etiquetas, migas de pan, nav—
+     siguen fijados aparte porque son interfaz, no texto corrido. */
+  body { font-size: 1.125rem; line-height: 1.65; }
+
   /* Horarios, precios y fechas siempre con cifras de ancho fijo */
   table, time, .tabular { font-variant-numeric: tabular-nums; }
 
-  h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; line-height: 1.06; text-wrap: balance; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em; line-height: 1; text-wrap: balance; text-transform: none; }
   p { text-wrap: pretty; }
 
   /* Foco visible siempre — requisito WCAG 2.2 AA */

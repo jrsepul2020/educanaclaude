@@ -1,0 +1,23 @@
+---
+/* Hueco visible para una foto que falta. Indica el nombre EXACTO de
+   archivo que hay que subir a public/fotos/ y las medidas recomendadas,
+   para que quien suba las fotos no tenga que preguntar nada. */
+interface Props {
+  nombre: string;      // p. ej. "home-hero.jpg" — el nombre exacto del archivo
+  medidas: string;      // p. ej. "1600×1067 px · 3:2"
+  class?: string;
+  nota?: string;
+}
+const { nombre, medidas, class: extra = '', nota } = Astro.props;
+---
+<div class={`flex min-h-40 flex-col items-center justify-center gap-2 border-2 border-dashed border-ink/25 bg-ink/4 p-6 text-center ${extra}`}>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="text-ink/35">
+    <rect x="2.5" y="4.5" width="19" height="15" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="8" cy="10" r="1.75" stroke="currentColor" stroke-width="1.5"/>
+    <path d="m4 17 5-5 3 3 4-5 4 5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+  </svg>
+  <p class="text-[0.8rem] font-bold uppercase tracking-[0.06em] text-ink/70">Falta foto</p>
+  <code class="rounded bg-paper px-2 py-1 text-[0.78rem] text-ink/80">public/fotos/{nombre}</code>
+  <p class="text-[0.75rem] text-ink/50">{medidas}</p>
+  {nota && <p class="max-w-[26ch] text-[0.72rem] text-ink/45">{nota}</p>}
+</div>

@@ -9,12 +9,15 @@ import TrinityBand from '../components/blocks/TrinityBand.astro';
 import LeadForm from '../components/blocks/LeadForm.astro';
 import Card from '../components/ui/Card.astro';
 import Testimonios from '../components/blocks/Testimonios.astro';
+import PhotoPlaceholder from '../components/ui/PhotoPlaceholder.astro';
+import { foto } from '../lib/foto';
 
 const puertas = [
-  { t: 'Mi hijo necesita refuerzo', p: 'Va justo en alguna asignatura o se ha descolgado este trimestre.', href: '/clases-de-apoyo/' },
-  { t: 'Me juego la PEvAU', p: 'Necesitas nota y quedan meses. O semanas.', href: '/curso-selectividad-sevilla-pevau/' },
-  { t: 'Necesito un título', p: 'Para trabajar, opositar o entrar en un ciclo. Aunque lleves años sin estudiar.', href: '/conseguir-titulo-eso/' },
+  { t: 'Mi hijo necesita refuerzo', p: 'Va justo en alguna asignatura o se ha descolgado este trimestre.', href: '/clases-de-apoyo/', fotoNombre: 'home-necesita-apoyo.jpg' },
+  { t: 'Me juego la PEvAU', p: 'Necesitas nota y quedan meses. O semanas.', href: '/curso-selectividad-sevilla-pevau/', fotoNombre: 'home-necesita-pevau.jpg' },
+  { t: 'Necesito un título', p: 'Para trabajar, opositar o entrar en un ciclo. Aunque lleves años sin estudiar.', href: '/conseguir-titulo-eso/', fotoNombre: 'home-necesita-titulo.jpg' },
 ];
+const medidasPuerta = '800×533 px · proporción 3:2';
 ---
 <Base
   title="Academia en Sevilla Este · Academia Educana"
@@ -24,6 +27,8 @@ const puertas = [
     eyebrow="Academia en Sevilla Este · desde 2005"
     title="Llevamos 20 años consiguiendo que aprueben."
     lead="Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos reducidos, matrícula gratuita y material incluido en el precio."
+    fotoNombre="home-hero.jpg"
+    fotoMedidas="1600×1067 px · proporción 3:2"
   />
 
   <CampaignBanner
@@ -37,12 +42,20 @@ const puertas = [
     <Eyebrow>Por dónde empezar</Eyebrow>
     <h2 class="text-(length:--text-h2)">¿Qué necesitas?</h2>
     <div class="grid gap-6 md:grid-cols-3">
-      {puertas.map((p) => (
-        <Card class="p-6 gap-3">
-          <h3 class="text-(length:--text-h3)"><a href={p.href} class="hover:text-brand-ink">{p.t}</a></h3>
-          <p class="text-slate leading-relaxed">{p.p}</p>
-        </Card>
-      ))}
+      {puertas.map((p) => {
+        const src = foto(p.fotoNombre);
+        return (
+          <Card class="gap-0">
+            {src
+              ? <img src={src} alt="" width="400" height="267" loading="lazy" class="aspect-3/2 w-full object-cover" />
+              : <PhotoPlaceholder nombre={p.fotoNombre} medidas={medidasPuerta} class="aspect-3/2" />}
+            <div class="flex flex-col gap-3 p-6">
+              <h3 class="text-(length:--text-h3)"><a href={p.href} class="hover:text-brand-ink">{p.t}</a></h3>
+              <p class="text-slate leading-relaxed">{p.p}</p>
+            </div>
+          </Card>
+        );
+      })}
     </div>
   </Section>
 

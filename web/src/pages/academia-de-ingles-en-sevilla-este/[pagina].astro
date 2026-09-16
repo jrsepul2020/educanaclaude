@@ -8,6 +8,8 @@ import LeadForm from '../../components/blocks/LeadForm.astro';
 import Faq from '../../components/ui/Faq.astro';
 import Card from '../../components/ui/Card.astro';
 import Button from '../../components/ui/Button.astro';
+import PhotoPlaceholder from '../../components/ui/PhotoPlaceholder.astro';
+import { foto } from '../../lib/foto';
 
 export async function getStaticPaths() {
   const pags = await getCollection('ingles');
@@ -24,6 +26,10 @@ const relacionados = d.relacionados
   .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
 const BASE = '/academia-de-ingles-en-sevilla-este';
+
+// Convención de nombre: public/fotos/ingles/<slug>.jpg
+const fotoNombre = `ingles/${pag.id}.jpg`;
+const fotoSrc = foto(fotoNombre);
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Course',
@@ -48,14 +54,19 @@ const schema = {
         <a href={`${BASE}/`} class="hover:text-ink">Inglés</a> <span aria-hidden="true">→</span>
         <span class="text-ink">{d.titulo}</span>
       </nav>
-      <div class="flex flex-col gap-5">
-        <Eyebrow>Inglés</Eyebrow>
-        <h1 class="text-(length:--text-h1)">{d.h1}</h1>
-        <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">{d.entradilla}</p>
-        <div class="flex flex-wrap gap-3">
-          <Button href="/contacto/">Prueba de nivel gratuita</Button>
-          <Button href="/horarios-cursos/" variant="outline">Ver horarios de inglés</Button>
+      <div class="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr]">
+        <div class="flex flex-col gap-5">
+          <Eyebrow>Inglés</Eyebrow>
+          <h1 class="text-(length:--text-h1)">{d.h1}</h1>
+          <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">{d.entradilla}</p>
+          <div class="flex flex-wrap gap-3">
+            <Button href="/contacto/">Prueba de nivel gratuita</Button>
+            <Button href="/horarios-cursos/" variant="outline">Ver horarios de inglés</Button>
+          </div>
         </div>
+        {fotoSrc
+          ? <img src={fotoSrc} alt="" width="640" height="480" loading="eager" class="rounded-card aspect-4/3 w-full object-cover" />
+          : <PhotoPlaceholder nombre={fotoNombre} medidas="1200×900 px · proporción 4:3" class="rounded-card aspect-4/3" />}
       </div>
     </div>
   </section>

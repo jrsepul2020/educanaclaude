@@ -7,9 +7,17 @@ import TrinityBand from '../components/blocks/TrinityBand.astro';
 import Card from '../components/ui/Card.astro';
 import Button from '../components/ui/Button.astro';
 import Testimonios from '../components/blocks/Testimonios.astro';
+import PhotoPlaceholder from '../components/ui/PhotoPlaceholder.astro';
+import { foto } from '../lib/foto';
 
 /* Sin página de equipo: el profesorado va cambiando y publicar
-   nombres que se quedan viejos es peor que no publicarlos. */
+   nombres que se quedan viejos es peor que no publicarlos. Sí hay
+   fotos generales: fachada, aula y grupo — no caducan como los nombres. */
+const galeria = [
+  { nombre: 'quienes-fachada.jpg', medidas: '1600×900 px · 16:9', alt: 'Fachada de Academia Educana en el Edificio Galileo' },
+  { nombre: 'quienes-aula.jpg', medidas: '1200×800 px · 3:2', alt: 'Aula de Academia Educana con alumnos en clase' },
+  { nombre: 'quienes-equipo.jpg', medidas: '1200×800 px · 3:2', alt: 'Equipo de profesores de Academia Educana' },
+];
 ---
 <Base
   title="Quiénes somos · Academia Educana"
@@ -29,6 +37,17 @@ import Testimonios from '../components/blocks/Testimonios.astro';
       </p>
     </div>
   </section>
+
+  <Section tone="paper">
+    <div class="grid gap-5 sm:grid-cols-3">
+      {galeria.map((g) => {
+        const src = foto(g.nombre);
+        return src
+          ? <img src={src} alt={g.alt} width="600" height="400" loading="lazy" class="rounded-card aspect-3/2 w-full object-cover" />
+          : <PhotoPlaceholder nombre={g.nombre} medidas={g.medidas} class="rounded-card aspect-3/2" />;
+      })}
+    </div>
+  </Section>
 
   <Section tone="paper">
     <StatBlock stats={[

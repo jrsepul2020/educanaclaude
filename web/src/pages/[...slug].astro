@@ -8,6 +8,8 @@ import LeadForm from '../components/blocks/LeadForm.astro';
 import Faq from '../components/ui/Faq.astro';
 import Card from '../components/ui/Card.astro';
 import Button from '../components/ui/Button.astro';
+import PhotoPlaceholder from '../components/ui/PhotoPlaceholder.astro';
+import { foto } from '../lib/foto';
 
 export async function getStaticPaths() {
   const cursos = await getCollection('cursos');
@@ -24,6 +26,10 @@ const relacionados = d.relacionados
   .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
 const migas = { estudios: 'Estudios', accesos: 'Pruebas de acceso', ingles: 'Inglés' }[d.categoria];
+
+// Convención de nombre: public/fotos/cursos/<slug>.jpg
+const fotoNombre = `cursos/${curso.id}.jpg`;
+const fotoSrc = foto(fotoNombre);
 
 /* Course + hasCourseInstance con fechas reales es lo que permite que
    Google muestre la convocatoria en el propio resultado (doc 05 §4). */
@@ -54,7 +60,9 @@ const schema = {
           <h1 class="text-(length:--text-h1)">{d.h1}</h1>
           <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">{d.entradilla}</p>
         </div>
-        {d.imagen && <img src={d.imagen} alt="" width="720" height="480" loading="eager" class="rounded-card aspect-3/2 w-full object-cover" />}
+        {fotoSrc
+          ? <img src={fotoSrc} alt="" width="720" height="480" loading="eager" class="rounded-card aspect-3/2 w-full object-cover" />
+          : <PhotoPlaceholder nombre={fotoNombre} medidas="1200×800 px · proporción 3:2" class="rounded-card aspect-3/2" />}
       </div>
     </div>
   </section>

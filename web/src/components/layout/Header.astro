@@ -1,32 +1,105 @@
 ---
 import Button from '../ui/Button.astro';
 /* Cabecera sobre tinta: el logotipo que existe es la versión para
-   fondo oscuro, así que sobre navy se ve como debe (doc 02 §1). */
-const nav = [
-  { label: 'Estudios', href: '/clases-de-apoyo/' },
-  { label: 'Pruebas de acceso', href: '/curso-selectividad-sevilla-pevau/' },
-  { label: 'Inglés', href: '/academia-de-ingles-en-sevilla-este/' },
+   fondo oscuro, así que sobre navy se ve como debe (doc 02 §1).
+
+   Menú completo: cada página real del sitio tiene que estar aquí
+   (17-09-2026, corrección del cliente: el menú anterior sólo enlazaba
+   una página por grupo y faltaban las 10 subpáginas de inglés). */
+const BASE_ING = '/academia-de-ingles-en-sevilla-este';
+
+const menu = [
+  {
+    label: 'Estudios',
+    items: [
+      ['Clases de apoyo', '/clases-de-apoyo/'],
+      ['Clases particulares', '/clases-particulares-sevilla/'],
+      ['Cursos de verano', '/cursos-verano-sevilla/'],
+      ['Cursos de invierno', '/cursos-de-invierno/'],
+    ],
+  },
+  {
+    label: 'Pruebas de acceso',
+    items: [
+      ['Selectividad PEvAU', '/curso-selectividad-sevilla-pevau/'],
+      ['Intensivos PEvAU', '/curso-intensivos-selectividad-pevau/'],
+      ['Grado Superior', '/prueba-acceso-grado-superior-sevilla/'],
+      ['Grado Medio', '/acceso-grado-medio-academia-sevilla/'],
+      ['Mayores de 25 y 45', '/acceso-universidad-mayores-25/'],
+      ['Título de ESO', '/conseguir-titulo-eso/'],
+      ['Fechas y convocatorias', '/fechas-y-convocatorias/'],
+    ],
+  },
+  {
+    label: 'Inglés',
+    href: `${BASE_ING}/`,
+    hrefLabel: 'Ver toda la sección de inglés',
+    items: [
+      ['Inglés para niños', `${BASE_ING}/ninos/`],
+      ['Inglés para teens', `${BASE_ING}/teens/`],
+      ['Inglés para adultos', `${BASE_ING}/adultos/`],
+      ['Trinity', `${BASE_ING}/trinity/`],
+      ['Cambridge', `${BASE_ING}/cambridge/`],
+      ['APTIS', `${BASE_ING}/aptis/`],
+      ['Nivel B1', `${BASE_ING}/b1/`],
+      ['Nivel B2', `${BASE_ING}/b2/`],
+      ['Nivel C1', `${BASE_ING}/c1/`],
+      ['Intensivos de inglés', `${BASE_ING}/intensivos/`],
+    ],
+  },
   { label: 'Horarios', href: '/horarios-cursos/' },
-  { label: 'Academia', href: '/quienes-somos-academia-educana/' },
+  {
+    label: 'Academia',
+    items: [
+      ['Quiénes somos', '/quienes-somos-academia-educana/'],
+      ['Noticias', '/noticias-academia-educana/'],
+      ['Trabaja con nosotros', '/bolsa-de-trabajo-academia-sevilla/'],
+    ],
+  },
   { label: 'Contacto', href: '/contacto/' },
 ];
 ---
-<header class="bg-blue text-cream">
+<header class="relative z-50 bg-blue text-cream">
   <div class="container-page flex items-center gap-8 py-4">
     <a href="/" class="shrink-0" aria-label="Academia Educana — inicio">
-      <img src="/logo-educana-oscuro.png" alt="Academia Educana" width="350" height="157" class="h-10 w-auto md:h-12" />
+      <img src="/logo-educana-oscuro.png" alt="Academia Educana" width="350" height="157" class="h-10 w-auto self-start md:h-12" />
     </a>
 
-    <nav aria-label="Principal" class="hidden lg:flex items-center gap-7">
-      {nav.map((i) => (
-        <a href={i.href} class="text-[0.92rem] text-cream/85 hover:text-cream transition-colors">{i.label}</a>
-      ))}
+    <nav aria-label="Principal" class="hidden xl:flex items-center gap-1">
+      {menu.map((i) =>
+        i.items ? (
+          <details class="nav-drop group relative">
+            <summary class="flex cursor-pointer list-none items-center gap-1.5 whitespace-nowrap rounded px-2.5 py-2 text-[0.94rem] font-semibold text-cream/85 marker:content-none hover:text-cream">
+              {i.label}
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true" class="mt-0.5 shrink-0 transition-transform duration-150 group-open:rotate-180">
+                <path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <div class="absolute left-0 top-full z-10 mt-2 w-64 border border-line bg-paper py-2 text-ink shadow-lg">
+              {i.href && (
+                <a href={i.href} class="flex items-center justify-between gap-2 border-b border-line px-4 py-2.5 text-[0.9rem] font-bold text-brand-ink hover:bg-ink/4">
+                  {i.hrefLabel}
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              )}
+              {i.items.map(([l, h]) => (
+                <a href={h} class="flex items-center justify-between gap-2 px-4 py-2.5 text-[0.9rem] hover:bg-ink/4 hover:text-brand-ink">
+                  {l}
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="shrink-0 opacity-40"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              ))}
+            </div>
+          </details>
+        ) : (
+          <a href={i.href} class="whitespace-nowrap rounded px-2.5 py-2 text-[0.94rem] font-semibold text-cream/85 hover:text-cream">{i.label}</a>
+        )
+      )}
     </nav>
 
     <div class="ml-auto flex items-center gap-4">
-      <a href="tel:+34954409696" class="hidden md:inline text-[0.92rem] text-cream/85 hover:text-cream tabular">954 40 96 96</a>
+      <a href="tel:+34954409696" class="hidden xl:inline whitespace-nowrap text-[0.92rem] text-cream/85 hover:text-cream tabular">954 40 96 96</a>
       <Button href="/contacto/" size="sm" class="hidden sm:inline-flex">Pide información</Button>
-      <button type="button" class="lg:hidden p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil" data-menu-toggle>
+      <button type="button" class="xl:hidden p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil" data-menu-toggle>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
@@ -34,18 +107,43 @@ const nav = [
     </div>
   </div>
 
-  <nav id="menu-movil" aria-label="Principal móvil" hidden class="lg:hidden border-t border-cream/12">
-    <ul class="container-page py-3">
-      {nav.map((i) => (
-        <li><a href={i.href} class="block py-3 text-cream/90 border-b border-cream/8">{i.label}</a></li>
+  <nav id="menu-movil" aria-label="Principal móvil" hidden class="xl:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-cream/12">
+    <ul class="container-page flex flex-col py-2">
+      {menu.map((i) => (
+        <li class="border-b border-cream/8">
+          {i.items ? (
+            <details class="group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-2 py-3.5 font-semibold text-cream marker:content-none">
+                {i.label}
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" class="shrink-0 transition-transform duration-150 group-open:rotate-180"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </summary>
+              <ul class="flex flex-col gap-0.5 pb-3">
+                {i.href && (
+                  <li><a href={i.href} class="flex items-center justify-between gap-2 py-2 pl-3 text-[0.92rem] font-bold text-amber">
+                    {i.hrefLabel}
+                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a></li>
+                )}
+                {i.items.map(([l, h]) => (
+                  <li><a href={h} class="flex items-center justify-between gap-2 py-2 pl-3 text-[0.92rem] text-cream/85">
+                    {l}
+                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="opacity-50"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a></li>
+                ))}
+              </ul>
+            </details>
+          ) : (
+            <a href={i.href} class="block py-3.5 font-semibold text-cream">{i.label}</a>
+          )}
+        </li>
       ))}
-      <li><a href="/contacto/" class="block py-3 font-semibold">Pide información</a></li>
+      <li><a href="/contacto/" class="block py-3.5 font-bold text-amber">Pide información</a></li>
     </ul>
   </nav>
 </header>
 
 <script>
-  /* ~250 bytes. No merece una isla de React. */
+  /* Menú móvil: abre/cierra el panel. */
   const btn = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const menu = document.getElementById('menu-movil');
   btn?.addEventListener('click', () => {
@@ -53,5 +151,22 @@ const nav = [
     btn.setAttribute('aria-expanded', String(!open));
     btn.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
     if (menu) menu.hidden = open;
+  });
+
+  /* Desplegables de escritorio: sólo uno abierto a la vez, y se cierran
+     al hacer clic fuera o al pulsar Escape. ~500 bytes — no justifica
+     una isla de React. */
+  const drops = document.querySelectorAll<HTMLDetailsElement>('.nav-drop');
+  drops.forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (d.open) drops.forEach((o) => { if (o !== d) o.open = false; });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!(e.target instanceof Node)) return;
+    drops.forEach((d) => { if (d.open && !d.contains(e.target as Node)) d.open = false; });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') drops.forEach((d) => { d.open = false; });
   });
 </script>
