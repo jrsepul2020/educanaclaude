@@ -2,7 +2,7 @@
 titulo: "Acceso a Grado Superior"
 h1: "Preparar la prueba de acceso a Grado Superior en Sevilla"
 entradilla: "Curso de preparación de la prueba de acceso a ciclos formativos de Grado Superior, parte común y parte específica. Si no tienes el Bachillerato, es la vía para entrar en el ciclo que quieres, y la preparamos entera aquí."
-metaTitulo: "Prueba de acceso a Grado Superior en Sevilla · Preparación"
+metaTitulo: "Acceso a Grado Superior en Sevilla · Preparación"
 metaDescripcion: "Preparamos la prueba de acceso a Grado Superior en Sevilla Este: parte común y específica, grupos reducidos y exámenes de convocatorias anteriores."
 categoria: "accesos"
 orden: 30

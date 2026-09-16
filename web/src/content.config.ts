@@ -12,7 +12,7 @@ const cursos = defineCollection({
     h1: z.string(),
     // Respuesta directa: 40–60 palabras. Google la usa como fragmento.
     entradilla: z.string().min(120).max(420),
-    metaTitulo: z.string().max(65),
+    metaTitulo: z.string().max(60),
     metaDescripcion: z.string().min(80).max(160),
     categoria: z.enum(['estudios', 'accesos', 'ingles']),
     orden: z.number().default(50),
@@ -55,7 +55,7 @@ const ingles = defineCollection({
     titulo: z.string(),
     h1: z.string(),
     entradilla: z.string().min(120).max(420),
-    metaTitulo: z.string().max(65),
+    metaTitulo: z.string().max(60),
     metaDescripcion: z.string().min(80).max(160),
     // publico = navegación y conversión · nivel/examen = captación SEO
     eje: z.enum(['publico', 'nivel', 'examen', 'formato']),

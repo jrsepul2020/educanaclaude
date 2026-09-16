@@ -2,7 +2,7 @@
 titulo: "Inglés para adolescentes"
 h1: "Inglés para adolescentes en Sevilla Este"
 entradilla: "Inglés para ESO y Bachillerato con dos objetivos a la vez: subir la nota del instituto y salir con el B1 o el B2 hecho. Grupos por nivel real, no por curso escolar, porque no todos los de 3º van igual."
-metaTitulo: "Inglés para adolescentes en Sevilla Este · ESO y Bachillerato"
+metaTitulo: "Inglés para adolescentes en Sevilla Este"
 metaDescripcion: "Inglés para ESO y Bachillerato en Sevilla Este: subir la nota del instituto y preparar el B1 o el B2. Grupos por nivel real, de 6 a 8 alumnos."
 eje: "publico"
 orden: 20

@@ -2,7 +2,7 @@
 titulo: "Acceso a Grado Medio"
 h1: "Preparar la prueba de acceso a Grado Medio en Sevilla"
 entradilla: "Curso de preparación de la prueba de acceso a ciclos formativos de Grado Medio, con los tres ámbitos: comunicación, social y científico-tecnológico. La vía para entrar en un ciclo si no tienes el título de la ESO."
-metaTitulo: "Prueba de acceso a Grado Medio en Sevilla · Preparación"
+metaTitulo: "Acceso a Grado Medio en Sevilla · Preparación"
 metaDescripcion: "Preparamos la prueba de acceso a Grado Medio en Sevilla Este: los tres ámbitos, grupos reducidos y exámenes de convocatorias anteriores."
 categoria: "accesos"
 orden: 60

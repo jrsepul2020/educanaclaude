@@ -8,7 +8,10 @@ interface Props {
 }
 const { title, description, canonical, noindex = false, image = '/og-default.jpg' } = Astro.props;
 const url = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
-const full = title.includes('Educana') ? title : `${title} · Academia Educana`;
+/* El título que llega es el definitivo. No se le añade nada: el sufijo
+   de marca empujaba los títulos por encima de los ~60 caracteres que
+   Google muestra, y lo que se cortaba era justo la palabra clave. */
+const full = title;
 ---
 <title>{full}</title>
 <meta name="description" content={description} />

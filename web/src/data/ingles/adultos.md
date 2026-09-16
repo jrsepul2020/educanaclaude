@@ -2,7 +2,7 @@
 titulo: "Inglés para adultos"
 h1: "Inglés para adultos en Sevilla Este"
 entradilla: "Grupos de tarde y noche para quien trabaja, desde quien empieza de cero hasta quien necesita el C1 para una oposición. Con un objetivo claro desde el primer día: casi nadie viene a aprender inglés, viene a acreditarlo."
-metaTitulo: "Inglés para adultos en Sevilla Este · B1, B2 y C1"
+metaTitulo: "Inglés para adultos en Sevilla Este · Educana"
 metaDescripcion: "Clases de inglés para adultos en Sevilla Este en horario de tarde y noche. Preparación de B1, B2 y C1 con examen Trinity en nuestro propio centro."
 eje: "publico"
 orden: 30

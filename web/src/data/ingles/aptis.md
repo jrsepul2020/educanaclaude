@@ -2,7 +2,7 @@
 titulo: "APTIS"
 h1: "Preparar el APTIS en Sevilla Este"
 entradilla: "Preparación del APTIS del British Council, el examen más ágil para acreditar un nivel: se hace por ordenador, la nota llega en pocos días y es el que más se acepta en oposiciones y bolsas de trabajo en España."
-metaTitulo: "Academia APTIS en Sevilla Este · Preparación del examen"
+metaTitulo: "Academia APTIS en Sevilla Este · Preparación"
 metaDescripcion: "Preparamos el APTIS del British Council en Sevilla Este. Práctica con el formato por ordenador, simulacros y corrección individual. Grupos reducidos."
 eje: "examen"
 orden: 60

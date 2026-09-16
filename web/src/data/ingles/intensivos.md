@@ -2,7 +2,7 @@
 titulo: "Intensivos de inglés"
 h1: "Cursos intensivos de inglés en Sevilla Este"
 entradilla: "Cursos concentrados para quien va con una fecha encima: una convocatoria de examen, un plazo de oposición o una matrícula que se cierra. Más horas por semana y menos meses, con el examen como único objetivo."
-metaTitulo: "Cursos intensivos de inglés en Sevilla Este"
+metaTitulo: "Inglés intensivo en Sevilla Este · B1, B2 y C1"
 metaDescripcion: "Cursos intensivos de inglés en Sevilla Este para B1, B2 y C1. Más horas por semana, preparación centrada en el examen y grupos reducidos."
 eje: "formato"
 orden: 100

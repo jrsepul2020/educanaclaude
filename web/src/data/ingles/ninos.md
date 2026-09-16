@@ -2,7 +2,7 @@
 titulo: "Inglés para niños"
 h1: "Inglés para niños en Sevilla Este"
 entradilla: "Grupos de seis niños de 6 a 12 años, dos horas a la semana, con la clase entera en inglés desde el primer día. Sin fichas interminables y sin deberes que acaben haciendo que odien el idioma."
-metaTitulo: "Inglés para niños en Sevilla Este · Grupos de 6"
+metaTitulo: "Inglés para niños en Sevilla Este · Educana"
 metaDescripcion: "Clases de inglés para niños de 6 a 12 años en Sevilla Este. Grupos de seis, clase en inglés desde el primer día y profesores bilingües."
 eje: "publico"
 orden: 10

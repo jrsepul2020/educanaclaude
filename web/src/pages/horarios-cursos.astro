@@ -11,7 +11,7 @@ const grupos = (await getCollection('horarios')).map((h) => h.data);
 const categorias = [...new Set(grupos.map((g) => g.categoria))];
 ---
 <Base
-  title="Horarios y precios del curso"
+  title="Horarios y precios · Academia Educana"
   description="Todos los horarios del curso en Academia Educana, Sevilla Este: refuerzo escolar, PEvAU, pruebas de acceso e inglés, con las plazas disponibles actualizadas."
 >
   <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">

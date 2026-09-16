@@ -2,7 +2,7 @@
 titulo: "Intensivos PEvAU"
 h1: "Cursos intensivos de selectividad (PEvAU) en Sevilla"
 entradilla: "Intensivos de repaso para la PEvAU concentrados en las semanas previas al examen. Para quien lleva el curso al día y quiere asegurar, y para quien va a la convocatoria extraordinaria y necesita recuperar terreno rápido."
-metaTitulo: "Intensivo de selectividad PEvAU en Sevilla · Repaso"
+metaTitulo: "Intensivo de selectividad PEvAU en Sevilla"
 metaDescripcion: "Cursos intensivos de PEvAU en Sevilla Este: repaso por asignaturas, simulacros con el modelo vigente y corrección individual. Plazas limitadas."
 categoria: "accesos"
 orden: 50

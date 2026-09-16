@@ -2,7 +2,7 @@
 titulo: "Cursos de verano"
 h1: "Cursos de verano en Sevilla Este"
 entradilla: "Refuerzo de julio para no llegar a septiembre con las asignaturas pendientes y para no perder el ritmo durante el verano. Grupos por curso y por asignatura, por las mañanas, con el temario de la recuperación."
-metaTitulo: "Cursos de verano en Sevilla Este · Refuerzo escolar"
+metaTitulo: "Cursos de verano en Sevilla Este · Educana"
 metaDescripcion: "Cursos de verano en Sevilla Este para preparar recuperaciones de septiembre y repasar el curso. Grupos reducidos por asignatura, en horario de mañana."
 categoria: "estudios"
 orden: 80

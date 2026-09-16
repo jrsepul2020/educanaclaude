@@ -8,7 +8,7 @@ import Button from '../components/ui/Button.astro';
 import { NAP } from '../lib/nap';
 ---
 <Base
-  title="Contacto"
+  title="Contacto · Academia Educana Sevilla Este"
   description="Academia Educana está en Avenida de las Ciencias 25, Edificio Galileo, Sevilla Este. Llámanos al 954 40 96 96 o escríbenos por WhatsApp."
 >
   <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
@@ -29,6 +29,7 @@ import { NAP } from '../lib/nap';
     <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
       <div class="flex flex-col gap-5">
         <h2 class="text-(length:--text-h2)">Pide información</h2>
+        <p id="error-form" hidden class="rounded-field border-2 border-brand-ink bg-paper p-4 text-[0.92rem] leading-relaxed"></p>
         <LeadForm context="contacto" />
       </div>
 
@@ -79,6 +80,21 @@ import { NAP } from '../lib/nap';
 </Base>
 
 <script>
+  const MOTIVOS: Record<string, string> = {
+    nombre: 'Escribe tu nombre para que sepamos cómo dirigirnos a ti.',
+    telefono: 'Revisa el teléfono: necesitamos nueve cifras para poder llamarte.',
+    rgpd: 'Hay que aceptar la política de privacidad para poder guardar tus datos.',
+    'mensaje-largo': 'El mensaje es demasiado largo. Resúmelo y te llamamos para los detalles.',
+    'spam-enlaces': 'El mensaje tiene demasiados enlaces y no ha pasado el filtro. Escríbenos sin ellos.',
+  };
+  const err = new URLSearchParams(location.search).get('error');
+  const caja = document.getElementById('error-form');
+  if (err && caja && MOTIVOS[err]) {
+    caja.textContent = MOTIVOS[err];
+    caja.hidden = false;
+    caja.scrollIntoView({ block: 'center' });
+  }
+
   const btn = document.querySelector<HTMLButtonElement>('[data-mapa]');
   btn?.addEventListener('click', () => {
     const f = document.createElement('iframe');

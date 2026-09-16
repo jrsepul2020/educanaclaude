@@ -2,7 +2,7 @@
 titulo: "Título de ESO para adultos"
 h1: "Sacarse el título de la ESO siendo adulto, en Sevilla Este"
 entradilla: "Preparación de las pruebas libres para obtener el título de Graduado en Educación Secundaria Obligatoria a partir de los 18 años. Tres ámbitos, dos convocatorias al año, y un título que te abre ciclos formativos, oposiciones y trabajo."
-metaTitulo: "Sacarse el título de la ESO para adultos en Sevilla"
+metaTitulo: "Título de la ESO para adultos en Sevilla"
 metaDescripcion: "Preparamos las pruebas libres del título de la ESO para mayores de 18 en Sevilla Este. Tres ámbitos, grupos reducidos y horario de tarde."
 categoria: "accesos"
 orden: 70

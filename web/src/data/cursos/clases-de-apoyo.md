@@ -2,7 +2,7 @@
 titulo: "Clases de apoyo"
 h1: "Clases de apoyo en Sevilla Este"
 entradilla: "Refuerzo escolar para Primaria, ESO y Bachillerato en grupos de seis a ocho alumnos. Trabajamos las asignaturas que se atragantan y, sobre todo, la forma de estudiarlas: organizarse, entender el enunciado y llegar al examen sin agobios."
-metaTitulo: "Clases de apoyo en Sevilla Este · Academia Educana"
+metaTitulo: "Clases de apoyo en Sevilla Este · Educana"
 metaDescripcion: "Refuerzo escolar de Primaria, ESO y Bachillerato en Sevilla Este. Grupos de 6 a 8 alumnos y profesores propios. Más de 20 años. Pide información."
 categoria: "estudios"
 orden: 10

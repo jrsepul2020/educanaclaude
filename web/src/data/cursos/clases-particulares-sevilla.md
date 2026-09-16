@@ -2,7 +2,7 @@
 titulo: "Clases particulares"
 h1: "Clases particulares en Sevilla Este"
 entradilla: "Clases individuales con profesor especialista en la materia, con horario a medida. Matemáticas, física y química, lengua, inglés, latín, economía o dibujo técnico, desde Primaria hasta primeros cursos de universidad."
-metaTitulo: "Clases particulares en Sevilla Este · Todas las materias"
+metaTitulo: "Clases particulares en Sevilla Este · Educana"
 metaDescripcion: "Clases particulares individuales en Sevilla Este: matemáticas, física, química, lengua, inglés y más. Horario a medida. Llámanos al 954 40 96 96."
 categoria: "estudios"
 orden: 20

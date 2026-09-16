@@ -12,9 +12,23 @@ import Button from '../components/ui/Button.astro';
       Normalmente contestamos el mismo día. Si tienes prisa, llámanos directamente
       al 954 40 96 96 y lo resolvemos en cinco minutos.
     </p>
+    <p id="aviso" hidden class="rounded-card border-2 border-brand bg-paper p-5 leading-relaxed max-w-[52ch]">
+      <strong class="text-brand-ink">Ha fallado el envío del correo.</strong> Tu mensaje puede no
+      habernos llegado. Llámanos al <a href="tel:+34954409696" class="underline tabular">954 40 96 96</a>
+      y lo resolvemos ahora mismo.
+    </p>
     <div class="flex flex-wrap gap-3">
       <Button href="/horarios-cursos/">Ver los horarios</Button>
       <Button href="/" variant="outline">Volver al inicio</Button>
     </div>
   </Section>
 </Base>
+
+<script>
+  /* Si el correo falló, el endpoint redirige con ?aviso=email.
+     Antes que perder el contacto en silencio, se le pide que llame. */
+  if (new URLSearchParams(location.search).get('aviso') === 'email') {
+    const a = document.getElementById('aviso');
+    if (a) a.hidden = false;
+  }
+</script>

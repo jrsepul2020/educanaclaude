@@ -2,7 +2,7 @@
 titulo: "Acceso universidad mayores de 25 y 45"
 h1: "Acceso a la universidad para mayores de 25 y 45 años"
 entradilla: "Preparación de la prueba de acceso a la universidad para mayores de 25 y de 45 años: fase general y fase específica de la rama que elijas. Para quien lleva años fuera del sistema educativo y quiere entrar en un grado."
-metaTitulo: "Acceso a la universidad mayores de 25 años en Sevilla"
+metaTitulo: "Acceso a universidad mayores de 25 · Sevilla"
 metaDescripcion: "Preparamos la prueba de acceso a la universidad para mayores de 25 y 45 años en Sevilla Este. Fase general y específica, grupos reducidos, horario compatible."
 categoria: "accesos"
 orden: 40

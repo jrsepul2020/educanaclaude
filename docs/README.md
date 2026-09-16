@@ -14,6 +14,7 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 | 06 | [Stack y arquitectura](06-stack-arquitectura.md) | Astro vs Next vs Vite, pila completa, estructura del repo |
 | 07 | [Análisis de Search Console](07-analisis-search-console.md) | **Datos reales de 12 meses. Manda sobre el resto.** |
 | 08 | [Datos pendientes](08-datos-pendientes.md) | Los huecos que tiene que rellenar el cliente, por página |
+| 09 | [Migración y lanzamiento](09-migracion-y-lanzamiento.md) | Manual del día del lanzamiento, orden de operaciones y vuelta atrás |
 
 ## Decisiones cerradas
 - **Marca única Educana.** El inglés es un servicio, no una marca aparte.
@@ -39,7 +40,9 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 2. **Los textos legales.** Aviso legal, privacidad y cookies están deliberadamente vacíos y en `noindex`: los valida quien asesora legalmente a la academia, no nosotros.
 3. **La sesión de fotos.** Sin ella el sitio va sin imágenes, porque poner stock contradice el posicionamiento.
 4. **Elegir dirección visual** (está montada la A).
-5. **Endpoint del formulario** — necesita modo servidor y Resend.
+5. ~~Endpoint del formulario~~ → ✅ **hecho.** Sólo falta la clave de Resend.
+
+Comprobación automática del estado: `cd web && npm run verificar`
 
 ## Lo que hace falta del cliente para arrancar
 - [x] ~~Acceso a Search Console~~ → **línea base capturada** (doc 07)
@@ -67,4 +70,4 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 | 4 · Sistema de diseño en código | 1 sem | ✅ **Construido y compilando** → [`web/`](../web/) |
 | 5 · Contenido y copy | 1–2 sem | ✅ **Escrito** · faltan los datos del cliente |
 | 6 · Maquetación en Astro | 2–3 sem | ✅ **34 páginas, 0 errores** |
-| 7 · Migración, 301 y lanzamiento | 1 sem | ▶️ Siguiente |
+| 7 · Migración, 301 y lanzamiento | 1 sem | ✅ **Preparada** · bloqueada por los datos del cliente |

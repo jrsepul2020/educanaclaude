@@ -1,0 +1,102 @@
+---
+/* Consentimiento + GA4 con Consent Mode v2.
+
+   Reglas que se respetan aquí y que la web actual incumple:
+   · Nada de analítica se carga antes del consentimiento.
+   · Rechazar es tan fácil como aceptar — mismo peso visual, mismo clic.
+     Un banner donde «aceptar» es un botón y «rechazar» un enlace gris
+     escondido no es consentimiento válido.
+   · No hay muro: se puede seguir navegando sin decidir, y entonces no
+     se carga nada.
+
+   El ID de GA4 va en la variable de entorno PUBLIC_GA4_ID. Sin ella,
+   este componente no pinta nada y la web funciona igual. */
+const GA4 = import.meta.env.PUBLIC_GA4_ID;
+---
+{GA4 && (
+  <>
+    <div
+      id="consent"
+      hidden
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="consent-t"
+      class="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-paper shadow-[0_-8px_24px_rgb(20_33_47/.08)] lg:bottom-4 lg:left-4 lg:right-auto lg:max-w-md lg:rounded-card lg:border"
+    >
+      <div class="flex flex-col gap-3 p-5">
+        <h2 id="consent-t" class="text-base font-semibold">Cookies</h2>
+        <p class="text-[0.88rem] leading-relaxed text-slate">
+          Usamos cookies de analítica para saber qué páginas sirven y cuáles no.
+          Sin ellas la web funciona igual. Puedes cambiar de idea cuando quieras
+          desde la <a href="/politica-de-cookies/" class="text-brand-ink underline">política de cookies</a>.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <button type="button" data-consent="granted"
+            class="h-11 flex-1 rounded-pill bg-brand px-5 text-[0.9rem] font-semibold text-white hover:bg-brand-ink">Aceptar</button>
+          <button type="button" data-consent="denied"
+            class="h-11 flex-1 rounded-pill border-[1.5px] border-ink/30 px-5 text-[0.9rem] font-semibold text-ink hover:border-ink">Rechazar</button>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline define:vars={{ GA4 }}>
+      (function () {
+        var CLAVE = 'educana-consent';
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+
+        /* Denegado por defecto: hasta que alguien diga que sí, no se mide nada. */
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          wait_for_update: 500,
+        });
+
+        function cargarGA() {
+          if (document.getElementById('ga4')) return;
+          var s = document.createElement('script');
+          s.id = 'ga4';
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4;
+          document.head.appendChild(s);
+          gtag('js', new Date());
+          gtag('config', GA4, { anonymize_ip: true });
+        }
+
+        var guardado = null;
+        try { guardado = localStorage.getItem(CLAVE); } catch (e) {}
+
+        if (guardado === 'granted') {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+          cargarGA();
+        } else if (guardado !== 'denied') {
+          var caja = document.getElementById('consent');
+          if (caja) caja.hidden = false;
+        }
+
+        document.querySelectorAll('[data-consent]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var v = b.getAttribute('data-consent');
+            try { localStorage.setItem(CLAVE, v); } catch (e) {}
+            var caja = document.getElementById('consent');
+            if (caja) caja.hidden = true;
+            if (v === 'granted') {
+              gtag('consent', 'update', { analytics_storage: 'granted' });
+              cargarGA();
+            }
+          });
+        });
+
+        /* Eventos de conversión. Se registran siempre; si no hay consentimiento,
+           gtag no los envía a ninguna parte. */
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest ? e.target.closest('[data-evento]') : null;
+          if (a) gtag('event', a.getAttribute('data-evento'));
+        });
+      })();
+    </script>
+  </>
+)}

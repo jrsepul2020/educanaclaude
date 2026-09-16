@@ -2,7 +2,7 @@
 titulo: "Cursos de invierno"
 h1: "Cursos de invierno en Sevilla Este"
 entradilla: "Refuerzo intensivo en Navidad y en Semana Santa, cuando hay días libres y exámenes a la vuelta. Para recuperar la primera evaluación o preparar los controles de enero sin perder las vacaciones enteras."
-metaTitulo: "Cursos de invierno en Sevilla Este · Refuerzo intensivo"
+metaTitulo: "Cursos de invierno en Sevilla Este · Educana"
 metaDescripcion: "Cursos intensivos de Navidad y Semana Santa en Sevilla Este: recuperar la primera evaluación y preparar los exámenes de enero. Grupos reducidos."
 categoria: "estudios"
 orden: 90

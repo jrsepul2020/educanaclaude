@@ -1,5 +1,5 @@
 ---
-titulo: "Abierta la inscripción para los exámenes Trinity de [MES]"
+titulo: "Inscripción abierta para los Trinity de [MES]"
 entradilla: "Ya se puede reservar plaza para la próxima convocatoria de ISE I e ISE II, que se celebra en nuestro propio centro."
 metaDescripcion: "Abierta la inscripción de los exámenes Trinity ISE I e ISE II de [MES] en Academia Educana, centro examinador oficial en Sevilla Este."
 fecha: 2026-09-01
