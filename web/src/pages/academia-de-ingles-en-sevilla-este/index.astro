@@ -1,0 +1,105 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/blocks/Section.astro';
+import Eyebrow from '../../components/blocks/Eyebrow.astro';
+import TrinityBand from '../../components/blocks/TrinityBand.astro';
+import LeadForm from '../../components/blocks/LeadForm.astro';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+
+const BASE = '/academia-de-ingles-en-sevilla-este';
+const pags = (await getCollection('ingles')).sort((a, b) => a.data.orden - b.data.orden);
+const por = (eje: string) => pags.filter((p) => p.data.eje === eje);
+
+const niveles = [
+  { lv: 'A2', t: 'Elemental. El punto de partida de muchos grupos.', href: null },
+  { lv: 'B1', t: 'El que piden la mayoría de grados y muchas oposiciones.', href: `${BASE}/b1/` },
+  { lv: 'B2', t: 'El más pedido para trabajar.', href: `${BASE}/b2/` },
+  { lv: 'C1', t: 'Para docencia y perfiles cualificados.', href: `${BASE}/c1/` },
+];
+---
+<Base
+  title="Academia de inglés en Sevilla Este"
+  description="Academia de inglés en Sevilla Este para niños, adolescentes y adultos. Centro examinador oficial de Trinity College London. Preparamos B1, B2, C1, Cambridge y APTIS."
+>
+  <section class="bg-cream pt-8 pb-12 md:pt-10 md:pb-16">
+    <div class="container-page flex flex-col gap-7">
+      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
+        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Inglés</span>
+      </nav>
+      <div class="flex flex-col gap-6">
+        <Eyebrow>Academia de inglés en Sevilla Este</Eyebrow>
+        <h1 class="text-(length:--text-h1) max-w-[18ch]">Inglés desde los 6 años hasta el C1.</h1>
+        <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">
+          Grupos reducidos, profesores bilingües y preparación específica de cada examen oficial.
+          Somos centro examinador de Trinity College London: preparas y te examinas aquí.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <Button href="/contacto/">Prueba de nivel gratuita</Button>
+          <Button href="/horarios-cursos/" variant="outline">Ver horarios de inglés</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrinityBand />
+
+  <Section tone="paper">
+    <Eyebrow>Por edad</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Elige por quién va a dar clase.</h2>
+    <div class="grid gap-6 md:grid-cols-3">
+      {por('publico').map((p) => (
+        <Card class="gap-3 p-6">
+          <h3 class="text-(length:--text-h3)"><a href={`${BASE}/${p.id}/`} class="hover:text-brand-ink">{p.data.titulo}</a></h3>
+          <p class="leading-relaxed text-slate">{p.data.entradilla.split('. ')[0]}.</p>
+          <a href={`${BASE}/${p.id}/`} class="text-[0.92rem] font-semibold text-brand-ink">Ver más →</a>
+        </Card>
+      ))}
+    </div>
+  </Section>
+
+  <Section tone="cream">
+    <Eyebrow>Por título</Eyebrow>
+    <h2 class="text-(length:--text-h2)">¿Qué nivel necesitas acreditar?</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {niveles.map((n) => (
+        <Card class="gap-2 p-5">
+          <p class="font-display text-3xl text-brand">{n.lv}</p>
+          <p class="text-[0.92rem] leading-relaxed text-slate">{n.t}</p>
+          {n.href
+            ? <a href={n.href} class="mt-1 text-[0.92rem] font-semibold text-brand-ink">Preparar el {n.lv} →</a>
+            : <p class="mt-1 text-[0.82rem] text-slate">Se trabaja dentro de los grupos de iniciación.</p>}
+        </Card>
+      ))}
+    </div>
+  </Section>
+
+  <Section tone="paper">
+    <Eyebrow>Por examen</Eyebrow>
+    <h2 class="text-(length:--text-h2)">¿Con qué examen te sacas el título?</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {[...por('examen'), ...por('formato')].map((p) => (
+        <Card class="gap-3 p-5">
+          <div class="flex items-center gap-2">
+            <h3 class="text-(length:--text-h3)">{p.data.titulo}</h3>
+            {p.id === 'trinity' && <Badge tone="amber">Aquí mismo</Badge>}
+          </div>
+          <p class="text-[0.92rem] leading-relaxed text-slate">{p.data.entradilla.split('. ')[0]}.</p>
+          <a href={`${BASE}/${p.id}/`} class="text-[0.92rem] font-semibold text-brand-ink">Ver más →</a>
+        </Card>
+      ))}
+    </div>
+  </Section>
+
+  <Section tone="cream">
+    <Eyebrow>Empezar</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Todo empieza por la prueba de nivel.</h2>
+    <p class="max-w-[64ch] leading-relaxed text-slate">
+      Es gratis, dura veinte minutos y sirve para dos cosas: ponerte en el grupo que te
+      corresponde y decirte con franqueza cuánto vas a tardar en llegar al título que necesitas.
+    </p>
+    <div class="max-w-2xl"><LeadForm context="ingles-hub" /></div>
+  </Section>
+</Base>

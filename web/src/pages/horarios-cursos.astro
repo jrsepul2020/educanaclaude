@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Section from '../components/blocks/Section.astro';
+import Eyebrow from '../components/blocks/Eyebrow.astro';
+import ScheduleTable from '../components/blocks/ScheduleTable.astro';
+import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+
+const grupos = (await getCollection('horarios')).map((h) => h.data);
+const categorias = [...new Set(grupos.map((g) => g.categoria))];
+---
+<Base
+  title="Horarios y precios del curso"
+  description="Todos los horarios del curso en Academia Educana, Sevilla Este: refuerzo escolar, PEvAU, pruebas de acceso e inglés, con las plazas disponibles actualizadas."
+>
+  <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
+    <div class="container-page flex flex-col gap-6">
+      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
+        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Horarios</span>
+      </nav>
+      <Eyebrow>Curso 2026–2027</Eyebrow>
+      <h1 class="text-(length:--text-h1)">Horarios y precios.</h1>
+      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">
+        Todos los grupos, con las plazas disponibles actualizadas. Si ninguno te encaja,
+        llámanos: con grupos pequeños casi siempre podemos ajustar algo.
+      </p>
+    </div>
+  </section>
+
+  <Section tone="paper">
+    <ScheduleTable grupos={grupos} categorias={categorias} />
+  </Section>
+
+  <Section tone="cream">
+    <div class="grid gap-6 md:grid-cols-2">
+      <Card class="gap-4 p-6">
+        <h2 class="text-(length:--text-h3)">¿Ningún horario te encaja?</h2>
+        <p class="leading-relaxed text-slate">
+          Llámanos. Con grupos de seis a ocho solemos poder mover cosas, y siempre quedan
+          las clases particulares con horario a medida.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <Button href="tel:+34954409696" size="sm">Llamar 954 40 96 96</Button>
+          <Button href="/clases-particulares-sevilla/" size="sm" variant="outline">Clases particulares</Button>
+        </div>
+      </Card>
+      <Card class="gap-4 p-6">
+        <h2 class="text-(length:--text-h3)">Los precios</h2>
+        <p class="leading-relaxed text-slate">
+          El precio depende de los días y de las asignaturas. Los de la tabla son
+          orientativos: llámanos y te damos el tuyo exacto en un minuto, sin compromiso.
+        </p>
+        <Button href="/contacto/" size="sm" variant="outline">Pide información</Button>
+      </Card>
+    </div>
+  </Section>
+</Base>

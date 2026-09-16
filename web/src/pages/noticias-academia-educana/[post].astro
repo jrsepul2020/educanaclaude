@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('noticias');
+  return posts.map((p) => ({ params: { post: p.id }, props: { post: p } }));
+}
+const { post } = Astro.props;
+const d = post.data;
+const { Content } = await render(post);
+const fmt = d.fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.titulo,
+  description: d.entradilla,
+  datePublished: d.fecha.toISOString(),
+  author: { '@type': 'Person', name: d.autor },
+  publisher: { '@id': `${Astro.site}#organization` },
+};
+---
+<Base title={d.titulo} description={d.metaDescripcion} noindex={d.borrador} schema={schema}>
+  <div class="bg-cream py-12 md:py-16">
+    <div class="container-page grid gap-10 lg:grid-cols-[1fr_320px]">
+      <article class="flex max-w-[70ch] flex-col gap-5">
+        <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
+          <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span>
+          <a href="/noticias-academia-educana/" class="hover:text-ink">Noticias</a>
+        </nav>
+        <div class="flex flex-wrap items-center gap-2">
+          <Badge>{d.categoria}</Badge>
+          {d.borrador && <Badge tone="brand">Borrador · no indexada</Badge>}
+        </div>
+        <h1 class="text-(length:--text-h1)">{d.titulo}</h1>
+        <p class="text-[0.85rem] text-slate">
+          <time datetime={d.fecha.toISOString()}>{fmt}</time> · por {d.autor}
+        </p>
+        <p class="text-(length:--text-lead) leading-relaxed text-slate">{d.entradilla}</p>
+        <div class="prose-legal flex flex-col gap-4"><Content /></div>
+      </article>
+
+      <aside class="flex flex-col gap-5 lg:sticky lg:top-6 lg:self-start">
+        <Card class="gap-3 p-6">
+          <h2 class="text-(length:--text-h3)">¿Te afecta esto?</h2>
+          <p class="text-[0.92rem] leading-relaxed text-slate">Te decimos qué tienes que hacer y cuándo.</p>
+          <Button href="/contacto/" size="sm">Pregúntanos</Button>
+        </Card>
+      </aside>
+    </div>
+  </div>
+</Base>

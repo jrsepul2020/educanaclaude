@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/blocks/Section.astro';
+import Button from '../components/ui/Button.astro';
+---
+<Base title="Página no encontrada" description="Esta página no existe." noindex={true}>
+  <Section tone="cream" class="min-h-[58vh] justify-center">
+    <p class="font-display text-6xl text-brand">404</p>
+    <h1 class="text-(length:--text-h1)">Aquí no hay nada.</h1>
+    <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[52ch]">
+      La página que buscas se ha movido o nunca existió. Prueba por los horarios,
+      que es lo que busca casi todo el mundo.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <Button href="/horarios-cursos/">Ver los horarios</Button>
+      <Button href="/" variant="outline">Volver al inicio</Button>
+    </div>
+  </Section>
+</Base>

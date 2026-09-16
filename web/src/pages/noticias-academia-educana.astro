@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Section from '../components/blocks/Section.astro';
+import Eyebrow from '../components/blocks/Eyebrow.astro';
+import Card from '../components/ui/Card.astro';
+import Badge from '../components/ui/Badge.astro';
+
+const posts = (await getCollection('noticias'))
+  .filter((p) => import.meta.env.DEV || !p.data.borrador)
+  .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf());
+const fmt = (d: Date) => d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base
+  title="Noticias de la academia"
+  description="Convocatorias, plazos de matrícula y cambios en las pruebas de acceso y los exámenes oficiales, contados por Academia Educana."
+>
+  <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
+    <div class="container-page flex flex-col gap-6">
+      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
+        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Noticias</span>
+      </nav>
+      <Eyebrow>Noticias</Eyebrow>
+      <h1 class="text-(length:--text-h1)">Lo que pasa en la academia.</h1>
+      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">
+        Convocatorias, plazos y cambios normativos. Lo que de verdad te afecta,
+        sin artículos de relleno sobre cómo estudiar mejor.
+      </p>
+    </div>
+  </section>
+
+  <Section tone="paper">
+    {posts.length === 0 ? (
+      <Card class="gap-2 p-8">
+        <h2 class="text-(length:--text-h3)">Todavía no hay noticias publicadas</h2>
+        <p class="leading-relaxed text-slate">
+          En cuanto salga la primera convocatoria del curso, aparecerá aquí.
+        </p>
+      </Card>
+    ) : (
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((p) => (
+          <Card class="gap-3 p-6">
+            <div class="flex flex-wrap items-center gap-2">
+              <Badge>{p.data.categoria}</Badge>
+              {p.data.borrador && <Badge tone="brand">Borrador</Badge>}
+            </div>
+            <h2 class="text-(length:--text-h3)">
+              <a href={`/noticias-academia-educana/${p.id}/`} class="hover:text-brand-ink">{p.data.titulo}</a>
+            </h2>
+            <p class="text-[0.92rem] leading-relaxed text-slate">{p.data.entradilla}</p>
+            <time datetime={p.data.fecha.toISOString()} class="text-[0.82rem] text-slate">{fmt(p.data.fecha)}</time>
+          </Card>
+        ))}
+      </div>
+    )}
+  </Section>
+</Base>

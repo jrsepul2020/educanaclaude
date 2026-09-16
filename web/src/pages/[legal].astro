@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const legales = await getCollection('legales');
+  return legales.map((l) => ({ params: { legal: l.id }, props: { doc: l } }));
+}
+const { doc } = Astro.props;
+const { Content } = await render(doc);
+---
+<Base title={doc.data.titulo} description={doc.data.metaDescripcion} noindex={!doc.data.revisado}>
+  <div class="bg-cream py-12 md:py-16">
+    <div class="container-page flex max-w-[72ch] flex-col gap-6">
+      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
+        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">{doc.data.titulo}</span>
+      </nav>
+      <h1 class="text-(length:--text-h1)">{doc.data.titulo}</h1>
+      <p class="text-[0.85rem] text-slate">Última actualización: {doc.data.actualizado}</p>
+
+      {!doc.data.revisado && (
+        <p class="rounded-card border-2 border-brand bg-paper p-5 text-[0.92rem] leading-relaxed">
+          <strong class="text-brand-ink">Documento pendiente de revisión.</strong> Esta página
+          está marcada como no revisada y no se indexa. No publicar la web sin resolverla.
+        </p>
+      )}
+
+      <div class="prose-legal flex flex-col gap-4"><Content /></div>
+    </div>
+  </div>
+</Base>
+
+<style is:global>
+  .prose-legal p { line-height: 1.75; color: var(--color-slate); }
+  .prose-legal h2 { font-size: var(--text-h3); margin-block: 1rem 0; }
+  .prose-legal ol, .prose-legal ul { display: flex; flex-direction: column; gap: 0.4rem; padding-left: 1.2rem; color: var(--color-slate); }
+  .prose-legal ol { list-style: decimal; } .prose-legal ul { list-style: disc; }
+  .prose-legal blockquote { border-left: 3px solid var(--color-brand); padding-left: 1rem; color: var(--color-ink); }
+  .prose-legal a { color: var(--color-brand-ink); text-decoration: underline; }
+  .prose-legal code { background: rgb(20 33 47 / .07); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.88em; }
+</style>

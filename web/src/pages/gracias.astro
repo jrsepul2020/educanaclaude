@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/blocks/Section.astro';
+import Button from '../components/ui/Button.astro';
+/* Página de confirmación propia: sin ella no se puede medir una
+   conversión de verdad en GA4 (doc 05 §7). Va en noindex. */
+---
+<Base title="Gracias" description="Hemos recibido tu mensaje." noindex={true}>
+  <Section tone="cream" class="min-h-[60vh] justify-center">
+    <h1 class="text-(length:--text-h1)">Recibido. Te llamamos.</h1>
+    <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[52ch]">
+      Normalmente contestamos el mismo día. Si tienes prisa, llámanos directamente
+      al 954 40 96 96 y lo resolvemos en cinco minutos.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <Button href="/horarios-cursos/">Ver los horarios</Button>
+      <Button href="/" variant="outline">Volver al inicio</Button>
+    </div>
+  </Section>
+</Base>

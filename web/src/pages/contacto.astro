@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/blocks/Section.astro';
+import Eyebrow from '../components/blocks/Eyebrow.astro';
+import LeadForm from '../components/blocks/LeadForm.astro';
+import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+import { NAP } from '../lib/nap';
+---
+<Base
+  title="Contacto"
+  description="Academia Educana está en Avenida de las Ciencias 25, Edificio Galileo, Sevilla Este. Llámanos al 954 40 96 96 o escríbenos por WhatsApp."
+>
+  <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
+    <div class="container-page flex flex-col gap-6">
+      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
+        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Contacto</span>
+      </nav>
+      <Eyebrow>Contacto</Eyebrow>
+      <h1 class="text-(length:--text-h1) max-w-[20ch]">Estamos en Sevilla Este, en el Edificio Galileo.</h1>
+      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">
+        Llámanos, escríbenos por WhatsApp o pásate. Te decimos en qué grupo encajas,
+        cuándo empieza y cuánto cuesta.
+      </p>
+    </div>
+  </section>
+
+  <Section tone="paper">
+    <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+      <div class="flex flex-col gap-5">
+        <h2 class="text-(length:--text-h2)">Pide información</h2>
+        <LeadForm context="contacto" />
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <Card class="gap-4 p-6">
+          <h2 class="text-(length:--text-h3)">{NAP.name}</h2>
+          <address class="not-italic leading-loose text-slate">
+            {NAP.street}<br />{NAP.postal} {NAP.city}<br />
+            <a href={`tel:${NAP.phone}`} class="tabular text-ink hover:text-brand-ink" data-evento="clic-telefono">{NAP.phoneText}</a><br />
+            <a href={`tel:${NAP.mobile}`} class="tabular text-ink hover:text-brand-ink" data-evento="clic-telefono">{NAP.mobileText}</a><br />
+            <a href={`mailto:${NAP.email}`} class="text-ink hover:text-brand-ink">{NAP.email}</a>
+          </address>
+          <Button href={NAP.whatsapp} variant="outline" size="sm" class="self-start">Escribir por WhatsApp</Button>
+        </Card>
+
+        <Card class="gap-3 p-6">
+          <h2 class="text-(length:--text-h3)">Horario de atención</h2>
+          <dl class="flex flex-col gap-1.5 text-[0.95rem]">
+            <div class="flex justify-between gap-4"><dt class="text-slate">Lunes a jueves</dt><dd class="tabular">[HORARIO]</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-slate">Viernes</dt><dd class="tabular">[HORARIO]</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-slate">Sábado y domingo</dt><dd>Cerrado</dd></div>
+          </dl>
+        </Card>
+      </div>
+    </div>
+  </Section>
+
+  <Section tone="cream">
+    <Eyebrow>Cómo llegar</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Dónde estamos.</h2>
+    {/* El mapa se carga al hacer clic: un iframe de Google Maps por encima
+        del pliegue hunde el LCP (doc 04). */}
+    <button type="button" data-mapa
+      class="group relative flex aspect-[21/9] w-full items-center justify-center overflow-hidden rounded-card border border-line bg-paper">
+      <span class="flex flex-col items-center gap-2 text-slate">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="font-semibold text-ink">Ver el mapa</span>
+        <span class="text-[0.82rem]">Se carga al pulsar, para no ralentizar la página</span>
+      </span>
+    </button>
+
+    <div class="grid gap-5 sm:grid-cols-3">
+      <Card class="gap-2 p-5"><h3 class="font-semibold">En metro</h3><p class="text-[0.92rem] text-slate">[PARADA MÁS CERCANA]</p></Card>
+      <Card class="gap-2 p-5"><h3 class="font-semibold">En autobús</h3><p class="text-[0.92rem] text-slate">[LÍNEAS]</p></Card>
+      <Card class="gap-2 p-5"><h3 class="font-semibold">Aparcamiento</h3><p class="text-[0.92rem] text-slate">[INDICACIÓN]</p></Card>
+    </div>
+  </Section>
+</Base>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-mapa]');
+  btn?.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = 'https://www.google.com/maps?q=Avenida+de+las+Ciencias+25+Sevilla&output=embed';
+    f.title = 'Mapa de la academia';
+    f.loading = 'lazy';
+    f.className = 'h-full w-full border-0';
+    btn.replaceWith(f);
+  }, { once: true });
+</script>

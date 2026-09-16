@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/blocks/Section.astro';
+import Eyebrow from '../components/blocks/Eyebrow.astro';
+import Card from '../components/ui/Card.astro';
+import Badge from '../components/ui/Badge.astro';
+import Button from '../components/ui/Button.astro';
+
+/* Página nueva justificada por datos: las consultas con «2026» ya
+   posicionan entre 1,5 y 5,8 sin que exista contenido (doc 07 §6). */
+const convocatorias = [
+  { t: 'Trinity · ISE I y ISE II', examen: '[FECHA]', plazo: '[FECHA]', sede: 'Nuestro centro', abierta: true, href: '/academia-de-ingles-en-sevilla-este/trinity/' },
+  { t: 'Prueba de acceso a Grado Superior', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/prueba-acceso-grado-superior-sevilla/' },
+  { t: 'Prueba de acceso a Grado Medio', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/acceso-grado-medio-academia-sevilla/' },
+  { t: 'Acceso a universidad · mayores de 25 y 45', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/acceso-universidad-mayores-25/' },
+  { t: 'Título de ESO · pruebas libres', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/conseguir-titulo-eso/' },
+  { t: 'PEvAU · convocatoria ordinaria', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/curso-selectividad-sevilla-pevau/' },
+];
+
+const calendario = [
+  { mes: 'Septiembre', items: ['Matrícula del curso', 'Arrancan los grupos de inglés'] },
+  { mes: 'Enero', items: ['Recuperaciones de la 1ª evaluación', 'Intensivos de PEvAU'] },
+  { mes: 'Abril – Junio', items: ['PEvAU', 'Pruebas de acceso', 'Exámenes Trinity'] },
+  { mes: 'Junio – Julio', items: ['Cursos de verano', 'Intensivos de inglés', 'PEvAU extraordinaria'] },
+];
+---
+<Base
+  title="Fechas y convocatorias del curso"
+  description="Todas las fechas de examen y plazos de matrícula del curso: PEvAU, pruebas de acceso a Grado Medio y Superior, mayores de 25 y 45, título de ESO y exámenes de inglés."
+>
+  <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
+    <div class="container-page flex flex-col gap-6">
+      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
+        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Fechas y convocatorias</span>
+      </nav>
+      <Eyebrow>Curso 2026–2027</Eyebrow>
+      <h1 class="text-(length:--text-h1) max-w-[18ch]">Todas las fechas del curso, en un sitio.</h1>
+      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[60ch]">
+        Convocatorias, plazos de matrícula y fechas de examen de la PEvAU, las pruebas de
+        acceso y los exámenes oficiales de inglés. Lo actualizamos cada vez que sale la orden.
+      </p>
+    </div>
+  </section>
+
+  <Section tone="paper">
+    <Eyebrow>Próximas convocatorias</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Qué hay por delante.</h2>
+    <div class="grid gap-5 md:grid-cols-2">
+      {convocatorias.map((c) => (
+        <Card class="gap-3 p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <h3 class="text-(length:--text-h3)">{c.t}</h3>
+            {c.abierta ? <Badge tone="ok">Inscripción abierta</Badge> : <Badge>Por confirmar</Badge>}
+          </div>
+          <dl class="flex flex-col gap-1 text-[0.92rem]">
+            <div class="flex gap-2"><dt class="text-slate">Examen:</dt><dd class="tabular">{c.examen}</dd></div>
+            <div class="flex gap-2"><dt class="text-slate">Plazo de inscripción:</dt><dd class="tabular">{c.plazo}</dd></div>
+            <div class="flex gap-2"><dt class="text-slate">Dónde:</dt><dd>{c.sede}</dd></div>
+          </dl>
+          <a href={c.href} class="text-[0.92rem] font-semibold text-brand-ink">Cómo lo preparamos →</a>
+        </Card>
+      ))}
+    </div>
+    <p class="text-[0.82rem] text-slate">
+      [PENDIENTE: rellenar con las fechas oficiales de cada convocatoria en cuanto salga la orden.
+      Esta página pierde todo su valor si no está al día.]
+    </p>
+  </Section>
+
+  <Section tone="cream">
+    <Eyebrow>Calendario del curso</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Mes a mes.</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {calendario.map((c) => (
+        <Card class="gap-3 p-5">
+          <h3 class="font-semibold">{c.mes}</h3>
+          <ul class="flex flex-col gap-1.5 text-[0.92rem] text-slate">
+            {c.items.map((i) => <li>{i}</li>)}
+          </ul>
+        </Card>
+      ))}
+    </div>
+  </Section>
+
+  <Section tone="paper">
+    <div class="flex flex-wrap items-center gap-6">
+      <div class="flex-1 min-w-[18rem] flex flex-col gap-3">
+        <h2 class="text-(length:--text-h2)">¿Llegas a tiempo?</h2>
+        <p class="leading-relaxed text-slate">Dinos a qué convocatoria vas y te decimos con franqueza si da tiempo a prepararla.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <Button href="/contacto/">Pregúntanos</Button>
+        <Button href="tel:+34954409696" variant="outline">Llamar 954 40 96 96</Button>
+      </div>
+    </div>
+  </Section>
+</Base>

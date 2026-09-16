@@ -46,4 +46,56 @@ const horarios = defineCollection({
   }),
 });
 
-export const collections = { cursos, horarios };
+/* El inglés tiene su propio esquema: una página de nivel o de examen
+   necesita cosas que una de refuerzo escolar no (partes del examen,
+   nivel de partida, convocatorias). Doc 03 §2. */
+const ingles = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/data/ingles' }),
+  schema: z.object({
+    titulo: z.string(),
+    h1: z.string(),
+    entradilla: z.string().min(120).max(420),
+    metaTitulo: z.string().max(65),
+    metaDescripcion: z.string().min(80).max(160),
+    // publico = navegación y conversión · nivel/examen = captación SEO
+    eje: z.enum(['publico', 'nivel', 'examen', 'formato']),
+    orden: z.number().default(50),
+    datos: z.object({
+      partida: z.string(),
+      duracion: z.string(),
+      dias: z.string(),
+      grupo: z.string(),
+      desde: z.string(),
+    }),
+    puntos: z.array(z.object({ titulo: z.string(), texto: z.string() })).min(3),
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).min(4).max(8),
+    relacionados: z.array(z.string()).default([]),
+  }),
+});
+
+/* Textos legales: NO los redacta la agencia. Se porta el texto vigente
+   del cliente y lo revisa quien corresponda antes de publicar. */
+const legales = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/data/legales' }),
+  schema: z.object({
+    titulo: z.string(),
+    metaDescripcion: z.string().min(40).max(160),
+    actualizado: z.string(),
+    revisado: z.boolean().default(false),
+  }),
+});
+
+const noticias = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/data/noticias' }),
+  schema: z.object({
+    titulo: z.string(),
+    entradilla: z.string().max(300),
+    metaDescripcion: z.string().min(60).max(160),
+    fecha: z.coerce.date(),
+    categoria: z.enum(['Convocatorias', 'PEvAU', 'Accesos', 'Inglés', 'Academia']),
+    autor: z.string(),
+    borrador: z.boolean().default(false),
+  }),
+});
+
+export const collections = { cursos, horarios, ingles, legales, noticias };

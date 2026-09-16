@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/blocks/Section.astro';
+import Eyebrow from '../components/blocks/Eyebrow.astro';
+import Field from '../components/ui/Field.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+/* 65 clics al año en posición 9,3: más tráfico que clases particulares.
+   Merecía una página de verdad, no un formulario suelto (doc 07 §3). */
+---
+<Base
+  title="Trabaja con nosotros"
+  description="Bolsa de trabajo de Academia Educana, Sevilla Este. Buscamos profesores de ESO, Bachillerato, PEvAU e inglés. Envíanos tu candidatura."
+>
+  <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
+    <div class="container-page flex flex-col gap-6">
+      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
+        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Trabaja con nosotros</span>
+      </nav>
+      <Eyebrow>Bolsa de trabajo</Eyebrow>
+      <h1 class="text-(length:--text-h1) max-w-[18ch]">Buscamos profesores que se queden.</h1>
+      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">
+        Nuestro equipo es estable y esa es una de las razones por las que funcionamos.
+        Si te interesa dar clase en grupos de seis a ocho alumnos y quedarte más de un
+        curso, queremos conocerte.
+      </p>
+    </div>
+  </section>
+
+  <Section tone="paper">
+    <div class="grid gap-10 lg:grid-cols-[1fr_1fr]">
+      <div class="flex flex-col gap-6">
+        <h2 class="text-(length:--text-h2)">Qué buscamos</h2>
+        <div class="flex flex-col gap-4">
+          <Card class="gap-2 p-5"><h3 class="font-semibold">Profesores de ESO y Bachillerato</h3><p class="text-[0.92rem] leading-relaxed text-slate">Matemáticas, física y química, lengua, latín, historia, economía y dibujo técnico.</p></Card>
+          <Card class="gap-2 p-5"><h3 class="font-semibold">Preparadores de PEvAU</h3><p class="text-[0.92rem] leading-relaxed text-slate">Con experiencia en el modelo de examen vigente y en corregir con su criterio.</p></Card>
+          <Card class="gap-2 p-5"><h3 class="font-semibold">Profesores de inglés</h3><p class="text-[0.92rem] leading-relaxed text-slate">C1 o C2 acreditado y experiencia preparando Trinity, Cambridge o APTIS.</p></Card>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h2 class="text-(length:--text-h2)">Cómo trabajamos aquí</h2>
+          <ul class="flex list-disc flex-col gap-2 pl-5 leading-relaxed text-slate">
+            <li>Grupos de seis a ocho alumnos, nunca más.</li>
+            <li>Continuidad: se busca gente para el curso completo, no para tapar un hueco.</li>
+            <li>Material propio, no fotocopias de editorial.</li>
+            <li>[CONDICIONES: jornada, tipo de contrato y retribución — a completar por el cliente.]</li>
+          </ul>
+        </div>
+      </div>
+
+      <Card class="gap-4 self-start p-6">
+        <h2 class="text-(length:--text-h3)">Envíanos tu candidatura</h2>
+        <form method="POST" action="/api/empleo" class="flex flex-col gap-4">
+          <div class="absolute left-[-9999px]" aria-hidden="true">
+            <label>No rellenes esto <input type="text" name="empresa" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <Field label="Nombre y apellidos" name="nombre" required autocomplete="name" />
+          <Field label="Correo electrónico" name="email" type="email" required autocomplete="email" />
+          <Field label="Teléfono" name="telefono" type="tel" required autocomplete="tel" />
+          <Field label="¿Qué impartes?" name="materia" required options={[
+            'Matemáticas · Física · Química',
+            'Lengua · Latín · Literatura',
+            'Historia · Economía · Sociales',
+            'Inglés',
+            'Otra materia',
+          ]} />
+          <Field label="Cuéntanos tu experiencia" name="mensaje" multiline
+                 hint="Titulación, años dando clase y qué niveles has llevado." />
+          <label class="flex items-start gap-3 text-[0.8rem] text-slate">
+            <input type="checkbox" name="rgpd" required class="mt-0.5 size-4.5 accent-[--color-brand]" />
+            <span>Acepto que guardéis mis datos para procesos de selección, según la <a href="/politica-de-privacidad/" class="text-brand-ink underline">política de privacidad</a>.</span>
+          </label>
+          <Button type="submit">Enviar candidatura</Button>
+          <p class="text-[0.8rem] text-slate">
+            [PENDIENTE: decidir si se admite adjuntar el CV. Requiere modo servidor y
+            almacenamiento; de momento el currículum se pide por correo.]
+          </p>
+        </form>
+      </Card>
+    </div>
+  </Section>
+</Base>

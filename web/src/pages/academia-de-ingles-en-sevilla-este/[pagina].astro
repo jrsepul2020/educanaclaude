@@ -1,0 +1,120 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/blocks/Section.astro';
+import Eyebrow from '../../components/blocks/Eyebrow.astro';
+import DataBox from '../../components/blocks/DataBox.astro';
+import LeadForm from '../../components/blocks/LeadForm.astro';
+import Faq from '../../components/ui/Faq.astro';
+import Card from '../../components/ui/Card.astro';
+import Button from '../../components/ui/Button.astro';
+
+export async function getStaticPaths() {
+  const pags = await getCollection('ingles');
+  return pags.map((p) => ({ params: { pagina: p.id }, props: { pag: p } }));
+}
+
+const { pag } = Astro.props;
+const d = pag.data;
+const { Content } = await render(pag);
+
+const todas = await getCollection('ingles');
+const relacionados = d.relacionados
+  .map((r: string) => todas.find((p) => p.id === r))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const BASE = '/academia-de-ingles-en-sevilla-este';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: d.h1,
+  description: d.entradilla,
+  provider: { '@id': `${Astro.site}#organization` },
+  inLanguage: 'es',
+  teaches: 'Inglés',
+  hasCourseInstance: [{
+    '@type': 'CourseInstance',
+    courseMode: 'onsite',
+    location: { '@id': `${Astro.site}#organization` },
+    courseSchedule: { '@type': 'Schedule', repeatFrequency: 'Weekly', description: d.datos.dias },
+  }],
+};
+---
+<Base title={d.metaTitulo} description={d.metaDescripcion} schema={schema}>
+  <section class="bg-cream pt-8 pb-12 md:pt-10 md:pb-16">
+    <div class="container-page flex flex-col gap-7">
+      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
+        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span>
+        <a href={`${BASE}/`} class="hover:text-ink">Inglés</a> <span aria-hidden="true">→</span>
+        <span class="text-ink">{d.titulo}</span>
+      </nav>
+      <div class="flex flex-col gap-5">
+        <Eyebrow>Inglés</Eyebrow>
+        <h1 class="text-(length:--text-h1)">{d.h1}</h1>
+        <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">{d.entradilla}</p>
+        <div class="flex flex-wrap gap-3">
+          <Button href="/contacto/">Prueba de nivel gratuita</Button>
+          <Button href="/horarios-cursos/" variant="outline">Ver horarios de inglés</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Section tone="paper">
+    <DataBox items={[
+      { k: 'Nivel de partida', v: d.datos.partida },
+      { k: 'Duración', v: d.datos.duracion },
+      { k: 'Días y horas', v: d.datos.dias },
+      { k: 'Grupo', v: d.datos.grupo },
+      { k: 'Desde', v: d.datos.desde },
+    ]} />
+  </Section>
+
+  <div class="bg-cream py-14 md:py-20">
+    <div class="container-page grid gap-12 lg:grid-cols-[1fr_340px]">
+      <div class="flex flex-col gap-14">
+        <div class="grid gap-5 sm:grid-cols-3">
+          {d.puntos.map((p: { titulo: string; texto: string }) => (
+            <Card class="gap-2 p-5">
+              <h2 class="text-base font-semibold">{p.titulo}</h2>
+              <p class="text-[0.92rem] leading-relaxed text-slate">{p.texto}</p>
+            </Card>
+          ))}
+        </div>
+
+        <div class="prose-educana flex flex-col gap-4"><Content /></div>
+
+        <div class="flex flex-col gap-6">
+          <Eyebrow>Dudas frecuentes</Eyebrow>
+          <h2 class="text-(length:--text-h2)">Lo que más nos preguntáis</h2>
+          <Faq items={d.faq} />
+        </div>
+      </div>
+
+      <aside class="flex flex-col gap-5 lg:sticky lg:top-6 lg:self-start">
+        <Card class="gap-4 p-6">
+          <h2 class="text-(length:--text-h3)">Empieza por la prueba de nivel</h2>
+          <p class="text-[0.92rem] leading-relaxed text-slate">Es gratis y dura veinte minutos. Sin ella, cualquier plazo que te demos sería inventado.</p>
+          <LeadForm context={`ingles-${pag.id}`} compact={true} />
+        </Card>
+        {relacionados.length > 0 && (
+          <Card class="gap-3 p-6">
+            <Eyebrow>También te puede servir</Eyebrow>
+            <ul class="flex flex-col gap-2">
+              {relacionados.map((r) => (
+                <li><a href={`${BASE}/${r.id}/`} class="text-[0.95rem] hover:text-brand-ink">{r.data.titulo} →</a></li>
+              ))}
+            </ul>
+          </Card>
+        )}
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style is:global>
+  .prose-educana h2 { font-size: var(--text-h2); margin-block: 0.5rem 0.25rem; }
+  .prose-educana p { line-height: 1.7; color: var(--color-slate); max-width: 68ch; }
+  .prose-educana ul { display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1.1rem; list-style: disc; color: var(--color-slate); }
+  .prose-educana strong { color: var(--color-ink); }
+</style>
