@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "verificar": "astro build && node scripts/verificar-migracion.mjs",
     "probar": "node scripts/probar-formulario.mjs",
-    "desplegar": "npm run verificar && npx wrangler pages deploy"
+    "desplegar": "npm run verificar && npx wrangler deploy --config dist/server/wrangler.json"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

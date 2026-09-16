@@ -25,15 +25,15 @@ así que no se rompe, pero cada contacto que no llame se pierde.
 # 1. Crear cuenta en resend.com y verificar el dominio (SPF + DKIM)
 # 2. Generar API key
 cd web
-npx wrangler pages secret put RESEND_API_KEY
-npx wrangler pages secret put EMAIL_DESTINO      # secretaria@academiaeducana.com
-npx wrangler pages secret put EMAIL_REMITENTE    # web@academiaeducana.com
-npx wrangler pages secret put EMAIL_EMPLEO       # rrhh@academiaeducana.com
+npx wrangler secret put RESEND_API_KEY
+npx wrangler secret put EMAIL_DESTINO      # secretaria@academiaeducana.com
+npx wrangler secret put EMAIL_REMITENTE    # web@academiaeducana.com
+npx wrangler secret put EMAIL_EMPLEO       # rrhh@academiaeducana.com
 ```
 
 ### 3 · Google Analytics 4 · 10 minutos
 Crear la propiedad, copiar el ID `G-XXXXXXXXXX` y ponerlo como variable `PUBLIC_GA4_ID` en el
-panel de Cloudflare Pages. Sin ella no se carga analítica **ni aparece el banner de cookies**.
+panel de Cloudflare Pages. Sin ella no se carga analítica **ni aparece el banner de cookies**. Se define con `npx wrangler secret put PUBLIC_GA4_ID` o en el panel de Cloudflare.
 
 ### 4 · Validación legal
 Que la asesoría revise los tres textos, sobre todo destinatarios y plazos de conservación.
@@ -46,7 +46,11 @@ npx wrangler login
 npm run desplegar
 ```
 
-Eso publica en `educana.pages.dev`. **Probar ahí todo antes de tocar el dominio:**
+`npm run desplegar` construye, pasa la verificación y **sólo despliega si está en verde**.
+La configuración de Cloudflare la genera el propio adaptador de Astro en
+`dist/server/wrangler.json`; no hay que mantener un `wrangler.toml` a mano.
+
+Eso publica en una URL `*.workers.dev`. **Probar ahí todo antes de tocar el dominio:**
 
 - [ ] Enviar el formulario de contacto y comprobar que llega el correo
 - [ ] Enviar una candidatura con un CV real y comprobar que llega el adjunto a `rrhh@`
