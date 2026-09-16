@@ -1,5 +1,5 @@
 # 08 · Datos pendientes del cliente
-Generado del código el 2026-09-16. **146 huecos** en 39 archivos.
+Generado del código el 2026-09-16. **129 huecos** en 29 archivos.
 
 Todo lo que aparece entre corchetes en la web es un dato real que falta. No hemos
 inventado ni un precio ni una fecha: preferimos que se vea el hueco a que salga a
@@ -7,74 +7,35 @@ producción un dato falso.
 
 ## Cómo rellenarlo
 Los textos están en `web/src/data/`. Se edita el `.md`, se guarda, y `npm run build`
-avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de más de
-160 caracteres, que Google cortaría).
+avisa si algo no cuadra con el esquema — por ejemplo, una metadescripción de más de
+160 caracteres, que Google cortaría.
 
 ## Lo más urgente
 | Dato | Veces | Por qué importa |
 |---|---|---|
-| **Precios** | 33 | La caja de datos duros es lo que decide la conversión. Un «desde X €» baja el volumen de contactos y sube mucho su calidad |
-| **Fechas de convocatoria** | 35 | Las consultas con «2026» ya posicionan entre 1,5 y 5,8 sin contenido. Es tráfico a semanas de matricularse |
-| **Horarios reales** | 11 | La página de horarios está en posición 2,5 y sólo recibe 77 clics al año |
+| **Precios** | 25 | La caja de datos duros es lo que decide la conversión. Un «desde X €» baja el volumen de contactos y sube mucho su calidad |
+| **Meses y fechas de convocatoria** | 35 | Las consultas con «2026» ya posicionan entre 1,5 y 5,8 sin que exista contenido. Es tráfico a semanas de matricularse |
+| **Horas y duración de los cursos** | 15 | Va en la caja de datos duros de cada servicio |
 | **Textos legales** | 3 | La web no puede publicarse sin ellos |
+
+## Los 12 marcadores más repetidos
+| Marcador | Veces |
+|---|---|
+| `[PRECIO]` | 25 |
+| `[MES]` | 19 |
+| `[FECHA]` | 16 |
+| `[HORAS]` | 8 |
+| `[SEDE]` | 5 |
+| `[MESES]` | 4 |
+| `[CONFIRMAR]` | 4 |
+| `[Nombre]` | 4 |
+| `[CONFIRMAR CON NORMATIVA VIGENTE]` | 3 |
+| `[CONFIRMAR HORARIOS]` | 3 |
+| `[SEMANAS]` | 3 |
+| `[TEXTO PENDIENTE DE PORTAR]` | 3 |
 
 ---
 
-
-## `components/blocks/ScheduleTable.astro`
-
-- **línea 55** · `[data-filtro]`  
-  <sub>document.querySelectorAll<HTMLElement>('[data-filtro]').forEach((btn) => {</sub>
-- **línea 58** · `[data-filtro]`  
-  <sub>document.querySelectorAll<HTMLElement>('[data-filtro]').forEach((b) => {</sub>
-- **línea 69** · `[data-categoria]`  
-  <sub>document.querySelectorAll<HTMLElement>('[data-categoria]').forEach((row) => {</sub>
-- **línea 74** · `[data-vacio]`  
-  <sub>const vacio = document.querySelector<HTMLElement>('[data-vacio]');</sub>
-
-## `components/blocks/Section.astro`
-
-- **línea 6** · `[tone]`  
-  <sub><section id={id} class={`${tones[tone]} py-14 md:py-20 ${extra}`}></sub>
-
-## `components/layout/Footer.astro`
-
-- **línea 24** · `[l, h]`  
-  <sub>{c.links.map(([l, h]) => <li><a href={h} class="hover:text-cream transition-colors">{l}</a></li></sub>
-
-## `components/layout/Header.astro`
-
-- **línea 49** · `[data-menu-toggle]`  
-  <sub>const btn = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');</sub>
-
-## `components/layout/Schema.astro`
-
-- **línea 28** · `[org, ...(Array.isArray(extra) ? extra : [extra]`  
-  <sub>const blocks = extra ? [org, ...(Array.isArray(extra) ? extra : [extra])] : [org];</sub>
-- **línea 28** · `[org]`  
-  <sub>const blocks = extra ? [org, ...(Array.isArray(extra) ? extra : [extra])] : [org];</sub>
-
-## `components/ui/Badge.astro`
-
-- **línea 12** · `[tone]`  
-  <sub><span class={`inline-flex items-center h-7 px-3 rounded-pill text-[0.7rem] font-bold uppercase t</sub>
-
-## `components/ui/Button.astro`
-
-- **línea 25** · `[base, sizes[size]`  
-  <sub>const cls = [base, sizes[size], variants[variant], extra].join(' ');</sub>
-- **línea 25** · `[variant]`  
-  <sub>const cls = [base, sizes[size], variants[variant], extra].join(' ');</sub>
-
-## `components/ui/Card.astro`
-
-- **línea 9** · `[tone]`  
-  <sub><div class={`rounded-card overflow-hidden flex flex-col ${tones[tone]} ${extra}`}><slot /></div></sub>
-
-## `components/ui/Field.astro`
-
-- **línea 15** · `[hint ? `${id}-hint` : null, error ? `${id}-err` : null]`  
-  <sub>const described = [hint ? `${id}-hint` : null, error ? `${id}-err` : null].filter(Boolean).join(</sub>
 
 ## `data/cursos/acceso-grado-medio-academia-sevilla.md`
 
@@ -126,9 +87,9 @@ avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de má
 - **línea 13** · `[PRECIO]`  
   <sub>desde: "[PRECIO] € / hora"</sub>
 - **línea 19** · `[CONFIRMAR DISPONIBILIDAD]`  
-  <sub>texto: "Mañanas, tardes o fines de semana, según lo que os venga bien. [CONFIRMAR DISPONIBILIDAD</sub>
+  <sub>texto: "Mañanas, tardes o fines de semana, según lo que os venga bien. [CONFIRMAR DISPONIBILIDAD]"</sub>
 - **línea 32** · `[CONFIRMAR ALCANCE]`  
-  <sub>a: "Sí, sobre todo de asignaturas de primero: cálculo, física, estadística, química. [CONFIRMAR </sub>
+  <sub>a: "Sí, sobre todo de asignaturas de primero: cálculo, física, estadística, química. [CONFIRMAR ALCA</sub>
 - **línea 34** · `[PRECIO]`  
   <sub>a: "[PRECIO] €, y hay bonos si contratas varias. Llámanos y te lo detallamos."</sub>
 - **línea 36** · `[CONFIRMAR: sí / no / según zona]`  
@@ -177,7 +138,7 @@ avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de má
 - **línea 26** · `[CONFIRMAR FECHA EXACTA]`  
   <sub>a: "En octubre, con el curso escolar ya arrancado. [CONFIRMAR FECHA EXACTA]"</sub>
 - **línea 36** · `[PRECIO ORIENTATIVO]`  
-  <sub>a: "[PRECIO ORIENTATIVO] — depende de cuántas asignaturas lleves. Llámanos y te lo decimos en un</sub>
+  <sub>a: "[PRECIO ORIENTATIVO] — depende de cuántas asignaturas lleves. Llámanos y te lo decimos en un min</sub>
 
 ## `data/cursos/cursos-de-invierno.md`
 
@@ -202,8 +163,6 @@ avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de má
 
 ## `data/cursos/cursos-verano-sevilla.md`
 
-- **línea 10** · `[y agosto]`  
-  <sub>duracion: "Julio [y agosto]"</sub>
 - **línea 11** · `[HORAS]`  
   <sub>dias: "Mañanas · [HORAS] h/día"</sub>
 - **línea 13** · `[PRECIO]`  
@@ -230,9 +189,9 @@ avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de má
 - **línea 23** · `[CONFIRMAR TURNOS]`  
   <sub>texto: "Para que puedas compaginarlo con el trabajo. [CONFIRMAR TURNOS]"</sub>
 - **línea 26** · `[MES]`  
-  <sub>a: "La convocatoria de Andalucía suele ser en [MES]. Puedes verla en nuestra página de fechas y </sub>
+  <sub>a: "La convocatoria de Andalucía suele ser en [MES]. Puedes verla en nuestra página de fechas y conv</sub>
 - **línea 28** · `[CONFIRMAR CON NORMATIVA VIGENTE]`  
-  <sub>a: "Tener 19 años cumplidos en el año de la prueba, o 18 si ya tienes un título de Grado Medio. </sub>
+  <sub>a: "Tener 19 años cumplidos en el año de la prueba, o 18 si ya tienes un título de Grado Medio. [CON</sub>
 - **línea 36** · `[CONFIRMAR]`  
   <sub>a: "[CONFIRMAR]. Mucha gente que prepara esta prueba trabaja por la tarde."</sub>
 
@@ -304,7 +263,7 @@ avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de má
 - **línea 26** · `[Nº DE CENTRO]`  
   <sub>a: "Sí. Somos centro examinador oficial de Trinity College London. [Nº DE CENTRO]"</sub>
 - **línea 30** · `[CONFIRMAR ALCANCE VIGENTE]`  
-  <sub>a: "Sí, está reconocido por ACLES y por las universidades andaluzas. [CONFIRMAR ALCANCE VIGENTE]</sub>
+  <sub>a: "Sí, está reconocido por ACLES y por las universidades andaluzas. [CONFIRMAR ALCANCE VIGENTE]"</sub>
 - **línea 34** · `[PRECIO TASA]`  
   <sub>a: "La tasa la fija Trinity y va aparte del curso: [PRECIO TASA]."</sub>
 
@@ -334,18 +293,13 @@ avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de má
 - **línea 2** · `[MES]`  
   <sub>titulo: "Abierta la inscripción para los exámenes Trinity de [MES]"</sub>
 - **línea 4** · `[MES]`  
-  <sub>metaDescripcion: "Abierta la inscripción de los exámenes Trinity ISE I e ISE II de [MES] en Acad</sub>
+  <sub>metaDescripcion: "Abierta la inscripción de los exámenes Trinity ISE I e ISE II de [MES] en Academia</sub>
 - **línea 7** · `[NOMBRE REAL]`  
   <sub>autor: "[NOMBRE REAL]"</sub>
 - **línea 11** · `[EJEMPLO DE ESTRUCTURA — sustituir por una noticia real.]`  
   <sub>[EJEMPLO DE ESTRUCTURA — sustituir por una noticia real.]</sub>
 - **línea 14** · `[FECHA]`  
   <sub>en nuestras propias aulas. El plazo de inscripción termina el **[FECHA]**.</sub>
-
-## `pages/[...slug].astro`
-
-- **línea 26** · `[d.categoria]`  
-  <sub>const migas = { estudios: 'Estudios', accesos: 'Pruebas de acceso', ingles: 'Inglés' }[d.categor</sub>
 
 ## `pages/bolsa-de-trabajo-academia-sevilla.astro`
 
@@ -355,17 +309,15 @@ avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de má
 ## `pages/contacto.astro`
 
 - **línea 50** · `[HORARIO]`  
-  <sub><div class="flex justify-between gap-4"><dt class="text-slate">Lunes a jueves</dt><dd class="tab</sub>
+  <sub><div class="flex justify-between gap-4"><dt class="text-slate">Lunes a jueves</dt><dd class="tabular</sub>
 - **línea 51** · `[HORARIO]`  
-  <sub><div class="flex justify-between gap-4"><dt class="text-slate">Viernes</dt><dd class="tabular">[</sub>
+  <sub><div class="flex justify-between gap-4"><dt class="text-slate">Viernes</dt><dd class="tabular">[HORA</sub>
 - **línea 74** · `[PARADA MÁS CERCANA]`  
-  <sub><Card class="gap-2 p-5"><h3 class="font-semibold">En metro</h3><p class="text-[0.92rem] text-sla</sub>
+  <sub><Card class="gap-2 p-5"><h3 class="font-semibold">En metro</h3><p class="text-[0.92rem] text-slate"></sub>
 - **línea 75** · `[LÍNEAS]`  
-  <sub><Card class="gap-2 p-5"><h3 class="font-semibold">En autobús</h3><p class="text-[0.92rem] text-s</sub>
+  <sub><Card class="gap-2 p-5"><h3 class="font-semibold">En autobús</h3><p class="text-[0.92rem] text-slate</sub>
 - **línea 76** · `[INDICACIÓN]`  
-  <sub><Card class="gap-2 p-5"><h3 class="font-semibold">Aparcamiento</h3><p class="text-[0.92rem] text</sub>
-- **línea 82** · `[data-mapa]`  
-  <sub>const btn = document.querySelector<HTMLButtonElement>('[data-mapa]');</sub>
+  <sub><Card class="gap-2 p-5"><h3 class="font-semibold">Aparcamiento</h3><p class="text-[0.92rem] text-sla</sub>
 
 ## `pages/design-system.astro`
 
@@ -375,27 +327,27 @@ avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de má
 ## `pages/fechas-y-convocatorias.astro`
 
 - **línea 12** · `[FECHA]`  
-  <sub>{ t: 'Trinity · ISE I y ISE II', examen: '[FECHA]', plazo: '[FECHA]', sede: 'Nuestro centro', ab</sub>
+  <sub>{ t: 'Trinity · ISE I y ISE II', examen: '[FECHA]', plazo: '[FECHA]', sede: 'Nuestro centro', abiert</sub>
 - **línea 13** · `[FECHA]`  
-  <sub>{ t: 'Prueba de acceso a Grado Superior', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', a</sub>
+  <sub>{ t: 'Prueba de acceso a Grado Superior', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abier</sub>
 - **línea 13** · `[SEDE]`  
-  <sub>{ t: 'Prueba de acceso a Grado Superior', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', a</sub>
+  <sub>{ t: 'Prueba de acceso a Grado Superior', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abier</sub>
 - **línea 14** · `[FECHA]`  
-  <sub>{ t: 'Prueba de acceso a Grado Medio', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abie</sub>
+  <sub>{ t: 'Prueba de acceso a Grado Medio', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta:</sub>
 - **línea 14** · `[SEDE]`  
-  <sub>{ t: 'Prueba de acceso a Grado Medio', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abie</sub>
+  <sub>{ t: 'Prueba de acceso a Grado Medio', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta:</sub>
 - **línea 15** · `[FECHA]`  
-  <sub>{ t: 'Acceso a universidad · mayores de 25 y 45', examen: '[FECHA]', plazo: '[FECHA]', sede: '[S</sub>
+  <sub>{ t: 'Acceso a universidad · mayores de 25 y 45', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]</sub>
 - **línea 15** · `[SEDE]`  
-  <sub>{ t: 'Acceso a universidad · mayores de 25 y 45', examen: '[FECHA]', plazo: '[FECHA]', sede: '[S</sub>
+  <sub>{ t: 'Acceso a universidad · mayores de 25 y 45', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]</sub>
 - **línea 16** · `[FECHA]`  
-  <sub>{ t: 'Título de ESO · pruebas libres', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abie</sub>
+  <sub>{ t: 'Título de ESO · pruebas libres', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta:</sub>
 - **línea 16** · `[SEDE]`  
-  <sub>{ t: 'Título de ESO · pruebas libres', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abie</sub>
+  <sub>{ t: 'Título de ESO · pruebas libres', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta:</sub>
 - **línea 17** · `[FECHA]`  
-  <sub>{ t: 'PEvAU · convocatoria ordinaria', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abie</sub>
+  <sub>{ t: 'PEvAU · convocatoria ordinaria', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta:</sub>
 - **línea 17** · `[SEDE]`  
-  <sub>{ t: 'PEvAU · convocatoria ordinaria', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abie</sub>
+  <sub>{ t: 'PEvAU · convocatoria ordinaria', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta:</sub>
 
 ## `pages/quienes-somos-academia-educana.astro`
 
@@ -408,4 +360,4 @@ avisa si algo no cuadra con el esquema (por ejemplo, una metadescripción de má
 - **línea 14** · `[Nombre]`  
   <sub>{ n: '[Nombre]', m: 'Historia y Economía' },</sub>
 - **línea 43** · `[CONFIRMAR CIFRAS con el cliente: la web actual dice a la vez «15 años» y «20+».]`  
-  <sub><p class="text-[0.82rem] text-slate">[CONFIRMAR CIFRAS con el cliente: la web actual dice a la v</sub>
+  <sub><p class="text-[0.82rem] text-slate">[CONFIRMAR CIFRAS con el cliente: la web actual dice a la vez «</sub>

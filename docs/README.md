@@ -13,7 +13,7 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 | 05 | [SEO y contenido](05-seo-contenido.md) | Keywords, schema, esquema de contenido, medición, checklist |
 | 06 | [Stack y arquitectura](06-stack-arquitectura.md) | Astro vs Next vs Vite, pila completa, estructura del repo |
 | 07 | [Análisis de Search Console](07-analisis-search-console.md) | **Datos reales de 12 meses. Manda sobre el resto.** |
-| 08 | [Datos pendientes](08-datos-pendientes.md) | Los 137 huecos que tiene que rellenar el cliente, por página |
+| 08 | [Datos pendientes](08-datos-pendientes.md) | Los huecos que tiene que rellenar el cliente, por página |
 
 ## Decisiones cerradas
 - **Marca única Educana.** El inglés es un servicio, no una marca aparte.
@@ -35,7 +35,7 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 6. **¿Ofrecéis oposiciones?** 1.417 impresiones al año en consultas de oposiciones sin página que las atienda. → doc 07 §6
 
 ## Bloqueantes para lanzar
-1. **Los datos entre corchetes.** 137 marcadores, listados uno a uno en el [doc 08](08-datos-pendientes.md): precios, fechas de convocatoria, horarios de atención, cifras confirmadas.
+1. **Los datos entre corchetes.** 126 marcadores, listados uno a uno en el [doc 08](08-datos-pendientes.md): precios, fechas de convocatoria, horarios de atención, cifras confirmadas.
 2. **Los textos legales.** Aviso legal, privacidad y cookies están deliberadamente vacíos y en `noindex`: los valida quien asesora legalmente a la academia, no nosotros.
 3. **La sesión de fotos.** Sin ella el sitio va sin imágenes, porque poner stock contradice el posicionamiento.
 4. **Elegir dirección visual** (está montada la A).
