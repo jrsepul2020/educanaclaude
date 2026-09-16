@@ -35,7 +35,7 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 6. **¿Ofrecéis oposiciones?** 1.417 impresiones al año en consultas de oposiciones sin página que las atienda. → doc 07 §6
 
 ## Bloqueantes para lanzar
-1. **Los datos entre corchetes.** 126 marcadores, listados uno a uno en el [doc 08](08-datos-pendientes.md): precios, fechas de convocatoria, horarios de atención, cifras confirmadas.
+1. **Los datos entre corchetes.** 129 marcadores, listados uno a uno en el [doc 08](08-datos-pendientes.md): precios, fechas de convocatoria, horarios de atención, cifras confirmadas.
 2. **Los textos legales.** Aviso legal, privacidad y cookies están deliberadamente vacíos y en `noindex`: los valida quien asesora legalmente a la academia, no nosotros.
 3. **La sesión de fotos.** Sin ella el sitio va sin imágenes, porque poner stock contradice el posicionamiento.
 4. **Elegir dirección visual** (está montada la A).
