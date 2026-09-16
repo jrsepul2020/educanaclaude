@@ -3,11 +3,12 @@ import Base from '../layouts/Base.astro';
 import Section from '../components/blocks/Section.astro';
 import Eyebrow from '../components/blocks/Eyebrow.astro';
 import Card from '../components/ui/Card.astro';
-import Badge from '../components/ui/Badge.astro';
 import Button from '../components/ui/Button.astro';
 import { getCollection } from 'astro:content';
 
-const trinity = (await getCollection('convocatorias')).map((c) => c.data);
+const trinity = (await getCollection('convocatorias'))
+  .map((c) => c.data)
+  .sort((a, b) => a.orden - b.orden);
 
 /* Página nueva justificada por datos: las consultas con «2026» ya
    posicionan entre 1,5 y 5,8 sin que exista contenido (doc 07 §6). */

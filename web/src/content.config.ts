@@ -109,6 +109,9 @@ const convocatorias = defineCollection({
     escrito: z.string(),
     oral: z.string(),
     sede: z.string(),
+    // El orden cronológico va explícito: getCollection no garantiza
+    // el orden del JSON y las fechas salían alfabéticas (abril, agosto…)
+    orden: z.number(),
   }),
 });
 
