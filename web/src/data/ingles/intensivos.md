@@ -1,43 +1,47 @@
 ---
 titulo: "Intensivos de inglés"
 h1: "Cursos intensivos de inglés en Sevilla Este"
-entradilla: "Cursos concentrados para quien va con una fecha encima: una convocatoria de examen, un plazo de oposición o una matrícula que se cierra. Más horas por semana y menos meses, con el examen como único objetivo."
-metaTitulo: "Inglés intensivo en Sevilla Este · B1, B2 y C1"
-metaDescripcion: "Cursos intensivos de inglés en Sevilla Este para B1, B2 y C1. Más horas por semana, preparación centrada en el examen y grupos reducidos."
+entradilla: "Dos intensivos según el momento del año: el de invierno para el B1, de enero a junio, y el de verano para B1 y B2, en julio, agosto y la primera semana de septiembre con seis horas semanales de lunes a jueves."
+metaTitulo: "Inglés intensivo en Sevilla Este · B1 y B2"
+metaDescripcion: "Cursos intensivos de inglés en Sevilla Este: intensivo de invierno para el B1 e intensivo de verano para B1 y B2. Grupos reducidos."
 eje: "formato"
 orden: 100
 datos:
-  partida: "Según prueba de nivel"
-  duracion: "[SEMANAS] semanas"
-  dias: "[DÍAS] días · [HORAS] h/semana"
-  grupo: "6 a 8 alumnos"
-  desde: "[PRECIO] € el curso"
+  partida: "Según tu nivel"
+  duracion: "6 meses o 2 meses y 1 semana"
+  dias: "2 o 4 días de 1,5 h"
+  grupo: "Grupos reducidos"
+  desde: "62 € · matrícula gratuita"
 puntos:
-  - titulo: "Cuando hay una fecha"
-    texto: "Convocatoria de examen, plazo de oposición o matrícula. El calendario manda."
-  - titulo: "Centrado en el examen"
-    texto: "No es un curso de inglés general acelerado: es preparación de examen."
-  - titulo: "Te decimos si llegas"
-    texto: "Si con el tiempo que queda no da, te lo decimos antes de cobrarte."
+  - titulo: "Intensivo de invierno (B1)"
+    texto: "Seis meses, de enero a junio. Tres horas semanales en dos días de hora y media, mañanas o tardes."
+  - titulo: "Intensivo de verano (B1 y B2)"
+    texto: "Dos meses y una semana: julio, agosto y la primera semana de septiembre. Seis horas semanales en cuatro clases de hora y media, de lunes a jueves y sólo por las mañanas."
+  - titulo: "Test Trialling gratuito"
+    texto: "Un examen de prueba sin coste, en condiciones reales de examen. Sirve para coger confianza antes del examen de verdad y para que un examinador con experiencia nos diga cómo va el grupo."
 faq:
-  - q: "¿Cuándo empiezan?"
-    a: "Se montan en función de las convocatorias. Consulta las fechas actuales."
-  - q: "¿Sirve para subir de nivel?"
-    a: "Poco. Un intensivo pule y entrena el examen; subir del B1 al B2 necesita meses."
-  - q: "¿Qué niveles hacéis en intensivo?"
-    a: "B1, B2 y C1, según demanda."
-  - q: "¿Cuántas horas a la semana?"
-    a: "[HORAS], bastante más que en el curso anual."
+  - q: "¿Qué niveles se pueden hacer en intensivo?"
+    a: "El B1 en el intensivo de invierno, y el B1 y el B2 en el de verano."
+  - q: "¿Cuándo es el intensivo de invierno?"
+    a: "De enero a junio, seis meses, con tres horas semanales."
+  - q: "¿Y el de verano?"
+    a: "Julio, agosto y la primera semana de septiembre. Seis horas semanales en cuatro clases de hora y media, de lunes a jueves, sólo por las mañanas."
+  - q: "¿Se puede acreditar el nivel al terminar?"
+    a: "Sí. El intensivo de verano acaba justo antes de las convocatorias de Trinity de septiembre."
 relacionados:
+  - "b1"
   - "b2"
-  - "aptis"
-  - "adultos"
+  - "trinity"
 ---
 
-## Lo que un intensivo puede y no puede hacer
+## Dos intensivos, dos momentos
 
-**Puede**: entrenar el formato, pulir la escritura, quitar el miedo al Speaking y ordenar
-lo que ya sabes.
+**Intensivo de invierno — B1.** Seis meses, de enero a junio. Tres horas semanales
+repartidas en dos días de hora y media, mañanas o tardes.
 
-**No puede**: subirte un nivel entero del Marco Común en unas semanas. Si vienes con B1 y
-necesitas el B2 para dentro de un mes, te lo diremos antes de aceptarte, no después.
+**Intensivo de verano — B1 y B2.** Dos meses y una semana: julio, agosto y la primera
+semana de septiembre. Seis horas semanales repartidas en cuatro clases de hora y media, de
+lunes a jueves y sólo por las mañanas.
+
+El de verano termina justo antes de la convocatoria de Trinity de septiembre, así que se
+puede encadenar curso y examen.

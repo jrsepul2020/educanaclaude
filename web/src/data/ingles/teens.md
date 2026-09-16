@@ -1,31 +1,33 @@
 ---
-titulo: "Inglés para adolescentes"
+titulo: "Inglés para adolescentes (Teens)"
 h1: "Inglés para adolescentes en Sevilla Este"
-entradilla: "Inglés para ESO y Bachillerato con dos objetivos a la vez: subir la nota del instituto y salir con el B1 o el B2 hecho. Grupos por nivel real, no por curso escolar, porque no todos los de 3º van igual."
+entradilla: "Cursos de inglés para jóvenes de cualquier nivel, trabajando tanto el lenguaje oral como el escrito. Con el título oficial como objetivo: B1, B2 o C1 acreditados con Trinity, Cambridge, la Escuela Oficial de Idiomas o APTIS."
 metaTitulo: "Inglés para adolescentes en Sevilla Este"
-metaDescripcion: "Inglés para ESO y Bachillerato en Sevilla Este: subir la nota del instituto y preparar el B1 o el B2. Grupos por nivel real, de 6 a 8 alumnos."
+metaDescripcion: "Clases de inglés para jóvenes en Sevilla Este. Lenguaje oral y escrito, todos los niveles y preparación de exámenes oficiales."
 eje: "publico"
 orden: 20
 datos:
-  partida: "Según prueba de nivel"
-  duracion: "Todo el curso escolar"
-  dias: "2 días · 1,5 h"
-  grupo: "6 a 8 alumnos"
-  desde: "[PRECIO] € / mes"
+  partida: "Según tu nivel"
+  duracion: "9 meses · de octubre a junio"
+  dias: "2 días de 1,5 h · mañanas o tardes"
+  grupo: "Grupos reducidos"
+  desde: "62 € · matrícula gratuita"
 puntos:
-  - titulo: "Por nivel, no por curso"
-    texto: "Un alumno de 3º puede estar en A2 o en B1. Lo que manda es la prueba de nivel."
-  - titulo: "Dos objetivos a la vez"
-    texto: "La nota del instituto y el título oficial. No son incompatibles: se trabajan juntos."
-  - titulo: "El título, cuanto antes"
-    texto: "Tener el B1 o el B2 en Bachillerato quita presión para la universidad y para el futuro."
+  - titulo: "Oral y escrito"
+    texto: "Se trabajan las dos cosas: aprenderás lenguaje oral y escrito, no sólo gramática de examen."
+  - titulo: "Test Trialling gratuito"
+    texto: "Un examen de prueba sin coste, en condiciones reales de examen. Sirve para coger confianza antes del examen de verdad y para que un examinador con experiencia nos diga cómo va el grupo."
+  - titulo: "Profesores titulados y bilingües"
+    texto: "Con experiencia, muy conocedores de la estructura del examen y con formación anual para reciclar sus conocimientos."
 faq:
-  - q: "¿Cómo sabéis en qué grupo ponerlo?"
-    a: "Con una prueba de nivel gratuita antes de empezar."
-  - q: "¿Ayuda con los exámenes del instituto?"
-    a: "Sí, aunque no es una clase de apoyo: el foco está en el idioma. Si lo que hace falta es aprobar inglés en el instituto, mira las clases de apoyo."
+  - q: "¿Qué niveles hay?"
+    a: "A2, B1, B2 y C1 en el curso de invierno."
+  - q: "¿Cómo sé en qué nivel entra?"
+    a: "Hazle el Test Trialling, que es gratuito, o llámanos y lo vemos."
+  - q: "¿Sirve para subir la nota del instituto?"
+    a: "Ayuda, aunque el foco está en el idioma y en el título oficial. Si lo que hace falta es aprobar inglés en el instituto, mira las clases de apoyo."
   - q: "¿Cuándo puede presentarse al B1?"
-    a: "Cuando esté listo, no cuando toque por edad. Te lo decimos con franqueza."
+    a: "Cuando esté preparado. El Test Trialling sirve justo para saberlo."
   - q: "¿Se examina aquí?"
     a: "Con Trinity sí: somos centro examinador oficial."
 relacionados:
@@ -34,8 +36,14 @@ relacionados:
   - "ninos"
 ---
 
-## Por qué separamos por nivel y no por curso
+## Los cursos que ofrecemos
 
-Meter a todos los de 3º de la ESO en el mismo grupo es cómodo para la academia y malo para
-el alumno: el que va adelantado se aburre y el que va justo se descuelga. Hacemos prueba de
-nivel y agrupamos por lo que cada uno sabe de verdad.
+**Curso de invierno** — niveles A2, B1, B2 y C1. Nueve meses, de octubre a junio.
+Tres horas semanales repartidas en dos días de hora y media. Mañanas o tardes, tú eliges.
+
+**Curso intensivo de invierno** — nivel B1. Seis meses, de enero a junio.
+Tres horas semanales en dos días de hora y media.
+
+**Curso intensivo de verano** — niveles B1 y B2. Dos meses y una semana: julio, agosto y la
+primera semana de septiembre. Seis horas semanales repartidas en cuatro clases de hora y
+media, de lunes a jueves, sólo por las mañanas.

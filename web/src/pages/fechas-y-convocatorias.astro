@@ -5,16 +5,27 @@ import Eyebrow from '../components/blocks/Eyebrow.astro';
 import Card from '../components/ui/Card.astro';
 import Badge from '../components/ui/Badge.astro';
 import Button from '../components/ui/Button.astro';
+import { getCollection } from 'astro:content';
+
+const trinity = (await getCollection('convocatorias')).map((c) => c.data);
 
 /* Página nueva justificada por datos: las consultas con «2026» ya
    posicionan entre 1,5 y 5,8 sin que exista contenido (doc 07 §6). */
-const convocatorias = [
-  { t: 'Trinity · ISE I y ISE II', examen: '[FECHA]', plazo: '[FECHA]', sede: 'Nuestro centro', abierta: true, href: '/academia-de-ingles-en-sevilla-este/trinity/' },
-  { t: 'Prueba de acceso a Grado Superior', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/prueba-acceso-grado-superior-sevilla/' },
-  { t: 'Prueba de acceso a Grado Medio', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/acceso-grado-medio-academia-sevilla/' },
-  { t: 'Acceso a universidad · mayores de 25 y 45', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/acceso-universidad-mayores-25/' },
-  { t: 'Título de ESO · pruebas libres', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/conseguir-titulo-eso/' },
-  { t: 'PEvAU · convocatoria ordinaria', examen: '[FECHA]', plazo: '[FECHA]', sede: '[SEDE]', abierta: false, href: '/curso-selectividad-sevilla-pevau/' },
+const acceso = [
+  { t: 'Presentación de solicitudes', f: 'Del 12 al 23 de enero de 2026' },
+  { t: 'Relación provisional de admitidos y excluidos', f: '9 de febrero de 2026' },
+  { t: 'Reclamaciones a la relación provisional', f: 'Del 10 al 12 de febrero de 2026' },
+  { t: 'Realización de las pruebas', f: 'Del 6 al 30 de abril de 2026', destacado: true },
+  { t: 'Publicación del acta con los resultados', f: '4 de mayo de 2026' },
+  { t: 'Reclamación a la calificación', f: 'Del 5 al 7 de mayo de 2026' },
+  { t: 'Resultados definitivos', f: '11 de mayo de 2026' },
+];
+
+const intensivos = [
+  { t: 'Intensivo PEvAU de junio', f: 'Del 18 de mayo al 1 de junio · de lunes a sábado', href: '/curso-intensivos-selectividad-pevau/' },
+  { t: 'Intensivo PEvAU de julio', f: 'Del 17 al 29 de junio · de lunes a viernes', href: '/curso-intensivos-selectividad-pevau/' },
+  { t: 'Intensivo de inglés de verano (B1 y B2)', f: 'Julio, agosto y primera semana de septiembre', href: '/academia-de-ingles-en-sevilla-este/intensivos/' },
+  { t: 'Intensivo de inglés de invierno (B1)', f: 'De enero a junio', href: '/academia-de-ingles-en-sevilla-este/intensivos/' },
 ];
 
 const calendario = [
@@ -43,28 +54,69 @@ const calendario = [
   </section>
 
   <Section tone="paper">
-    <Eyebrow>Próximas convocatorias</Eyebrow>
-    <h2 class="text-(length:--text-h2)">Qué hay por delante.</h2>
+    <Eyebrow>Exámenes Trinity 2026</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Se examinan en nuestro centro.</h2>
+    <p class="max-w-[64ch] leading-relaxed text-slate">
+      Somos centro examinador oficial de Trinity College London. Las partes escrita
+      (Reading &amp; Writing) y oral (Speaking &amp; Listening) son independientes y las dos
+      se celebran aquí, sin que tengas que desplazarte.
+    </p>
+    <div class="overflow-x-auto rounded-card border border-line bg-paper">
+      <table class="w-full border-collapse text-left">
+        <caption class="sr-only">Calendario de exámenes Trinity ISE de 2026</caption>
+        <thead>
+          <tr class="bg-ink/4">
+            <th scope="col" class="border-b border-line px-4 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-slate">Convocatoria</th>
+            <th scope="col" class="border-b border-line px-4 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-slate">Escrito · R&amp;W</th>
+            <th scope="col" class="border-b border-line px-4 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-slate">Oral · S&amp;L</th>
+          </tr>
+        </thead>
+        <tbody>
+          {trinity.map((c) => (
+            <tr class="border-b border-line/60 last:border-0">
+              <td class="px-4 py-3.5 font-medium">{c.titulo.replace('Trinity ISE · ', '')}</td>
+              <td class="px-4 py-3.5 tabular">{c.escrito}</td>
+              <td class="px-4 py-3.5 tabular text-slate">{c.oral}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <Button href="/academia-de-ingles-en-sevilla-este/trinity/" variant="outline" class="self-start">Cómo preparamos el Trinity</Button>
+  </Section>
+
+  <Section tone="cream">
+    <Eyebrow>Acceso a ciclos formativos 2026</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Grado Medio y Grado Superior.</h2>
+    <p class="max-w-[64ch] leading-relaxed text-slate">
+      Las dos pruebas comparten calendario. La Junta de Andalucía convoca una vez al año, en abril.
+    </p>
+    <ol class="flex flex-col gap-0 overflow-hidden rounded-card border border-line bg-paper">
+      {acceso.map((a) => (
+        <li class={`flex flex-wrap items-baseline justify-between gap-3 border-b border-line/60 px-5 py-4 last:border-0 ${a.destacado ? 'bg-amber/25' : ''}`}>
+          <span class={a.destacado ? 'font-bold' : ''}>{a.t}</span>
+          <span class={`tabular ${a.destacado ? 'font-bold' : 'text-slate'}`}>{a.f}</span>
+        </li>
+      ))}
+    </ol>
+    <div class="flex flex-wrap gap-3">
+      <Button href="/prueba-acceso-grado-superior-sevilla/" variant="outline" size="sm">Acceso a Grado Superior</Button>
+      <Button href="/acceso-grado-medio-academia-sevilla/" variant="outline" size="sm">Acceso a Grado Medio</Button>
+    </div>
+  </Section>
+
+  <Section tone="paper">
+    <Eyebrow>Intensivos</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Cuándo son los cursos concentrados.</h2>
     <div class="grid gap-5 md:grid-cols-2">
-      {convocatorias.map((c) => (
-        <Card class="gap-3 p-6">
-          <div class="flex flex-wrap items-start justify-between gap-3">
-            <h3 class="text-(length:--text-h3)">{c.t}</h3>
-            {c.abierta ? <Badge tone="ok">Inscripción abierta</Badge> : <Badge>Por confirmar</Badge>}
-          </div>
-          <dl class="flex flex-col gap-1 text-[0.92rem]">
-            <div class="flex gap-2"><dt class="text-slate">Examen:</dt><dd class="tabular">{c.examen}</dd></div>
-            <div class="flex gap-2"><dt class="text-slate">Plazo de inscripción:</dt><dd class="tabular">{c.plazo}</dd></div>
-            <div class="flex gap-2"><dt class="text-slate">Dónde:</dt><dd>{c.sede}</dd></div>
-          </dl>
-          <a href={c.href} class="text-[0.92rem] font-semibold text-brand-ink">Cómo lo preparamos →</a>
+      {intensivos.map((i) => (
+        <Card class="gap-2 p-6">
+          <h3 class="text-(length:--text-h3)">{i.t}</h3>
+          <p class="tabular text-slate">{i.f}</p>
+          <a href={i.href} class="text-[0.92rem] font-semibold text-brand-ink">Ver el curso →</a>
         </Card>
       ))}
     </div>
-    <p class="text-[0.82rem] text-slate">
-      [PENDIENTE: rellenar con las fechas oficiales de cada convocatoria en cuanto salga la orden.
-      Esta página pierde todo su valor si no está al día.]
-    </p>
   </Section>
 
   <Section tone="cream">

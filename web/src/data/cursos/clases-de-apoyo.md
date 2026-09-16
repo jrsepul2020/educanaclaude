@@ -1,56 +1,50 @@
 ---
 titulo: "Clases de apoyo"
-h1: "Clases de apoyo en Sevilla Este"
-entradilla: "Refuerzo escolar para Primaria, ESO y Bachillerato en grupos de seis a ocho alumnos. Trabajamos las asignaturas que se atragantan y, sobre todo, la forma de estudiarlas: organizarse, entender el enunciado y llegar al examen sin agobios."
+h1: "Clases de apoyo y refuerzo escolar en Sevilla Este"
+entradilla: "Refuerzo escolar desde Primaria hasta Bachillerato, en todas las materias. Dos clases de hora y media a la semana, de lunes a jueves, con horarios de 16:00 a 22:00 para que encaje con el instituto y las extraescolares."
 metaTitulo: "Clases de apoyo en Sevilla Este · Educana"
-metaDescripcion: "Refuerzo escolar de Primaria, ESO y Bachillerato en Sevilla Este. Grupos de 6 a 8 alumnos y profesores propios. Más de 20 años. Pide información."
+metaDescripcion: "Refuerzo escolar de Primaria a Bachillerato en Sevilla Este. Dos clases de hora y media, de lunes a jueves, con horarios de 16:00 a 22:00."
 categoria: "estudios"
-orden: 10
+orden: 80
 datos:
   duracion: "Todo el curso escolar"
-  dias: "2 o 3 días · [HORAS] h/semana"
-  grupo: "6 a 8 alumnos"
-  desde: "[PRECIO] € / mes"
+  dias: "De lunes a jueves · dos clases de 1,5 h"
+  grupo: "Grupos reducidos"
+  desde: "Matrícula gratuita"
   convocatoria: "Matrícula abierta"
 incluye:
-  - titulo: "Las asignaturas que hagan falta"
-    texto: "No hay que elegir una sola: si va justo en mates y en lengua, se trabajan las dos."
-  - titulo: "Técnica de estudio"
-    texto: "La mayoría no suspende por no saber, suspende por no saber estudiar. Eso también se enseña."
-  - titulo: "Seguimiento de exámenes"
-    texto: "Sabemos cuándo tiene control y preparamos ese control, no un temario abstracto."
-  - titulo: "Contacto con la familia"
-    texto: "Os contamos cómo va antes de que llegue el boletín, no después."
+  - titulo: "Todas las materias, de Primaria a Bachillerato"
+    texto: "No hay que elegir una sola asignatura."
+  - titulo: "Horarios de 16:00 a 22:00"
+    texto: "Amplios, para que encaje con el instituto y con lo demás."
+  - titulo: "Técnicas de estudio"
+    texto: "Les guiamos en las materias que más se les atragantan aplicando las técnicas que mejor les funcionan."
+  - titulo: "Relación directa con las familias"
+    texto: "Control de asistencia y asesoramiento directo a padres y responsables."
 faq:
   - q: "¿Desde qué curso cogéis alumnos?"
-    a: "Desde Primaria hasta 2º de Bachillerato. [CONFIRMAR CURSOS EXACTOS]"
+    a: "Desde Primaria hasta Bachillerato, en todas las materias."
   - q: "¿Cuántos días a la semana?"
-    a: "Lo normal son dos o tres tardes. Depende de cuánto haya que recuperar y de cómo tenga la agenda."
+    a: "Dos clases de hora y media, de lunes a jueves."
+  - q: "¿Qué horarios hay?"
+    a: "Amplios, desde las 16:00 hasta las 22:00, para adaptarnos a las necesidades de cada uno."
   - q: "¿Se puede entrar con el curso empezado?"
-    a: "Sí. De hecho es lo habitual: la mayoría llega después de la primera evaluación."
-  - q: "¿Cuántos alumnos hay por clase?"
-    a: "De seis a ocho. Con ese tamaño el profesor sabe el nombre de cada uno y dónde falla."
-  - q: "¿Mandáis deberes además de los del instituto?"
-    a: "Sólo si hacen falta. La idea es que salga adelante, no que acabe saturado."
-  - q: "¿Cuánto cuesta?"
-    a: "[PRECIO ORIENTATIVO] al mes según los días. Llámanos y te lo decimos en un minuto."
+    a: "Sí, es lo habitual. La mayoría llega después de la primera evaluación."
+  - q: "¿Ayudáis a organizar los exámenes?"
+    a: "Sí. Resolvemos las dudas que plantean y les ayudamos a organizar con antelación sus exámenes."
+  - q: "¿Cómo sé cómo va mi hijo?"
+    a: "Hay control de asistencia y relación directa con las familias: te lo contamos antes de que llegue el boletín."
 relacionados:
   - "clases-particulares-sevilla"
   - "cursos-verano-sevilla"
 ---
 
-## Cómo trabajamos
+## El objetivo: desbloquear
 
-Lo primero es entender qué pasa. No es lo mismo un alumno que no entiende las matemáticas
-que uno que las entiende pero no llega al examen preparado. Miramos los últimos controles,
-hablamos con él y con vosotros, y a partir de ahí montamos el plan.
+Que un alumno no consiga aprobar una asignatura, o la lleve «cogida con alfileres», puede
+acabar en frustración y abandono. El objetivo aquí es desbloquearlo y darle seguridad a la
+hora de enfrentarse a las materias.
 
-Luego es constancia. Dos o tres tardes a la semana, siempre con el mismo profesor, siguiendo
-el temario real de su instituto y su calendario de exámenes. No damos un temario paralelo:
-damos el suyo.
-
-## Para quién es
-
-- Alumnos de **Primaria** que arrastran lagunas de lectura o de cálculo.
-- Alumnos de **ESO** que han suspendido una o varias en la primera evaluación.
-- Alumnos de **Bachillerato** que necesitan subir la media pensando en la nota de corte.
+En clase resolvemos todas las dudas que plantean, les ayudamos a organizar con antelación
+sus exámenes y les guiamos en el estudio de las materias que más les cuestan, aplicando las
+técnicas de estudio que mejor les funcionan a cada uno.

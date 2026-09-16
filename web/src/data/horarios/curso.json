@@ -1,10 +1,156 @@
 [
-  { "id": "apoyo-eso-34", "curso": "Refuerzo escolar", "nivel": "3º y 4º ESO", "dias": "Lunes y miércoles", "horario": "17:00 – 18:30", "grupo": "6–8", "desde": "[PRECIO] €", "plazas": 3, "categoria": "Refuerzo" },
-  { "id": "apoyo-eso-12", "curso": "Refuerzo escolar", "nivel": "1º y 2º ESO", "dias": "Lunes y miércoles", "horario": "16:00 – 17:30", "grupo": "6–8", "desde": "[PRECIO] €", "plazas": 4, "categoria": "Refuerzo" },
-  { "id": "pevau-mates", "curso": "PEvAU · Matemáticas II", "nivel": "2º Bachillerato", "dias": "Viernes", "horario": "16:00 – 18:00", "grupo": "8", "desde": "[PRECIO] €", "plazas": 0, "categoria": "PEvAU" },
-  { "id": "pevau-lengua", "curso": "PEvAU · Lengua", "nivel": "2º Bachillerato", "dias": "Martes", "horario": "16:00 – 18:00", "grupo": "8", "desde": "[PRECIO] €", "plazas": 2, "categoria": "PEvAU" },
-  { "id": "ingles-b1", "curso": "Inglés B1", "nivel": "Adultos", "dias": "Martes y jueves", "horario": "19:30 – 21:00", "grupo": "6–8", "desde": "[PRECIO] €", "plazas": 2, "categoria": "Inglés" },
-  { "id": "ingles-b2", "curso": "Inglés B2", "nivel": "Adultos", "dias": "Lunes y miércoles", "horario": "19:30 – 21:00", "grupo": "6–8", "desde": "[PRECIO] €", "plazas": 5, "categoria": "Inglés" },
-  { "id": "ingles-ninos", "curso": "Inglés para niños", "nivel": "6–9 años", "dias": "Martes y jueves", "horario": "17:00 – 18:00", "grupo": "6", "desde": "[PRECIO] €", "plazas": 3, "categoria": "Inglés" },
-  { "id": "grado-superior", "curso": "Acceso a Grado Superior", "nivel": "—", "dias": "Lunes a jueves", "horario": "10:00 – 13:00", "grupo": "8", "desde": "[PRECIO] €", "plazas": 6, "categoria": "Accesos" }
+ {
+  "id": "apoyo",
+  "curso": "Clases de apoyo · refuerzo escolar",
+  "nivel": "De Primaria a Bachillerato",
+  "dias": "De lunes a jueves",
+  "horario": "De 16:00 a 22:00",
+  "grupo": "Dos clases de 1,5 h",
+  "desde": "Matrícula gratuita",
+  "plazas": 1,
+  "categoria": "Refuerzo"
+ },
+ {
+  "id": "verano",
+  "curso": "Curso de verano",
+  "nivel": "De Primaria a Bachillerato",
+  "dias": "De lunes a jueves",
+  "horario": "Mañanas",
+  "grupo": "Dos clases de 1,5 h",
+  "desde": "Matrícula gratuita",
+  "plazas": 1,
+  "categoria": "Refuerzo"
+ },
+ {
+  "id": "pevau",
+  "curso": "Selectividad PEvAU",
+  "nivel": "Por asignatura",
+  "dias": "De lunes a jueves",
+  "horario": "Mañana o tarde",
+  "grupo": "3 h/semana",
+  "desde": "Consúltanos",
+  "plazas": 1,
+  "categoria": "Accesos"
+ },
+ {
+  "id": "pevau-int-jun",
+  "curso": "Intensivo PEvAU de junio",
+  "nivel": "Por asignatura",
+  "dias": "De lunes a sábado",
+  "horario": "Mañanas",
+  "grupo": "1 h diaria",
+  "desde": "Reserva de plaza",
+  "plazas": 1,
+  "categoria": "Accesos"
+ },
+ {
+  "id": "pevau-int-jul",
+  "curso": "Intensivo PEvAU de julio",
+  "nivel": "Por asignatura",
+  "dias": "De lunes a viernes",
+  "horario": "Mañanas",
+  "grupo": "1 h diaria",
+  "desde": "Reserva de plaza",
+  "plazas": 1,
+  "categoria": "Accesos"
+ },
+ {
+  "id": "gs",
+  "curso": "Acceso a Grado Superior",
+  "nivel": "Curso de invierno",
+  "dias": "L y X o M y J",
+  "horario": "Mañana o tarde",
+  "grupo": "6 meses y medio",
+  "desde": "120 € · 3 asignaturas",
+  "plazas": 1,
+  "categoria": "Accesos"
+ },
+ {
+  "id": "gs-semi",
+  "curso": "Acceso a Grado Superior",
+  "nivel": "Semipresencial",
+  "dias": "De lunes a viernes",
+  "horario": "Flexible",
+  "grupo": "Online o presencial",
+  "desde": "Consúltanos",
+  "plazas": 1,
+  "categoria": "Accesos"
+ },
+ {
+  "id": "gm",
+  "curso": "Acceso a Grado Medio",
+  "nivel": "Curso de invierno",
+  "dias": "Mañana L y X · tarde M y J",
+  "horario": "Mañana o tarde",
+  "grupo": "6 meses y medio",
+  "desde": "Matrícula gratuita",
+  "plazas": 1,
+  "categoria": "Accesos"
+ },
+ {
+  "id": "m25",
+  "curso": "Acceso universidad mayores de 25 y 45",
+  "nivel": "Por asignatura",
+  "dias": "De lunes a jueves",
+  "horario": "Mañana o tarde",
+  "grupo": "3 h/semana",
+  "desde": "180 € · 4 asignaturas",
+  "plazas": 1,
+  "categoria": "Accesos"
+ },
+ {
+  "id": "eso",
+  "curso": "Título de ESO",
+  "nivel": "Por ámbito",
+  "dias": "De lunes a jueves",
+  "horario": "Mañana o tarde",
+  "grupo": "3 h/semana",
+  "desde": "Matrícula gratuita",
+  "plazas": 1,
+  "categoria": "Accesos"
+ },
+ {
+  "id": "ing-inv",
+  "curso": "Inglés · curso de invierno",
+  "nivel": "A2, B1, B2 y C1",
+  "dias": "Dos días por semana",
+  "horario": "Mañanas o tardes",
+  "grupo": "3 h/semana",
+  "desde": "62 €",
+  "plazas": 1,
+  "categoria": "Inglés"
+ },
+ {
+  "id": "ing-int-inv",
+  "curso": "Inglés · intensivo de invierno",
+  "nivel": "B1",
+  "dias": "Dos días por semana",
+  "horario": "Mañanas o tardes",
+  "grupo": "3 h/semana",
+  "desde": "62 €",
+  "plazas": 1,
+  "categoria": "Inglés"
+ },
+ {
+  "id": "ing-int-ver",
+  "curso": "Inglés · intensivo de verano",
+  "nivel": "B1 y B2",
+  "dias": "De lunes a jueves",
+  "horario": "Sólo mañanas",
+  "grupo": "6 h/semana",
+  "desde": "62 €",
+  "plazas": 1,
+  "categoria": "Inglés"
+ },
+ {
+  "id": "particulares",
+  "curso": "Clases particulares",
+  "nivel": "De Primaria a universidad",
+  "dias": "A convenir",
+  "horario": "A convenir",
+  "grupo": "Individual",
+  "desde": "Consúltanos",
+  "plazas": 1,
+  "categoria": "Particulares"
+ }
 ]

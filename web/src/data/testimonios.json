@@ -1,0 +1,14 @@
+[
+  {
+    "id": "marta",
+    "texto": "Estuve en la academia para reforzar la asignatura de química durante el curso y me sirvió de mucha ayuda. Son profesionales y hay muy buena comunicación entre los profesores y los alumnos.",
+    "nombre": "Marta",
+    "contexto": "Estudiante"
+  },
+  {
+    "id": "alvaro",
+    "texto": "Buenísimos profesores y muy buen trato. Te ayudan en todo lo que necesites. Gracias a ellos he conseguido muy buenos resultados. Volvería a confiar en ellos al 100%.",
+    "nombre": "Álvaro",
+    "contexto": "Estudiante"
+  }
+]

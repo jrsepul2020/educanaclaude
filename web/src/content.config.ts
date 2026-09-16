@@ -98,4 +98,30 @@ const noticias = defineCollection({
   }),
 });
 
-export const collections = { cursos, horarios, ingles, legales, noticias };
+/* Calendario oficial de exámenes Trinity, tomado de la web actual.
+   Es el diferencial de la marca y hasta ahora estaba enterrado. */
+const convocatorias = defineCollection({
+  loader: file('./src/data/convocatorias.json'),
+  schema: z.object({
+    id: z.string(),
+    tipo: z.string(),
+    titulo: z.string(),
+    escrito: z.string(),
+    oral: z.string(),
+    sede: z.string(),
+  }),
+});
+
+/* Testimonios reales, tomados de la web actual. Sólo se publican los
+   que existen: dos. Hacen falta más, con su convocatoria y su curso. */
+const testimonios = defineCollection({
+  loader: file('./src/data/testimonios.json'),
+  schema: z.object({
+    id: z.string(),
+    texto: z.string().min(60),
+    nombre: z.string(),
+    contexto: z.string(),
+  }),
+});
+
+export const collections = { cursos, horarios, ingles, legales, noticias, convocatorias, testimonios };

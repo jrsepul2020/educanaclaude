@@ -1,46 +1,56 @@
 ---
 titulo: "Cursos de verano"
-h1: "Cursos de verano en Sevilla Este"
-entradilla: "Refuerzo de julio para no llegar a septiembre con las asignaturas pendientes y para no perder el ritmo durante el verano. Grupos por curso y por asignatura, por las mañanas, con el temario de la recuperación."
+h1: "Cursos de verano y refuerzo escolar en Sevilla Este"
+entradilla: "Para preparar las materias pendientes o empezar el curso siguiente con base. Grupos reducidos y homogéneos por etapa y materia, de Primaria a Bachillerato, con dos clases de hora y media de lunes a jueves y exámenes mensuales."
 metaTitulo: "Cursos de verano en Sevilla Este · Educana"
-metaDescripcion: "Cursos de verano en Sevilla Este para preparar recuperaciones de septiembre y repasar el curso. Grupos reducidos por asignatura, en horario de mañana."
+metaDescripcion: "Cursos de verano en Sevilla Este para recuperar materias pendientes o coger base. De Primaria a Bachillerato, en grupos reducidos y homogéneos."
 categoria: "estudios"
-orden: 80
+orden: 90
 datos:
-  duracion: "Julio [y agosto]"
-  dias: "Mañanas · [HORAS] h/día"
-  grupo: "6 a 8 alumnos"
-  desde: "[PRECIO] € / mes"
-  convocatoria: "Matrícula desde [MES]"
+  duracion: "Verano"
+  dias: "De lunes a jueves · dos clases de 1,5 h"
+  grupo: "Grupos reducidos y homogéneos"
+  desde: "Matrícula gratuita"
+  convocatoria: "Matrícula desde final de curso"
 incluye:
-  - titulo: "Preparación de recuperaciones"
-    texto: "Con el temario y el criterio de su instituto, no uno genérico."
-  - titulo: "Repaso para no perder el ritmo"
-    texto: "Para quien ha aprobado pero llega justo al curso siguiente."
-  - titulo: "Grupos por curso y asignatura"
+  - titulo: "Grupos homogéneos por etapa y materia"
     texto: "No se mezclan niveles: un grupo de mates de 3º es un grupo de mates de 3º."
-  - titulo: "Horario de mañana"
-    texto: "Se quita el trabajo pronto y le queda la tarde libre."
+  - titulo: "Exámenes mensuales"
+    texto: "Con control de asistencia y de trabajo diario."
+  - titulo: "Plataforma Educaline"
+    texto: "Consulta personalizada de los resultados y de la evolución del alumno."
+  - titulo: "Todas las etapas"
+    texto: "De Primaria a Bachillerato."
 faq:
-  - q: "¿Cuándo empiezan?"
-    a: "En julio. [CONFIRMAR FECHAS EXACTAS]"
-  - q: "¿Se puede venir sólo a una asignatura?"
-    a: "Sí, la mayoría viene a una o dos."
-  - q: "¿También en agosto?"
-    a: "[CONFIRMAR: sí / no]"
-  - q: "¿Sirve para las recuperaciones de septiembre?"
-    a: "Es justo para lo que está pensado: trabajamos con el temario de la recuperación."
-  - q: "¿Hay grupos para Primaria?"
-    a: "[CONFIRMAR]"
-  - q: "¿Cuánto cuesta?"
-    a: "[PRECIO] € al mes según asignaturas y días."
+  - q: "¿Para qué sirve el curso de verano?"
+    a: "Para preparar con éxito las materias pendientes y para los alumnos que quieren empezar el curso siguiente con una base."
+  - q: "¿Qué etapas cubrís?"
+    a: "Todas, de Primaria a Bachillerato."
+  - q: "¿Cuántas clases a la semana?"
+    a: "Dos clases de hora y media, de lunes a jueves."
+  - q: "¿Cómo sé cómo va?"
+    a: "Hay exámenes mensuales, control de asistencia y trabajo diario, y se pueden consultar los resultados en nuestra plataforma Educaline."
+  - q: "¿Los grupos mezclan cursos?"
+    a: "No. Son reducidos y homogéneos por etapas y materias."
 relacionados:
   - "clases-de-apoyo"
   - "clases-particulares-sevilla"
 ---
 
-## Julio se aprovecha o se pierde
+## Nunca hay que rendirse
 
-Quien llega a septiembre sin haber tocado un libro desde junio se examina en desventaja.
-En julio el temario está reciente y quedan semanas por delante: es cuando de verdad se
-recupera una asignatura.
+A veces los resultados del curso no son los que esperábamos. Es entonces cuando aparece la
+necesidad de buscar un sitio que ayude de verdad.
+
+Si has suspendido o necesitas reforzar materias, el verano no se puede dejar pasar: el
+temario está reciente y quedan semanas por delante. Es cuando de verdad se recupera una asignatura.
+
+## Qué incluye
+
+- Grupos reducidos y homogéneos por etapas y materias
+- Todas las etapas, de Primaria a Bachillerato
+- Dos clases de hora y media, de lunes a jueves
+- Exámenes mensuales y control de asistencia y trabajo diario
+- Consulta de resultados y evolución a través de la plataforma Educaline
+- Asesoramiento directo a familiares y responsables
+- Desarrollo de técnicas de estudio a medida de cada alumno

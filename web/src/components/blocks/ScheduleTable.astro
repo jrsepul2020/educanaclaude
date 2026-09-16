@@ -1,5 +1,4 @@
 ---
-import Badge from '../ui/Badge.astro';
 export interface Grupo {
   curso: string; nivel: string; dias: string; horario: string;
   grupo: string; desde: string; plazas: number; categoria: string;
@@ -22,7 +21,7 @@ const { grupos, categorias } = Astro.props;
       <caption class="sr-only">Horarios y precios del curso por grupo</caption>
       <thead>
         <tr class="bg-ink/4">
-          {['Curso', 'Nivel', 'Días', 'Horario', 'Grupo', 'Desde', 'Plazas'].map((h) => (
+          {['Curso', 'Nivel', 'Días', 'Horario', 'Clases', 'Desde'].map((h) => (
             <th scope="col" class="border-b border-line px-4 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-slate">{h}</th>
           ))}
         </tr>
@@ -35,12 +34,7 @@ const { grupos, categorias } = Astro.props;
             <td class="px-4 py-3.5 text-slate">{g.dias}</td>
             <td class="px-4 py-3.5 tabular">{g.horario}</td>
             <td class="px-4 py-3.5 tabular text-slate">{g.grupo}</td>
-            <td class="px-4 py-3.5 tabular">{g.desde}</td>
-            <td class="px-4 py-3.5">
-              {g.plazas > 0
-                ? <Badge tone="ok">Quedan {g.plazas}</Badge>
-                : <Badge tone="neutral">Completo</Badge>}
-            </td>
+            <td class="px-4 py-3.5 font-medium tabular">{g.desde}</td>
           </tr>
         ))}
       </tbody>

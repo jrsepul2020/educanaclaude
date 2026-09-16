@@ -6,6 +6,7 @@ import StatBlock from '../components/blocks/StatBlock.astro';
 import TrinityBand from '../components/blocks/TrinityBand.astro';
 import Card from '../components/ui/Card.astro';
 import Button from '../components/ui/Button.astro';
+import Testimonios from '../components/blocks/Testimonios.astro';
 
 const equipo = [
   { n: '[Nombre]', m: 'Matemáticas y Física' },
@@ -16,7 +17,7 @@ const equipo = [
 ---
 <Base
   title="Quiénes somos · Academia Educana"
-  description="Academia Educana lleva más de 20 años en Sevilla Este con profesorado propio y grupos de 6 a 8 alumnos. Centro examinador oficial de Trinity College London."
+  description="Academia Educana lleva más de 20 años en Sevilla Este, con grupos reducidos e instalaciones climatizadas. Centro examinador oficial de Trinity."
 >
   <section class="bg-cream pt-8 pb-12 md:pt-10 md:pb-16">
     <div class="container-page flex flex-col gap-6">
@@ -26,9 +27,9 @@ const equipo = [
       <Eyebrow>La academia</Eyebrow>
       <h1 class="text-(length:--text-h1) max-w-[18ch]">Veinte años en la misma esquina de Sevilla Este.</h1>
       <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[60ch]">
-        Empezamos con un aula y un puñado de alumnos del barrio. Hoy han pasado por aquí
-        más de 6.700, seguimos en el Edificio Galileo y muchos de los profesores llevan
-        con nosotros desde hace años.
+        Nuestro centro en Sevilla Este surge de la necesidad que tiene el alumnado de un
+        apoyo continuo. Por aquí han pasado más de 6.700 estudiantes y el objetivo sigue
+        siendo el mismo: que resuelvan sus dificultades y aprueben los exámenes.
       </p>
     </div>
   </section>
@@ -37,10 +38,9 @@ const equipo = [
     <StatBlock stats={[
       { n: '20+', label: 'años en el mismo barrio', accent: true },
       { n: '6.796', label: 'alumnos han pasado por Educana' },
-      { n: '6–8', label: 'alumnos por grupo' },
-      { n: '4', label: 'exámenes oficiales preparados aquí' },
+      { n: '4', label: 'exámenes oficiales: Trinity, Cambridge, EOI y APTIS' },
+      { n: '0 €', label: 'de matrícula, en todos los cursos', accent: true },
     ]} />
-    <p class="text-[0.82rem] text-slate">[CONFIRMAR CIFRAS con el cliente: la web actual dice a la vez «15 años» y «20+».]</p>
   </Section>
 
   <Section tone="cream">
@@ -48,12 +48,12 @@ const equipo = [
     <h2 class="text-(length:--text-h2)">Tres cosas que no negociamos.</h2>
     <div class="grid gap-6 md:grid-cols-3">
       <Card class="gap-3 p-6">
-        <h3 class="text-(length:--text-h3)">Grupos de seis a ocho</h3>
-        <p class="leading-relaxed text-slate">Es el tamaño que permite que el profesor sepa el nombre de cada alumno y dónde falla cada uno. Por encima, se dan clases; por debajo, no salen las cuentas.</p>
+        <h3 class="text-(length:--text-h3)">Grupos reducidos</h3>
+        <p class="leading-relaxed text-slate">Es lo que permite que el profesor sepa el nombre de cada alumno y dónde falla cada uno. Las instalaciones están adaptadas y climatizadas, y los horarios se adaptan a lo que necesites.</p>
       </Card>
       <Card class="gap-3 p-6">
         <h3 class="text-(length:--text-h3)">Profesorado propio</h3>
-        <p class="leading-relaxed text-slate">Los mismos profesores curso tras curso. Conocen los institutos del barrio, a sus jefes de departamento y cómo examina cada uno.</p>
+        <p class="leading-relaxed text-slate">Una plantilla con gran experiencia, vocación y conocimiento del sistema educativo actual. Conocen los distintos centros de la zona y cómo examina cada uno.</p>
       </Card>
       <Card class="gap-3 p-6">
         <h3 class="text-(length:--text-h3)">Se dice la verdad</h3>
@@ -87,6 +87,10 @@ const equipo = [
   </Section>
 
   <Section tone="cream">
+    <Testimonios />
+  </Section>
+
+  <Section tone="paper">
     <div class="flex flex-wrap items-center gap-6">
       <div class="flex-1 min-w-[18rem] flex flex-col gap-3">
         <h2 class="text-(length:--text-h2)">¿Nos conocemos?</h2>

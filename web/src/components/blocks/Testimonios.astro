@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '../ui/Card.astro';
+import Eyebrow from './Eyebrow.astro';
+const items = (await getCollection('testimonios')).map((t) => t.data);
+---
+{items.length > 0 && (
+  <>
+    <Eyebrow>Lo que dicen</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Alumnos que han pasado por aquí.</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+      {items.map((t) => (
+        <Card class="gap-4 p-6">
+          <blockquote class="text-(length:--text-lead) leading-relaxed">
+            <p>«{t.texto}»</p>
+          </blockquote>
+          <footer class="text-[0.9rem]">
+            <span class="font-semibold">{t.nombre}</span>
+            <span class="text-slate"> · {t.contexto}</span>
+          </footer>
+        </Card>
+      ))}
+    </div>
+  </>
+)}

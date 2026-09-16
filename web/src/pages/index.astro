@@ -8,6 +8,7 @@ import CampaignBanner from '../components/blocks/CampaignBanner.astro';
 import TrinityBand from '../components/blocks/TrinityBand.astro';
 import LeadForm from '../components/blocks/LeadForm.astro';
 import Card from '../components/ui/Card.astro';
+import Testimonios from '../components/blocks/Testimonios.astro';
 
 const puertas = [
   { t: 'Mi hijo necesita refuerzo', p: 'Va justo en alguna asignatura o se ha descolgado este trimestre.', href: '/clases-de-apoyo/' },
@@ -17,19 +18,19 @@ const puertas = [
 ---
 <Base
   title="Academia en Sevilla Este · Academia Educana"
-  description="Clases de apoyo, preparación de la PEvAU, pruebas de acceso y exámenes oficiales de inglés en Sevilla Este. Grupos de 6 a 8 y más de 20 años de experiencia."
+  description="Clases de apoyo, PEvAU, pruebas de acceso y exámenes oficiales de inglés en Sevilla Este. Grupos reducidos y más de 20 años de experiencia."
 >
   <Hero
     eyebrow="Academia en Sevilla Este · desde 2005"
     title="Llevamos 20 años consiguiendo que aprueben."
-    lead="Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos de 6 a 8 alumnos y profesores propios que repiten curso tras curso."
+    lead="Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos reducidos, matrícula gratuita y material incluido en el precio."
   />
 
   <CampaignBanner
-    tag="Septiembre"
-    text="Matrícula abierta para el curso 2026–2027. Quedan plazas en refuerzo de ESO y en los grupos de B1."
-    cta="Ver horarios"
-    href="/horarios-cursos/"
+    tag="Trinity"
+    text="Somos centro examinador oficial: preparas el examen aquí y te examinas aquí. Hay convocatoria casi todos los meses."
+    cta="Ver las fechas"
+    href="/fechas-y-convocatorias/"
   />
 
   <Section tone="cream">
@@ -51,12 +52,16 @@ const puertas = [
     <StatBlock stats={[
       { n: '20+', label: 'años en el mismo barrio', accent: true },
       { n: '6.796', label: 'alumnos han pasado por Educana' },
-      { n: '6–8', label: 'alumnos por grupo' },
-      { n: '4', label: 'exámenes oficiales preparados aquí' },
+      { n: '4', label: 'exámenes oficiales: Trinity, Cambridge, EOI y APTIS' },
+      { n: '0 €', label: 'de matrícula, en todos los cursos', accent: true },
     ]} />
   </Section>
 
   <Section tone="cream">
+    <Testimonios />
+  </Section>
+
+  <Section tone="paper">
     <Eyebrow>Contacto</Eyebrow>
     <h2 class="text-(length:--text-h2)">¿Hablamos?</h2>
     <div class="max-w-2xl"><LeadForm context="home" /></div>

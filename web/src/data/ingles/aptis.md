@@ -1,43 +1,49 @@
 ---
 titulo: "APTIS"
 h1: "Preparar el APTIS en Sevilla Este"
-entradilla: "Preparación del APTIS del British Council, el examen más ágil para acreditar un nivel: se hace por ordenador, la nota llega en pocos días y es el que más se acepta en oposiciones y bolsas de trabajo en España."
+entradilla: "Preparamos el APTIS junto con los exámenes de Trinity, Cambridge y la Escuela Oficial de Idiomas. Con profesores titulados y bilingües que conocen bien la estructura de cada examen, en grupos reducidos y con matrícula gratuita."
 metaTitulo: "Academia APTIS en Sevilla Este · Preparación"
-metaDescripcion: "Preparamos el APTIS del British Council en Sevilla Este. Práctica con el formato por ordenador, simulacros y corrección individual. Grupos reducidos."
+metaDescripcion: "Preparamos el examen APTIS en Sevilla Este con profesores titulados y bilingües. Grupos reducidos, matrícula gratuita y examen de prueba sin coste."
 eje: "examen"
 orden: 60
 datos:
-  partida: "Según prueba de nivel"
-  duracion: "Curso o intensivo"
-  dias: "2 días · 1,5 h"
-  grupo: "6 a 8 alumnos"
-  desde: "[PRECIO] € / mes"
+  partida: "Según tu nivel"
+  duracion: "9 meses · de octubre a junio"
+  dias: "2 días de 1,5 h · mañanas o tardes"
+  grupo: "Grupos reducidos"
+  desde: "62 € · matrícula gratuita"
 puntos:
-  - titulo: "Resultados rápidos"
-    texto: "La nota llega en pocos días, no en semanas. Clave si vas con una fecha de oposición encima."
-  - titulo: "Formato por ordenador"
-    texto: "Se practica en el mismo formato en el que te vas a examinar."
-  - titulo: "El favorito en oposiciones"
-    texto: "Es el que más aparece en convocatorias públicas en España. [CONFIRMAR CASOS]"
+  - titulo: "Uno de los cuatro que preparamos"
+    texto: "Trinity, Cambridge, Escuela Oficial de Idiomas y APTIS."
+  - titulo: "Profesores titulados y bilingües"
+    texto: "Con experiencia, muy conocedores de la estructura del examen y con formación anual para reciclar sus conocimientos."
+  - titulo: "Test Trialling gratuito"
+    texto: "Un examen de prueba sin coste, en condiciones reales de examen. Sirve para coger confianza antes del examen de verdad y para que un examinador con experiencia nos diga cómo va el grupo."
 faq:
-  - q: "¿Qué es exactamente el APTIS?"
-    a: "Un examen del British Council que mide las cuatro destrezas y te da un nivel del A1 al C. Se hace por ordenador."
-  - q: "¿Sirve para oposiciones?"
-    a: "Es de los más aceptados en convocatorias públicas, pero revisa siempre tu convocatoria concreta."
-  - q: "¿En cuánto tiempo tengo la nota?"
-    a: "Normalmente en pocos días laborables, mucho antes que Cambridge o Trinity."
+  - q: "¿Qué es el APTIS?"
+    a: "Un examen oficial de inglés que mide las cuatro destrezas y acredita un nivel del Marco Común Europeo."
   - q: "¿Dónde me examino?"
-    a: "En un centro habilitado del British Council. Te ayudamos con la inscripción."
-  - q: "¿Se puede preparar en pocas semanas?"
-    a: "Si ya tienes el nivel y sólo necesitas el formato, sí. Si hay que subir de nivel, no."
+    a: "En un centro habilitado. Si prefieres examinarte en nuestro propio centro, la vía es Trinity."
+  - q: "¿Qué niveles preparáis?"
+    a: "A2, B1, B2 y C1, dentro de los cursos de invierno."
+  - q: "¿Cuánto cuesta?"
+    a: "62 € a tu nivel, con matrícula gratuita. La tasa del examen va aparte."
+  - q: "¿Hay examen de prueba?"
+    a: "Sí, el Test Trialling, sin coste alguno."
 relacionados:
   - "adultos"
   - "b2"
   - "intensivos"
 ---
 
-## Cuándo elegir APTIS
+## Los cursos que ofrecemos
 
-Cuando tienes una fecha encima. Si la oposición cierra plazo en seis semanas y necesitas
-acreditar un B2, el APTIS es casi siempre la vía más rápida: se convoca con frecuencia y
-la nota no tarda.
+**Curso de invierno** — niveles A2, B1, B2 y C1. Nueve meses, de octubre a junio.
+Tres horas semanales repartidas en dos días de hora y media. Mañanas o tardes, tú eliges.
+
+**Curso intensivo de invierno** — nivel B1. Seis meses, de enero a junio.
+Tres horas semanales en dos días de hora y media.
+
+**Curso intensivo de verano** — niveles B1 y B2. Dos meses y una semana: julio, agosto y la
+primera semana de septiembre. Seis horas semanales repartidas en cuatro clases de hora y
+media, de lunes a jueves, sólo por las mañanas.

@@ -1,48 +1,50 @@
 ---
 titulo: "Intensivos PEvAU"
 h1: "Cursos intensivos de selectividad (PEvAU) en Sevilla"
-entradilla: "Intensivos de repaso para la PEvAU concentrados en las semanas previas al examen. Para quien lleva el curso al día y quiere asegurar, y para quien va a la convocatoria extraordinaria y necesita recuperar terreno rápido."
+entradilla: "Intensivos teórico-prácticos en las semanas previas al examen, una hora diaria por asignatura y en horario de mañana. Hay intensivo para la convocatoria de junio y otro para la de julio, los dos en grupos reducidos."
 metaTitulo: "Intensivo de selectividad PEvAU en Sevilla"
-metaDescripcion: "Cursos intensivos de PEvAU en Sevilla Este: repaso por asignaturas, simulacros con el modelo vigente y corrección individual. Plazas limitadas."
+metaDescripcion: "Cursos intensivos de PEvAU en Sevilla Este para las convocatorias de junio y julio. Una hora diaria por asignatura en horario de mañana."
 categoria: "accesos"
-orden: 50
+orden: 20
 datos:
-  duracion: "[SEMANAS] semanas"
-  dias: "Intensivo · [HORAS] h/semana"
-  grupo: "8 alumnos"
-  desde: "[PRECIO] € por asignatura"
-  convocatoria: "Antes de la PEvAU de junio"
+  duracion: "2 semanas"
+  dias: "De lunes a sábado · 1 h diaria por asignatura"
+  grupo: "Grupos reducidos"
+  desde: "Reserva de plaza"
+  convocatoria: "Intensivo de junio y de julio"
 incluye:
-  - titulo: "Repaso por asignaturas sueltas"
-    texto: "Te apuntas sólo a las que necesites, no a un paquete cerrado."
-  - titulo: "Simulacros con el modelo vigente"
-    texto: "Mismos tiempos y mismo criterio de corrección que el examen real."
-  - titulo: "Corrección individual"
-    texto: "Cada examen corregido uno a uno, con el porqué de cada punto perdido."
-  - titulo: "También para la extraordinaria"
-    texto: "Si en junio no salió, en julio se vuelve a intentar."
+  - titulo: "Intensivo de junio"
+    texto: "Del 18 de mayo al 1 de junio, el día antes de que empiecen los exámenes. De lunes a sábado."
+  - titulo: "Intensivo de julio"
+    texto: "Del 17 al 29 de junio, para la convocatoria extraordinaria. De lunes a viernes."
+  - titulo: "Una hora diaria por asignatura"
+    texto: "En horario de mañana, para que la tarde quede libre para estudiar."
+  - titulo: "Si suspendes 2º de Bachillerato, se devuelve la reserva"
+    texto: "Como los grupos son reducidos hay que reservar plaza. Si al final no te presentas porque no has aprobado 2º, se te devuelve el importe."
 faq:
-  - q: "¿Cuándo empiezan los intensivos?"
-    a: "[FECHAS]. Las plazas vuelan porque los grupos son de ocho."
-  - q: "¿Puedo apuntarme a una sola asignatura?"
-    a: "Sí, es lo más habitual. La gente viene a las dos o tres que lleva peor."
-  - q: "¿Sirve si no he ido a la academia durante el curso?"
-    a: "Sí, aunque cuanto peor sea la base, menos se puede arreglar en pocas semanas. Te lo diremos con franqueza."
-  - q: "¿Cuántas horas son?"
-    a: "[HORAS] semanales por asignatura durante [SEMANAS] semanas."
-  - q: "¿Hacéis intensivos para la convocatoria extraordinaria?"
-    a: "Sí, en julio. [CONFIRMAR FECHAS]"
-  - q: "¿Cuánto cuesta?"
-    a: "[PRECIO] € por asignatura. Llámanos y te decimos qué te conviene."
+  - q: "¿Cuándo es el intensivo de junio?"
+    a: "Del 18 de mayo al 1 de junio, el día anterior al comienzo de los exámenes. De lunes a sábado."
+  - q: "¿Y el de julio?"
+    a: "Del 17 al 29 de junio, también hasta el día antes de los exámenes de la convocatoria extraordinaria. De lunes a viernes."
+  - q: "¿Cuántas horas al día?"
+    a: "Una hora diaria por asignatura, en horario de mañana."
+  - q: "¿Hay que reservar plaza?"
+    a: "Sí, porque los grupos son reducidos. Y si no apruebas 2º de Bachillerato y no llegas a presentarte, se te devuelve el importe de la reserva."
+  - q: "¿Puedo ir sólo a una asignatura?"
+    a: "Sí, es lo más habitual."
+  - q: "¿Sirve si no he dado clase aquí durante el curso?"
+    a: "Sí, aunque cuanto peor sea la base menos se puede arreglar en dos semanas. Te lo diremos con franqueza antes de que reserves."
 relacionados:
   - "curso-selectividad-sevilla-pevau"
   - "clases-particulares-sevilla"
 ---
 
-## Para quién sí, y para quién no
+## Dos intensivos, dos convocatorias
 
-**Sí** para quien lleva el curso más o menos al día y quiere afinar: repasar el temario
-completo, entrenar el examen y perder el miedo al formato.
+**Junio.** Del 18 de mayo al 1 de junio, de lunes a sábado. Termina el día antes de que
+empiecen los exámenes.
 
-**No** como sustituto de un curso entero. Si el temario está en blanco, unas semanas no
-lo arreglan, y preferimos decírtelo antes que cobrarte por algo que no va a funcionar.
+**Julio.** Del 17 al 29 de junio, de lunes a viernes, para la convocatoria extraordinaria.
+
+En los dos casos es una hora diaria por asignatura y por la mañana, de forma que la tarde
+queda libre para estudiar lo que se ha visto en clase.

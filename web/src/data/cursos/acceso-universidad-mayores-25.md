@@ -1,49 +1,56 @@
 ---
 titulo: "Acceso universidad mayores de 25 y 45"
 h1: "Acceso a la universidad para mayores de 25 y 45 años"
-entradilla: "Preparación de la prueba de acceso a la universidad para mayores de 25 y de 45 años: fase general y fase específica de la rama que elijas. Para quien lleva años fuera del sistema educativo y quiere entrar en un grado."
+entradilla: "Curso de octubre a abril para entrar en la universidad sin Bachillerato ni Grado Superior. Tres horas semanales por asignatura, en grupos reducidos y con material propio incluido. Preparamos tanto la prueba de mayores de 25 como la de mayores de 45."
 metaTitulo: "Acceso a universidad mayores de 25 · Sevilla"
-metaDescripcion: "Preparamos la prueba de acceso a la universidad para mayores de 25 y 45 años en Sevilla Este. Fase general y específica, grupos reducidos, horario compatible."
+metaDescripcion: "Preparamos la prueba de acceso a la universidad para mayores de 25 y 45 años en Sevilla Este. De octubre a abril, en grupos reducidos."
 categoria: "accesos"
-orden: 40
+orden: 50
 datos:
-  duracion: "Octubre a [MES]"
-  dias: "2 o 3 días · tarde"
-  grupo: "8 alumnos"
-  desde: "[PRECIO] € / mes"
-  convocatoria: "Convocatoria [MES] de 2027"
+  duracion: "De octubre a abril"
+  dias: "De lunes a jueves · 3 h/semana por asignatura"
+  grupo: "Grupos reducidos"
+  desde: "180 € · 4 asignaturas"
+  convocatoria: "Convocatoria de primavera"
 incluye:
-  - titulo: "Fase general"
-    texto: "Comentario de texto, lengua, idioma extranjero y, en mayores de 25, el resto de comunes."
-  - titulo: "Fase específica"
-    texto: "De la rama de conocimiento del grado que quieras estudiar."
-  - titulo: "Pensado para adultos"
-    texto: "La mayoría de nuestros alumnos trabaja. El ritmo y el horario lo tienen en cuenta."
-  - titulo: "Empezar desde cero"
-    texto: "Si hace quince años que no estudias, se nota en la primera clase y se arregla en las siguientes."
+  - titulo: "Fase general y fase específica"
+    texto: "Las dos partes de la prueba de mayores de 25, y las dos fases de la de mayores de 45."
+  - titulo: "Material didáctico incluido"
+    texto: "Elaborado por cada profesor especializado en su materia."
+  - titulo: "Horario de mañana o de tarde"
+    texto: "Clases de lunes a jueves, tres horas semanales por asignatura."
+  - titulo: "Asesoramiento profesional"
+    texto: "Qué rama elegir según el grado al que quieras acceder."
 faq:
+  - q: "¿En qué consiste la prueba de mayores de 25?"
+    a: "En dos fases. La general son tres exámenes de una hora: Comentario de texto, Lengua Española y traducción de un texto en lengua extranjera — alemán, francés, inglés, italiano o portugués. La específica consiste en elegir una de las cinco ramas de conocimiento y examinarse de dos materias de esa rama, hora y media cada una."
+  - q: "¿Y la de mayores de 45?"
+    a: "También dos fases. La primera son dos ejercicios de una hora: comentario de texto o desarrollo de un tema general, y Lengua Española. La segunda es una entrevista personal en la que se valoran los aspectos relacionados con la titulación a la que quieres acceder."
   - q: "Llevo años sin estudiar, ¿voy a poder?"
-    a: "Es el perfil normal de este curso. Casi nadie llega con el temario fresco; empezamos donde estés."
-  - q: "¿Qué diferencia hay entre la de 25 y la de 45?"
-    a: "Son pruebas distintas: la de 45 no tiene fase específica y añade una entrevista personal. Te explicamos cuál te conviene."
-  - q: "¿Cuándo es la prueba?"
-    a: "La convocatoria andaluza suele ser en [MES]. Está en nuestra página de fechas."
+    a: "Es el perfil normal de estos grupos. Casi nadie llega con el temario fresco."
+  - q: "¿Cuándo empieza el curso?"
+    a: "En octubre, y termina en abril."
   - q: "¿Puedo compaginarlo con el trabajo?"
-    a: "Sí, los grupos son de tarde. [CONFIRMAR HORARIOS]"
-  - q: "¿Qué nota necesito?"
-    a: "Depende del grado al que optes y de la nota de corte de ese año. Lo vemos contigo desde el principio."
-  - q: "¿Sirve para cualquier carrera?"
-    a: "Para las de la rama que prepares en la fase específica. Elegimos la rama al empezar."
+    a: "Sí. Hay horario de mañana y de tarde, y las clases son de lunes a jueves."
+  - q: "¿Qué incluye el precio?"
+    a: "El material didáctico de cada materia, elaborado por el profesor especializado."
 relacionados:
   - "curso-selectividad-sevilla-pevau"
   - "conseguir-titulo-eso"
 ---
 
-## Quién viene a este curso
+## La prueba de mayores de 25 años
 
-Gente de treinta, cuarenta o cincuenta años que dejó de estudiar en su momento y ahora
-quiere un grado. Casi todos trabajan. Casi todos llegan con la misma frase: *llevo mucho
-tiempo sin abrir un libro*.
+**Fase general.** Tres exámenes de una hora cada uno: Comentario de texto, Lengua Española
+y traducción de un texto en lengua extranjera — alemán, francés, inglés, italiano o portugués.
 
-Eso no es un problema, es el punto de partida. Lo que sí hace falta es constancia: son
-meses de trabajo continuado, y quien viene dos semanas antes no lo saca.
+**Fase específica.** Eliges una de las cinco ramas de conocimiento y te examinas de dos
+materias de esa rama, con un examen de hora y media por materia.
+
+## La prueba de mayores de 45 años
+
+**Primera fase.** Dos ejercicios de una hora: comentario de texto o desarrollo de un tema
+general, y Lengua Española.
+
+**Segunda fase.** Una entrevista personal en la que se valoran los aspectos generales
+relacionados con la titulación a la que quieras acceder.
