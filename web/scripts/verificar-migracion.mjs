@@ -18,8 +18,11 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { readdir } from 'node:fs/promises';
 import { join, relative } from 'node:path';
+import { redirecciones } from '../redirecciones.mjs';
 
-const DIST = existsSync('dist/client') ? 'dist/client' : 'dist';
+/* El adaptador de Vercel deja el sitio en .vercel/output/static.
+   Se admiten las tres ubicaciones para no atarse a un alojamiento. */
+const DIST = ['.vercel/output/static', 'dist/client', 'dist'].find(existsSync) ?? 'dist';
 const fallos = [];
 const avisos = [];
 const bien = [];
@@ -55,27 +58,36 @@ const rutaDe = (f) => ('/' + relative(DIST, f).replace(/index\.html$/, '').repla
 const paginas = new Map(archivos.map((f) => [rutaDe(f), readFileSync(f, 'utf8')]));
 
 // ── 1 · URLs con tráfico ────────────────────────────────────────────
-const redirecciones = new Map();
-const redFile = join(DIST, '_redirects');
-if (existsSync(redFile)) {
-  for (const l of readFileSync(redFile, 'utf8').split('\n')) {
-    const t = l.split('#')[0].trim().split(/\s+/);
-    if (t.length >= 3) redirecciones.set(t[0], { destino: t[1], codigo: +t[2] });
-  }
-  ok(`_redirects presente con ${redirecciones.size} reglas`);
-} else {
-  fallo('Falta public/_redirects en el build: no habría ninguna 301');
+/* Las 301 se leen del mapa, no de un archivo de salida: así la
+   comprobación vale igual sea cual sea el alojamiento. */
+const reglas = new Map();
+for (const [origen, destino] of Object.entries(redirecciones)) {
+  const clave = origen.includes('[') ? origen : origen + (origen.includes('.') ? '' : '/');
+  reglas.set(clave, destino);
 }
+ok(`Mapa de redirecciones con ${reglas.size} reglas 301`);
 
-const perdidas = URLS_CON_TRAFICO.filter((u) => !paginas.has(u) && !redirecciones.has(u));
+const cubierta = (u) => {
+  if (reglas.has(u)) return true;
+  for (const clave of reglas.keys()) {
+    if (!clave.includes('[')) continue;
+    const base = clave.slice(0, clave.indexOf('/['));
+    if (u.startsWith(base + '/')) return true;
+  }
+  return false;
+};
+
+const config = existsSync('vercel.json') ? JSON.parse(readFileSync('vercel.json', 'utf8')) : null;
+if (config?.redirects?.length === reglas.size) ok(`vercel.json al día · ${config.redirects.length} redirecciones`);
+else fallo('vercel.json no coincide con el mapa de redirecciones: ejecuta `npm run build`');
+
+const perdidas = URLS_CON_TRAFICO.filter((u) => !paginas.has(u) && !cubierta(u));
 if (perdidas.length) fallo(`URLs con tráfico que desaparecen sin redirección: ${perdidas.join(', ')}`);
 else ok(`Las ${URLS_CON_TRAFICO.length} URLs con tráfico se conservan`);
 
 // ── 2 · Destinos de las redirecciones ───────────────────────────────
-for (const [origen, r] of redirecciones) {
-  if (r.codigo === 410) continue;
-  if (origen.includes('*')) continue;
-  if (!paginas.has(r.destino)) fallo(`La redirección ${origen} apunta a ${r.destino}, que no existe`);
+for (const [origen, destino] of reglas) {
+  if (!paginas.has(destino)) fallo(`La redirección ${origen} apunta a ${destino}, que no existe`);
 }
 if (!fallos.some((f) => f.includes('apunta a'))) ok('Toda redirección apunta a una página existente');
 
@@ -86,7 +98,7 @@ for (const [ruta, html] of paginas) {
     const h = m[1];
     if (/\.(png|jpe?g|svg|webp|avif|xml|txt|css|js|ico|webmanifest|pdf)$/.test(h)) continue;
     if (h.startsWith('/api/')) continue;
-    if (!paginas.has(h) && !redirecciones.has(h)) {
+    if (!paginas.has(h) && !cubierta(h)) {
       if (!rotos.has(h)) rotos.set(h, new Set());
       rotos.get(h).add(ruta);
     }

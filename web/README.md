@@ -2,6 +2,8 @@
 
 Astro 7 + Tailwind 4 + TypeScript estricto. Sin React: la web no envía ni un archivo JavaScript.
 
+**Alojamiento: Vercel.** El *Root Directory* del proyecto tiene que ser `web`.
+
 ```bash
 npm install
 npm run dev        # http://localhost:4321
@@ -27,7 +29,7 @@ toca y que no se publican legales sin revisar ni datos sin rellenar. Si falla, n
 | `src/components/layout/` | Header, Footer, MobileBar, Seo, Schema |
 | `src/data/` | Contenido en Markdown y JSON, validado con Zod en `src/content.config.ts` |
 | `src/lib/nap.ts` | NAP oficial. Debe coincidir con Google Business Profile |
-| `public/_redirects` | Mapa de 301 contrastado con Search Console |
+| `redirecciones.mjs` | Mapa de 301 contrastado con Search Console. Única fuente de verdad: `vercel.json` se genera de aquí en cada build |
 
 ## Reglas que no se saltan
 

@@ -34,7 +34,7 @@ Astro permite **elegir el renderizado página a página**: la web sigue siendo H
 | Imágenes | `astro:assets` → AVIF/WebP, tamaños responsivos, sin CLS | |
 | Formularios | Endpoint de Astro + **Resend** + protección antispam (honeypot + límite de envíos) | Sin dependencias de terceros pesadas |
 | SEO | `@astrojs/sitemap` + componente propio de metadatos y JSON-LD | |
-| Alojamiento | **Vercel** o **Cloudflare Pages** | Despliegue desde git, CDN global, previsualizaciones por rama |
+| Alojamiento | **Vercel** | Despliegue desde git, CDN global, previsualizaciones por rama. ⚠️ El proyecto vive en `web/`, así que el **Root Directory del proyecto de Vercel tiene que ser `web`** |
 | Analítica | GA4 + Search Console (+ Plausible si se quiere algo ligero) | |
 | Control de versiones | Git desde el primer commit | Hoy el proyecto no está en git |
 

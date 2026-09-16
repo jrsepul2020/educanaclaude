@@ -3,17 +3,17 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/preparacion-selectividad-sevilla/",
+      "source": "/preparacion-selectividad-sevilla",
       "destination": "/curso-selectividad-sevilla-pevau/",
       "permanent": true
     },
     {
-      "source": "/pruebas-acceso-universidad/",
+      "source": "/pruebas-acceso-universidad",
       "destination": "/acceso-universidad-mayores-25/",
       "permanent": true
     },
     {
-      "source": "/horarios-2/",
+      "source": "/horarios-2",
       "destination": "/horarios-cursos/",
       "permanent": true
     },
@@ -23,43 +23,58 @@
       "permanent": true
     },
     {
-      "source": "/tienda/",
+      "source": "/educaline-mantenimiento",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/tienda",
       "destination": "/contacto/",
       "permanent": true
     },
     {
-      "source": "/carrito/",
+      "source": "/carrito",
       "destination": "/contacto/",
       "permanent": true
     },
     {
-      "source": "/finalizar-compra/",
+      "source": "/finalizar-compra",
       "destination": "/contacto/",
       "permanent": true
     },
     {
-      "source": "/mi-cuenta/",
+      "source": "/mi-cuenta",
       "destination": "/contacto/",
       "permanent": true
     },
     {
-      "source": "/mi-perfil/",
+      "source": "/mi-perfil",
       "destination": "/contacto/",
       "permanent": true
     },
     {
-      "source": "/producto/reserva/",
+      "source": "/producto/reserva",
       "destination": "/contacto/",
       "permanent": true
     },
     {
-      "source": "/reserva-clases/",
+      "source": "/reserva-clases",
       "destination": "/contacto/",
       "permanent": true
     },
     {
-      "source": "/alumno/:path*",
+      "source": "/alumno/:ruta*",
       "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/lessons/:ruta*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/:ruta*",
+      "destination": "/",
       "permanent": true
     }
   ],

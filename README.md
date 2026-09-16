@@ -8,6 +8,9 @@ Sevilla Este con más de veinte años y centro examinador oficial de Trinity Col
 
 ## Empezar
 
+> **El sitio vive en `web/`, no en la raíz.** Si lo despliegas en Vercel, el
+> **Root Directory del proyecto tiene que ser `web`** o todo responderá 404.
+
 ```bash
 cd web
 npm install

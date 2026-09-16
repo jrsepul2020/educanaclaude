@@ -16,19 +16,30 @@ titular.
 los tres textos legales, sobre todo el apartado de destinatarios y los plazos de conservación.
 Está en la lista de abajo.
 
-## 1 · Alojamiento: Cloudflare Pages
-| | |
-|---|---|
-| Por qué | Plan gratuito suficiente, CDN global, `_redirects` y `_headers` nativos y previsualización por rama |
-| Comando de build | `npm run build` |
-| Carpeta de salida | `dist` |
-| Nodo | 22 o superior |
-| Funciones | Sólo `/api/contacto` y `/api/empleo`. Las 34 páginas son estáticas |
+## 1 · Alojamiento: Vercel
 
-Cambiar a Vercel es sustituir `@astrojs/cloudflare` por `@astrojs/vercel` en
-`astro.config.mjs`. El `vercel.json` ya está generado **a partir de** `_redirects`,
-así que no hay dos listas que se desincronicen. Ojo: las tres reglas `410` de Vercel
-no tienen equivalente declarativo y caerían en 404.
+| Ajuste del proyecto | Valor |
+|---|---|
+| **Root Directory** | **`web`** ⚠️ |
+| Framework preset | Astro |
+| Build command | `npm run build` (por defecto) |
+| Nodo | 22 o superior |
+
+> ⚠️ **El fallo más fácil de cometer.** El repositorio tiene el sitio en `web/`, no en la raíz.
+> Si el *Root Directory* se queda en `./`, Vercel no encuentra el proyecto de Astro y **todo
+> responde 404**. Es lo primero que hay que comprobar si algo no carga.
+
+Las 33 páginas se sirven estáticas desde la CDN. Sólo `/api/contacto` y `/api/empleo` se
+ejecutan como funciones.
+
+### Las redirecciones
+Viven en **`web/redirecciones.mjs`**, que es la única fuente de verdad. `npm run build` ejecuta
+antes `scripts/generar-config-host.mjs`, que escribe `vercel.json` a partir de ese mapa, de
+forma que el archivo del alojamiento nunca se desincroniza. La verificación comprueba que los
+dos coinciden.
+
+Las tres reglas que antes eran `410` ahora son 301 a `/`. Para contenido sin tráfico real
+—3 clics al año entre las 28 lecciones— la diferencia es irrelevante.
 
 ### Variables de entorno
 | Variable | Para qué | Si falta |
@@ -46,7 +57,8 @@ no tienen equivalente declarativo y caerían en 404.
 - [ ] Verificar el dominio del remitente en Resend (registros SPF y DKIM). Sin esto, los avisos del formulario acaban en spam.
 - [ ] **Que la asesoría legal valide los tres textos.** Son los del cliente, adaptados a lo que la web hace ahora, pero la revisión final no la puede hacer una agencia web.
 - [ ] Configurar `EMAIL_EMPLEO=rrhh@academiaeducana.com` para que las candidaturas no vayan al buzón general.
-- [ ] Desplegar en la URL de Cloudflare (`*.pages.dev`) y probarlo todo allí **con `noindex` global**.
+- [ ] Desplegar en la URL de previsualización de Vercel y probarlo todo allí **con `noindex` global**.
+- [ ] Confirmar que el **Root Directory del proyecto de Vercel es `web`**.
 - [ ] Bajar el TTL del DNS a 300 segundos. Así una vuelta atrás tarda cinco minutos y no dos días.
 
 ## 3 · Pruebas en la URL de previsualización

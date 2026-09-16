@@ -21,36 +21,40 @@ equivocado es peor que no publicarlo.
 Sin esto **los formularios no envían ningún correo**. La web avisa al usuario de que llame,
 así que no se rompe, pero cada contacto que no llame se pierde.
 
-```bash
-# 1. Crear cuenta en resend.com y verificar el dominio (SPF + DKIM)
-# 2. Generar API key
-cd web
-npx wrangler secret put RESEND_API_KEY
-npx wrangler secret put EMAIL_DESTINO      # secretaria@academiaeducana.com
-npx wrangler secret put EMAIL_REMITENTE    # web@academiaeducana.com
-npx wrangler secret put EMAIL_EMPLEO       # rrhh@academiaeducana.com
-```
+Crear cuenta en [resend.com](https://resend.com), verificar el dominio con SPF y DKIM, generar
+la API key y definir estas variables en **Vercel → Settings → Environment Variables**:
+
+| Variable | Valor |
+|---|---|
+| `RESEND_API_KEY` | la clave de Resend |
+| `EMAIL_DESTINO` | `secretaria@academiaeducana.com` |
+| `EMAIL_REMITENTE` | `web@academiaeducana.com` |
+| `EMAIL_EMPLEO` | `rrhh@academiaeducana.com` |
 
 ### 3 · Google Analytics 4 · 10 minutos
 Crear la propiedad, copiar el ID `G-XXXXXXXXXX` y ponerlo como variable `PUBLIC_GA4_ID` en el
-panel de Cloudflare Pages. Sin ella no se carga analítica **ni aparece el banner de cookies**. Se define con `npx wrangler secret put PUBLIC_GA4_ID` o en el panel de Cloudflare.
+panel de Cloudflare Pages. Sin ella no se carga analítica **ni aparece el banner de cookies**. Se define como `PUBLIC_GA4_ID` en las variables de entorno de Vercel.
 
 ### 4 · Validación legal
 Que la asesoría revise los tres textos, sobre todo destinatarios y plazos de conservación.
 
-## Desplegar
+## Desplegar en Vercel
+
+### Ajuste imprescindible del proyecto
+| | |
+|---|---|
+| **Root Directory** | **`web`** |
+| Framework preset | Astro |
+
+> ⚠️ **Si el Root Directory se queda en `./`, todo responde 404.** El repositorio tiene el
+> sitio en `web/`, no en la raíz. Es el primer sitio donde mirar si algo no carga.
 
 ```bash
 cd web
-npx wrangler login
-npm run desplegar
+npm run desplegar      # verifica y, sólo si está en verde, despliega
 ```
 
-`npm run desplegar` construye, pasa la verificación y **sólo despliega si está en verde**.
-La configuración de Cloudflare la genera el propio adaptador de Astro en
-`dist/server/wrangler.json`; no hay que mantener un `wrangler.toml` a mano.
-
-Eso publica en una URL `*.workers.dev`. **Probar ahí todo antes de tocar el dominio:**
+**Probar en la URL de previsualización antes de tocar el dominio:**
 
 - [ ] Enviar el formulario de contacto y comprobar que llega el correo
 - [ ] Enviar una candidatura con un CV real y comprobar que llega el adjunto a `rrhh@`
@@ -63,7 +67,7 @@ Eso publica en una URL `*.workers.dev`. **Probar ahí todo antes de tocar el dom
 1. **Copia de seguridad completa del WordPress** (archivos + base de datos), guardada fuera del servidor.
 2. **Bajar el TTL del DNS a 300 s** en Piensa Solutions. Hacerlo **24 h antes**.
 3. Comprobar las 301 en `educana.pages.dev` una a una.
-4. **Cambiar el DNS** al alojamiento nuevo.
+4. **Cambiar el DNS** en Piensa Solutions apuntando a Vercel (o añadir el dominio desde el panel de Vercel, que da los registros exactos).
 5. Comprobar el certificado HTTPS y que `http://` y el dominio sin `www` siguen redirigiendo.
 6. Enviar el sitemap nuevo en Search Console y retirar el antiguo.
 7. Pedir indexación de las cinco páginas con más tráfico.
