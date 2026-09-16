@@ -1,0 +1,78 @@
+---
+import Badge from '../ui/Badge.astro';
+export interface Grupo {
+  curso: string; nivel: string; dias: string; horario: string;
+  grupo: string; desde: string; plazas: number; categoria: string;
+}
+interface Props { grupos: Grupo[]; categorias: string[] }
+const { grupos, categorias } = Astro.props;
+---
+<div class="flex flex-col gap-5">
+  <div class="flex flex-wrap items-center gap-2.5" role="group" aria-label="Filtrar horarios por tipo de estudio">
+    <button type="button" data-filtro="todos" aria-pressed="true"
+      class="h-9 rounded-pill border border-ink bg-ink px-4 text-[0.78rem] font-semibold text-cream transition-colors aria-pressed:bg-ink aria-pressed:text-cream">Todos</button>
+    {categorias.map((c) => (
+      <button type="button" data-filtro={c} aria-pressed="false"
+        class="h-9 rounded-pill border border-line bg-paper px-4 text-[0.78rem] font-medium text-slate transition-colors hover:border-ink/40">{c}</button>
+    ))}
+  </div>
+
+  <div class="overflow-x-auto rounded-card border border-line bg-paper">
+    <table class="w-full border-collapse text-left">
+      <caption class="sr-only">Horarios y precios del curso por grupo</caption>
+      <thead>
+        <tr class="bg-ink/4">
+          {['Curso', 'Nivel', 'Días', 'Horario', 'Grupo', 'Desde', 'Plazas'].map((h) => (
+            <th scope="col" class="border-b border-line px-4 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-slate">{h}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {grupos.map((g) => (
+          <tr data-categoria={g.categoria} class="border-b border-line/60 last:border-0">
+            <td class="px-4 py-3.5 font-medium">{g.curso}</td>
+            <td class="px-4 py-3.5 text-slate">{g.nivel}</td>
+            <td class="px-4 py-3.5 text-slate">{g.dias}</td>
+            <td class="px-4 py-3.5 tabular">{g.horario}</td>
+            <td class="px-4 py-3.5 tabular text-slate">{g.grupo}</td>
+            <td class="px-4 py-3.5 tabular">{g.desde}</td>
+            <td class="px-4 py-3.5">
+              {g.plazas > 0
+                ? <Badge tone="ok">Quedan {g.plazas}</Badge>
+                : <Badge tone="neutral">Completo</Badge>}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p data-vacio hidden class="text-slate">No hay grupos de ese tipo ahora mismo. <a href="/contacto/" class="text-brand-ink underline">Llámanos y lo miramos</a>.</p>
+</div>
+
+<script>
+  /* Mejora progresiva: sin JS la tabla se ve entera, que es lo importante.
+     ~400 bytes — no justifica una isla de React (doc 06). */
+  document.querySelectorAll<HTMLElement>('[data-filtro]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filtro;
+      document.querySelectorAll<HTMLElement>('[data-filtro]').forEach((b) => {
+        const on = b === btn;
+        b.setAttribute('aria-pressed', String(on));
+        b.classList.toggle('bg-ink', on);
+        b.classList.toggle('text-cream', on);
+        b.classList.toggle('border-ink', on);
+        b.classList.toggle('bg-paper', !on);
+        b.classList.toggle('text-slate', !on);
+        b.classList.toggle('border-line', !on);
+      });
+      let visibles = 0;
+      document.querySelectorAll<HTMLElement>('[data-categoria]').forEach((row) => {
+        const ok = f === 'todos' || row.dataset.categoria === f;
+        row.hidden = !ok;
+        if (ok) visibles++;
+      });
+      const vacio = document.querySelector<HTMLElement>('[data-vacio]');
+      if (vacio) vacio.hidden = visibles > 0;
+    });
+  });
+</script>

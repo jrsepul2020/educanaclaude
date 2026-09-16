@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+  <style>
+*{box-sizing:border-box;}
+body{margin:0;background:#F2F2EF;color:#16161A;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#16161A;} a:hover{color:#5C5C58;}
+.page{display:flex;flex-direction:column;}
+.wfbar{display:flex;align-items:center;gap:16px;padding:13px 40px;background:#16161A;color:#F2F2EF;}
+.wfbar .nm{font-weight:700;font-size:14px;letter-spacing:.02em;}
+.wfbar .url{font-family:'Space Mono',ui-monospace,monospace;font-size:11px;color:#9A9A95;}
+.wfbar .meta{margin-left:auto;font-family:'Space Mono',ui-monospace,monospace;font-size:10px;color:#C4B590;letter-spacing:.06em;}
+.nav{display:flex;align-items:center;gap:28px;padding:18px 72px;background:#2A2A2E;color:#F2F2EF;}
+.nav .logo{width:130px;height:34px;border:1.5px dashed #6E6E6A;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',ui-monospace,monospace;font-size:9px;color:#B9B9B2;letter-spacing:.06em;}
+.nav .it{font-size:14px;color:#D8D8D2;}
+.nav .sp{margin-left:auto;display:flex;gap:14px;align-items:center;}
+.sec{padding:52px 72px;display:flex;flex-direction:column;gap:26px;background:#F2F2EF;border-bottom:1px solid #E4E4DE;}
+.sec.alt{background:#FFFFFF;}
+.sec.dark{background:#2A2A2E;color:#F2F2EF;border-bottom:none;}
+.sec.dark .tag{color:#B0B0A8;} .sec.dark .bar{background:#4A4A50;}
+.sec.dark .card{background:#34343A;border-color:#4A4A50;color:#E8E8E2;}
+.sec.dark .p{color:#C4C4BE;} .sec.dark .lead{color:#DCDCD6;}
+.sec.dark .btn{background:#F2F2EF;color:#16161A;}
+.sec.dark .btn.ghost{background:transparent;color:#F2F2EF;border-color:#8A8A84;}
+.tag{font-family:'Space Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7A7A74;}
+.h1{font-size:52px;line-height:1.04;font-weight:800;letter-spacing:-.025em;margin:0;max-width:17ch;text-wrap:pretty;}
+.h2{font-size:33px;line-height:1.1;font-weight:700;letter-spacing:-.02em;margin:0;max-width:22ch;text-wrap:pretty;}
+.h3{font-size:18px;line-height:1.25;font-weight:600;margin:0;}
+.h4{font-size:15px;line-height:1.3;font-weight:600;margin:0;}
+.lead{font-size:17px;line-height:1.6;color:#4A4A48;margin:0;max-width:60ch;}
+.p{font-size:14px;line-height:1.65;color:#6E6E6A;margin:0;max-width:64ch;}
+.bar{height:9px;border-radius:5px;background:#DEDED8;}
+.bars{display:flex;flex-direction:column;gap:9px;}
+.ph{border:1.5px dashed #B9B9B2;border-radius:6px;background:repeating-linear-gradient(135deg,#EAEAE5 0 10px,#F1F1EC 10px 20px);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',ui-monospace,monospace;font-size:11px;color:#7E7E78;text-align:center;padding:12px;line-height:1.5;}
+.row{display:flex;gap:24px;}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;}
+.card{background:#FFFFFF;border:1px solid #DEDED8;border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:13px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 26px;border-radius:26px;background:#16161A;color:#F2F2EF;font-size:15px;font-weight:600;}
+.btn.ghost{background:transparent;color:#16161A;border:1.5px solid #16161A;}
+.btn.sm{height:40px;padding:0 18px;font-size:13px;border-radius:20px;}
+.btns{display:flex;gap:13px;flex-wrap:wrap;align-items:center;}
+.note{display:block;font-family:'Space Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.55;color:#8C7B5E;border-left:2px solid #C4B590;padding-left:11px;max-width:78ch;}
+.stat .n{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1;}
+.stat .l{font-size:13px;color:#6E6E6A;margin-top:7px;line-height:1.4;}
+.chip{display:inline-flex;align-items:center;height:30px;padding:0 13px;border-radius:15px;border:1px solid #CACAC3;font-size:11.5px;font-family:'Space Mono',ui-monospace,monospace;color:#5C5C58;background:#fff;}
+.chip.new{border-color:#C4B590;color:#8C7B5E;background:#FBF8F1;}
+.chips{display:flex;gap:10px;flex-wrap:wrap;}
+.field{display:flex;flex-direction:column;gap:7px;}
+.field .lb{font-size:12px;color:#6E6E6A;font-weight:500;}
+.field .in{height:46px;border:1px solid #D4D4CD;border-radius:8px;background:#fff;}
+.field .in.ta{height:100px;}
+.foot{background:#2A2A2E;color:#B0B0A8;padding:44px 72px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;}
+.foot .ttl{font-size:11px;font-family:'Space Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#F2F2EF;margin-bottom:12px;}
+.foot .li{font-size:13px;line-height:1.95;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid #DEDED8;border-radius:10px;overflow:hidden;}
+.tbl th{font-family:'Space Mono',ui-monospace,monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#7A7A74;text-align:left;padding:13px 16px;border-bottom:1px solid #DEDED8;background:#F7F7F4;font-weight:400;}
+.tbl td{padding:14px 16px;font-size:14px;border-bottom:1px solid #EDEDE7;color:#3A3A38;}
+.acc{background:#fff;border:1px solid #DEDED8;border-radius:10px;display:flex;flex-direction:column;}
+.acc .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:17px 20px;font-size:14.5px;font-weight:600;border-bottom:1px solid #EDEDE7;}
+.acc .q:last-child{border-bottom:none;}
+.acc .pl{font-family:'Space Mono',ui-monospace,monospace;color:#9A9A95;font-weight:400;}
+.data{background:#fff;border:1.5px solid #16161A;border-radius:10px;padding:22px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;}
+.data .k{font-family:'Space Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7A7A74;}
+.data .v{font-size:17px;font-weight:700;margin-top:6px;line-height:1.25;}
+.rail{background:#fff;border:1px solid #DEDED8;border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:14px;}
+.bread{font-family:'Space Mono',ui-monospace,monospace;font-size:11px;color:#8A8A84;}
+.ladder{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+.ladder .st{border:1px solid #DEDED8;background:#fff;border-radius:10px;padding:18px;}
+.ladder .st .lv{font-size:26px;font-weight:800;letter-spacing:-.02em;}
+</style>
+</helmet>
+<div class="page">
+<div class="wfbar"><span class="nm">FECHAS Y CONVOCATORIAS ★ NUEVA</span><span class="url">/fechas-y-convocatorias/</span><span class="meta">CONSULTAS 2026 YA EN POSICIÓN 1,5–5,8</span></div><div class="nav">
+  <div class="logo">LOGO · sobre oscuro</div>
+  <div class="it">Estudios</div><div class="it">Pruebas de acceso</div><div class="it">Inglés</div>
+  <div class="it">Horarios</div><div class="it">Academia</div>
+  <div class="sp"><span class="it">954 40 96 96</span><span class="btn sm" style="background:#F2F2EF;color:#16161A;">Pide información</span></div>
+</div>
+<div class="sec">
+  <span class="bread">Inicio → Pruebas de acceso → Fechas y convocatorias</span>
+  <span class="tag">Curso 2026–2027</span>
+  <h1 class="h1">Todas las fechas del curso, en un sitio.</h1>
+  <p class="lead">Convocatorias, plazos de matrícula y fechas de examen de la PEvAU, las pruebas de acceso y los exámenes oficiales de inglés. Lo actualizamos cada vez que sale la orden.</p>
+  <span class="note">PÁGINA NUEVA JUSTIFICADA POR DATOS: "pruebas de acceso a grado medio 2026" ya rankea en posición 1,5 y "prueba de acceso a grado superior 2026" en 4,6. Es gente a semanas de matricularse.</span>
+</div>
+<div class="sec alt">
+  <div class="row" style="gap:14px;flex-wrap:wrap;">
+    <span class="chip">Todo</span><span class="chip">PEvAU</span><span class="chip">Grado Superior</span><span class="chip">Grado Medio</span><span class="chip">Mayores 25 y 45</span><span class="chip">Título ESO</span><span class="chip">Trinity</span><span class="chip">Cambridge</span><span class="chip">APTIS</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:18px;">
+    <span class="tag">Próximas · Otoño 2026</span>
+    <div class="grid2">
+      <div class="card"><div class="row" style="justify-content:space-between;align-items:flex-start;"><h3 class="h3">Trinity · ISE I y ISE II</h3><span class="chip new">Inscripción abierta</span></div><p class="p">Examen: [FECHA] · Plazo de inscripción: hasta [FECHA] · Sede: nuestro centro</p><div class="btns"><span class="btn sm ghost">Preparación Trinity</span></div></div>
+      <div class="card"><div class="row" style="justify-content:space-between;align-items:flex-start;"><h3 class="h3">Prueba de acceso a Grado Superior</h3><span class="chip">Convocatoria [MES]</span></div><p class="p">Examen: [FECHA] · Inscripción: [FECHA] a [FECHA] · Dónde: [SEDE]</p><div class="btns"><span class="btn sm ghost">Cómo la preparamos</span></div></div>
+      <div class="card"><div class="row" style="justify-content:space-between;align-items:flex-start;"><h3 class="h3">Acceso a universidad · Mayores de 25 y 45</h3><span class="chip">Convocatoria [MES]</span></div><p class="p">Examen: [FECHA] · Matrícula: [FECHA] a [FECHA]</p><div class="btns"><span class="btn sm ghost">Cómo la preparamos</span></div></div>
+      <div class="card"><div class="row" style="justify-content:space-between;align-items:flex-start;"><h3 class="h3">APTIS</h3><span class="chip">Convocatoria [MES]</span></div><p class="p">Examen: [FECHA] · Inscripción: hasta [FECHA]</p><div class="btns"><span class="btn sm ghost">Preparación APTIS</span></div></div>
+    </div>
+  </div>
+</div>
+<div class="sec">
+  <span class="tag">Calendario del curso</span><h2 class="h2">Mes a mes</h2>
+  <div class="grid4">
+    <div class="card"><span class="tag">Septiembre</span><div class="li" style="font-size:14px;line-height:1.9;">Matrícula del curso<br>Grupos de inglés</div></div>
+    <div class="card"><span class="tag">Enero</span><div class="li" style="font-size:14px;line-height:1.9;">Recuperaciones<br>Intensivos PEvAU</div></div>
+    <div class="card"><span class="tag">Abril–Junio</span><div class="li" style="font-size:14px;line-height:1.9;">PEvAU<br>Pruebas de acceso<br>Exámenes Trinity</div></div>
+    <div class="card"><span class="tag">Junio–Julio</span><div class="li" style="font-size:14px;line-height:1.9;">Cursos de verano<br>Intensivos de inglés</div></div>
+  </div>
+  <span class="note">Marcado como Course + hasCourseInstance con fechas reales. Es lo que permite aparecer con la fecha en el resultado de Google.</span>
+</div>
+<div class="sec alt">
+  <span class="tag">Contacto</span>
+  <h2 class="h2">¿Llegas a tiempo? Te lo decimos.</h2>
+  <div class="row">
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+      <p class="p">Cuéntanos qué necesitas y te decimos en qué grupo encajas, cuándo empieza y cuánto cuesta. Sin compromiso.</p>
+      <div class="grid2">
+        <div class="field"><span class="lb">Nombre</span><div class="in"></div></div>
+        <div class="field"><span class="lb">Teléfono</span><div class="in"></div></div>
+      </div>
+      <div class="field"><span class="lb">¿Qué necesitas?</span><div class="in"></div></div>
+      <div class="field"><span class="lb">Cuéntanos (opcional)</span><div class="in ta"></div></div>
+      <div class="btns"><span class="btn">Pide información</span><span class="btn ghost">Llamar 954 40 96 96</span></div>
+      <span class="note">4 campos. Cada campo extra cuesta conversiones. Envío → /gracias/ para poder medir.</span>
+    </div>
+    <div style="width:400px;display:flex;flex-direction:column;gap:14px;">
+      <div class="ph" style="height:250px;">MAPA — carga bajo demanda<br>(no iframe automático: pesa y hunde el LCP)</div>
+      <div class="card"><h4 class="h4">Horario de atención</h4><div class="bars"><div class="bar" style="width:100%"></div><div class="bar" style="width:94%"></div><div class="bar" style="width:88%"></div></div></div>
+    </div>
+  </div>
+</div><div class="foot">
+  <div><div class="logo" style="width:130px;height:34px;border:1.5px dashed #6E6E6A;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#B9B9B2;">LOGO</div>
+    <div class="li" style="margin-top:14px;">Avda. de las Ciencias 25, local 7<br>Edificio Galileo · 41020 Sevilla<br>954 40 96 96 · 686 08 55 66</div></div>
+  <div><div class="ttl">Estudios</div><div class="li">Clases de apoyo<br>Clases particulares<br>Cursos de verano<br>Cursos de invierno</div></div>
+  <div><div class="ttl">Pruebas de acceso</div><div class="li">Selectividad PEvAU<br>Intensivos PEvAU<br>Grado Superior<br>Grado Medio<br>Mayores de 25 y 45<br>Título ESO</div></div>
+  <div><div class="ttl">Inglés</div><div class="li">Niños · Teens · Adultos<br>B1 · B2 · C1<br>Trinity · Cambridge · APTIS<br>Intensivos</div></div>
+</div></div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,15 @@
+---
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+/* Bloque de campaña estacional: se cambia un archivo de contenido
+   (src/content/campana.json) y cambia la portada. Doc 01 §3. */
+interface Props { tag: string; text: string; cta: string; href: string }
+const { tag, text, cta, href } = Astro.props;
+---
+<div class="bg-paper border-y border-line">
+  <div class="container-page flex flex-wrap items-center gap-5 py-6">
+    <Badge tone="amber">{tag}</Badge>
+    <p class="flex-1 min-w-[16rem] text-[1.05rem] font-semibold">{text}</p>
+    <Button href={href} variant="outline" size="sm">{cta}</Button>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+---
+interface Props { tone?: 'cream' | 'paper' | 'ink'; class?: string; id?: string }
+const { tone = 'cream', class: extra = '', id } = Astro.props;
+const tones = { cream: 'bg-cream', paper: 'bg-paper', ink: 'bg-ink text-cream' };
+---
+<section id={id} class={`${tones[tone]} py-14 md:py-20 ${extra}`}>
+  <div class="container-page flex flex-col gap-7"><slot /></div>
+</section>

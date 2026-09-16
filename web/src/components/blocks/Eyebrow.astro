@@ -1,0 +1,7 @@
+---
+interface Props { tone?: 'brand' | 'amber' }
+const { tone = 'brand' } = Astro.props;
+---
+<p class={`text-[0.7rem] font-semibold uppercase tracking-[0.16em] ${tone === 'amber' ? 'text-amber' : 'text-brand-ink'}`}>
+  <slot />
+</p>

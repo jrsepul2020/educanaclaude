@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+  <style>
+*{box-sizing:border-box;}
+body{margin:0;}
+img{display:block;max-width:100%;}
+.lbl{position:relative;display:flex;align-items:center;gap:14px;padding:11px 32px;background:#14212F;color:#F2EFE9;font-family:ui-monospace,'SFMono-Regular',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+.lbl b{font-size:12px;letter-spacing:.06em;}
+.lbl .r{margin-left:auto;color:#FFC957;letter-spacing:.06em;}
+.stockmark{position:absolute;top:10px;left:10px;background:rgba(20,33,47,.86);color:#FFC957;font-family:ui-monospace,monospace;font-size:9.5px;letter-spacing:.1em;padding:5px 9px;border-radius:3px;text-transform:uppercase;}
+.wrapimg{position:relative;overflow:hidden;}
+
+:root{--red:#CD1228;--redink:#A50D1F;--navy:#14212F;--cream:#FAF7F2;--amber:#FFC957;--slate:#4A5568;--line:rgb(20 33 47 / .12);}
+body{background:var(--cream);color:var(--navy);font-family:'Schibsted Grotesk',system-ui,sans-serif;}
+a{color:var(--redink);} a:hover{color:var(--navy);}
+.dsp{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-.015em;line-height:1.06;}
+.b{padding:52px 48px;display:flex;flex-direction:column;gap:26px;}
+.b.w{background:#fff;}
+.tt{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--redink);font-weight:600;}
+.h2{font-size:34px;margin:0;}
+.h3{font-size:19px;margin:0;font-weight:600;}
+.p{font-size:14.5px;line-height:1.62;color:var(--slate);margin:0;max-width:70ch;}
+.mono{font-family:ui-monospace,'SFMono-Regular',monospace;font-size:11.5px;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}
+.sw{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;}
+.sw .ch{height:104px;display:flex;align-items:flex-end;padding:12px;}
+.sw .mt{padding:13px 14px;display:flex;flex-direction:column;gap:3px;}
+.sw .nm{font-size:13.5px;font-weight:600;}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;}
+.ok{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#1E6B3A;}
+.no{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--redink);}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 28px;border-radius:28px;background:var(--red);color:#fff;font-size:15px;font-weight:600;}
+.btn.o{background:transparent;color:var(--navy);border:1.5px solid rgb(20 33 47 / .28);}
+.btn.g{background:transparent;color:var(--redink);}
+.btn.sm{height:40px;padding:0 20px;font-size:13.5px;}
+.badge{display:inline-flex;align-items:center;height:27px;padding:0 12px;border-radius:14px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums;}
+.tbl th{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);text-align:left;padding:13px 16px;background:#F6F4F0;border-bottom:1px solid var(--line);font-weight:600;}
+.tbl td{padding:14px 16px;font-size:14.5px;border-bottom:1px solid rgb(20 33 47 / .07);}
+.fld{display:flex;flex-direction:column;gap:7px;}
+.fld .lb{font-size:12.5px;font-weight:600;}
+.fld .in{height:48px;border:1.5px solid rgb(20 33 47 / .18);border-radius:10px;background:#fff;}
+</style>
+</helmet>
+<div class="lbl"><b>TIPOGRAFÍA</b><span>Escala y uso · dirección A</span><span class="r">Newsreader + Schibsted Grotesk</span></div>
+<div class="b">
+  <span class="tt">Corrección</span>
+  <h2 class="dsp h2">Fuera Inter y Fraunces.</h2>
+  <p class="p">En el documento anterior recomendé <strong>Fraunces + Inter</strong>. Me equivoqué: son dos de las tipografías más usadas de la web y dan exactamente el aspecto de plantilla genérica que queremos evitar. Ninguna aporta nada que no consigamos con una fuente menos gastada y de la misma calidad. Descartadas.</p>
+</div>
+<div class="b w">
+  <span class="tt">Titulares · Newsreader</span>
+  <p class="p">Serif editorial variable, con eje óptico real. Rima con el serif del propio logotipo y transmite trayectoria sin parecer antigua. Sólo en H1, H2 y cifras grandes.</p>
+  <div style="display:flex;flex-direction:column;gap:20px;border-top:1px solid rgba(20,33,47,.12);padding-top:22px;">
+    <div><span class="mono" style="color:#4A5568;">Display · 72/1.02 · 500</span><div class="dsp" style="font-size:72px;">Aprueban</div></div>
+    <div><span class="mono" style="color:#4A5568;">H1 · 56/1.05 · 500</span><div class="dsp" style="font-size:56px;">Llevamos 20 años consiguiendo que aprueben</div></div>
+    <div><span class="mono" style="color:#4A5568;">H2 · 40/1.1 · 500</span><div class="dsp" style="font-size:40px;">Preparas el Trinity aquí. Y te examinas aquí.</div></div>
+    <div><span class="mono" style="color:#4A5568;">H3 · 26/1.2 · 600</span><div class="dsp" style="font-size:26px;font-weight:600;">Inglés para niños en Sevilla Este</div></div>
+  </div>
+</div>
+<div class="b">
+  <span class="tt">Texto y UI · Schibsted Grotesk</span>
+  <p class="p">Grotesca neutra con algo de carácter. Numerales tabulares excelentes, que es justo lo que necesitan las tablas de horarios y precios.</p>
+  <div style="display:flex;flex-direction:column;gap:18px;border-top:1px solid rgba(20,33,47,.12);padding-top:22px;max-width:70ch;">
+    <div><span class="mono" style="color:#4A5568;">Cuerpo grande · 19/1.62</span><p style="font-size:19px;line-height:1.62;color:#4A5568;margin:6px 0 0;">Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos de 6 a 8 alumnos y profesores propios que repiten curso tras curso.</p></div>
+    <div><span class="mono" style="color:#4A5568;">Cuerpo · 16/1.65</span><p style="font-size:16px;line-height:1.65;color:#4A5568;margin:6px 0 0;">En nuestras clases de apoyo los profesores explican, resuelven dudas y preparan tareas adicionales. Si vas justo en matemáticas, empezamos por ahí. Si lo que falla es organizarte, empezamos por eso.</p></div>
+    <div><span class="mono" style="color:#4A5568;">Pie y etiquetas · 13.5/1.5</span><p style="font-size:13.5px;line-height:1.5;color:#4A5568;margin:6px 0 0;">Avda. de las Ciencias 25, local 7 · Edificio Galileo · 41020 Sevilla</p></div>
+  </div>
+</div>
+<div class="b w">
+  <span class="tt">Números</span>
+  <h3 class="h3">Tabular-nums en todo lo que sea horario, precio o fecha</h3>
+  <div class="g2">
+    <div class="card"><span class="mono" style="color:#1E6B3A;">CON tabular-nums ✓</span>
+      <div style="font-variant-numeric:tabular-nums;font-size:17px;line-height:2;">17:00 – 18:30<br>19:30 – 21:00<br>11:15 – 12:45</div></div>
+    <div class="card"><span class="mono" style="color:#A50D1F;">SIN tabular-nums ✗</span>
+      <div style="font-variant-numeric:normal;font-size:17px;line-height:2;">17:00 – 18:30<br>19:30 – 21:00<br>11:15 – 12:45</div></div>
+  </div>
+  <p class="p">Diferencia pequeña, pero la página de horarios es la que está en posición 2,5 en Google. Merece estar impecable.</p>
+</div>
+
+</x-dc>
+</body>
+</html>

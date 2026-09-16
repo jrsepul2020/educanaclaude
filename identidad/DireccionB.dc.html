@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600;700&display=swap">
+  <style>
+*{box-sizing:border-box;}
+body{margin:0;}
+img{display:block;max-width:100%;}
+.lbl{position:relative;display:flex;align-items:center;gap:14px;padding:11px 32px;background:#14212F;color:#F2EFE9;font-family:ui-monospace,'SFMono-Regular',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+.lbl b{font-size:12px;letter-spacing:.06em;}
+.lbl .r{margin-left:auto;color:#FFC957;letter-spacing:.06em;}
+.stockmark{position:absolute;top:10px;left:10px;background:rgba(20,33,47,.86);color:#FFC957;font-family:ui-monospace,monospace;font-size:9.5px;letter-spacing:.1em;padding:5px 9px;border-radius:3px;text-transform:uppercase;}
+.wrapimg{position:relative;overflow:hidden;}
+
+:root{--red:#CD1228;--navy:#1B2A3A;--paper:#FBF6EC;--amber:#FFC957;--slate:#5A6472;}
+body{background:var(--paper);color:var(--navy);font-family:'Onest',system-ui,sans-serif;}
+a{color:var(--red);} a:hover{color:var(--navy);}
+.dsp{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1.02;}
+.nav{display:flex;align-items:center;gap:30px;padding:18px 60px;background:var(--navy);color:#FBF6EC;border-radius:0 0 26px 26px;}
+.nav img{height:30px;width:auto;} .nav .it{font-size:14.5px;color:#D9DEE5;}
+.nav .sp{margin-left:auto;display:flex;align-items:center;gap:16px;}
+.sec{padding:66px 60px;display:flex;flex-direction:column;gap:28px;}
+.sec.a{background:var(--amber);}
+.sec.n{background:var(--navy);color:#FBF6EC;border-radius:26px;margin:0 24px;}
+.tag{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:700;}
+.sec.n .tag{color:var(--amber);} .sec.a .tag{color:var(--navy);}
+.h1{font-size:62px;margin:0;max-width:15ch;}
+.h2{font-size:40px;margin:0;max-width:20ch;}
+.lead{font-size:18px;line-height:1.6;color:var(--slate);margin:0;max-width:56ch;}
+.sec.n .lead{color:#C6CEDA;} .sec.a .lead{color:#3D4756;}
+.p{font-size:15px;line-height:1.62;color:var(--slate);margin:0;}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 32px;border-radius:27px;background:var(--red);color:#fff;font-size:16px;font-weight:700;text-decoration:none;}
+.btn.o{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+.sec.n .btn.o{background:transparent;color:#FBF6EC;border-color:#FBF6EC;}
+.btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.mark{display:inline-block;background:var(--amber);padding:0 .12em;border-radius:6px;}
+.card{background:#fff;border:2px solid var(--navy);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:5px 5px 0 rgba(27,42,58,.1);}
+.card .bd{padding:24px;display:flex;flex-direction:column;gap:11px;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;}
+.stat .n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:58px;line-height:1;letter-spacing:-.035em;}
+.stat .l{font-size:13.5px;color:var(--slate);margin-top:8px;line-height:1.45;}
+.stk{display:inline-flex;align-items:center;height:32px;padding:0 15px;border-radius:16px;background:var(--red);color:#fff;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;transform:rotate(-2deg);}
+</style>
+</helmet>
+<div class="lbl"><b>DIRECCIÓN B</b><span>Cuaderno · más cercana y familiar</span><span class="r">Bricolage Grotesque + Onest</span></div>
+<div class="nav">
+  <img src="logo.png" alt="Educana">
+  <span class="it">Estudios</span><span class="it">Pruebas de acceso</span><span class="it">Inglés</span><span class="it">Horarios</span>
+  <span class="sp"><span class="it">954 40 96 96</span><a class="btn" style="height:42px;padding:0 22px;font-size:14px;">Pide información</a></span>
+</div>
+<div class="sec">
+  <div style="display:flex;gap:52px;align-items:center;">
+    <div style="flex:1.05;display:flex;flex-direction:column;gap:24px;">
+      <span class="stk">Matrícula abierta</span>
+      <h1 class="dsp h1">Llevamos 20 años consiguiendo que <span class="mark">aprueben</span>.</h1>
+      <p class="lead">Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos de 6 a 8 y profesores propios que repiten curso tras curso.</p>
+      <div class="btns"><a class="btn">Pide información</a><a class="btn o">Llamar 954 40 96 96</a></div>
+    </div>
+    <div style="flex:1;border-radius:24px;overflow:hidden;border:2px solid var(--navy);"><div class="wrapimg" style="height:370px;"><img src="foto4.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock · a sustituir</span></div></div>
+  </div>
+</div>
+<div class="sec a">
+  <span class="tag">Por dónde empezar</span>
+  <h2 class="dsp h2">¿Qué necesitas?</h2>
+  <div class="g3">
+    <div class="card"><div class="wrapimg" style="height:165px;"><img src="foto2.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div class="bd"><h3 class="dsp" style="font-size:23px;margin:0;">Mi hijo necesita refuerzo</h3><p class="p">Va justo o se ha descolgado este trimestre.</p></div></div>
+    <div class="card"><div class="wrapimg" style="height:165px;"><img src="ingles.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div class="bd"><h3 class="dsp" style="font-size:23px;margin:0;">Me juego la PEvAU</h3><p class="p">Necesitas nota y quedan meses. O semanas.</p></div></div>
+    <div class="card"><div class="wrapimg" style="height:165px;"><img src="foto4.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div class="bd"><h3 class="dsp" style="font-size:23px;margin:0;">Necesito un título</h3><p class="p">Para trabajar, opositar o entrar en un ciclo.</p></div></div>
+  </div>
+</div>
+<div class="sec n">
+  <div style="display:flex;gap:52px;align-items:center;">
+    <div style="flex:1.1;display:flex;flex-direction:column;gap:22px;">
+      <span class="tag">Centro examinador oficial</span>
+      <h2 class="dsp h2">Preparas el Trinity aquí. Y te examinas aquí.</h2>
+      <p class="lead">Mismos profesores, misma aula, sin desplazarte el día del examen.</p>
+      <div class="btns"><a class="btn" style="background:var(--amber);color:var(--navy);">Ver preparación Trinity</a><a class="btn o">Convocatorias</a></div>
+    </div>
+    <div style="flex:.7;border:2px dashed rgb(251 246 236 / .4);border-radius:20px;padding:34px;text-align:center;font-family:ui-monospace,monospace;font-size:11px;color:#A6B0BE;letter-spacing:.08em;">LOGO TRINITY<br>+ Nº DE CENTRO</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="g4">
+    <div class="stat"><div class="n" style="color:var(--red);">20+</div><div class="l">años en el mismo barrio</div></div>
+    <div class="stat"><div class="n">6.796</div><div class="l">alumnos han pasado por Educana</div></div>
+    <div class="stat"><div class="n" style="color:var(--red);">6–8</div><div class="l">alumnos por grupo</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">exámenes oficiales preparados aquí</div></div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

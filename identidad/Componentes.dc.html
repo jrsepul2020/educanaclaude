@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+  <style>
+*{box-sizing:border-box;}
+body{margin:0;}
+img{display:block;max-width:100%;}
+.lbl{position:relative;display:flex;align-items:center;gap:14px;padding:11px 32px;background:#14212F;color:#F2EFE9;font-family:ui-monospace,'SFMono-Regular',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+.lbl b{font-size:12px;letter-spacing:.06em;}
+.lbl .r{margin-left:auto;color:#FFC957;letter-spacing:.06em;}
+.stockmark{position:absolute;top:10px;left:10px;background:rgba(20,33,47,.86);color:#FFC957;font-family:ui-monospace,monospace;font-size:9.5px;letter-spacing:.1em;padding:5px 9px;border-radius:3px;text-transform:uppercase;}
+.wrapimg{position:relative;overflow:hidden;}
+
+:root{--red:#CD1228;--redink:#A50D1F;--navy:#14212F;--cream:#FAF7F2;--amber:#FFC957;--slate:#4A5568;--line:rgb(20 33 47 / .12);}
+body{background:var(--cream);color:var(--navy);font-family:'Schibsted Grotesk',system-ui,sans-serif;}
+a{color:var(--redink);} a:hover{color:var(--navy);}
+.dsp{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-.015em;line-height:1.06;}
+.b{padding:52px 48px;display:flex;flex-direction:column;gap:26px;}
+.b.w{background:#fff;}
+.tt{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--redink);font-weight:600;}
+.h2{font-size:34px;margin:0;}
+.h3{font-size:19px;margin:0;font-weight:600;}
+.p{font-size:14.5px;line-height:1.62;color:var(--slate);margin:0;max-width:70ch;}
+.mono{font-family:ui-monospace,'SFMono-Regular',monospace;font-size:11.5px;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}
+.sw{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;}
+.sw .ch{height:104px;display:flex;align-items:flex-end;padding:12px;}
+.sw .mt{padding:13px 14px;display:flex;flex-direction:column;gap:3px;}
+.sw .nm{font-size:13.5px;font-weight:600;}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;}
+.ok{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#1E6B3A;}
+.no{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--redink);}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 28px;border-radius:28px;background:var(--red);color:#fff;font-size:15px;font-weight:600;}
+.btn.o{background:transparent;color:var(--navy);border:1.5px solid rgb(20 33 47 / .28);}
+.btn.g{background:transparent;color:var(--redink);}
+.btn.sm{height:40px;padding:0 20px;font-size:13.5px;}
+.badge{display:inline-flex;align-items:center;height:27px;padding:0 12px;border-radius:14px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums;}
+.tbl th{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);text-align:left;padding:13px 16px;background:#F6F4F0;border-bottom:1px solid var(--line);font-weight:600;}
+.tbl td{padding:14px 16px;font-size:14.5px;border-bottom:1px solid rgb(20 33 47 / .07);}
+.fld{display:flex;flex-direction:column;gap:7px;}
+.fld .lb{font-size:12.5px;font-weight:600;}
+.fld .in{height:48px;border:1.5px solid rgb(20 33 47 / .18);border-radius:10px;background:#fff;}
+</style>
+</helmet>
+<div class="lbl"><b>COMPONENTES</b><span>Sistema aplicado · dirección A</span><span class="r">Tokens del doc 04</span></div>
+<div class="b">
+  <span class="tt">Botones</span>
+  <h2 class="dsp h2">Una acción principal por pantalla.</h2>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+    <span class="btn">Pide información</span>
+    <span class="btn o">Llamar 954 40 96 96</span>
+    <span class="btn g">Ver horarios →</span>
+    <span class="btn sm">Secundario pequeño</span>
+    <span class="btn" style="background:rgba(205,18,40,.35);cursor:default;">Deshabilitado</span>
+  </div>
+  <p class="p">Altura 50 px en escritorio, 48 px mínimo en móvil. El rojo se reserva para la acción principal: si hay dos botones rojos en una pantalla, no hay ninguno.</p>
+</div>
+<div class="b w">
+  <span class="tt">Etiquetas</span>
+  <div style="display:flex;gap:11px;flex-wrap:wrap;align-items:center;">
+    <span class="badge" style="background:#FFC957;color:#14212F;">Centro examinador</span>
+    <span class="badge" style="background:#14212F;color:#FAF7F2;">Trinity</span>
+    <span class="badge" style="background:#14212F;color:#FAF7F2;">Cambridge</span>
+    <span class="badge" style="background:#14212F;color:#FAF7F2;">APTIS</span>
+    <span class="badge" style="background:rgba(205,18,40,.1);color:#A50D1F;">B1</span>
+    <span class="badge" style="background:rgba(205,18,40,.1);color:#A50D1F;">B2</span>
+    <span class="badge" style="background:rgba(205,18,40,.1);color:#A50D1F;">C1</span>
+    <span class="badge" style="background:rgba(30,107,58,.12);color:#1E6B3A;">Quedan 3 plazas</span>
+    <span class="badge" style="background:rgba(20,33,47,.08);color:#4A5568;">Completo</span>
+  </div>
+</div>
+<div class="b">
+  <span class="tt">Tarjetas</span>
+  <div class="g3">
+    <div class="card" style="padding:0;overflow:hidden;"><div style="height:150px;overflow:hidden;position:relative;"><img src="foto4.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div style="padding:22px;display:flex;flex-direction:column;gap:10px;"><span class="badge" style="background:rgba(205,18,40,.1);color:#A50D1F;align-self:flex-start;">Niños</span><h3 class="dsp" style="font-size:22px;margin:0;">Inglés para niños</h3><p class="p" style="font-size:13.5px;">De 6 a 12 años, grupos de seis, dos días por semana.</p></div></div>
+    <div class="card"><span class="tt">Dato</span><div class="dsp" style="font-size:54px;color:#CD1228;line-height:1;">6.796</div><p class="p" style="font-size:13.5px;">alumnos han pasado por Educana</p></div>
+    <div class="card" style="background:#14212F;border-color:#14212F;"><span class="tt" style="color:#FFC957;">Destacado</span><h3 class="dsp" style="font-size:22px;margin:0;color:#F2EFE9;">Preparas y te examinas aquí</h3><p class="p" style="font-size:13.5px;color:#B4BDC8;">Centro examinador oficial Trinity College London.</p><span class="btn sm" style="align-self:flex-start;background:#FFC957;color:#14212F;">Ver más</span></div>
+  </div>
+</div>
+<div class="b w">
+  <span class="tt">Tabla de horarios</span>
+  <table class="tbl">
+    <tr><th>Curso</th><th>Nivel</th><th>Días</th><th>Horario</th><th>Grupo</th><th>Plazas</th></tr>
+    <tr><td>Refuerzo escolar</td><td>3º y 4º ESO</td><td>Lunes y miércoles</td><td>17:00 – 18:30</td><td>6–8</td><td><span class="badge" style="background:rgba(30,107,58,.12);color:#1E6B3A;">Quedan 3</span></td></tr>
+    <tr><td>Inglés B1</td><td>Adultos</td><td>Martes y jueves</td><td>19:30 – 21:00</td><td>6–8</td><td><span class="badge" style="background:rgba(30,107,58,.12);color:#1E6B3A;">Quedan 2</span></td></tr>
+    <tr><td>PEvAU · Matemáticas II</td><td>2º Bach.</td><td>Viernes</td><td>16:00 – 18:00</td><td>8</td><td><span class="badge" style="background:rgba(20,33,47,.08);color:#4A5568;">Completo</span></td></tr>
+  </table>
+</div>
+<div class="b">
+  <span class="tt">Formulario</span>
+  <div class="g2">
+    <div class="card" style="gap:15px;">
+      <h3 class="dsp" style="font-size:24px;margin:0;">Pide información</h3>
+      <div class="fld"><span class="lb">Nombre</span><div class="in"></div></div>
+      <div class="fld"><span class="lb">Teléfono</span><div class="in"></div></div>
+      <div class="fld"><span class="lb">¿Qué necesitas?</span><div class="in"></div></div>
+      <span class="btn" style="width:100%;">Enviar</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:15px;">
+      <div class="card" style="gap:8px;"><span class="lb" style="font-size:12.5px;font-weight:600;">Campo con foco</span><div style="height:48px;border:2px solid #CD1228;border-radius:10px;background:#fff;box-shadow:0 0 0 4px rgba(205,18,40,.14);"></div></div>
+      <div class="card" style="gap:8px;"><span class="lb" style="font-size:12.5px;font-weight:600;">Campo con error</span><div style="height:48px;border:2px solid #A50D1F;border-radius:10px;background:#fff;"></div><span class="p" style="font-size:12.5px;color:#A50D1F;">Escribe un teléfono de 9 cifras para que podamos llamarte.</span></div>
+      <p class="p" style="font-size:13px;">El error se describe en <strong>texto</strong>, no sólo en rojo: hay quien no distingue el color. Foco siempre visible — es requisito de la AA.</p>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

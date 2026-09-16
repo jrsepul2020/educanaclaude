@@ -1,0 +1,38 @@
+---
+interface Props {
+  label: string;
+  name: string;
+  type?: 'text' | 'tel' | 'email' | 'number' | 'date';
+  required?: boolean;
+  multiline?: boolean;
+  options?: string[];
+  hint?: string;
+  error?: string;
+  autocomplete?: string;
+}
+const { label, name, type = 'text', required = false, multiline = false, options, hint, error, autocomplete } = Astro.props;
+const id = `f-${name}`;
+const described = [hint ? `${id}-hint` : null, error ? `${id}-err` : null].filter(Boolean).join(' ') || undefined;
+const ring = error ? 'border-brand-ink border-2' : 'border-[1.5px] border-ink/18 focus:border-brand';
+const box = `w-full rounded-field bg-paper px-4 text-base outline-none transition-colors ${ring}`;
+---
+<div class="flex flex-col gap-2">
+  <label for={id} class="text-[0.8rem] font-semibold">
+    {label}{required && <span class="text-brand-ink" aria-hidden="true"> *</span>}
+  </label>
+
+  {options ? (
+    <select id={id} name={name} required={required} aria-describedby={described} class={`${box} h-12`}>
+      <option value="">Elige una opción</option>
+      {options.map((o) => <option value={o}>{o}</option>)}
+    </select>
+  ) : multiline ? (
+    <textarea id={id} name={name} required={required} rows="4" aria-describedby={described} class={`${box} py-3`}></textarea>
+  ) : (
+    <input id={id} name={name} type={type} required={required} autocomplete={autocomplete} aria-describedby={described} class={`${box} h-12`} />
+  )}
+
+  {hint && <p id={`${id}-hint`} class="text-[0.78rem] text-slate">{hint}</p>}
+  {/* El error se describe en TEXTO, no sólo en color: hay quien no lo distingue */}
+  {error && <p id={`${id}-err`} class="text-[0.78rem] font-medium text-brand-ink">{error}</p>}
+</div>

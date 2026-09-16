@@ -1,0 +1,203 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Button from '../components/ui/Button.astro';
+import Badge from '../components/ui/Badge.astro';
+import Card from '../components/ui/Card.astro';
+import Field from '../components/ui/Field.astro';
+import Faq from '../components/ui/Faq.astro';
+import Section from '../components/blocks/Section.astro';
+import Eyebrow from '../components/blocks/Eyebrow.astro';
+import StatBlock from '../components/blocks/StatBlock.astro';
+import DataBox from '../components/blocks/DataBox.astro';
+import ScheduleTable from '../components/blocks/ScheduleTable.astro';
+import TrinityBand from '../components/blocks/TrinityBand.astro';
+import CampaignBanner from '../components/blocks/CampaignBanner.astro';
+
+const horarios = await getCollection('horarios');
+const grupos = horarios.map((h) => h.data);
+const categorias = [...new Set(grupos.map((g) => g.categoria))];
+
+const colores = [
+  { n: 'brand',     hex: '#CD1228', t: 'Acciones y acentos. Nunca fondos largos.', fg: '#fff' },
+  { n: 'brand-ink', hex: '#A50D1F', t: 'Rojo para TEXTO sobre claro · 7,8:1 AAA', fg: '#fff' },
+  { n: 'ink',       hex: '#14212F', t: 'Texto principal y fondos de confianza', fg: '#fff' },
+  { n: 'cream',     hex: '#FAF7F2', t: 'Fondo base, cálido', fg: '#14212F' },
+  { n: 'amber',     hex: '#FFC957', t: 'Destacados y campaña estacional', fg: '#14212F' },
+  { n: 'slate',     hex: '#4A5568', t: 'Texto secundario · 7:1 sobre crema', fg: '#fff' },
+];
+---
+<Base
+  title="Sistema de diseño"
+  description="Referencia interna de tokens y componentes de Academia Educana."
+  noindex={true}
+  chrome={false}
+>
+  <div class="bg-ink text-cream">
+    <div class="container-page flex flex-wrap items-baseline gap-4 py-5">
+      <p class="font-display text-2xl">Sistema de diseño · Educana</p>
+      <p class="text-cream/60 text-sm">Dirección A · Editorial de barrio</p>
+      <p class="ml-auto text-[0.72rem] uppercase tracking-[0.12em] text-amber">noindex · referencia interna</p>
+    </div>
+  </div>
+
+  <Section tone="cream">
+    <Eyebrow>Cómo funciona esto</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Se actualiza sola.</h2>
+    <p class="max-w-[70ch] leading-relaxed text-slate">
+      Esta página renderiza los componentes <strong>reales</strong> de la web, no una copia.
+      Si alguien cambia un botón, aquí se ve cambiado. Todo sale de
+      <code class="rounded bg-ink/8 px-1.5 py-0.5 text-[0.85em]">src/styles/tokens.css</code>:
+      ningún componente lleva un color, una fuente ni un radio suelto. Cambiar a la dirección
+      B o C es editar ese archivo, nada más.
+    </p>
+  </Section>
+
+  <Section tone="paper">
+    <Eyebrow>Color</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Todo sale del logotipo.</h2>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {colores.map((c) => (
+        <Card>
+          <div class="flex h-24 items-end p-3" style={`background:${c.hex}`}>
+            <code class="text-[0.72rem]" style={`color:${c.fg}`}>{c.hex}</code>
+          </div>
+          <div class="flex flex-col gap-1 p-4">
+            <code class="text-sm font-semibold">--color-{c.n}</code>
+            <p class="text-[0.82rem] text-slate">{c.t}</p>
+          </div>
+        </Card>
+      ))}
+    </div>
+
+    <Card class="border-2 border-brand p-6 gap-3">
+      <h3 class="text-(length:--text-h3)">La regla que se incumple sola</h3>
+      <div class="flex flex-wrap items-center gap-5">
+        <div class="flex h-16 w-64 items-center rounded-field bg-ink px-4">
+          <span class="font-semibold text-brand">Rojo sobre tinta</span>
+        </div>
+        <p class="max-w-[46ch] text-[0.9rem] leading-relaxed text-slate">
+          <strong class="text-brand-ink">2,88:1 — falla.</strong> Sobre fondo tinta los acentos van
+          en ámbar o blanco, nunca en rojo. Es el error más fácil de cometer con esta paleta,
+          porque el instinto pide el color de marca.
+        </p>
+      </div>
+    </Card>
+  </Section>
+
+  <Section tone="cream">
+    <Eyebrow>Tipografía</Eyebrow>
+    <div class="flex flex-col gap-7 border-t border-line pt-7">
+      <div><code class="text-[0.72rem] text-slate">--text-display · Newsreader 500</code>
+        <p class="font-display text-(length:--text-display) leading-none">Aprueban</p></div>
+      <div><code class="text-[0.72rem] text-slate">--text-h1</code>
+        <h1 class="text-(length:--text-h1)">Llevamos 20 años consiguiendo que aprueben</h1></div>
+      <div><code class="text-[0.72rem] text-slate">--text-h2</code>
+        <h2 class="text-(length:--text-h2)">Preparas el Trinity aquí. Y te examinas aquí.</h2></div>
+      <div><code class="text-[0.72rem] text-slate">--text-lead · Schibsted Grotesk</code>
+        <p class="max-w-[60ch] text-(length:--text-lead) leading-relaxed text-slate">
+          Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos de 6 a 8
+          alumnos y profesores propios que repiten curso tras curso.</p></div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <Card class="p-5 gap-2"><code class="text-[0.72rem] text-ok">CON tabular-nums ✓</code>
+          <p class="tabular text-lg leading-loose">17:00 – 18:30<br />19:30 – 21:00<br />11:15 – 12:45</p></Card>
+        <Card class="p-5 gap-2"><code class="text-[0.72rem] text-brand-ink">SIN tabular-nums ✗</code>
+          <p class="text-lg leading-loose" style="font-variant-numeric:normal">17:00 – 18:30<br />19:30 – 21:00<br />11:15 – 12:45</p></Card>
+      </div>
+    </div>
+  </Section>
+
+  <Section tone="paper">
+    <Eyebrow>Botones</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Una acción principal por pantalla.</h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <Button>Pide información</Button>
+      <Button variant="secondary">Ver metodología</Button>
+      <Button variant="outline">Llamar 954 40 96 96</Button>
+      <Button variant="ghost">Ver horarios →</Button>
+      <Button size="sm">Secundario pequeño</Button>
+      <Button disabled>Deshabilitado</Button>
+    </div>
+    <p class="max-w-[70ch] text-slate">Si hay dos botones rojos en una pantalla, no hay ninguno.</p>
+
+    <Eyebrow>Etiquetas</Eyebrow>
+    <div class="flex flex-wrap items-center gap-2.5">
+      <Badge tone="amber">Centro examinador</Badge>
+      <Badge tone="ink">Trinity</Badge>
+      <Badge tone="ink">Cambridge</Badge>
+      <Badge tone="ink">APTIS</Badge>
+      <Badge tone="brand">B1</Badge>
+      <Badge tone="brand">B2</Badge>
+      <Badge tone="brand">C1</Badge>
+      <Badge tone="ok">Quedan 3 plazas</Badge>
+      <Badge>Completo</Badge>
+    </div>
+  </Section>
+
+  <Section tone="cream">
+    <Eyebrow>Caja de datos duros</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Lo que decide la conversión.</h2>
+    <DataBox items={[
+      { k: 'Duración', v: 'Octubre a mayo' },
+      { k: 'Días y horas', v: '2 días · 3 h/semana' },
+      { k: 'Grupo', v: '6 a 8 alumnos' },
+      { k: 'Desde', v: '[PRECIO] € / mes' },
+      { k: 'Próxima convocatoria', v: 'PEvAU junio 2027' },
+    ]} />
+    <p class="max-w-[70ch] text-slate">Va siempre justo bajo el H1, en toda página de servicio.</p>
+  </Section>
+
+  <Section tone="paper">
+    <Eyebrow>Cifras</Eyebrow>
+    <StatBlock stats={[
+      { n: '20+', label: 'años en el mismo barrio', accent: true },
+      { n: '6.796', label: 'alumnos han pasado por Educana' },
+      { n: '6–8', label: 'alumnos por grupo' },
+      { n: '4', label: 'exámenes oficiales preparados aquí' },
+    ]} />
+  </Section>
+
+  <CampaignBanner tag="Septiembre" text="Matrícula abierta para el curso 2026–2027." cta="Ver horarios" href="/horarios-cursos/" />
+
+  <TrinityBand />
+
+  <Section tone="cream">
+    <Eyebrow>Tabla de horarios</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Filtrable, y legible sin JavaScript.</h2>
+    <ScheduleTable grupos={grupos} categorias={categorias} />
+  </Section>
+
+  <Section tone="paper">
+    <Eyebrow>Formulario</Eyebrow>
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="flex flex-col gap-4">
+        <Field label="Nombre" name="ds-nombre" required />
+        <Field label="Teléfono" name="ds-tel" type="tel" required hint="Te llamamos nosotros si lo prefieres." />
+        <Field label="¿Qué necesitas?" name="ds-nec" options={['Refuerzo escolar', 'Selectividad PEvAU', 'Inglés']} />
+      </div>
+      <div class="flex flex-col gap-4">
+        <Field label="Campo con error" name="ds-err" error="Escribe un teléfono de 9 cifras para que podamos llamarte." />
+        <Field label="Cuéntanos" name="ds-msg" multiline />
+        <p class="text-[0.85rem] leading-relaxed text-slate">
+          El error se describe en <strong>texto</strong>, no sólo en color: hay quien no lo distingue.
+          El foco es visible en todo el sitio — requisito de la AA.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <Section tone="cream">
+    <Eyebrow>Preguntas frecuentes</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Acordeón sin JavaScript.</h2>
+    <Faq items={[
+      { q: '¿Cuándo empieza el curso?', a: 'En octubre, con el curso escolar ya arrancado.' },
+      { q: '¿Puedo entrar si el curso ya ha empezado?', a: 'Normalmente sí. Vemos por dónde va el grupo y qué te falta.' },
+      { q: '¿Cuánto cuesta?', a: 'Depende de cuántas asignaturas lleves. Llámanos y te lo decimos en un minuto.' },
+    ]} />
+    <p class="max-w-[70ch] text-slate">
+      Usa <code class="rounded bg-ink/8 px-1.5 py-0.5 text-[0.85em]">&lt;details&gt;</code> nativo:
+      0 KB de JavaScript, accesible de serie, y emite el <code class="rounded bg-ink/8 px-1.5 py-0.5 text-[0.85em]">FAQPage</code>
+      que gana superficie en el resultado de Google.
+    </p>
+  </Section>
+</Base>

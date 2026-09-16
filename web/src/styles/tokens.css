@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════════════════════
+   EDUCANA · Tokens de diseño — fuente única de verdad
+   Dirección A · "Editorial de barrio" (doc 02)
+
+   PARA CAMBIAR DE DIRECCIÓN VISUAL sólo se toca este archivo:
+   · B · Cuaderno → --font-display: "Bricolage Grotesque Variable"
+                    --font-body:    "Onest Variable"
+                    --radius-card: 24px · --color-cream: #FBF6EC
+   · C · Señal    → --font-display: "Archivo Variable"
+                    --font-body:    "Public Sans Variable"
+                    --radius-card: 4px
+   Ningún componente lleva un color, una fuente ni un radio suelto.
+   ═══════════════════════════════════════════════════════════════ */
+
+@import "tailwindcss";
+@import "@fontsource-variable/newsreader";
+@import "@fontsource-variable/schibsted-grotesk";
+
+@theme {
+  /* ── Color ──────────────────────────────────────────────────
+     Muestreados del logotipo real (educana.png). El rojo de la
+     marca es #CD1228 — no el #DF0923 del prototipo anterior.     */
+  --color-brand:      #CD1228;  /* acciones y acentos. Nunca fondos largos */
+  --color-brand-ink:  #A50D1F;  /* rojo para TEXTO sobre claro · 7,8:1 AAA */
+  --color-ink:        #14212F;  /* texto principal y fondos de confianza   */
+  --color-ink-soft:   #26364A;
+  --color-cream:      #FAF7F2;  /* fondo base, cálido                      */
+  --color-paper:      #FFFFFF;
+  --color-amber:      #FFC957;  /* destacados y campaña estacional         */
+  --color-slate:      #4A5568;  /* texto secundario · 7:1 sobre crema      */
+  --color-line:       rgb(20 33 47 / 0.12);
+  --color-ok:         #1E6B3A;
+
+  /* ── Tipografía ───────────────────────────────────────────── */
+  --font-display: "Newsreader Variable", Georgia, "Times New Roman", serif;
+  --font-body: "Schibsted Grotesk Variable", system-ui, -apple-system, sans-serif;
+
+  /* Escala fluida: móvil → escritorio, sin media queries */
+  --text-display: clamp(2.5rem, 1.6rem + 4.5vw, 4.5rem);
+  --text-h1: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+  --text-h2: clamp(1.625rem, 1.25rem + 1.9vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 1.1rem + 0.75vw, 1.625rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.4vw, 1.1875rem);
+
+  /* ── Forma ────────────────────────────────────────────────── */
+  --radius-card: 18px;
+  --radius-field: 10px;
+  --radius-pill: 999px;
+
+  /* ── Movimiento ───────────────────────────────────────────── */
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Layout ───────────────────────────────────────────────── */
+  --container-page: 1200px;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-cream);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  /* Horarios, precios y fechas siempre con cifras de ancho fijo */
+  table, time, .tabular { font-variant-numeric: tabular-nums; }
+
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; line-height: 1.06; text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  /* Foco visible siempre — requisito WCAG 2.2 AA */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) { padding-inline: 2.5rem; }
+}
+
+/* Aparición discreta: una sola vez, sólo en bloques importantes */
+@utility reveal {
+  animation: reveal 420ms var(--ease-soft) both;
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}

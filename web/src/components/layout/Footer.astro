@@ -1,0 +1,38 @@
+---
+import { NAP } from '../../lib/nap';
+const cols = [
+  { t: 'Estudios', links: [['Clases de apoyo', '/clases-de-apoyo/'], ['Clases particulares', '/clases-particulares-sevilla/'], ['Cursos de verano', '/cursos-verano-sevilla/'], ['Cursos de invierno', '/cursos-de-invierno/']] },
+  { t: 'Pruebas de acceso', links: [['Selectividad PEvAU', '/curso-selectividad-sevilla-pevau/'], ['Intensivos PEvAU', '/curso-intensivos-selectividad-pevau/'], ['Grado Superior', '/prueba-acceso-grado-superior-sevilla/'], ['Grado Medio', '/acceso-grado-medio-academia-sevilla/'], ['Mayores de 25 y 45', '/acceso-universidad-mayores-25/'], ['Título de ESO', '/conseguir-titulo-eso/']] },
+  { t: 'Inglés', links: [['Niños', '/academia-de-ingles-en-sevilla-este/ninos/'], ['Teens', '/academia-de-ingles-en-sevilla-este/teens/'], ['Adultos', '/academia-de-ingles-en-sevilla-este/adultos/'], ['Trinity', '/academia-de-ingles-en-sevilla-este/trinity/'], ['B1 · B2 · C1', '/academia-de-ingles-en-sevilla-este/b2/']] },
+];
+---
+<footer class="bg-ink text-cream/70 print:hidden">
+  <div class="container-page grid gap-10 py-14 md:grid-cols-4">
+    <div class="flex flex-col gap-4">
+      <img src="/logo-educana.svg" alt="Academia Educana" width="150" height="67" class="h-9 w-auto" />
+      <address class="not-italic text-sm leading-relaxed">
+        {NAP.street}<br />{NAP.postal} {NAP.city}<br />
+        <a href="tel:+34954409696" class="hover:text-cream tabular">954 40 96 96</a> ·
+        <a href="tel:+34686085566" class="hover:text-cream tabular">686 08 55 66</a><br />
+        <a href={`mailto:${NAP.email}`} class="hover:text-cream">{NAP.email}</a>
+      </address>
+    </div>
+    {cols.map((c) => (
+      <div>
+        <h2 class="mb-3 font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-cream">{c.t}</h2>
+        <ul class="flex flex-col gap-2 text-sm">
+          {c.links.map(([l, h]) => <li><a href={h} class="hover:text-cream transition-colors">{l}</a></li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+  <div class="border-t border-cream/12">
+    <div class="container-page flex flex-wrap gap-x-6 gap-y-2 py-5 text-[0.8rem]">
+      <span>© {new Date().getFullYear()} Academia Educana</span>
+      <a href="/aviso-legal/" class="hover:text-cream">Aviso legal</a>
+      <a href="/politica-de-privacidad/" class="hover:text-cream">Privacidad</a>
+      <a href="/politica-de-cookies/" class="hover:text-cream">Cookies</a>
+      <a href="/bolsa-de-trabajo-academia-sevilla/" class="ml-auto hover:text-cream">Trabaja con nosotros</a>
+    </div>
+  </div>
+</footer>

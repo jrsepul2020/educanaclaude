@@ -1,0 +1,29 @@
+---
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+import Eyebrow from './Eyebrow.astro';
+/* El diferencial de la marca. Sobre tinta, con acentos en ÁMBAR:
+   el rojo sobre tinta da 2,88:1 y falla el contraste (doc 02 §2). */
+---
+<section class="bg-ink text-cream py-14 md:py-20">
+  <div class="container-page grid items-center gap-10 md:grid-cols-[1.1fr_0.7fr]">
+    <div class="flex flex-col gap-5">
+      <Eyebrow tone="amber">Centro examinador oficial</Eyebrow>
+      <h2 class="text-(length:--text-h2)">Preparas el Trinity aquí. Y te examinas aquí.</h2>
+      <p class="text-(length:--text-lead) leading-relaxed text-cream/75 max-w-[54ch]">
+        Somos centro examinador oficial de Trinity College London. Mismos profesores,
+        misma aula, sin desplazarte a otro centro el día del examen. B1, B2, C1 y C2.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <Button href="/academia-de-ingles-en-sevilla-este/trinity/">Ver preparación Trinity</Button>
+        <Button href="/fechas-y-convocatorias/" variant="outline">Próximas convocatorias</Button>
+      </div>
+    </div>
+    <div class="flex flex-col items-start gap-4">
+      <Badge tone="amber">Centro examinador</Badge>
+      <div class="w-full rounded-card border border-dashed border-cream/30 p-9 text-center text-[0.7rem] uppercase tracking-[0.1em] text-cream/55">
+        Logotipo Trinity autorizado<br />+ nº de centro
+      </div>
+    </div>
+  </div>
+</section>

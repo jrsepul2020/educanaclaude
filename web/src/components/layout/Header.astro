@@ -1,0 +1,56 @@
+---
+import Button from '../ui/Button.astro';
+/* Cabecera sobre tinta: el logotipo que existe es la versión para
+   fondo oscuro, así que sobre navy se ve como debe (doc 02 §1). */
+const nav = [
+  { label: 'Estudios', href: '/clases-de-apoyo/' },
+  { label: 'Pruebas de acceso', href: '/curso-selectividad-sevilla-pevau/' },
+  { label: 'Inglés', href: '/academia-de-ingles-en-sevilla-este/' },
+  { label: 'Horarios', href: '/horarios-cursos/' },
+  { label: 'Academia', href: '/quienes-somos-academia-educana/' },
+];
+---
+<header class="bg-ink text-cream">
+  <div class="container-page flex items-center gap-8 py-4">
+    <a href="/" class="shrink-0" aria-label="Academia Educana — inicio">
+      <img src="/logo-educana.svg" alt="Academia Educana" width="150" height="67" class="h-8 w-auto" />
+    </a>
+
+    <nav aria-label="Principal" class="hidden lg:flex items-center gap-7">
+      {nav.map((i) => (
+        <a href={i.href} class="text-[0.92rem] text-cream/85 hover:text-cream transition-colors">{i.label}</a>
+      ))}
+    </nav>
+
+    <div class="ml-auto flex items-center gap-4">
+      <a href="tel:+34954409696" class="hidden md:inline text-[0.92rem] text-cream/85 hover:text-cream tabular">954 40 96 96</a>
+      <Button href="/contacto/" size="sm" class="hidden sm:inline-flex">Pide información</Button>
+      <button type="button" class="lg:hidden p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil" data-menu-toggle>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav id="menu-movil" aria-label="Principal móvil" hidden class="lg:hidden border-t border-cream/12">
+    <ul class="container-page py-3">
+      {nav.map((i) => (
+        <li><a href={i.href} class="block py-3 text-cream/90 border-b border-cream/8">{i.label}</a></li>
+      ))}
+      <li><a href="/contacto/" class="block py-3 font-semibold">Pide información</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  /* ~250 bytes. No merece una isla de React. */
+  const btn = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.getElementById('menu-movil');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    btn.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
+    if (menu) menu.hidden = open;
+  });
+</script>

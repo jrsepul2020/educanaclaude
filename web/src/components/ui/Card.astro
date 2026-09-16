@@ -1,0 +1,9 @@
+---
+interface Props { tone?: 'paper' | 'ink'; class?: string }
+const { tone = 'paper', class: extra = '' } = Astro.props;
+const tones: Record<NonNullable<Props['tone']>, string> = {
+  paper: 'bg-paper border border-line',
+  ink: 'bg-ink text-cream border border-ink',
+};
+---
+<div class={`rounded-card overflow-hidden flex flex-col ${tones[tone]} ${extra}`}><slot /></div>

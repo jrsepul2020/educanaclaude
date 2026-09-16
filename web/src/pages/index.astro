@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/blocks/Hero.astro';
+import Section from '../components/blocks/Section.astro';
+import Eyebrow from '../components/blocks/Eyebrow.astro';
+import StatBlock from '../components/blocks/StatBlock.astro';
+import CampaignBanner from '../components/blocks/CampaignBanner.astro';
+import TrinityBand from '../components/blocks/TrinityBand.astro';
+import LeadForm from '../components/blocks/LeadForm.astro';
+import Card from '../components/ui/Card.astro';
+
+const puertas = [
+  { t: 'Mi hijo necesita refuerzo', p: 'Va justo en alguna asignatura o se ha descolgado este trimestre.', href: '/clases-de-apoyo/' },
+  { t: 'Me juego la PEvAU', p: 'Necesitas nota y quedan meses. O semanas.', href: '/curso-selectividad-sevilla-pevau/' },
+  { t: 'Necesito un título', p: 'Para trabajar, opositar o entrar en un ciclo. Aunque lleves años sin estudiar.', href: '/conseguir-titulo-eso/' },
+];
+---
+<Base
+  title="Academia en Sevilla Este"
+  description="Clases de apoyo, preparación de la PEvAU, pruebas de acceso y exámenes oficiales de inglés en Sevilla Este. Grupos de 6 a 8 y más de 20 años de experiencia."
+>
+  <Hero
+    eyebrow="Academia en Sevilla Este · desde 2005"
+    title="Llevamos 20 años consiguiendo que aprueben."
+    lead="Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos de 6 a 8 alumnos y profesores propios que repiten curso tras curso."
+  />
+
+  <CampaignBanner
+    tag="Septiembre"
+    text="Matrícula abierta para el curso 2026–2027. Quedan plazas en refuerzo de ESO y en los grupos de B1."
+    cta="Ver horarios"
+    href="/horarios-cursos/"
+  />
+
+  <Section tone="cream">
+    <Eyebrow>Por dónde empezar</Eyebrow>
+    <h2 class="text-(length:--text-h2)">¿Qué necesitas?</h2>
+    <div class="grid gap-6 md:grid-cols-3">
+      {puertas.map((p) => (
+        <Card class="p-6 gap-3">
+          <h3 class="text-(length:--text-h3)"><a href={p.href} class="hover:text-brand-ink">{p.t}</a></h3>
+          <p class="text-slate leading-relaxed">{p.p}</p>
+        </Card>
+      ))}
+    </div>
+  </Section>
+
+  <TrinityBand />
+
+  <Section tone="paper">
+    <StatBlock stats={[
+      { n: '20+', label: 'años en el mismo barrio', accent: true },
+      { n: '6.796', label: 'alumnos han pasado por Educana' },
+      { n: '6–8', label: 'alumnos por grupo' },
+      { n: '4', label: 'exámenes oficiales preparados aquí' },
+    ]} />
+  </Section>
+
+  <Section tone="cream">
+    <Eyebrow>Contacto</Eyebrow>
+    <h2 class="text-(length:--text-h2)">¿Hablamos?</h2>
+    <div class="max-w-2xl"><LeadForm context="home" /></div>
+  </Section>
+</Base>

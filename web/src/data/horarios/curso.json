@@ -1,0 +1,10 @@
+[
+  { "id": "apoyo-eso-34", "curso": "Refuerzo escolar", "nivel": "3º y 4º ESO", "dias": "Lunes y miércoles", "horario": "17:00 – 18:30", "grupo": "6–8", "desde": "[PRECIO] €", "plazas": 3, "categoria": "Refuerzo" },
+  { "id": "apoyo-eso-12", "curso": "Refuerzo escolar", "nivel": "1º y 2º ESO", "dias": "Lunes y miércoles", "horario": "16:00 – 17:30", "grupo": "6–8", "desde": "[PRECIO] €", "plazas": 4, "categoria": "Refuerzo" },
+  { "id": "pevau-mates", "curso": "PEvAU · Matemáticas II", "nivel": "2º Bachillerato", "dias": "Viernes", "horario": "16:00 – 18:00", "grupo": "8", "desde": "[PRECIO] €", "plazas": 0, "categoria": "PEvAU" },
+  { "id": "pevau-lengua", "curso": "PEvAU · Lengua", "nivel": "2º Bachillerato", "dias": "Martes", "horario": "16:00 – 18:00", "grupo": "8", "desde": "[PRECIO] €", "plazas": 2, "categoria": "PEvAU" },
+  { "id": "ingles-b1", "curso": "Inglés B1", "nivel": "Adultos", "dias": "Martes y jueves", "horario": "19:30 – 21:00", "grupo": "6–8", "desde": "[PRECIO] €", "plazas": 2, "categoria": "Inglés" },
+  { "id": "ingles-b2", "curso": "Inglés B2", "nivel": "Adultos", "dias": "Lunes y miércoles", "horario": "19:30 – 21:00", "grupo": "6–8", "desde": "[PRECIO] €", "plazas": 5, "categoria": "Inglés" },
+  { "id": "ingles-ninos", "curso": "Inglés para niños", "nivel": "6–9 años", "dias": "Martes y jueves", "horario": "17:00 – 18:00", "grupo": "6", "desde": "[PRECIO] €", "plazas": 3, "categoria": "Inglés" },
+  { "id": "grado-superior", "curso": "Acceso a Grado Superior", "nivel": "—", "dias": "Lunes a jueves", "horario": "10:00 – 13:00", "grupo": "8", "desde": "[PRECIO] €", "plazas": 6, "categoria": "Accesos" }
+]

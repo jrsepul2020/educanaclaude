@@ -1,0 +1,30 @@
+---
+import { NAP } from '../../lib/nap';
+
+interface Props { extra?: Record<string, unknown> | Record<string, unknown>[] }
+const { extra } = Astro.props;
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': ['EducationalOrganization', 'LocalBusiness'],
+  '@id': `${Astro.site}#organization`,
+  name: NAP.name,
+  description:
+    'Academia en Sevilla Este con más de 20 años de experiencia: clases de apoyo, preparación de la PEvAU, pruebas de acceso y exámenes oficiales de inglés. Centro examinador oficial de Trinity College London.',
+  url: Astro.site,
+  telephone: NAP.phone,
+  email: NAP.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: NAP.street,
+    postalCode: NAP.postal,
+    addressLocality: NAP.city,
+    addressRegion: NAP.region,
+    addressCountry: 'ES',
+  },
+  areaServed: { '@type': 'Place', name: 'Sevilla Este, Sevilla' },
+};
+
+const blocks = extra ? [org, ...(Array.isArray(extra) ? extra : [extra])] : [org];
+---
+{blocks.map((b) => <script type="application/ld+json" is:inline set:html={JSON.stringify(b)} />)}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+  <style>
+*{box-sizing:border-box;}
+body{margin:0;}
+img{display:block;max-width:100%;}
+.lbl{position:relative;display:flex;align-items:center;gap:14px;padding:11px 32px;background:#14212F;color:#F2EFE9;font-family:ui-monospace,'SFMono-Regular',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+.lbl b{font-size:12px;letter-spacing:.06em;}
+.lbl .r{margin-left:auto;color:#FFC957;letter-spacing:.06em;}
+.stockmark{position:absolute;top:10px;left:10px;background:rgba(20,33,47,.86);color:#FFC957;font-family:ui-monospace,monospace;font-size:9.5px;letter-spacing:.1em;padding:5px 9px;border-radius:3px;text-transform:uppercase;}
+.wrapimg{position:relative;overflow:hidden;}
+
+:root{--red:#CD1228;--redink:#A50D1F;--navy:#14212F;--cream:#FAF7F2;--amber:#FFC957;--slate:#4A5568;--line:rgb(20 33 47 / .12);}
+body{background:var(--cream);color:var(--navy);font-family:'Schibsted Grotesk',system-ui,sans-serif;}
+a{color:var(--redink);} a:hover{color:var(--navy);}
+.dsp{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-.015em;line-height:1.06;}
+.b{padding:52px 48px;display:flex;flex-direction:column;gap:26px;}
+.b.w{background:#fff;}
+.tt{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--redink);font-weight:600;}
+.h2{font-size:34px;margin:0;}
+.h3{font-size:19px;margin:0;font-weight:600;}
+.p{font-size:14.5px;line-height:1.62;color:var(--slate);margin:0;max-width:70ch;}
+.mono{font-family:ui-monospace,'SFMono-Regular',monospace;font-size:11.5px;}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}
+.sw{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;}
+.sw .ch{height:104px;display:flex;align-items:flex-end;padding:12px;}
+.sw .mt{padding:13px 14px;display:flex;flex-direction:column;gap:3px;}
+.sw .nm{font-size:13.5px;font-weight:600;}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;}
+.ok{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#1E6B3A;}
+.no{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--redink);}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 28px;border-radius:28px;background:var(--red);color:#fff;font-size:15px;font-weight:600;}
+.btn.o{background:transparent;color:var(--navy);border:1.5px solid rgb(20 33 47 / .28);}
+.btn.g{background:transparent;color:var(--redink);}
+.btn.sm{height:40px;padding:0 20px;font-size:13.5px;}
+.badge{display:inline-flex;align-items:center;height:27px;padding:0 12px;border-radius:14px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums;}
+.tbl th{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);text-align:left;padding:13px 16px;background:#F6F4F0;border-bottom:1px solid var(--line);font-weight:600;}
+.tbl td{padding:14px 16px;font-size:14.5px;border-bottom:1px solid rgb(20 33 47 / .07);}
+.fld{display:flex;flex-direction:column;gap:7px;}
+.fld .lb{font-size:12.5px;font-weight:600;}
+.fld .in{height:48px;border:1.5px solid rgb(20 33 47 / .18);border-radius:10px;background:#fff;}
+</style>
+</helmet>
+<div class="lbl"><b>FOTOGRAFÍA</b><span>El mayor agujero del proyecto</span><span class="r">Corrección: no hay foto propia</span></div>
+<div class="b">
+  <span class="tt">Corrección</span>
+  <h2 class="dsp h2">Las fotos que hay son de stock.</h2>
+  <p class="p">En la auditoría di por hecho que la carpeta de imágenes del cliente contenía fotografía real de las aulas, y lo presenté como una ventaja frente a la competencia. <strong>Me equivoqué.</strong> Las he revisado una a una: es stock comprado.</p>
+  <div class="g3">
+    <div class="card" style="padding:0;overflow:hidden;"><div style="height:170px;overflow:hidden;position:relative;"><img src="foto2.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div style="padding:18px;"><p class="p" style="font-size:13px;">Letras de colores sobre mesa de madera. Está en medio internet.</p></div></div>
+    <div class="card" style="padding:0;overflow:hidden;"><div style="height:170px;overflow:hidden;position:relative;"><img src="foto4.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div style="padding:18px;"><p class="p" style="font-size:13px;">Niños rubios y monitora sonriendo a cámara. No es Sevilla Este.</p></div></div>
+    <div class="card" style="padding:0;overflow:hidden;"><div style="height:170px;overflow:hidden;position:relative;"><img src="ingles.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div style="padding:18px;"><p class="p" style="font-size:13px;">Adultos alrededor de gráficos de negocio. Ni siquiera parece una academia.</p></div></div>
+  </div>
+</div>
+<div class="b w">
+  <span class="tt">Por qué importa</span>
+  <h2 class="dsp h2">Con stock, el posicionamiento se cae solo.</h2>
+  <p class="p">Todo el argumento de Educana es ser <strong>la academia del barrio</strong>, con profesores propios, que conoce a los chavales del instituto de al lado. Ese argumento no sobrevive a unas fotos que puede comprar cualquier competidor. El visitante no sabrá decir por qué, pero no se lo va a creer.</p>
+  <p class="p">Así que la sesión de fotos deja de ser un «estaría bien» y pasa a ser <strong>un requisito del proyecto</strong>. Es, con diferencia, la inversión con más impacto visual de toda la web.</p>
+</div>
+<div class="b">
+  <span class="tt">La sesión</span>
+  <h2 class="dsp h2">Media jornada bien planificada.</h2>
+  <div class="g2">
+    <div class="card"><h3 class="h3">Imprescindible</h3><div class="p" style="line-height:1.95;">· Aulas con alumnos trabajando de verdad, no posando<br>· Profesores explicando en pizarra<br>· El equipo completo<br>· Fachada y entrada del Edificio Galileo</div><p class="p" style="font-size:12.5px;color:#A50D1F;">La fachada no es decorativa: Google Business Profile y el SEO local la premian.</p></div>
+    <div class="card"><h3 class="h3">Retratos del profesorado</h3><div class="p" style="line-height:1.95;">· Individuales, fondo neutro, formato 1:1<br>· Misma luz y mismo encuadre para todos<br>· Sirven en la web, en redes y en prensa</div><p class="p" style="font-size:12.5px;color:#A50D1F;">Son el soporte del pilar «profesorado propio y estable». Sin caras, es una afirmación sin prueba.</p></div>
+    <div class="card"><h3 class="h3">Tratamiento</h3><div class="p" style="line-height:1.95;">· Luz natural, temperatura cálida<br>· Saturación contenida, sin filtros<br>· Todo revelado igual, para que parezca una sola sesión<br>· 16:9 cabeceras · 3:2 tarjetas · 1:1 retratos</div></div>
+    <div class="card"><h3 class="h3">Menores</h3><div class="p" style="line-height:1.95;">· Consentimiento de imagen por escrito, sin excepción<br>· Alternativa sin caras: manos, material, pizarra, planos de espalda<br>· Funciona perfectamente y evita el problema</div></div>
+  </div>
+</div>
+<div class="b w">
+  <span class="tt">Mientras tanto</span>
+  <h2 class="dsp h2">Poco y honesto, antes que mucho y falso.</h2>
+  <p class="p">Hasta que exista la sesión: fachada, aulas vacías bien iluminadas, material y detalle. Y composiciones que se apoyen en <strong>tipografía y color</strong> en vez de rellenar con fotos de archivo. Una sección con un buen titular y aire funciona mejor que una foto de stock de gente sonriendo con portátiles.</p>
+</div>
+
+</x-dc>
+</body>
+</html>

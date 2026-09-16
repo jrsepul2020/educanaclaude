@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap">
+  <style>
+*{box-sizing:border-box;}
+body{margin:0;}
+img{display:block;max-width:100%;}
+.lbl{position:relative;display:flex;align-items:center;gap:14px;padding:11px 32px;background:#14212F;color:#F2EFE9;font-family:ui-monospace,'SFMono-Regular',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+.lbl b{font-size:12px;letter-spacing:.06em;}
+.lbl .r{margin-left:auto;color:#FFC957;letter-spacing:.06em;}
+.stockmark{position:absolute;top:10px;left:10px;background:rgba(20,33,47,.86);color:#FFC957;font-family:ui-monospace,monospace;font-size:9.5px;letter-spacing:.1em;padding:5px 9px;border-radius:3px;text-transform:uppercase;}
+.wrapimg{position:relative;overflow:hidden;}
+
+:root{--red:#CD1228;--navy:#101A25;--cream:#F4F2ED;--amber:#FFC957;--slate:#59626E;}
+body{background:var(--cream);color:var(--navy);font-family:'Public Sans',system-ui,sans-serif;}
+a{color:var(--red);} a:hover{color:var(--navy);}
+.dsp{font-family:'Archivo',system-ui,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.98;text-transform:none;}
+.nav{display:flex;align-items:center;gap:30px;padding:16px 56px;background:var(--navy);color:#F4F2ED;border-bottom:3px solid var(--red);}
+.nav img{height:28px;width:auto;} .nav .it{font-size:13.5px;color:#C9D0D9;font-weight:500;}
+.nav .sp{margin-left:auto;display:flex;align-items:center;gap:16px;}
+.sec{padding:64px 56px;display:flex;flex-direction:column;gap:26px;}
+.sec.n{background:var(--navy);color:#F4F2ED;}
+.sec.r{background:var(--red);color:#fff;}
+.tag{font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;}
+.sec.n .tag{color:var(--amber);} .sec.r .tag{color:#FFD8DC;}
+.h1{font-size:72px;margin:0;max-width:13ch;}
+.h2{font-size:42px;margin:0;max-width:19ch;}
+.lead{font-size:17.5px;line-height:1.55;color:var(--slate);margin:0;max-width:54ch;}
+.sec.n .lead{color:#B4BDC8;} .sec.r .lead{color:#FFE2E5;}
+.p{font-size:14.5px;line-height:1.6;color:var(--slate);margin:0;}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;border-radius:3px;background:var(--red);color:#fff;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.01em;}
+.btn.o{background:transparent;color:var(--navy);border:2px solid var(--navy);}
+.sec.n .btn.o{color:#F4F2ED;border-color:#F4F2ED;}
+.sec.r .btn{background:#fff;color:var(--red);} .sec.r .btn.o{color:#fff;border-color:#fff;}
+.btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.card{background:#fff;border:1px solid rgb(16 26 37 / .12);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;border-top:4px solid var(--navy);}
+.card .bd{padding:22px;display:flex;flex-direction:column;gap:10px;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgb(16 26 37 / .14);}
+.g4 > div{background:var(--cream);padding:30px 24px;}
+.stat .n{font-family:'Archivo',sans-serif;font-weight:900;font-size:60px;line-height:1;letter-spacing:-.045em;}
+.stat .l{font-size:13px;color:var(--slate);margin-top:8px;line-height:1.4;}
+.rule{height:3px;background:var(--red);width:64px;}
+</style>
+</helmet>
+<div class="lbl"><b>DIRECCIÓN C</b><span>Señal · contundente e institucional</span><span class="r">Archivo + Public Sans</span></div>
+<div class="nav">
+  <img src="logo.png" alt="Educana">
+  <span class="it">Estudios</span><span class="it">Pruebas de acceso</span><span class="it">Inglés</span><span class="it">Horarios</span>
+  <span class="sp"><span class="it">954 40 96 96</span><a class="btn" style="height:40px;padding:0 20px;font-size:13.5px;">Pide información</a></span>
+</div>
+<div class="sec n" style="padding-top:76px;padding-bottom:76px;">
+  <div style="display:flex;gap:52px;align-items:center;">
+    <div style="flex:1.1;display:flex;flex-direction:column;gap:24px;">
+      <div class="rule"></div>
+      <span class="tag">Academia en Sevilla Este · desde 2005</span>
+      <h1 class="dsp h1">20 años consiguiendo que aprueben.</h1>
+      <p class="lead">Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos de 6 a 8 y profesores propios.</p>
+      <div class="btns"><a class="btn">Pide información</a><a class="btn o">Llamar 954 40 96 96</a></div>
+    </div>
+    <div style="flex:1;border-radius:4px;overflow:hidden;"><div class="wrapimg" style="height:370px;"><img src="ingles.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock · a sustituir</span></div></div>
+  </div>
+</div>
+<div class="sec">
+  <span class="tag">Por dónde empezar</span>
+  <h2 class="dsp h2">¿Qué necesitas?</h2>
+  <div class="g3">
+    <div class="card"><div class="wrapimg" style="height:160px;"><img src="foto4.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div class="bd"><h3 class="dsp" style="font-size:22px;margin:0;">Refuerzo escolar</h3><p class="p">Va justo o se ha descolgado este trimestre.</p></div></div>
+    <div class="card"><div class="wrapimg" style="height:160px;"><img src="foto2.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div class="bd"><h3 class="dsp" style="font-size:22px;margin:0;">Selectividad PEvAU</h3><p class="p">Necesitas nota y quedan meses. O semanas.</p></div></div>
+    <div class="card"><div class="wrapimg" style="height:160px;"><img src="ingles.jpg" style="width:100%;height:100%;object-fit:cover;"><span class="stockmark">stock</span></div><div class="bd"><h3 class="dsp" style="font-size:22px;margin:0;">Títulos y accesos</h3><p class="p">Para trabajar, opositar o entrar en un ciclo.</p></div></div>
+  </div>
+</div>
+<div class="sec r">
+  <div style="display:flex;gap:52px;align-items:center;">
+    <div style="flex:1.15;display:flex;flex-direction:column;gap:22px;">
+      <span class="tag">Centro examinador oficial</span>
+      <h2 class="dsp h2">Preparas el Trinity aquí. Y te examinas aquí.</h2>
+      <p class="lead">Mismos profesores, misma aula, sin desplazarte el día del examen.</p>
+      <div class="btns"><a class="btn">Ver preparación Trinity</a><a class="btn o">Convocatorias</a></div>
+    </div>
+    <div style="flex:.7;border:2px dashed rgb(255 255 255 / .45);border-radius:4px;padding:32px;text-align:center;font-family:ui-monospace,monospace;font-size:11px;color:#FFD8DC;letter-spacing:.08em;">LOGO TRINITY<br>+ Nº DE CENTRO</div>
+  </div>
+</div>
+<div class="sec" style="padding-left:0;padding-right:0;">
+  <div class="g4">
+    <div class="stat"><div class="n">20+</div><div class="l">años en el mismo barrio</div></div>
+    <div class="stat"><div class="n">6.796</div><div class="l">alumnos han pasado por Educana</div></div>
+    <div class="stat"><div class="n">6–8</div><div class="l">alumnos por grupo</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">exámenes oficiales aquí</div></div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

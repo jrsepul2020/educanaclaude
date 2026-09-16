@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noindex?: boolean;
+  image?: string;
+}
+const { title, description, canonical, noindex = false, image = '/og-default.jpg' } = Astro.props;
+const url = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+const full = title.includes('Educana') ? title : `${title} · Academia Educana`;
+---
+<title>{full}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<meta property="og:type" content="website" />
+<meta property="og:title" content={full} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:image" content={new URL(image, Astro.site).href} />
+<meta name="twitter:card" content="summary_large_image" />

@@ -1,0 +1,28 @@
+---
+import Button from '../ui/Button.astro';
+import Eyebrow from './Eyebrow.astro';
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead: string;
+  image?: { src: string; alt: string };
+}
+const { eyebrow, title, lead, image } = Astro.props;
+---
+<section class="bg-cream py-12 md:py-20">
+  <div class="container-page grid items-center gap-10 md:grid-cols-[1.05fr_1fr]">
+    <div class="flex flex-col gap-6">
+      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+      <h1 class="text-(length:--text-h1) max-w-[17ch]" set:html={title} />
+      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[56ch]">{lead}</p>
+      <div class="flex flex-wrap items-center gap-3">
+        <Button href="/contacto/">Pide información</Button>
+        <Button href="tel:+34954409696" variant="outline">Llamar 954 40 96 96</Button>
+      </div>
+    </div>
+    {image && (
+      <img src={image.src} alt={image.alt} width="720" height="480" loading="eager" fetchpriority="high"
+           class="rounded-card aspect-3/2 w-full object-cover" />
+    )}
+  </div>
+</section>

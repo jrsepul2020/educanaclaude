@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+  <style>
+*{box-sizing:border-box;}
+body{margin:0;background:#F2F2EF;color:#16161A;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#16161A;} a:hover{color:#5C5C58;}
+.page{display:flex;flex-direction:column;}
+.wfbar{display:flex;align-items:center;gap:16px;padding:13px 40px;background:#16161A;color:#F2F2EF;}
+.wfbar .nm{font-weight:700;font-size:14px;letter-spacing:.02em;}
+.wfbar .url{font-family:'Space Mono',ui-monospace,monospace;font-size:11px;color:#9A9A95;}
+.wfbar .meta{margin-left:auto;font-family:'Space Mono',ui-monospace,monospace;font-size:10px;color:#C4B590;letter-spacing:.06em;}
+.nav{display:flex;align-items:center;gap:28px;padding:18px 72px;background:#2A2A2E;color:#F2F2EF;}
+.nav .logo{width:130px;height:34px;border:1.5px dashed #6E6E6A;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',ui-monospace,monospace;font-size:9px;color:#B9B9B2;letter-spacing:.06em;}
+.nav .it{font-size:14px;color:#D8D8D2;}
+.nav .sp{margin-left:auto;display:flex;gap:14px;align-items:center;}
+.sec{padding:52px 72px;display:flex;flex-direction:column;gap:26px;background:#F2F2EF;border-bottom:1px solid #E4E4DE;}
+.sec.alt{background:#FFFFFF;}
+.sec.dark{background:#2A2A2E;color:#F2F2EF;border-bottom:none;}
+.sec.dark .tag{color:#B0B0A8;} .sec.dark .bar{background:#4A4A50;}
+.sec.dark .card{background:#34343A;border-color:#4A4A50;color:#E8E8E2;}
+.sec.dark .p{color:#C4C4BE;} .sec.dark .lead{color:#DCDCD6;}
+.sec.dark .btn{background:#F2F2EF;color:#16161A;}
+.sec.dark .btn.ghost{background:transparent;color:#F2F2EF;border-color:#8A8A84;}
+.tag{font-family:'Space Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7A7A74;}
+.h1{font-size:52px;line-height:1.04;font-weight:800;letter-spacing:-.025em;margin:0;max-width:17ch;text-wrap:pretty;}
+.h2{font-size:33px;line-height:1.1;font-weight:700;letter-spacing:-.02em;margin:0;max-width:22ch;text-wrap:pretty;}
+.h3{font-size:18px;line-height:1.25;font-weight:600;margin:0;}
+.h4{font-size:15px;line-height:1.3;font-weight:600;margin:0;}
+.lead{font-size:17px;line-height:1.6;color:#4A4A48;margin:0;max-width:60ch;}
+.p{font-size:14px;line-height:1.65;color:#6E6E6A;margin:0;max-width:64ch;}
+.bar{height:9px;border-radius:5px;background:#DEDED8;}
+.bars{display:flex;flex-direction:column;gap:9px;}
+.ph{border:1.5px dashed #B9B9B2;border-radius:6px;background:repeating-linear-gradient(135deg,#EAEAE5 0 10px,#F1F1EC 10px 20px);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',ui-monospace,monospace;font-size:11px;color:#7E7E78;text-align:center;padding:12px;line-height:1.5;}
+.row{display:flex;gap:24px;}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;}
+.card{background:#FFFFFF;border:1px solid #DEDED8;border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:13px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 26px;border-radius:26px;background:#16161A;color:#F2F2EF;font-size:15px;font-weight:600;}
+.btn.ghost{background:transparent;color:#16161A;border:1.5px solid #16161A;}
+.btn.sm{height:40px;padding:0 18px;font-size:13px;border-radius:20px;}
+.btns{display:flex;gap:13px;flex-wrap:wrap;align-items:center;}
+.note{display:block;font-family:'Space Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.55;color:#8C7B5E;border-left:2px solid #C4B590;padding-left:11px;max-width:78ch;}
+.stat .n{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1;}
+.stat .l{font-size:13px;color:#6E6E6A;margin-top:7px;line-height:1.4;}
+.chip{display:inline-flex;align-items:center;height:30px;padding:0 13px;border-radius:15px;border:1px solid #CACAC3;font-size:11.5px;font-family:'Space Mono',ui-monospace,monospace;color:#5C5C58;background:#fff;}
+.chip.new{border-color:#C4B590;color:#8C7B5E;background:#FBF8F1;}
+.chips{display:flex;gap:10px;flex-wrap:wrap;}
+.field{display:flex;flex-direction:column;gap:7px;}
+.field .lb{font-size:12px;color:#6E6E6A;font-weight:500;}
+.field .in{height:46px;border:1px solid #D4D4CD;border-radius:8px;background:#fff;}
+.field .in.ta{height:100px;}
+.foot{background:#2A2A2E;color:#B0B0A8;padding:44px 72px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;}
+.foot .ttl{font-size:11px;font-family:'Space Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#F2F2EF;margin-bottom:12px;}
+.foot .li{font-size:13px;line-height:1.95;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid #DEDED8;border-radius:10px;overflow:hidden;}
+.tbl th{font-family:'Space Mono',ui-monospace,monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#7A7A74;text-align:left;padding:13px 16px;border-bottom:1px solid #DEDED8;background:#F7F7F4;font-weight:400;}
+.tbl td{padding:14px 16px;font-size:14px;border-bottom:1px solid #EDEDE7;color:#3A3A38;}
+.acc{background:#fff;border:1px solid #DEDED8;border-radius:10px;display:flex;flex-direction:column;}
+.acc .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:17px 20px;font-size:14.5px;font-weight:600;border-bottom:1px solid #EDEDE7;}
+.acc .q:last-child{border-bottom:none;}
+.acc .pl{font-family:'Space Mono',ui-monospace,monospace;color:#9A9A95;font-weight:400;}
+.data{background:#fff;border:1.5px solid #16161A;border-radius:10px;padding:22px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;}
+.data .k{font-family:'Space Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7A7A74;}
+.data .v{font-size:17px;font-weight:700;margin-top:6px;line-height:1.25;}
+.rail{background:#fff;border:1px solid #DEDED8;border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:14px;}
+.bread{font-family:'Space Mono',ui-monospace,monospace;font-size:11px;color:#8A8A84;}
+.ladder{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+.ladder .st{border:1px solid #DEDED8;background:#fff;border-radius:10px;padding:18px;}
+.ladder .st .lv{font-size:26px;font-weight:800;letter-spacing:-.02em;}
+</style>
+</helmet>
+<div class="page">
+<div class="wfbar"><span class="nm">PLANTILLA DE SERVICIO — la usan 11 páginas</span><span class="url">/curso-selectividad-sevilla-pevau/</span><span class="meta">148 CLICS · 21.763 IMPR · POS 27,6</span></div><div class="nav">
+  <div class="logo">LOGO · sobre oscuro</div>
+  <div class="it">Estudios</div><div class="it">Pruebas de acceso</div><div class="it">Inglés</div>
+  <div class="it">Horarios</div><div class="it">Academia</div>
+  <div class="sp"><span class="it">954 40 96 96</span><span class="btn sm" style="background:#F2F2EF;color:#16161A;">Pide información</span></div>
+</div>
+<div class="sec" style="padding-bottom:34px;">
+  <span class="bread">Inicio → Pruebas de acceso → Selectividad PEvAU</span>
+  <div class="row" style="gap:48px;align-items:flex-start;">
+    <div style="flex:1.1;display:flex;flex-direction:column;gap:22px;">
+      <span class="tag">Pruebas de acceso</span>
+      <h1 class="h1">Preparar la selectividad (PEvAU) en Sevilla Este.</h1>
+      <p class="lead">Curso anual para 2º de Bachillerato: preparamos todas las asignaturas del examen con el modelo vigente, en grupos de 6 a 8, con exámenes de simulacro corregidos uno a uno.</p>
+      <span class="note">RESPUESTA DIRECTA en 40–60 palabras: a quién sirve y qué consigue. Google la usa como fragmento y el visitante decide aquí.</span>
+    </div>
+    <div style="flex:.95;"><div class="ph" style="height:270px;">FOTO REAL — clase de bachillerato</div></div>
+  </div>
+</div>
+
+<div class="sec alt" style="padding-top:34px;">
+  <div class="data">
+    <div><div class="k">Duración</div><div class="v">Octubre a mayo</div></div>
+    <div><div class="k">Días y horas</div><div class="v">2 días · 3 h/semana por asignatura</div></div>
+    <div><div class="k">Grupo</div><div class="v">6 a 8 alumnos</div></div>
+    <div><div class="k">Desde</div><div class="v">[PRECIO] € / mes</div></div>
+    <div><div class="k">Próxima convocatoria</div><div class="v">PEvAU junio 2027</div></div>
+  </div>
+  <span class="note">LA CAJA DE DATOS DUROS decide la conversión y es justo lo que la web actual esconde. Un precio orientativo baja el volumen de contactos y sube mucho su calidad — decisión pendiente del cliente.</span>
+</div>
+
+<div class="sec">
+  <div class="row" style="gap:48px;align-items:flex-start;">
+    <div style="flex:1;display:flex;flex-direction:column;gap:38px;">
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <span class="tag">Qué incluye</span><h2 class="h2">Qué incluye el curso</h2>
+        <div class="grid2">
+          <div class="card"><h4 class="h4">Todas las asignaturas del examen</h4><p class="p">Troncales y las de tu modalidad, con el temario actualizado al modelo vigente.</p></div>
+          <div class="card"><h4 class="h4">Simulacros corregidos</h4><p class="p">Con el mismo criterio y los mismos tiempos del examen real.</p></div>
+          <div class="card"><h4 class="h4">Seguimiento con la familia</h4><p class="p">Sabéis cómo va antes de que llegue el boletín.</p></div>
+          <div class="card"><h4 class="h4">Material propio</h4><p class="p">Preparado por los profesores, no fotocopias de editorial.</p></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <span class="tag">Cómo trabajamos</span><h2 class="h2">Cuatro pasos</h2>
+        <div class="grid4">
+          <div class="card"><span class="tag">01</span><h4 class="h4">Vemos tu punto de partida</h4></div>
+          <div class="card"><span class="tag">02</span><h4 class="h4">Plan por asignatura</h4></div>
+          <div class="card"><span class="tag">03</span><h4 class="h4">Simulacros periódicos</h4></div>
+          <div class="card"><span class="tag">04</span><h4 class="h4">Recta final intensiva</h4></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <span class="tag">Quién te da clase</span><h2 class="h2">Tus profesores</h2>
+        <div class="grid3">
+          <div class="card"><div class="ph" style="height:130px;">FOTO</div><h4 class="h4">[Nombre]</h4><p class="p">Matemáticas II y Física</p></div>
+          <div class="card"><div class="ph" style="height:130px;">FOTO</div><h4 class="h4">[Nombre]</h4><p class="p">Lengua y Latín</p></div>
+          <div class="card"><div class="ph" style="height:130px;">FOTO</div><h4 class="h4">[Nombre]</h4><p class="p">Historia y Economía</p></div>
+        </div>
+        <span class="note">Profesorado propio y estable es uno de los 5 pilares de mensaje. Ponerles cara lo demuestra.</span>
+      </div>
+      <div class="card" style="background:#fff;">
+        <span class="tag">Testimonio</span>
+        <p class="lead">[TESTIMONIO REAL de un alumno que pasó por este curso concreto]</p>
+        <div class="row" style="align-items:center;gap:12px;"><div class="ph" style="height:44px;width:44px;border-radius:50%;">FOTO</div><div><div class="h4">[Nombre]</div><div class="p" style="font-size:12px;">PEvAU 2026 · [nota]</div></div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <span class="tag">Dudas frecuentes</span><h2 class="h2">Lo que más nos preguntáis</h2>
+        <div class="acc">
+          <div class="q"><span>¿Cuándo empieza el curso?</span><span class="pl">+</span></div>
+          <div class="q"><span>¿Puedo entrar si el curso ya ha empezado?</span><span class="pl">+</span></div>
+          <div class="q"><span>¿Cuántas asignaturas puedo llevar?</span><span class="pl">+</span></div>
+          <div class="q"><span>¿Hacéis simulacros con el modelo nuevo?</span><span class="pl">+</span></div>
+          <div class="q"><span>¿Qué pasa si suspendo en junio?</span><span class="pl">+</span></div>
+          <div class="q"><span>¿Cuánto cuesta?</span><span class="pl">+</span></div>
+        </div>
+        <span class="note">5–8 preguntas REALES de las que llegan por teléfono. Marcadas como FAQPage: gana superficie en el resultado, que es exactamente lo que falta (CTR del sitio: 1,19%).</span>
+      </div>
+    </div>
+    <div style="width:350px;position:sticky;top:20px;display:flex;flex-direction:column;gap:16px;">
+      <div class="rail">
+        <h3 class="h3">Pide información</h3>
+        <p class="p">Te decimos plazas, horario y precio.</p>
+        <div class="field"><span class="lb">Nombre</span><div class="in"></div></div>
+        <div class="field"><span class="lb">Teléfono</span><div class="in"></div></div>
+        <div class="field"><span class="lb">Asignaturas</span><div class="in"></div></div>
+        <span class="btn">Enviar</span>
+        <span class="btn ghost">Llamar 954 40 96 96</span>
+      </div>
+      <div class="rail"><span class="tag">También te puede servir</span>
+        <div class="li" style="font-size:14px;line-height:2;">Intensivos PEvAU → <br>Clases particulares → <br>Fechas y convocatorias →</div>
+      </div>
+      <span class="note">Columna fija: el formulario acompaña toda la lectura. En móvil baja al final y manda la barra inferior.</span>
+    </div>
+  </div>
+</div>
+<div class="sec alt">
+  <span class="tag">Contacto</span>
+  <h2 class="h2">¿Te cuadra? Hablamos.</h2>
+  <div class="row">
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+      <p class="p">Cuéntanos qué necesitas y te decimos en qué grupo encajas, cuándo empieza y cuánto cuesta. Sin compromiso.</p>
+      <div class="grid2">
+        <div class="field"><span class="lb">Nombre</span><div class="in"></div></div>
+        <div class="field"><span class="lb">Teléfono</span><div class="in"></div></div>
+      </div>
+      <div class="field"><span class="lb">¿Qué necesitas?</span><div class="in"></div></div>
+      <div class="field"><span class="lb">Cuéntanos (opcional)</span><div class="in ta"></div></div>
+      <div class="btns"><span class="btn">Pide información</span><span class="btn ghost">Llamar 954 40 96 96</span></div>
+      <span class="note">4 campos. Cada campo extra cuesta conversiones. Envío → /gracias/ para poder medir.</span>
+    </div>
+    <div style="width:400px;display:flex;flex-direction:column;gap:14px;">
+      <div class="ph" style="height:250px;">MAPA — carga bajo demanda<br>(no iframe automático: pesa y hunde el LCP)</div>
+      <div class="card"><h4 class="h4">Horario de atención</h4><div class="bars"><div class="bar" style="width:100%"></div><div class="bar" style="width:94%"></div><div class="bar" style="width:88%"></div></div></div>
+    </div>
+  </div>
+</div><div class="foot">
+  <div><div class="logo" style="width:130px;height:34px;border:1.5px dashed #6E6E6A;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9px;color:#B9B9B2;">LOGO</div>
+    <div class="li" style="margin-top:14px;">Avda. de las Ciencias 25, local 7<br>Edificio Galileo · 41020 Sevilla<br>954 40 96 96 · 686 08 55 66</div></div>
+  <div><div class="ttl">Estudios</div><div class="li">Clases de apoyo<br>Clases particulares<br>Cursos de verano<br>Cursos de invierno</div></div>
+  <div><div class="ttl">Pruebas de acceso</div><div class="li">Selectividad PEvAU<br>Intensivos PEvAU<br>Grado Superior<br>Grado Medio<br>Mayores de 25 y 45<br>Título ESO</div></div>
+  <div><div class="ttl">Inglés</div><div class="li">Niños · Teens · Adultos<br>B1 · B2 · C1<br>Trinity · Cambridge · APTIS<br>Intensivos</div></div>
+</div></div>
+</x-dc>
+</body>
+</html>

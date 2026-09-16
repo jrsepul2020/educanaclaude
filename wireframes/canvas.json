@@ -1,0 +1,27 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",           "x": 0,    "y": 0,     "w": 1440, "h": 4900, "title": "Home — escritorio" },
+    { "file": "HomeMovil.dc.html",      "x": 1560, "y": 0,     "w": 390,  "h": 3600, "title": "Home — móvil" },
+    { "file": "Servicio.dc.html",       "x": 0,    "y": 5060,  "w": 1440, "h": 3400, "title": "Plantilla de servicio" },
+    { "file": "Horarios.dc.html",       "x": 1560, "y": 5060,  "w": 1440, "h": 1900, "title": "Horarios y precios" },
+    { "file": "Convocatorias.dc.html",  "x": 3120, "y": 5060,  "w": 1440, "h": 2100, "title": "Fechas y convocatorias ★" },
+    { "file": "InglesHub.dc.html",      "x": 0,    "y": 8620,  "w": 1440, "h": 3300, "title": "Inglés — hub" },
+    { "file": "InglesPublico.dc.html",  "x": 1560, "y": 8620,  "w": 1440, "h": 2700, "title": "Inglés por público ★" },
+    { "file": "InglesNivel.dc.html",    "x": 3120, "y": 8620,  "w": 1440, "h": 2900, "title": "Inglés por nivel o examen ★" },
+    { "file": "Noticias.dc.html",       "x": 0,    "y": 12080, "w": 1440, "h": 2900, "title": "Noticias" },
+    { "file": "Contacto.dc.html",       "x": 1560, "y": 12080, "w": 1440, "h": 1900, "title": "Contacto" }
+  ],
+  "annotations": [
+    { "id": "intro", "x": -640, "y": 0, "w": 520,
+      "text": "WIREFRAMES · Academia Educana\n\nMedia fidelidad, en gris. Sin color de marca todavía: lo que se decide aquí es la ESTRUCTURA y la JERARQUÍA.\n\nEl copy NO es relleno: está sacado de la estrategia (doc 01). Lo que va entre [CORCHETES] es un dato real que falta y tiene que dar el cliente — precios, testimonios, fechas, % de aprobados.\n\nLas notas en color arena dentro de cada pantalla explican POR QUÉ está ahí cada bloque, con el dato de Search Console que lo justifica." },
+    { "id": "nota-home", "x": -640, "y": 620, "w": 520,
+      "text": "HOME\n\nPor aquí entra el 68% del tráfico del sitio, así que su trabajo es REPARTIR, no contarlo todo.\n\nTres cambios de fondo respecto a la web actual:\n\n1. Fuera el carrusel. Una sola promesa y dos acciones.\n2. Tres entradas por público en vez de nueve servicios en fila.\n3. Trinity con sección propia: es el diferencial real y hoy es una línea perdida." },
+    { "id": "nota-servicio", "x": -640, "y": 5060, "w": 520,
+      "text": "PLANTILLA DE SERVICIO\n\nUna sola plantilla para las 11 páginas de cursos y accesos.\n\nLa pieza que decide la conversión es la CAJA DE DATOS DUROS justo bajo el título: duración, días y horas, tamaño de grupo, precio desde y próxima convocatoria. Es exactamente lo que la web actual esconde.\n\nEl formulario va en columna fija acompañando toda la lectura. En móvil baja al final y manda la barra inferior." },
+    { "id": "nota-ingles", "x": -640, "y": 8620, "w": 520,
+      "text": "INGLÉS — la sección que más puede crecer\n\nHoy: 48.890 impresiones y 59 clics. Una sola página respondiendo a 258 consultas distintas.\n\nDos ejes, con papeles distintos:\n\n· PÚBLICO (niños, teens, adultos) — navegación y conversión. Poca demanda medida, pero es como piensa quien llega.\n\n· NIVEL Y EXAMEN (B1, B2, C1, Trinity, Cambridge, APTIS, intensivos) — captación SEO pura. Más de 19.000 impresiones ya medidas.\n\nCada página, una intención. Se enlazan, no compiten." },
+    { "id": "nota-resto", "x": -640, "y": 12080, "w": 520,
+      "text": "NOTICIAS Y CONTACTO\n\nNoticias cambia de enfoque: no son consejos de estudio, son convocatorias, plazos y cambios normativos. Es lo que busca vuestro público y lo que os mantiene útiles todo el año.\n\nContacto lleva el NAP exacto que saqué de la web antigua. Tiene que ser idéntico en la web, en el schema y en Google Business Profile: cualquier variación resta en SEO local." }
+  ],
+  "launch": { "view": "canvas" }
+}
