@@ -1,11 +1,11 @@
 ---
-interface Props { tone?: 'neutral' | 'brand' | 'amber' | 'ink' | 'ok'; class?: string }
+interface Props { tone?: 'neutral' | 'brand' | 'amber' | 'azul' | 'ok'; class?: string }
 const { tone = 'neutral', class: extra = '' } = Astro.props;
 const tones = {
   neutral: 'bg-ink/8 text-slate',
   brand: 'bg-brand/10 text-brand-ink',
   amber: 'bg-amber text-ink',
-  ink: 'bg-ink text-cream',
+  azul: 'bg-blue text-cream',
   ok: 'bg-ok/12 text-ok',
 };
 ---

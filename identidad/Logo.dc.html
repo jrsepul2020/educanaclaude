@@ -52,46 +52,57 @@ a{color:var(--redink);} a:hover{color:var(--navy);}
 .fld .in{height:48px;border:1.5px solid rgb(20 33 47 / .18);border-radius:10px;background:#fff;}
 </style>
 </helmet>
-<div class="lbl"><b>LOGOTIPO</b><span>Uso · el dibujo no se toca</span><span class="r">Decisión del cliente: intocable</span></div>
+<div class="lbl"><b>LOGOTIPO</b><span>Resuelto · el cliente aportó la versión que faltaba</span><span class="r">Dos colores planos</span></div>
 <div class="b">
-  <span class="tt">El hallazgo</span>
-  <h2 class="dsp h2">No está mal diseñado. Está mal usado.</h2>
-  <p class="p">El único archivo que existe tiene la palabra «academia educana» en <strong>blanco</strong>. Es la versión para fondo oscuro. Por eso «se ve mal» sobre el fondo blanco de la web actual: se está usando al revés.</p>
+  <span class="tt">Los dos archivos</span>
+  <h2 class="dsp h2">No estaba mal diseñado. Estaba mal usado.</h2>
+  <p class="p">El archivo que había (<code>educana.png</code>) tiene la palabra en blanco: es la versión para <strong>fondo oscuro</strong>. Por eso «se veía mal» sobre el fondo blanco de la web actual. El cliente ha aportado ahora la versión para fondo claro y el logotipo queda cerrado.</p>
   <div class="g2">
-    <div class="card" style="background:#14212F;border-color:#14212F;">
-      <div style="padding:28px;display:flex;align-items:center;justify-content:center;"><img src="logo.png" style="height:56px;width:auto;"></div>
-      <span class="ok" style="color:#7FD4A0;">✓ Sobre tinta — así funciona</span>
-    </div>
-    <div class="card">
-      <div style="padding:28px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;"><img src="logo.png" style="height:56px;width:auto;"></div>
-      <span class="no">✗ Sobre blanco — la palabra desaparece</span>
-    </div>
-  </div>
-  <div class="card" style="border-color:#CD1228;border-width:2px;">
-    <h3 class="h3">La solución no toca el diseño</h3>
-    <p class="p">1. <strong>Cabecera y pie van sobre tinta</strong> — el logotipo se ve perfecto y además gana presencia.<br>
-    2. Pedir al cliente el <strong>vectorial</strong> y las variantes que faltan. Mismo dibujo, sólo cambia el color y el recorte.</p>
+    <div class="card"><div style="background:#fff;border-radius:10px;padding:26px;display:flex;align-items:center;justify-content:center;"><img src="logoclaro.png" style="height:64px;width:auto;"></div><span class="ok">✓ Fondo claro — la que faltaba</span></div>
+    <div class="card" style="background:#21307F;border-color:#21307F;"><div style="padding:26px;display:flex;align-items:center;justify-content:center;"><img src="logooscuro.png" style="height:64px;width:auto;"></div><span class="ok" style="color:#8FE0AE;">✓ Fondo oscuro — cabecera y pie</span></div>
   </div>
 </div>
 <div class="b w">
-  <span class="tt">Lo que falta</span>
-  <h2 class="dsp h2">Cuatro archivos por pedir.</h2>
-  <div class="g4">
-    <div class="card"><div style="height:80px;background:#14212F;border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="logo.png" style="height:38px;"></div><h3 class="h3" style="font-size:15px;">Fondo oscuro</h3><span class="ok" style="font-size:12px;">✓ Ya existe</span></div>
-    <div class="card"><div style="height:80px;background:#fff;border:1px dashed rgba(20,33,47,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#7E7E78;">PENDIENTE</span></div><h3 class="h3" style="font-size:15px;">Fondo claro</h3><span class="p" style="font-size:12px;">Palabra en tinta</span></div>
-    <div class="card"><div style="height:80px;background:#fff;border:1px dashed rgba(20,33,47,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="mono" style="color:#7E7E78;">PENDIENTE</span></div><h3 class="h3" style="font-size:15px;">Una tinta</h3><span class="p" style="font-size:12px;">Sellos, fax, prensa</span></div>
-    <div class="card"><div style="height:80px;background:#CD1228;border-radius:8px;display:flex;align-items:center;justify-content:center;"><span style="font-family:Georgia,serif;color:#fff;font-size:34px;">ae</span></div><h3 class="h3" style="font-size:15px;">Isotipo «ae»</h3><span class="p" style="font-size:12px;">Favicon, redes, móvil</span></div>
+  <span class="tt">Color muestreado</span>
+  <h2 class="dsp h2">Exactamente dos tintas.</h2>
+  <div class="g2">
+    <div class="sw"><div class="ch" style="background:#CD1228;"><span class="mono" style="color:#fff;">#CD1228</span></div><div class="mt"><span class="nm">Rojo</span><span class="p" style="font-size:12.5px;">El monograma «ae»</span></div></div>
+    <div class="sw"><div class="ch" style="background:#21307F;"><span class="mono" style="color:#fff;">#21307F</span></div><div class="mt"><span class="nm">Azul</span><span class="p" style="font-size:12.5px;">La palabra «academia educana»</span></div></div>
   </div>
-  <p class="p">El isotipo suelto es el más urgente: hoy no hay favicon decente ni avatar para Google Business Profile y redes.</p>
+  <div class="card" style="border-color:#CD1228;border-width:2px;">
+    <h3 class="h3">Corrección a la versión anterior de este tablero</h3>
+    <p class="p">Yo había supuesto un azul marino neutro, <strong>#14212F</strong>. El azul real de la marca es <strong>#21307F</strong>: mucho más saturado y mucho más azul. La paleta del proyecto está corregida, y también los tokens del código.</p>
+  </div>
 </div>
 <div class="b">
-  <span class="tt">Reglas de uso</span>
-  <div class="g2">
-    <div class="card"><h3 class="h3">Zona de respeto</h3><div style="background:#14212F;border-radius:8px;padding:34px;display:flex;align-items:center;justify-content:center;position:relative;"><div style="border:1px dashed rgba(255,201,87,.55);padding:20px;"><img src="logo.png" style="height:44px;"></div></div><p class="p" style="font-size:13px;">Margen libre alrededor igual a la altura de la «a» minúscula.</p></div>
-    <div class="card"><h3 class="h3">Tamaño mínimo</h3><div style="background:#14212F;border-radius:8px;padding:24px;display:flex;align-items:center;justify-content:center;gap:24px;"><img src="logo.png" style="height:30px;"><span class="mono" style="color:#FFC957;">120 px de ancho</span></div><p class="p" style="font-size:13px;">Por debajo de 120 px, isotipo «ae». La palabra deja de leerse.</p></div>
+  <span class="tt">Archivos generados</span>
+  <h2 class="dsp h2">Cuatro variantes, un solo dibujo.</h2>
+  <p class="p">Derivadas de la versión del cliente <strong>recoloreando y recortando: el dibujo no se ha tocado</strong>, que era la condición.</p>
+  <div class="g4">
+    <div class="card"><div style="height:86px;background:#fff;border:1px solid rgba(20,33,47,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:10px;"><img src="logoclaro.png" style="max-height:100%;width:auto;"></div><h3 class="h3" style="font-size:15px;">Fondo claro</h3><span class="p" style="font-size:12px;">Original del cliente</span></div>
+    <div class="card"><div style="height:86px;background:#21307F;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:10px;"><img src="logooscuro.png" style="max-height:100%;width:auto;"></div><h3 class="h3" style="font-size:15px;">Fondo oscuro</h3><span class="p" style="font-size:12px;">Cabecera y pie</span></div>
+    <div class="card"><div style="height:86px;background:#FAF7F2;border:1px solid rgba(20,33,47,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:10px;"><img src="logomono.png" style="max-height:100%;width:auto;"></div><h3 class="h3" style="font-size:15px;">Una tinta</h3><span class="p" style="font-size:12px;">Sellos, prensa</span></div>
+    <div class="card"><div style="height:86px;background:#FAF7F2;border:1px solid rgba(20,33,47,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:10px;"><img src="isotipo.png" style="max-height:100%;width:auto;"></div><h3 class="h3" style="font-size:15px;">Isotipo «ae»</h3><span class="p" style="font-size:12px;">Favicon y redes</span></div>
+  </div>
+  <div class="card" style="background:#FBF8F1;border-color:#C4B590;">
+    <h3 class="h3">Sigue pendiente: los vectoriales</h3>
+    <p class="p">Estos PNG salen de un original de 350 px de ancho. Valen para la web. Para imprimir un cartel o rotular la fachada hacen falta el <code>.ai</code>, <code>.eps</code> o <code>.svg</code>.</p>
+  </div>
+</div>
+<div class="b w">
+  <span class="tt">Tamaño mínimo</span>
+  <h2 class="dsp h2">120 px de ancho. Comprobado en pantalla.</h2>
+  <div class="card">
+    <div style="display:flex;gap:26px;align-items:center;flex-wrap:wrap;">
+      <div style="background:#21307F;border-radius:10px;padding:18px 24px;display:flex;align-items:center;gap:26px;">
+        <img src="logooscuro.png" style="height:32px;width:auto;">
+        <img src="logooscuro.png" style="height:48px;width:auto;">
+      </div>
+      <p class="p" style="max-width:40ch;">A la izquierda, 32 px de alto: la palabra deja de leerse. A la derecha, 48 px — el tamaño de la cabecera. Lo verifiqué en el navegador, no a ojo.</p>
+    </div>
   </div>
   <div class="card"><h3 class="h3">Qué no hacer</h3>
-    <div class="p" style="line-height:2;">✗ Colocarlo sobre fotografía sin capa de contraste<br>✗ Recolorearlo, deformarlo o añadirle sombra<br>✗ Usarlo sobre fondo claro con el archivo actual<br>✗ Reescribir «academia educana» con otra tipografía</div>
+    <div class="p" style="line-height:2;">✗ Usarlo por debajo de 120 px de ancho — para eso está el isotipo<br>✗ Colocarlo sobre fotografía sin capa de contraste<br>✗ Recolorearlo fuera de las cuatro variantes<br>✗ Reescribir «academia educana» con otra tipografía</div>
   </div>
 </div>
 

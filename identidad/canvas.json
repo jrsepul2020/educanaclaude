@@ -1,30 +1,132 @@
 {
   "pages": [
-    { "id": "page-1", "name": "Direcciones" },
-    { "id": "page-2", "name": "Sistema" }
+    {
+      "id": "page-1",
+      "name": "Direcciones"
+    },
+    {
+      "id": "page-2",
+      "name": "Sistema"
+    }
   ],
   "artboards": [
-    { "file": "Main.dc.html",        "page": "page-1", "x": 0,    "y": 0, "w": 1440, "h": 2450, "title": "A · Editorial de barrio (recomendada)" },
-    { "file": "DireccionB.dc.html",  "page": "page-1", "x": 1560, "y": 0, "w": 1440, "h": 2450, "title": "B · Cuaderno" },
-    { "file": "DireccionC.dc.html",  "page": "page-1", "x": 3120, "y": 0, "w": 1440, "h": 2450, "title": "C · Señal" },
-
-    { "file": "Color.dc.html",       "page": "page-2", "x": 0,    "y": 0,    "w": 1280, "h": 1780, "title": "Color" },
-    { "file": "Tipografia.dc.html",  "page": "page-2", "x": 1400, "y": 0,    "w": 1280, "h": 2100, "title": "Tipografía" },
-    { "file": "Logo.dc.html",        "page": "page-2", "x": 2800, "y": 0,    "w": 1280, "h": 2000, "title": "Logotipo" },
-    { "file": "Fotografia.dc.html",  "page": "page-2", "x": 0,    "y": 2260, "w": 1280, "h": 1900, "title": "Fotografía ⚠" },
-    { "file": "Componentes.dc.html", "page": "page-2", "x": 1400, "y": 2260, "w": 1280, "h": 2150, "title": "Componentes" }
+    {
+      "file": "Main.dc.html",
+      "page": "page-1",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 2450,
+      "title": "A · Editorial de barrio (recomendada)"
+    },
+    {
+      "file": "DireccionB.dc.html",
+      "page": "page-1",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 2450,
+      "title": "B · Cuaderno"
+    },
+    {
+      "file": "DireccionC.dc.html",
+      "page": "page-1",
+      "x": 3120,
+      "y": 0,
+      "w": 1440,
+      "h": 2450,
+      "title": "C · Señal"
+    },
+    {
+      "file": "Color.dc.html",
+      "page": "page-2",
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 2000,
+      "title": "Color"
+    },
+    {
+      "file": "Tipografia.dc.html",
+      "page": "page-2",
+      "x": 1400,
+      "y": 0,
+      "w": 1280,
+      "h": 2100,
+      "title": "Tipografía"
+    },
+    {
+      "file": "Logo.dc.html",
+      "page": "page-2",
+      "x": 2800,
+      "y": 0,
+      "w": 1280,
+      "h": 2500,
+      "title": "Logotipo"
+    },
+    {
+      "file": "Fotografia.dc.html",
+      "page": "page-2",
+      "x": 0,
+      "y": 2660,
+      "w": 1280,
+      "h": 1900,
+      "title": "Fotografía ⚠"
+    },
+    {
+      "file": "Componentes.dc.html",
+      "page": "page-2",
+      "x": 1400,
+      "y": 2660,
+      "w": 1280,
+      "h": 2150,
+      "title": "Componentes"
+    }
   ],
   "annotations": [
-    { "id": "elige", "page": "page-1", "x": -640, "y": 0, "w": 520,
-      "text": "ELIGE UNA DIRECCIÓN\n\nLas tres llevan el mismo contenido y la misma paleta de marca, salida del logotipo real. Lo que cambia es la ACTITUD: tipografía, uso del color y forma.\n\nMi recomendación es la A. El público que más margen deja —adultos que necesitan un título— compra credibilidad, y A es la que más transmite veinte años de trayectoria sin parecer antigua.\n\nPero la decisión tiene un coste real en cada dirección. Están abajo, sin maquillar." },
-    { "id": "tradeoff-a", "page": "page-1", "x": -640, "y": 560, "w": 520,
-      "text": "A · EDITORIAL DE BARRIO\nNewsreader + Schibsted Grotesk\n\nA favor: credibilidad inmediata, se lee muy bien, envejece despacio. El serif rima con el del propio logotipo.\n\nEn contra: es la más seria de las tres. Para la familia que busca inglés para un niño de siete años puede resultar algo formal.\n\nPara quién gana: adultos, accesos, PEvAU." },
-    { "id": "tradeoff-b", "page": "page-1", "x": -640, "y": 1060, "w": 520,
-      "text": "B · CUADERNO\nBricolage Grotesque + Onest\n\nA favor: cercana y cálida, la que mejor le habla a las familias. El ámbar en bloques grandes le da alegría sin caer en lo infantil.\n\nEn contra: resta autoridad justo donde más falta hace —accesos de adultos, oposiciones, títulos oficiales—. Y las formas redondeadas y las sombras planas envejecen más rápido.\n\nPara quién gana: niños, teens, refuerzo escolar." },
-    { "id": "tradeoff-c", "page": "page-1", "x": -640, "y": 1620, "w": 520,
-      "text": "C · SEÑAL\nArchivo + Public Sans\n\nA favor: contundente y muy clara. Jerarquía indiscutible, funciona de maravilla en móvil y transmite eficacia: aquí se viene a aprobar.\n\nEn contra: es fría. Se parece más a una academia de oposiciones que a la del barrio que conoce a tus hijos, y eso choca de frente con el posicionamiento del doc 01.\n\nPara quién gana: adultos con prisa y objetivo concreto." },
-    { "id": "sistema", "page": "page-2", "x": -640, "y": 0, "w": 520,
-      "text": "SISTEMA VISUAL\n\nEsta página no depende de la dirección que elijas: el color, el logotipo y la fotografía son los mismos en las tres.\n\nTodo el color sale del logotipo real. Muestreé el archivo: el rojo es #CD1228, no el #DF0923 que asumía el prototipo anterior.\n\nDos cosas que conviene mirar con calma:\n\n· COLOR — el rojo sobre tinta falla el contraste (2,88:1). Sobre fondo oscuro, los acentos van en ámbar.\n\n· FOTOGRAFÍA — aquí está la corrección más importante de toda la fase." }
+    {
+      "id": "elige",
+      "page": "page-1",
+      "x": -640,
+      "y": 0,
+      "w": 520,
+      "text": "ELIGE UNA DIRECCIÓN\n\nLas tres llevan el mismo contenido y la misma paleta de marca, salida del logotipo real. Lo que cambia es la ACTITUD: tipografía, uso del color y forma.\n\nMi recomendación es la A. El público que más margen deja —adultos que necesitan un título— compra credibilidad, y A es la que más transmite veinte años de trayectoria sin parecer antigua.\n\nPero la decisión tiene un coste real en cada dirección. Están abajo, sin maquillar."
+    },
+    {
+      "id": "tradeoff-a",
+      "page": "page-1",
+      "x": -640,
+      "y": 560,
+      "w": 520,
+      "text": "A · EDITORIAL DE BARRIO\nNewsreader + Schibsted Grotesk\n\nA favor: credibilidad inmediata, se lee muy bien, envejece despacio. El serif rima con el del propio logotipo.\n\nEn contra: es la más seria de las tres. Para la familia que busca inglés para un niño de siete años puede resultar algo formal.\n\nPara quién gana: adultos, accesos, PEvAU."
+    },
+    {
+      "id": "tradeoff-b",
+      "page": "page-1",
+      "x": -640,
+      "y": 1060,
+      "w": 520,
+      "text": "B · CUADERNO\nBricolage Grotesque + Onest\n\nA favor: cercana y cálida, la que mejor le habla a las familias. El ámbar en bloques grandes le da alegría sin caer en lo infantil.\n\nEn contra: resta autoridad justo donde más falta hace —accesos de adultos, oposiciones, títulos oficiales—. Y las formas redondeadas y las sombras planas envejecen más rápido.\n\nPara quién gana: niños, teens, refuerzo escolar."
+    },
+    {
+      "id": "tradeoff-c",
+      "page": "page-1",
+      "x": -640,
+      "y": 1620,
+      "w": 520,
+      "text": "C · SEÑAL\nArchivo + Public Sans\n\nA favor: contundente y muy clara. Jerarquía indiscutible, funciona de maravilla en móvil y transmite eficacia: aquí se viene a aprobar.\n\nEn contra: es fría. Se parece más a una academia de oposiciones que a la del barrio que conoce a tus hijos, y eso choca de frente con el posicionamiento del doc 01.\n\nPara quién gana: adultos con prisa y objetivo concreto."
+    },
+    {
+      "id": "sistema",
+      "page": "page-2",
+      "x": -640,
+      "y": 0,
+      "w": 520,
+      "text": "SISTEMA VISUAL\n\nNo depende de la dirección que elijas: color, logotipo y fotografía son los mismos en las tres.\n\nACTUALIZADO con el logotipo que has subido. El logotipo tiene dos colores planos y los dos son de marca:\n\n  rojo  #CD1228\n  azul  #21307F\n\nYo había supuesto un azul marino neutro (#14212F). El real es mucho más azul. Corregido aquí y en el código.\n\nOjo al tablero de COLOR: rojo sobre azul da 2,07:1 y falla. Son los dos colores de la marca y el instinto pide juntarlos — pero no se puede."
+    }
   ],
-  "launch": { "view": "canvas", "page": "page-1" }
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
 }

@@ -18,12 +18,18 @@
 
 @theme {
   /* ── Color ──────────────────────────────────────────────────
-     Muestreados del logotipo real (educana.png). El rojo de la
-     marca es #CD1228 — no el #DF0923 del prototipo anterior.     */
-  --color-brand:      #CD1228;  /* acciones y acentos. Nunca fondos largos */
+     Muestreados del logotipo REAL del cliente (logo1.png, versión
+     para fondo claro). Sólo tiene dos colores planos:
+       rojo  #CD1228   ·   azul  #21307F
+     Regla de reparto: el AZUL viste las superficies grandes de marca
+     (cabecera, pie, bandas de confianza). La TINTA es para texto y
+     controles. El ROJO sólo para la acción principal.                */
+  --color-brand:      #CD1228;  /* rojo del logotipo. Acciones y acentos   */
   --color-brand-ink:  #A50D1F;  /* rojo para TEXTO sobre claro · 7,8:1 AAA */
-  --color-ink:        #14212F;  /* texto principal y fondos de confianza   */
-  --color-ink-soft:   #26364A;
+  --color-blue:       #21307F;  /* AZUL DEL LOGOTIPO — superficies grandes */
+  --color-blue-deep:  #1A2668;  /* estado hover sobre azul                 */
+  --color-ink:        #141A33;  /* texto y controles · 16,04:1 sobre crema */
+  --color-ink-soft:   #2A3352;
   --color-cream:      #FAF7F2;  /* fondo base, cálido                      */
   --color-paper:      #FFFFFF;
   --color-amber:      #FFC957;  /* destacados y campaña estacional         */

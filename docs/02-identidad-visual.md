@@ -1,38 +1,63 @@
 # 02 · Identidad visual y estilo de diseño
 **Decisión tomada:** el logotipo **no se toca**. Todo el sistema visual se construye a su alrededor.
 
-## 1. Hallazgo importante sobre el logotipo
-He muestreado el archivo `educana.png`:
-- Rojo real del logotipo: **#CD1228** (no el #DF0923 que asumía el prototipo anterior — hay que corregirlo).
-- La palabra "academia educana" está en **blanco / gris muy claro (#D1DAFF)**.
+## 1. El logotipo (resuelto)
+El cliente aportó el archivo que faltaba: **la versión para fondo claro**. Con los dos archivos, el logotipo queda cerrado.
 
-Es decir: **el archivo que existe es la versión para fondo oscuro.** Por eso "se ve mal": se está usando sobre blanco un logotipo diseñado para navy. No es un problema del logotipo, es un problema de uso.
+Muestreados los píxeles, el logotipo tiene **exactamente dos colores planos**:
 
-**Solución sin tocar el diseño:**
-1. La barra de navegación y el pie van sobre **fondo navy** → el logotipo se ve perfecto y además gana presencia.
-2. Pedir al cliente (o reconstruir con la misma tipografía y formas) las variantes que faltan: versión para fondo claro, versión de una tinta y un **isotipo "ae" suelto** para favicon, avatar de redes y móvil.
-3. Entregable: `logo-educana.svg` en 4 versiones + favicon. El dibujo es idéntico, sólo cambian color y recorte.
+| | Valor | Dónde está |
+|---|---|---|
+| Rojo | **#CD1228** | El monograma «ae» |
+| Azul | **#21307F** | La palabra «academia educana» |
 
-**Zona de respeto:** margen libre alrededor equivalente a la altura de la "a" minúscula. **Tamaño mínimo:** 120 px de ancho en pantalla; por debajo, isotipo.
+⚠️ **Corrección:** yo había asumido un azul marino neutro (#14212F). El azul real de la marca es **#21307F**, un azul mucho más saturado y más azul. La paleta está corregida.
+
+Y se confirma lo que dedujimos del primer archivo: `educana.png` era la **versión para fondo oscuro** (palabra en blanco). No estaba mal diseñado, estaba mal usado sobre el fondo blanco de la web actual.
+
+### Archivos generados
+De la versión del cliente he derivado las que faltaban **recoloreando y recortando, sin tocar el dibujo**:
+
+| Archivo | Para qué |
+|---|---|
+| `logo-educana-claro.png` | El original del cliente. Fondos claros |
+| `logo-educana-oscuro.png` | Palabra en crema. Cabecera y pie |
+| `logo-educana-mono-tinta.png` · `-mono-blanco.png` | Una tinta: sellos, prensa, fax |
+| `isotipo-ae.png` · `isotipo-ae-blanco.png` | Sólo el monograma. Favicon, redes, tamaños pequeños |
+| `favicon-256.png` | «ae» en crema sobre el azul de marca |
+
+Están en [`marca/`](../marca/) y en producción en `web/public/`.
+
+**Sigue pendiente: los vectoriales.** Estos PNG salen de un original de 350 px de ancho. Sirven para la web, pero para imprimir un cartel o rotular la fachada hacen falta el `.ai`, `.eps` o `.svg`.
+
+### Tamaño mínimo, comprobado en pantalla
+Lo verifiqué en el navegador: **a 32 px de alto la palabra deja de leerse**. La cabecera usa 40 px en móvil y 48 px en escritorio (≈107 px de ancho). **Por debajo de 120 px de ancho se usa el isotipo**, no el logotipo completo.
+
+**Zona de respeto:** margen libre alrededor equivalente a la altura de la «a» minúscula.
 
 ## 2. Paleta
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--red` | **#CD1228** | Color de marca. Botones principales, acentos, subrayados. **Nunca como fondo de secciones largas.** |
-| `--red-ink` | **#A50D1F** | Rojo para *texto* sobre claro (contraste 7,8:1 — AAA). El #CD1228 en texto pequeño se queda justo. |
-| `--navy` | **#14212F** | Texto principal, fondos de sección, navegación, pie. Es el color que sostiene la marca. |
+| `--brand` | **#CD1228** | Rojo del logotipo. Sólo la acción principal. **Nunca como fondo de secciones largas.** |
+| `--brand-ink` | **#A50D1F** | Rojo para *texto* sobre claro (7,8:1 — AAA). El #CD1228 en texto pequeño se queda justo. |
+| `--blue` | **#21307F** | **Azul del logotipo.** Superficies grandes de marca: cabecera, pie, bandas de confianza. |
+| `--ink` | **#141A33** | Texto y controles. 16,04:1 sobre crema. Emparentado con el azul, pero casi neutro para leer largo. |
 | `--cream` | **#FAF7F2** | Fondo base de la web. Cálido, no el blanco clínico de plantilla. |
 | `--white` | **#FFFFFF** | Tarjetas y superficies elevadas sobre el crema. |
 | `--amber` | **#FFC957** | Destacados y campañas estacionales. Es el color que se enciende sobre navy. |
 | `--slate` | **#4A5568** | Texto secundario (7:1 sobre crema). |
 | `--line` | rgba(20,33,47,.10) | Bordes y separadores. |
 
-**Contrastes verificados (WCAG):**
-- #CD1228 sobre blanco → 5,66:1 ✅ (AA en texto normal, y botón rojo con texto blanco → 5,66:1 ✅)
-- #14212F sobre crema → 15,25:1 ✅ AAA
-- #FFC957 sobre navy → 10,67:1 ✅ AAA
-- ⚠️ **#CD1228 sobre navy → 2,88:1 ❌.** Regla firme: sobre fondo navy, los acentos van en **ámbar o blanco**, jamás en rojo.
+**Contrastes verificados (WCAG), con el azul real:**
+- #21307F sobre crema → **10,95:1** ✅ AAA
+- Blanco sobre #21307F → **11,71:1** ✅ AAA
+- #FFC957 sobre #21307F → **7,66:1** ✅ AAA
+- #CD1228 sobre blanco → 5,66:1 ✅ AA
+- #141A33 sobre crema → 16,04:1 ✅ AAA
+- ⚠️ **#CD1228 sobre #21307F → 2,07:1 ❌.** Peor aún que con el azul que yo había supuesto (2,88:1). **Regla firme: sobre el azul de marca, los acentos van en ámbar o blanco. Jamás en rojo.**
+
+**Reparto de las dos superficies:** el **azul** viste las superficies grandes de marca (cabecera, pie, banda de Trinity). La **tinta** es para texto y controles. El **rojo** sólo para la acción principal.
 
 **Reparto de color (regla 60/30/10):** 60% crema y blanco · 30% navy · 10% rojo y ámbar. El rojo vale porque es escaso.
 

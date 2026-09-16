@@ -21,7 +21,8 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 - **Sin tienda ni campus en esta fase.** Prioridad: una web que posicione y salga rápido.
 - **Área de alumno retirada.** Se borra el PHP de 2013 del servidor, no sólo se redirige.
 - **Inglés es sección, no página:** hub + 10 subpáginas (3 por público, 7 por nivel y examen).
-- **Astro.** Reservas y área de alumno caben después sin cambiar de framework.
+- **Astro 7 + Tailwind 4, sin React.** La home compila en 18,9 KB de HTML y 0 archivos JS. Reservas y área de alumno caben después sin cambiar de framework.
+- **Dirección visual A** implementada en los tokens. Cambiar a B o C es editar un archivo.
 
 ## Decisiones pendientes
 1. **Dirección visual:** A · Editorial de barrio *(recomendada)* · B · Cuaderno · C · Señal. → canvas de identidad
@@ -55,7 +56,7 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 | 2 · Identidad visual | 1 sem | ✅ [Canvas publicado](https://claude.ai/artifact/XgmhqvZ2T3PSxikp4g7PNW) · pendiente elegir dirección |
 | 3 · Arquitectura y UX | 1–2 sem | ✅ Cerrada con datos |
 | 3b · Wireframes (10 plantillas) | — | ✅ [Canvas publicado](https://claude.ai/artifact/N2iKsd5qEhxjKZsMd3c22r) |
-| 4 · Sistema de diseño en código | 1 sem | |
+| 4 · Sistema de diseño en código | 1 sem | ✅ **Construido y compilando** → [`web/`](../web/) |
 | 5 · Contenido y copy | 1–2 sem (en paralelo) | |
 | 6 · Maquetación en Astro | 2–3 sem | |
 | 7 · Migración, 301 y lanzamiento | 1 sem | |

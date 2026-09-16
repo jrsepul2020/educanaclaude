@@ -19,12 +19,20 @@ const grupos = horarios.map((h) => h.data);
 const categorias = [...new Set(grupos.map((g) => g.categoria))];
 
 const colores = [
-  { n: 'brand',     hex: '#CD1228', t: 'Acciones y acentos. Nunca fondos largos.', fg: '#fff' },
+  { n: 'brand',     hex: '#CD1228', t: 'Rojo del logotipo. Sólo la acción principal.', fg: '#fff', logo: true },
+  { n: 'blue',      hex: '#21307F', t: 'Azul del logotipo. Superficies grandes de marca.', fg: '#fff', logo: true },
   { n: 'brand-ink', hex: '#A50D1F', t: 'Rojo para TEXTO sobre claro · 7,8:1 AAA', fg: '#fff' },
-  { n: 'ink',       hex: '#14212F', t: 'Texto principal y fondos de confianza', fg: '#fff' },
-  { n: 'cream',     hex: '#FAF7F2', t: 'Fondo base, cálido', fg: '#14212F' },
-  { n: 'amber',     hex: '#FFC957', t: 'Destacados y campaña estacional', fg: '#14212F' },
+  { n: 'ink',       hex: '#141A33', t: 'Texto y controles · 16,04:1 sobre crema', fg: '#fff' },
+  { n: 'cream',     hex: '#FAF7F2', t: 'Fondo base, cálido', fg: '#141A33' },
+  { n: 'amber',     hex: '#FFC957', t: 'Destacados y campaña estacional', fg: '#141A33' },
   { n: 'slate',     hex: '#4A5568', t: 'Texto secundario · 7:1 sobre crema', fg: '#fff' },
+];
+
+const logos = [
+  { src: '/logo-educana-claro.png',  bg: '#FFFFFF', n: 'Fondo claro',  t: 'El archivo original del cliente' },
+  { src: '/logo-educana-oscuro.png', bg: '#21307F', n: 'Fondo oscuro', t: 'Cabecera y pie. Generado del original' },
+  { src: '/isotipo-ae.png',          bg: '#FAF7F2', n: 'Isotipo «ae»', t: 'Por debajo de 120 px de ancho' },
+  { src: '/favicon.png',             bg: '#FAF7F2', n: 'Favicon',      t: 'Pestaña, redes, Google Business' },
 ];
 ---
 <Base
@@ -33,7 +41,7 @@ const colores = [
   noindex={true}
   chrome={false}
 >
-  <div class="bg-ink text-cream">
+  <div class="bg-blue text-cream">
     <div class="container-page flex flex-wrap items-baseline gap-4 py-5">
       <p class="font-display text-2xl">Sistema de diseño · Educana</p>
       <p class="text-cream/60 text-sm">Dirección A · Editorial de barrio</p>
@@ -54,6 +62,42 @@ const colores = [
   </Section>
 
   <Section tone="paper">
+    <Eyebrow>Logotipo</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Cuatro archivos, un solo dibujo.</h2>
+    <p class="max-w-[70ch] leading-relaxed text-slate">
+      El cliente aportó la versión para fondo claro. Las otras tres están generadas a partir
+      de ella recoloreando y recortando: <strong>el dibujo no se ha tocado</strong>.
+      Siguen faltando los vectoriales — estos PNG son provisionales.
+    </p>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {logos.map((l) => (
+        <Card>
+          <div class="flex h-28 items-center justify-center p-5" style={`background:${l.bg}`}>
+            <img src={l.src} alt={`Logotipo Educana — ${l.n}`} class="max-h-full w-auto object-contain" />
+          </div>
+          <div class="flex flex-col gap-1 p-4">
+            <p class="text-sm font-semibold">{l.n}</p>
+            <p class="text-[0.82rem] text-slate">{l.t}</p>
+          </div>
+        </Card>
+      ))}
+    </div>
+    <Card class="border-2 border-brand p-6 gap-3">
+      <h3 class="text-(length:--text-h3)">Tamaño mínimo: 120 px de ancho</h3>
+      <div class="flex flex-wrap items-center gap-6">
+        <div class="flex items-center gap-5 rounded-field bg-blue px-5 py-4">
+          <img src="/logo-educana-oscuro.png" alt="" width="350" height="157" class="h-8 w-auto" />
+          <img src="/logo-educana-oscuro.png" alt="" width="350" height="157" class="h-12 w-auto" />
+        </div>
+        <p class="max-w-[42ch] text-[0.9rem] leading-relaxed text-slate">
+          A la izquierda, 32 px de alto: la palabra deja de leerse. A la derecha, 48 px.
+          Es el tamaño de la cabecera. Por debajo de 120 px de ancho se usa el isotipo.
+        </p>
+      </div>
+    </Card>
+  </Section>
+
+  <Section tone="cream">
     <Eyebrow>Color</Eyebrow>
     <h2 class="text-(length:--text-h2)">Todo sale del logotipo.</h2>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -63,7 +107,10 @@ const colores = [
             <code class="text-[0.72rem]" style={`color:${c.fg}`}>{c.hex}</code>
           </div>
           <div class="flex flex-col gap-1 p-4">
-            <code class="text-sm font-semibold">--color-{c.n}</code>
+            <div class="flex items-center gap-2">
+              <code class="text-sm font-semibold">--color-{c.n}</code>
+              {c.logo && <Badge tone="brand">del logotipo</Badge>}
+            </div>
             <p class="text-[0.82rem] text-slate">{c.t}</p>
           </div>
         </Card>
@@ -73,7 +120,7 @@ const colores = [
     <Card class="border-2 border-brand p-6 gap-3">
       <h3 class="text-(length:--text-h3)">La regla que se incumple sola</h3>
       <div class="flex flex-wrap items-center gap-5">
-        <div class="flex h-16 w-64 items-center rounded-field bg-ink px-4">
+        <div class="flex h-16 w-64 items-center rounded-field bg-blue px-4">
           <span class="font-semibold text-brand">Rojo sobre tinta</span>
         </div>
         <p class="max-w-[46ch] text-[0.9rem] leading-relaxed text-slate">
@@ -85,7 +132,7 @@ const colores = [
     </Card>
   </Section>
 
-  <Section tone="cream">
+  <Section tone="paper">
     <Eyebrow>Tipografía</Eyebrow>
     <div class="flex flex-col gap-7 border-t border-line pt-7">
       <div><code class="text-[0.72rem] text-slate">--text-display · Newsreader 500</code>
@@ -107,7 +154,7 @@ const colores = [
     </div>
   </Section>
 
-  <Section tone="paper">
+  <Section tone="cream">
     <Eyebrow>Botones</Eyebrow>
     <h2 class="text-(length:--text-h2)">Una acción principal por pantalla.</h2>
     <div class="flex flex-wrap items-center gap-3">
@@ -123,9 +170,9 @@ const colores = [
     <Eyebrow>Etiquetas</Eyebrow>
     <div class="flex flex-wrap items-center gap-2.5">
       <Badge tone="amber">Centro examinador</Badge>
-      <Badge tone="ink">Trinity</Badge>
-      <Badge tone="ink">Cambridge</Badge>
-      <Badge tone="ink">APTIS</Badge>
+      <Badge tone="azul">Trinity</Badge>
+      <Badge tone="azul">Cambridge</Badge>
+      <Badge tone="azul">APTIS</Badge>
       <Badge tone="brand">B1</Badge>
       <Badge tone="brand">B2</Badge>
       <Badge tone="brand">C1</Badge>
@@ -134,7 +181,7 @@ const colores = [
     </div>
   </Section>
 
-  <Section tone="cream">
+  <Section tone="paper">
     <Eyebrow>Caja de datos duros</Eyebrow>
     <h2 class="text-(length:--text-h2)">Lo que decide la conversión.</h2>
     <DataBox items={[
@@ -147,7 +194,7 @@ const colores = [
     <p class="max-w-[70ch] text-slate">Va siempre justo bajo el H1, en toda página de servicio.</p>
   </Section>
 
-  <Section tone="paper">
+  <Section tone="cream">
     <Eyebrow>Cifras</Eyebrow>
     <StatBlock stats={[
       { n: '20+', label: 'años en el mismo barrio', accent: true },
