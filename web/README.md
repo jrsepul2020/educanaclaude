@@ -4,9 +4,16 @@ Astro 7 + Tailwind 4 + TypeScript estricto. Sin React: la web no envía ni un ar
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321
-npm run build    # astro check + build. Debe terminar con 0 errores
+npm run dev        # http://localhost:4321
+npm run build      # astro check + build. Debe terminar con 0 errores
+npm run probar     # pruebas de la validación de formularios
+npm run verificar  # build + verificación previa al lanzamiento
 ```
+
+**`npm run verificar` es la que manda.** Comprueba que no se pierde ninguna de las 19 URLs
+con tráfico, que las 301 apuntan a páginas que existen, que no hay enlaces rotos, que
+títulos y metas caben en Google, que hay un solo H1 por página, que el schema está donde
+toca y que no se publican legales sin revisar ni datos sin rellenar. Si falla, no se lanza.
 
 **`/design-system`** es la referencia viva de tokens y componentes. Renderiza los componentes reales, así que no se desactualiza. Lleva `noindex` y está fuera del sitemap.
 
@@ -30,9 +37,13 @@ npm run build    # astro check + build. Debe terminar con 0 errores
 4. **`npm run build` con 0 errores** antes de subir nada. `astro check` corre dentro.
 5. **Añadir JavaScript exige justificarlo.** Hoy la home son 18,9 KB de HTML y 0 archivos JS.
 
-## Pendiente
+## Variables de entorno
+Copiar `.env.example` a `.env`. Sin `PUBLIC_GA4_ID` no se carga analítica ni aparece el
+banner de cookies. Sin `RESEND_API_KEY` el formulario responde 503 y avisa al usuario de
+que llame por teléfono, en vez de perder el contacto en silencio.
 
-- Sustituir `public/logo-educana.svg` por el vectorial real del cliente.
-- Rellenar los `[PRECIO]`, `[FECHA]` y demás marcadores de `src/data/`.
-- Endpoint `/api/contacto` (necesita modo servidor + Resend).
-- Las 20 páginas restantes: esto es el sistema, no el sitio (fase 6).
+## Pendiente
+- Rellenar los marcadores entre corchetes de `src/data/` — están listados en [docs/08](../docs/08-datos-pendientes.md).
+- Portar y revisar los tres textos legales.
+- Los vectoriales del logotipo (los PNG actuales salen de un original de 350 px).
+- La sesión de fotos: hoy el sitio va sin imágenes a propósito.
