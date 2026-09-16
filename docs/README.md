@@ -13,7 +13,7 @@ Rediseño completo de [academiaeducana.com](https://www.academiaeducana.com). Es
 | 05 | [SEO y contenido](05-seo-contenido.md) | Keywords, schema, esquema de contenido, medición, checklist |
 | 06 | [Stack y arquitectura](06-stack-arquitectura.md) | Astro vs Next vs Vite, pila completa, estructura del repo |
 | 07 | [Análisis de Search Console](07-analisis-search-console.md) | **Datos reales de 12 meses. Manda sobre el resto.** |
-| 08 | [Datos pendientes](08-datos-pendientes.md) | Los 16 huecos que quedan, y por qué sólo puede darlos el cliente |
+| 08 | [Datos pendientes](08-datos-pendientes.md) | Los 21 huecos que quedan, y por qué sólo puede darlos el cliente |
 | 09 | [Migración y lanzamiento](09-migracion-y-lanzamiento.md) | Manual del día del lanzamiento, orden de operaciones y vuelta atrás |
 | 10 | [Contenido portado](10-contenido-portado.md) | **Precios, fechas y textos sacados de la web actual. Y el conflicto de precios.** |
 
