@@ -1,8 +1,13 @@
 ---
 import Button from '../ui/Button.astro';
 import Icon from '../ui/Icon.astro';
-/* Cabecera sobre tinta: el logotipo que existe es la versión para
-   fondo oscuro, así que sobre navy se ve como debe (doc 02 §1).
+/* Cabecera en BLANCO (17-09-2026). Antes iba sobre azul, pero las
+   cabeceras de página pasaron a llevar el degradado del servicio y dos
+   azules pegados se empastaban; en blanco, el color de cada sección
+   arranca limpio justo debajo.
+
+   Cambia el logotipo: el `oscuro` lleva el texto en crema y es el de
+   fondo oscuro; sobre blanco va el `claro`, con el texto en azul.
 
    Menú completo: cada página real del sitio tiene que estar aquí
    (17-09-2026, corrección del cliente: el menú anterior sólo enlazaba
@@ -60,17 +65,17 @@ const menu = [
   { label: 'Contacto', href: '/contacto/' },
 ];
 ---
-<header class="relative z-50 bg-blue text-cream">
+<header class="relative z-50 border-b border-line bg-white text-ink">
   <div class="container-page flex items-center gap-8 py-4">
     <a href="/" class="shrink-0" aria-label="Academia Educana — inicio">
-      <img src="/logo-educana-oscuro.png" alt="Academia Educana" width="350" height="157" class="h-10 w-auto self-start md:h-12" />
+      <img src="/logo-educana-claro.png" alt="Academia Educana" width="350" height="157" class="h-10 w-auto self-start md:h-12" />
     </a>
 
     <nav aria-label="Principal" class="hidden xl:flex items-center gap-1">
       {menu.map((i) =>
         i.items ? (
           <details class="nav-drop group relative">
-            <summary class="flex cursor-pointer list-none items-center gap-1.5 whitespace-nowrap rounded px-2.5 py-2 text-[0.94rem] font-semibold text-cream/85 marker:content-none hover:text-cream">
+            <summary class="flex cursor-pointer list-none items-center gap-1.5 whitespace-nowrap rounded px-2.5 py-2 text-[0.94rem] font-semibold text-ink/80 marker:content-none hover:text-brand-ink">
               {i.label}
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true" class="mt-0.5 shrink-0 transition-transform duration-150 group-open:rotate-180">
                 <path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -91,14 +96,14 @@ const menu = [
             </div>
           </details>
         ) : (
-          <a href={i.href} class="whitespace-nowrap rounded px-2.5 py-2 text-[0.94rem] font-semibold text-cream/85 hover:text-cream">{i.label}</a>
+          <a href={i.href} class="whitespace-nowrap rounded px-2.5 py-2 text-[0.94rem] font-semibold text-ink/80 hover:text-brand-ink">{i.label}</a>
         )
       )}
     </nav>
 
     <div class="ml-auto flex items-center gap-4">
-      <a href="tel:+34954409696" class="hidden xl:inline-flex items-center gap-1.5 whitespace-nowrap text-[0.92rem] text-cream/85 hover:text-cream tabular" data-evento="clic-telefono">
-        <Icon name="telefono" size="sm" class="text-amber" />
+      <a href="tel:+34954409696" class="hidden xl:inline-flex items-center gap-1.5 whitespace-nowrap text-[0.92rem] font-semibold text-ink/80 hover:text-brand-ink tabular" data-evento="clic-telefono">
+        <Icon name="telefono" size="sm" class="text-brand" />
         954 40 96 96
       </a>
       <Button href="/contacto/" icon="info" size="sm" class="hidden sm:inline-flex">Pide información</Button>
@@ -110,36 +115,36 @@ const menu = [
     </div>
   </div>
 
-  <nav id="menu-movil" aria-label="Principal móvil" hidden class="xl:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-cream/12">
+  <nav id="menu-movil" aria-label="Principal móvil" hidden class="xl:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line">
     <ul class="container-page flex flex-col py-2">
       {menu.map((i) => (
-        <li class="border-b border-cream/8">
+        <li class="border-b border-line">
           {i.items ? (
             <details class="group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-2 py-3.5 font-semibold text-cream marker:content-none">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-2 py-3.5 font-semibold text-ink marker:content-none">
                 {i.label}
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" class="shrink-0 transition-transform duration-150 group-open:rotate-180"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </summary>
               <ul class="flex flex-col gap-0.5 pb-3">
                 {i.href && (
-                  <li><a href={i.href} class="flex items-center justify-between gap-2 py-2 pl-3 text-[0.92rem] font-bold text-amber">
+                  <li><a href={i.href} class="flex items-center justify-between gap-2 py-2 pl-3 text-[0.92rem] font-bold text-brand-ink">
                     {i.hrefLabel}
                     <Icon name="flecha" size="sm" />
                   </a></li>
                 )}
                 {i.items.map(([l, h]) => (
-                  <li><a href={h} class="flex items-center py-2 pl-3 text-[0.92rem] text-cream/85">
+                  <li><a href={h} class="flex items-center py-2 pl-3 text-[0.92rem] text-slate">
                     {l}
                   </a></li>
                 ))}
               </ul>
             </details>
           ) : (
-            <a href={i.href} class="block py-3.5 font-semibold text-cream">{i.label}</a>
+            <a href={i.href} class="block py-3.5 font-semibold text-ink">{i.label}</a>
           )}
         </li>
       ))}
-      <li><a href="/contacto/" class="flex items-center gap-2 py-3.5 font-bold text-amber"><Icon name="info" />Pide información</a></li>
+      <li><a href="/contacto/" class="flex items-center gap-2 py-3.5 font-bold text-brand-ink"><Icon name="info" />Pide información</a></li>
     </ul>
   </nav>
 </header>
