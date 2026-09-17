@@ -1,122 +1,268 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import Hero from '../components/blocks/Hero.astro';
-import Section from '../components/blocks/Section.astro';
-import Eyebrow from '../components/blocks/Eyebrow.astro';
-import StatBlock from '../components/blocks/StatBlock.astro';
-import CampaignBanner from '../components/blocks/CampaignBanner.astro';
-import TrinityBand from '../components/blocks/TrinityBand.astro';
+import Button from '../components/ui/Button.astro';
+import Icon from '../components/ui/Icon.astro';
 import LeadForm from '../components/blocks/LeadForm.astro';
-import Card from '../components/ui/Card.astro';
-import Badge from '../components/ui/Badge.astro';
+import TrinityBand from '../components/blocks/TrinityBand.astro';
 import Testimonios from '../components/blocks/Testimonios.astro';
 import MosaicoFotos from '../components/blocks/MosaicoFotos.astro';
+import CtaFormulario from '../components/blocks/CtaFormulario.astro';
 import PhotoPlaceholder from '../components/ui/PhotoPlaceholder.astro';
 import { foto } from '../lib/foto';
 
-/* Los servicios salen de la colección, no escritos a mano: así el
-   nombre de cada curso en portada es siempre el mismo que en su página
-   y añadir un curso nuevo lo publica aquí solo. Orden descendente por
-   `orden`, que es el que ya usa el resto del sitio. */
+/* Portada.
+
+   Cabecera con panel de color partido en diagonal, barra roja de
+   cifras, bloque de texto con los cuatro pilares y el formulario, y
+   la rejilla de cursos a 1600px y cuatro columnas.
+
+   Cada tarjeta se pinta con el color de su familia. Como los cursos
+   salen ordenados de la colección, las familias caen agrupadas y el
+   color monta las filas solo: se ve a qué grupo pertenece cada curso
+   sin una sola etiqueta extra.
+
+   Los servicios salen de la colección, no escritos a mano: el nombre
+   de cada curso aquí es siempre el mismo que en su página, y añadir
+   un curso lo publica en portada solo. */
 const cursos = (await getCollection('cursos')).sort((a, b) => b.data.orden - a.data.orden);
+const BASE_ING = '/academia-de-ingles-en-sevilla-este';
+
 const etiqueta = { estudios: 'Estudios', accesos: 'Pruebas de acceso', ingles: 'Inglés' };
 
+/* Misma rejilla de tarjetas que la portada actual, pero cada tarjeta
+   pintada con el color de su familia. Las once salen de la colección,
+   así que añadir un curso lo publica aquí solo. */
 const servicios = [
   ...cursos.map((c) => ({
     titulo: c.data.titulo,
-    // Primera frase de la entradilla: resume sin duplicar texto
     texto: `${c.data.entradilla.split('. ')[0]}.`,
     href: `/${c.id}/`,
-    grupo: etiqueta[c.data.categoria],
+    familia: c.data.categoria,
     fotoNombre: `cursos/${c.id}.jpg`,
   })),
   {
     titulo: 'Inglés y exámenes oficiales',
     texto: 'De los 6 años al C1, con Trinity, Cambridge, EOI y APTIS. Somos centro examinador oficial de Trinity.',
-    href: '/academia-de-ingles-en-sevilla-este/',
-    grupo: 'Inglés',
+    href: `${BASE_ING}/`,
+    familia: 'ingles' as const,
     fotoNombre: 'ingles/hub.jpg',
   },
 ];
-const medidasPuerta = '1200×800 px · proporción 3:2';
-const iconoFlecha = 'M6 4l4 4-4 4';
-const examenes = ['Trinity College London', 'Cambridge', 'EOI', 'APTIS'];
+
+/* Datos de la barra roja. Etiquetas cortas: es una sola línea. */
+const cifras = [
+  { n: '20+',   label: 'años en Sevilla Este', icono: 'reloj' as const },
+  { n: '6.796', label: 'alumnos desde 2005',   icono: 'usuarios' as const },
+  { n: '4',     label: 'exámenes oficiales',   icono: 'diploma' as const },
+];
+
+/* Cuatro pilares para la rejilla 2x2. Los textos llevan la carga de SEO
+   local —Sevilla Este, el barrio, los nombres de examen— sin escribirse
+   para el buscador: son las frases que una familia usa al preguntar. */
+const pilares = [
+  { icono: 'libro' as const, t: 'Clases de apoyo',
+    d: 'Refuerzo escolar de Primaria a Bachillerato en Sevilla Este, en grupos reducidos y con seguimiento directo con la familia.' },
+  { icono: 'diploma' as const, t: 'Pruebas de acceso',
+    d: 'Selectividad PEvAU, Grado Medio y Superior, mayores de 25 y 45 y título de la ESO, con material propio y exámenes de seguimiento.' },
+  { icono: 'globo' as const, t: 'Inglés y exámenes oficiales',
+    d: 'De los 6 años al C1. Centro examinador Trinity: preparas y te examinas en la misma academia, sin desplazarte.' },
+  { icono: 'usuarios' as const, t: 'Clases particulares',
+    d: 'Una asignatura concreta, un profesor para ti y el horario que te encaje, de lunes a jueves de 16:00 a 22:00.' },
+];
+
+const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
 ---
 <Base
   title="Academia en Sevilla Este · Academia Educana"
   description="Clases de apoyo, PEvAU, pruebas de acceso y exámenes oficiales de inglés en Sevilla Este. Grupos reducidos y más de 20 años de experiencia."
+  cta={false}
 >
-  <Hero
-    eyebrow="Academia en Sevilla Este · desde 2005"
-    title="Llevamos 20 años consiguiendo que aprueben."
-    lead="Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos reducidos, matrícula gratuita y material incluido en el precio."
-    trust="Más de 6.796 alumnos han pasado por Educana"
-    fotoNombre="home-hero.jpg"
-    fotoMedidas="1600×1067 px · proporción 3:2"
-  />
+  {/* ═══ HERO · panel de color partido en diagonal sobre la foto ═══ */}
+  <section class="relative isolate overflow-hidden bg-blue">
+    <img src={fotoHero} alt="" aria-hidden="true" loading="eager"
+         class="absolute inset-0 -z-20 h-full w-full object-cover" />
+    {/* En móvil el panel cubre todo y la foto queda de textura; de lg en
+        adelante se retira a la izquierda y aparece el corte diagonal. */}
+    <div aria-hidden="true"
+         class="diagonal absolute inset-0 -z-10 lg:right-[38%]"
+         style="background: linear-gradient(120deg, #141A33 0%, var(--color-blue) 100%);"></div>
 
-  <Section tone="paper">
-    <StatBlock stats={[
-      { n: '20+', label: 'años en el mismo barrio', accent: true, icon: 'anios' },
-      { n: '6.796', label: 'alumnos han pasado por Educana', icon: 'alumnos' },
-      { n: '4', label: 'exámenes oficiales: Trinity, Cambridge, EOI y APTIS', icon: 'examenes' },
-      { n: '0 €', label: 'de matrícula, en todos los cursos', accent: true, icon: 'gratis' },
-    ]} />
-    <div class="flex flex-wrap items-center gap-3 pt-2">
-      <span class="text-sm font-semibold text-slate">Centro preparador de:</span>
-      {examenes.map((e) => <Badge tone="neutral">{e}</Badge>)}
+    <div class="container-page py-16 md:py-24">
+      <div class="flex max-w-[34rem] flex-col gap-6 text-white">
+        {/* El antetítulo ya no repite la palabra clave: la lleva el H1,
+            que es donde cuenta. Aquí va la prueba de arraigo. */}
+        <p class="text-[0.78rem] font-bold uppercase tracking-[0.2em] text-white/80">
+          Desde 2005 en la Avenida de las Ciencias
+        </p>
+        {/* Clave primero y promesa después: el H1 tiene que decir qué
+            somos y dónde antes de prometer nada. */}
+        <h1 class="text-(length:--text-display) leading-[0.9]">
+          Academia en Sevilla&nbsp;Este.<br />20 años consiguiendo que aprueben.
+        </h1>
+        <p class="text-[1.3rem] leading-relaxed text-white/90">
+          Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés.
+          Grupos reducidos, matrícula gratuita y material incluido en el precio.
+        </p>
+        <div class="flex flex-wrap gap-3 pt-1">
+          <Button href="/contacto/" icon="chat" variant="rojo-aro">Pide información</Button>
+          <Button href="tel:+34954409696" icon="telefono" variant="trans-claro" class="tabular">954 40 96 96</Button>
+        </div>
+        <p class="flex items-center gap-2.5 pt-2 text-[1rem] font-bold text-white/85">
+          <Icon name="check" class="shrink-0" />
+          Más de 6.796 alumnos han pasado por Educana
+        </p>
+      </div>
     </div>
-  </Section>
+  </section>
 
-  <CampaignBanner
-    tag="Trinity"
-    text="Somos centro examinador oficial: preparas el examen aquí y te examinas aquí. Hay convocatoria casi todos los meses."
-    cta="Ver las fechas"
-    href="/fechas-y-convocatorias/"
-  />
+  {/* ═══ CIFRAS · banda fina bajo la cabecera ═══
+      Las mismas tres cifras que estaban en tarjetas grandes, ahora en
+      una sola fila y en pequeño. Como filete entre la cabecera y
+      el primer servicio rematan el hero sin abrir otra sección: en
+      tarjetas grandes competían con los bloques y frenaban la lectura. */}
+  <section class="bg-brand text-white">
+    <div class="container-page">
+      {/* En móvil no se parte en varias filas: se desliza en horizontal,
+          que mantiene la lectura de barra y evita tres líneas de alto. */}
+      <ul class="flex items-center gap-x-8 gap-y-2 overflow-x-auto py-2.5 text-[0.95rem] md:justify-between md:overflow-visible">
+        {cifras.map((c) => (
+          <li class="flex shrink-0 items-center gap-2.5 whitespace-nowrap">
+            <Icon name={c.icono} size="sm" class="opacity-90" />
+            <span class="font-display text-[1.35rem] leading-none tabular">{c.n}</span>
+            <span class="font-medium text-white">{c.label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
 
-  <Section tone="cream">
-    <Eyebrow>Nuestros cursos</Eyebrow>
-    <h2 class="text-(length:--text-h2)">Todo lo que preparamos en Sevilla Este.</h2>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {servicios.map((p) => {
-        const src = foto(p.fotoNombre);
-        return (
-          <Card class="group relative gap-0 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
-            <a href={p.href} class="contents">
-              {src
-                ? <img src={src} alt={`${p.titulo} · Academia Educana, Sevilla Este`} width="400" height="267" loading="lazy" class="aspect-3/2 w-full object-cover" />
-                : <PhotoPlaceholder nombre={p.fotoNombre} medidas={medidasPuerta} class="aspect-3/2" />}
-              <div class="flex flex-1 flex-col gap-2.5 p-6">
-                <span class="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slate">{p.grupo}</span>
-                <h3 class="text-(length:--text-h3) text-ink group-hover:text-brand-ink">{p.titulo}</h3>
-                <p class="text-[0.95rem] leading-relaxed text-slate">{p.texto}</p>
-                <span class="mt-auto flex items-center gap-1.5 pt-2 text-[0.9rem] font-bold text-brand-ink">
-                  Ver el curso
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="shrink-0 transition-transform group-hover:translate-x-1">
-                    <path d={iconoFlecha} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
+  {/* ═══ QUÉ HACEMOS · texto de posicionamiento + formulario ═══
+      Bloque de texto largo, que es donde la página puede sostener las
+      consultas de búsqueda ("academia en Sevilla Este", "PEvAU",
+      "clases de apoyo ESO") sin forzar la lectura. El formulario va al
+      lado y no al final: quien llega convencido no tiene que bajar
+      hasta el cierre para escribir. */}
+  <section class="bg-cream py-16 md:py-24">
+    <div class="container-page grid gap-12 lg:grid-cols-[1fr_24rem] lg:gap-16">
+
+      {/* ── Columna de texto ── */}
+      <div class="flex min-w-0 flex-col gap-6">
+        <h2 class="text-(length:--text-h1) leading-[0.95]">
+          <span class="block text-brand">Una academia de barrio</span>
+          <span class="block">con veinte años de resultados</span>
+        </h2>
+        <p class="max-w-[62ch] text-[1.2rem] leading-relaxed text-slate">
+          Estamos en la Avenida de las Ciencias, en pleno Sevilla Este, desde 2005. Preparamos
+          refuerzo escolar, pruebas de acceso y exámenes oficiales de inglés con los mismos
+          profesores curso tras curso: por eso conocemos a las familias del barrio por su nombre.
+        </p>
+
+        <hr class="border-line" />
+
+        <div class="grid gap-x-10 gap-y-9 sm:grid-cols-2">
+          {pilares.map((c) => (
+            <div class="flex flex-col gap-2.5">
+              <div class="flex items-center gap-3">
+                <Icon name={c.icono} size="lg" class="text-brand" />
+                <h3 class="text-(length:--text-h3) leading-tight">{c.t}</h3>
               </div>
-            </a>
-          </Card>
-        );
-      })}
+              {/* El filete corto separa título de texto sin meter una
+                  línea completa: mantiene las cuatro fichas ligeras. */}
+              <span class="h-[3px] w-8 bg-ink" aria-hidden="true"></span>
+              <p class="max-w-[42ch] text-[1rem] leading-relaxed text-slate">{c.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <hr class="border-line" />
+
+        <div class="flex flex-wrap gap-3">
+          <Button href="/horarios-cursos/" icon="reloj" variant="primary">Horarios y precios</Button>
+          <Button href="/quienes-somos-academia-educana/" icon="academia" variant="outline">Conócenos</Button>
+        </div>
+      </div>
+
+      {/* ── Tarjeta roja + formulario ── */}
+      <aside class="overflow-hidden rounded-card border border-line bg-paper self-start">
+        <div class="bg-brand px-7 py-8 text-white">
+          <p class="text-[1.15rem] font-semibold leading-snug">
+            Lo que mejor sabemos hacer es sentarnos al lado de un alumno hasta que
+            el temario deja de darle miedo. Lo demás viene solo.
+          </p>
+          <hr class="my-5 border-white/30" />
+          <p class="text-[0.78rem] font-bold uppercase tracking-[0.14em]">Academia Educana</p>
+          <p class="text-[0.95rem] text-white">Sevilla Este · desde 2005</p>
+        </div>
+        <div class="px-7 py-7">
+          <p class="mb-4 text-[1.05rem] font-bold leading-snug">Cuéntanos qué necesitas</p>
+          <LeadForm context="home-seo" compact={true} />
+        </div>
+      </aside>
+
     </div>
-  </Section>
+  </section>
+
+  {/* ═══ SERVICIOS · rejilla de tarjetas, una por curso ═══
+      Vuelve a la rejilla de la portada actual, pero cada tarjeta lleva
+      el color de su familia: con once fichas iguales en gris no se veía
+      a qué grupo pertenecía cada una y el color hace ese trabajo sin
+      añadir una sola palabra. A 1600px y cuatro columnas las once
+      caben en tres filas en vez de cuatro. */}
+  <section class="bg-cream py-16 md:py-24">
+    <div class="container-pie flex flex-col gap-8">
+      <div class="flex flex-col gap-3">
+        <p class="text-[0.78rem] font-bold uppercase tracking-[0.2em] text-brand">Nuestros cursos</p>
+        <h2 class="text-(length:--text-h1) leading-[0.95]">Todo lo que preparamos en Sevilla Este.</h2>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {servicios.map((p) => {
+          const src = foto(p.fotoNombre);
+          return (
+            <article data-servicio={p.familia}
+                     class="group flex flex-col overflow-hidden rounded-card transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                     style="background: var(--srv);">
+              {/* `contents` deja que el enlace cubra toda la tarjeta sin
+                  romper la columna flex de dentro. */}
+              <a href={p.href} class="contents">
+                {src
+                  ? <img src={src} alt={`${p.titulo} · Academia Educana, Sevilla Este`}
+                         width="400" height="267" loading="lazy"
+                         class="aspect-3/2 w-full object-cover" />
+                  : <PhotoPlaceholder nombre={p.fotoNombre} medidas="1200×800 px · proporción 3:2" class="aspect-3/2" />}
+                <div class="flex flex-1 flex-col gap-2.5 p-6 text-white">
+                  <span class="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-white">{etiqueta[p.familia]}</span>
+                  <h3 class="text-(length:--text-h3) leading-tight">{p.titulo}</h3>
+                  {/* Blanco puro, no atenuado: sobre el azul de Estudios
+                      el 85 % se queda en 4,3:1 y no llega al mínimo. */}
+                  <p class="text-[0.95rem] leading-relaxed text-white">{p.texto}</p>
+                  <span class="mt-auto flex items-center gap-1.5 pt-3 text-[0.9rem] font-bold text-white">
+                    Ver el curso
+                    <Icon name="flecha" size="sm" class="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </a>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
 
   <TrinityBand />
 
-  <Section tone="cream">
-    <Testimonios />
-  </Section>
-
-  <Section tone="paper">
-    <Eyebrow>Contacto</Eyebrow>
-    <h2 class="text-(length:--text-h2)">¿Te ayudamos?</h2>
-    <div class="max-w-2xl"><LeadForm context="home" /></div>
-  </Section>
+  <section class="bg-white py-16 md:py-24">
+    <div class="container-page flex flex-col gap-7"><Testimonios /></div>
+  </section>
 
   <MosaicoFotos />
+  <CtaFormulario context="home" />
 </Base>
+
+<style>
+  /* El corte diagonal sólo tiene sentido cuando hay dos columnas. */
+  @media (width >= 64rem) {
+    .diagonal { clip-path: polygon(0 0, 100% 0, calc(100% - 7rem) 100%, 0 100%); }
+  }
+</style>

@@ -16,6 +16,13 @@
 @import "@fontsource-variable/archivo";
 @import "@fontsource-variable/public-sans";
 
+/* Tailwind descarta por defecto todo lo que esté en .gitignore al
+   rastrear clases. Las páginas de trabajo del rediseño están ignoradas
+   a propósito —no queremos publicarlas todavía— y eso hacía que sus
+   estilos no se generaran y se vieran rotas en local. Declarar la
+   carpeta explícitamente las devuelve al rastreo sin publicarlas. */
+@source "../**/*.astro";
+
 @theme {
   /* ── Color ──────────────────────────────────────────────────
      Muestreados del logotipo REAL del cliente (logo1.png, versión
@@ -132,6 +139,16 @@
 @utility container-page {
   width: 100%;
   max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) { padding-inline: 2.5rem; }
+}
+
+/* El pie respira más ancho que el contenido: son cinco columnas de
+   índice, no texto corrido, y a 1200px se apretaban unas contra otras. */
+@utility container-pie {
+  width: 100%;
+  max-width: 1600px;
   margin-inline: auto;
   padding-inline: 1.25rem;
   @media (width >= 48rem) { padding-inline: 2.5rem; }

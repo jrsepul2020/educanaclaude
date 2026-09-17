@@ -11,8 +11,12 @@ const iconos: Record<string, string> = {
   examenes: 'M8 3h8v9l-4 2.5L8 12V3Z M6 21l3-6 3 2 3-2 3 6',
   gratis: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z M9 10h.01M15 10h.01M8.5 14.5c1 1 2 1.5 3.5 1.5s2.5-.5 3.5-1.5',
 };
+
+/* Las columnas salen del número de datos, no fijas a cuatro: al quitar
+   una cifra la rejilla dejaba un hueco vacío al final de la fila. */
+const cols = { 2: 'lg:grid-cols-2', 3: 'lg:grid-cols-3', 4: 'lg:grid-cols-4' }[stats.length] ?? 'lg:grid-cols-4';
 ---
-<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+<div class={`grid gap-5 sm:grid-cols-2 ${cols}`}>
   {stats.map((s) => (
     <div class="rounded-card border border-line bg-paper p-6 flex flex-col gap-3">
       {s.icon && (
