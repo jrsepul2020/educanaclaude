@@ -79,6 +79,10 @@
   --text-h1: clamp(2.125rem, 1.5rem + 3vw, 3.75rem);
   --text-h2: clamp(1.625rem, 1.25rem + 1.9vw, 2.625rem);
   --text-h3: clamp(1.25rem, 1.1rem + 0.75vw, 1.625rem);
+  /* Antetítulo: la etiqueta en versalitas que encabeza una sección.
+     Sale de un token y no de un tamaño suelto en cada plantilla para
+     que subirlo o bajarlo sea un cambio en un solo sitio. */
+  --text-eyebrow: 0.88rem;
   --text-lead: clamp(1.0625rem, 1rem + 0.4vw, 1.1875rem);
 
   /* Base de texto general: 18px en todo el cuerpo de la web (decisión

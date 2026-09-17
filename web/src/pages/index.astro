@@ -92,7 +92,7 @@ const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
       <div class="flex max-w-[34rem] flex-col gap-6 text-white">
         {/* El antetítulo ya no repite la palabra clave: la lleva el H1,
             que es donde cuenta. Aquí va la prueba de arraigo. */}
-        <p class="text-[0.78rem] font-bold uppercase tracking-[0.2em] text-white/80">
+        <p class="text-(length:--text-eyebrow) font-bold uppercase tracking-[0.2em] text-white/80">
           Desde 2005 en la Avenida de las Ciencias
         </p>
         {/* Clave primero y promesa después: el H1 tiene que decir qué
@@ -191,7 +191,7 @@ const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
             el temario deja de darle miedo. Lo demás viene solo.
           </p>
           <hr class="my-5 border-white/30" />
-          <p class="text-[0.78rem] font-bold uppercase tracking-[0.14em]">Academia Educana</p>
+          <p class="text-(length:--text-eyebrow) font-bold uppercase tracking-[0.14em]">Academia Educana</p>
           <p class="text-[0.95rem] text-white">Sevilla Este · desde 2005</p>
         </div>
         <div class="px-7 py-7">
@@ -212,7 +212,7 @@ const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
   <section class="bg-cream py-16 md:py-24">
     <div class="container-pie flex flex-col gap-8">
       <div class="flex flex-col gap-3">
-        <p class="text-[0.78rem] font-bold uppercase tracking-[0.2em] text-brand">Nuestros cursos</p>
+        <p class="text-(length:--text-eyebrow) font-bold uppercase tracking-[0.2em] text-brand">Nuestros cursos</p>
         <h2 class="text-(length:--text-h1) leading-[0.95]">Todo lo que preparamos en Sevilla Este.</h2>
       </div>
 
@@ -232,7 +232,7 @@ const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
                          class="aspect-3/2 w-full object-cover" />
                   : <PhotoPlaceholder nombre={p.fotoNombre} medidas="1200×800 px · proporción 3:2" class="aspect-3/2" />}
                 <div class="flex flex-1 flex-col gap-2.5 p-6 text-white">
-                  <span class="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-white">{etiqueta[p.familia]}</span>
+                  <span class="text-(length:--text-eyebrow) font-semibold uppercase tracking-[0.12em] text-white">{etiqueta[p.familia]}</span>
                   <h3 class="text-(length:--text-h3) leading-tight">{p.titulo}</h3>
                   {/* Blanco puro, no atenuado: sobre el azul de Estudios
                       el 85 % se queda en 4,3:1 y no llega al mínimo. */}

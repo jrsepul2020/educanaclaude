@@ -52,8 +52,8 @@ const schema = {
   >
     <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[58ch]">{d.entradilla}</p>
     <div class="flex flex-wrap gap-3">
-      <Button href="/contacto/" icon="info" variant="blanco">Pide información</Button>
-      <Button href="tel:+34954409696" icon="telefono" variant="blanco-azul" class="tabular">954 40 96 96</Button>
+      <Button href="/contacto/" icon="info" variant="rojo-aro">Pide información</Button>
+      <Button href="tel:+34954409696" icon="telefono" variant="trans-claro" class="tabular">954 40 96 96</Button>
     </div>
   </PageHeader>
 
@@ -109,8 +109,11 @@ const schema = {
         <p class="text-[1.05rem] leading-relaxed text-white/90">Llámanos y en cinco minutos sabes si este curso te encaja.</p>
       </div>
       <div class="flex flex-wrap gap-3">
+      {/* Aquí el fondo YA es el rojo de marca: un botón rojo encima
+          se funde con él (1,0:1). El relleno blanco es lo que separa,
+          y el segundo botón va transparente. */}
         <Button href="/contacto/" icon="info" variant="blanco">Pide información</Button>
-        <Button href="tel:+34954409696" icon="telefono" variant="blanco-azul" class="tabular">954 40 96 96</Button>
+        <Button href="tel:+34954409696" icon="telefono" variant="trans-claro" class="tabular">954 40 96 96</Button>
       </div>
     </div>
   </Section>

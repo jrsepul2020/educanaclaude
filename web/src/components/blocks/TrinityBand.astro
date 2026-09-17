@@ -1,6 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
-import Badge from '../ui/Badge.astro';
+import Icon from '../ui/Icon.astro';
 import Eyebrow from './Eyebrow.astro';
 import PhotoPlaceholder from '../ui/PhotoPlaceholder.astro';
 import { foto } from '../../lib/foto';
@@ -11,6 +11,11 @@ import { foto } from '../../lib/foto';
    aparezca solo en cuanto se suba, sin tocar código. */
 const src = foto('trinity-sello.png');
 
+/* Segunda acreditación: centro de pilotaje de pruebas. Llega en JPG con
+   el logotipo en negro sobre blanco, así que va sobre plancha clara —
+   sobre el azul de la banda se perdería. */
+const srcPilotaje = foto('test-trialling-centre-logo.jpg');
+
 /* Fondo de bandera británica. El velo es alto (0,86 bajando a 0,74 en
    la mitad derecha) por dos motivos, no sólo por contraste: las franjas
    blancas son blanco puro, y el rojo de la bandera está a un paso del
@@ -20,31 +25,62 @@ const src = foto('trinity-sello.png');
    El original que subió el cliente pesa 13,9 MB a 4928 px: aquí se usa
    la versión reducida a 1600 px y 277 KB. */
 const fondo = '/fotos/fondos/trinity-english-web.jpg';
+
+/* Ventajas del pilotaje de pruebas, en el castellano que usa la
+   academia: el original del cliente venía traducido del inglés
+   ("maestros", "están invitados a comentarios"). */
+const ventajas = [
+  'Los alumnos practican los formatos de examen en condiciones reales.',
+  'Ganan confianza antes de presentarse al examen de verdad.',
+  'Profesores y alumnos comentan las pruebas después de hacerlas.',
+  'Los profesores reciben la valoración de un examinador con experiencia sobre el rendimiento del grupo.',
+];
 ---
 <section
-  class="bg-blue bg-cover bg-center text-cream py-14 md:py-20"
+  class="bg-blue bg-cover bg-center text-cream py-24 md:py-36"
   style={`background-image: linear-gradient(100deg, rgb(23 32 77 / 0.92) 0%, rgb(23 32 77 / 0.86) 55%, rgb(20 26 51 / 0.74) 100%), url("${fondo}");`}
 >
-  <div class="container-page grid items-center gap-10 md:grid-cols-[1.1fr_0.7fr]">
+  {/* A 1600px: con las cuatro ventajas y los dos logotipos, a 1200 la
+      banda se estiraba a lo alto y perdía la forma de franja. */}
+  <div class="container-pie grid items-start gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14 xl:grid-cols-[1fr_1fr_15rem]">
+
     <div class="flex flex-col gap-5">
-      <Eyebrow tone="amber">Centro examinador oficial</Eyebrow>
-      <h2 class="text-(length:--text-h2)">Preparas el Trinity aquí. Y te examinas aquí.</h2>
+      <Eyebrow tone="amber">Centro oficial Trinity</Eyebrow>
+      {/* Un escalón por debajo del H2 del resto del sitio: aquí el
+          titular convive con cuatro ventajas y dos logotipos, y a
+          tamaño completo se comía la franja. */}
+      <h2 class="text-[clamp(1.5rem,1.15rem+1.5vw,2.2rem)] leading-[1.05]">Estudia inglés en nuestra academia en Sevilla Este.</h2>
       <p class="text-(length:--text-lead) leading-relaxed text-cream/75 max-w-[54ch]">
         Somos centro examinador oficial de Trinity College London. Mismos profesores,
         misma aula, sin desplazarte a otro centro el día del examen. B1, B2, C1 y C2.
       </p>
       <div class="flex flex-wrap gap-3">
-        <Button href="/academia-de-ingles-en-sevilla-este/trinity/" icon="globo" variant="blanco">Ver preparación Trinity</Button>
-        <Button href="/fechas-y-convocatorias/" icon="calendario" variant="blanco-azul">Próximas convocatorias</Button>
+        <Button href="/academia-de-ingles-en-sevilla-este/trinity/" icon="globo" variant="rojo-aro">Ver preparación Trinity</Button>
+        <Button href="/fechas-y-convocatorias/" icon="calendario" variant="trans-claro">Próximas convocatorias</Button>
       </div>
     </div>
-    <div class="flex flex-col items-start gap-4">
-      <Badge tone="amber">Centro examinador</Badge>
+
+    {/* Qué aporta ser centro de pilotaje de pruebas: es la parte que
+        distingue a la academia y hasta ahora no se contaba. */}
+    <ul class="flex flex-col gap-4 lg:border-l lg:border-cream/20 lg:pl-10">
+      {ventajas.map((v) => (
+        <li class="flex items-start gap-3">
+          <Icon name="check" class="mt-1 shrink-0 text-amber" />
+          <span class="max-w-[46ch] text-[1.05rem] leading-relaxed text-cream">{v}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="flex flex-row flex-wrap items-start gap-4 xl:flex-col">
       {src
-        ? <img src={src} alt="Sello de centro examinador oficial de Trinity College London" width="260" height="260" class="w-full max-w-56 rounded-card bg-paper p-4" />
+        ? <img src={src} alt="Sello de centro examinador oficial de Trinity College London" width="260" height="260" class="w-40 rounded-card bg-paper p-4 xl:w-full" />
         : <PhotoPlaceholder nombre="trinity-sello.png" medidas="Logotipo oficial en PNG con fondo transparente"
             nota="No es una foto: pídelo a Trinity College London junto con tu nº de centro examinador."
             class="w-full rounded-card border-cream/30 bg-transparent text-cream/70" />}
+      {srcPilotaje && (
+        <img src={srcPilotaje} alt="Trinity College London · Test Trialling Centre 2017"
+             width="283" height="168" class="w-48 rounded-card bg-paper p-4 xl:w-full" />
+      )}
     </div>
   </div>
 </section>
