@@ -1,15 +1,13 @@
 ---
 import { getCollection, render } from 'astro:content';
+import Icon from '../../components/ui/Icon.astro';
 import Base from '../../layouts/Base.astro';
-import Section from '../../components/blocks/Section.astro';
 import Eyebrow from '../../components/blocks/Eyebrow.astro';
-import DataBox from '../../components/blocks/DataBox.astro';
+import PageHeader from '../../components/blocks/PageHeader.astro';
 import LeadForm from '../../components/blocks/LeadForm.astro';
 import Faq from '../../components/ui/Faq.astro';
 import Card from '../../components/ui/Card.astro';
 import Button from '../../components/ui/Button.astro';
-import PhotoPlaceholder from '../../components/ui/PhotoPlaceholder.astro';
-import { foto } from '../../lib/foto';
 
 export async function getStaticPaths() {
   const pags = await getCollection('ingles');
@@ -26,10 +24,6 @@ const relacionados = d.relacionados
   .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
 const BASE = '/academia-de-ingles-en-sevilla-este';
-
-// Convención de nombre: public/fotos/ingles/<slug>.jpg
-const fotoNombre = `ingles/${pag.id}.jpg`;
-const fotoSrc = foto(fotoNombre);
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Course',
@@ -47,39 +41,18 @@ const schema = {
 };
 ---
 <Base title={d.metaTitulo} description={d.metaDescripcion} schema={schema}>
-  <section class="bg-cream pt-8 pb-12 md:pt-10 md:pb-16">
-    <div class="container-page flex flex-col gap-7">
-      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
-        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span>
-        <a href={`${BASE}/`} class="hover:text-ink">Inglés</a> <span aria-hidden="true">→</span>
-        <span class="text-ink">{d.titulo}</span>
-      </nav>
-      <div class="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr]">
-        <div class="flex flex-col gap-5">
-          <Eyebrow>Inglés</Eyebrow>
-          <h1 class="text-(length:--text-h1)">{d.h1}</h1>
-          <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">{d.entradilla}</p>
-          <div class="flex flex-wrap gap-3">
-            <Button href="/contacto/">Prueba de nivel gratuita</Button>
-            <Button href="/horarios-cursos/" variant="outline">Ver horarios de inglés</Button>
-          </div>
-        </div>
-        {fotoSrc
-          ? <img src={fotoSrc} alt="" width="640" height="480" loading="eager" class="rounded-card aspect-4/3 w-full object-cover" />
-          : <PhotoPlaceholder nombre={fotoNombre} medidas="1200×900 px · proporción 4:3" class="rounded-card aspect-4/3" />}
-      </div>
+  <PageHeader
+    migas={[{ label: 'Inglés', href: `${BASE}/` }, { label: d.titulo }]}
+    eyebrow="Inglés"
+    titulo={d.h1}
+    beneficios={[d.datos.partida, d.datos.duracion, d.datos.dias, d.datos.grupo, d.datos.desde]}
+  >
+    <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[58ch]">{d.entradilla}</p>
+    <div class="flex flex-wrap gap-3">
+      <Button href="/contacto/" icon="check" variant="blanco">Prueba de nivel gratuita</Button>
+      <Button href="/horarios-cursos/" icon="reloj" variant="blanco-azul">Ver horarios de inglés</Button>
     </div>
-  </section>
-
-  <Section tone="paper">
-    <DataBox items={[
-      { k: 'Nivel de partida', v: d.datos.partida },
-      { k: 'Duración', v: d.datos.duracion },
-      { k: 'Días y horas', v: d.datos.dias },
-      { k: 'Grupo', v: d.datos.grupo },
-      { k: 'Desde', v: d.datos.desde },
-    ]} />
-  </Section>
+  </PageHeader>
 
   <div class="bg-cream py-14 md:py-20">
     <div class="container-page grid gap-12 lg:grid-cols-[1fr_340px]">
@@ -113,7 +86,7 @@ const schema = {
             <Eyebrow>También te puede servir</Eyebrow>
             <ul class="flex flex-col gap-2">
               {relacionados.map((r) => (
-                <li><a href={`${BASE}/${r.id}/`} class="text-[0.95rem] hover:text-brand-ink">{r.data.titulo} →</a></li>
+                <li><a href={`${BASE}/${r.id}/`} class="group inline-flex items-center gap-1.5 text-[0.95rem] hover:text-brand-ink">{r.data.titulo} <Icon name="flecha-larga" size="sm" class="transition-transform group-hover:translate-x-1" /></a></li>
               ))}
             </ul>
           </Card>

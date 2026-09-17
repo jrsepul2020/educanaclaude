@@ -4,21 +4,21 @@ import Button from '../ui/Button.astro';
 /* Cuatro campos. Cada campo extra cuesta conversiones (doc 03 §6).
    Antispam con honeypot + límite de envíos en el endpoint, sin captcha:
    un captcha es una barrera más para la madre que llama desde el móvil. */
-interface Props { context?: string; compact?: boolean }
-const { context = '', compact = false } = Astro.props;
+interface Props { context?: string; compact?: boolean; oscuro?: boolean }
+const { context = '', compact = false, oscuro = false } = Astro.props;
 ---
-<form method="POST" action="/api/contacto" class="flex flex-col gap-4" data-evento="envio-formulario">
+<form method="POST" action="/api/contacto" class="flex flex-col gap-3" data-evento="envio-formulario">
   <input type="hidden" name="contexto" value={context} />
   <div class="absolute left-[-9999px]" aria-hidden="true">
     <label>No rellenes esto <input type="text" name="empresa" tabindex="-1" autocomplete="off" /></label>
   </div>
 
-  <div class={compact ? 'flex flex-col gap-4' : 'grid gap-4 sm:grid-cols-2'}>
-    <Field label="Nombre" name="nombre" required autocomplete="given-name" />
+  <div class={compact ? 'flex flex-col gap-3' : 'grid gap-3 sm:grid-cols-2'}>
+    <Field label="Nombre" name="nombre" required autocomplete="given-name" oscuro={oscuro} />
     <Field label="Teléfono" name="telefono" type="tel" required autocomplete="tel"
-           hint="Te llamamos nosotros si lo prefieres." />
+           hint="Te llamamos nosotros si lo prefieres." oscuro={oscuro} />
   </div>
-  <Field label="¿Qué necesitas?" name="necesidad" required options={[
+  <Field label="¿Qué necesitas?" name="necesidad" required oscuro={oscuro} options={[
     'Refuerzo escolar (ESO o Bachillerato)',
     'Clases particulares',
     'Selectividad PEvAU',
@@ -28,12 +28,12 @@ const { context = '', compact = false } = Astro.props;
     'Inglés',
     'Otra cosa',
   ]} />
-  {!compact && <Field label="Cuéntanos (opcional)" name="mensaje" multiline />}
+  {!compact && <Field label="Cuéntanos (opcional)" name="mensaje" multiline oscuro={oscuro} />}
 
-  <label class="flex items-start gap-3 text-[0.8rem] text-slate">
+  <label class={`flex items-start gap-3 text-[0.82rem] ${oscuro ? 'text-white/80' : 'text-slate'}`}>
     <input type="checkbox" name="rgpd" required class="mt-0.5 size-4.5 accent-[--color-brand]" />
-    <span>He leído y acepto la <a href="/politica-de-privacidad/" class="text-brand-ink underline">política de privacidad</a>.</span>
+    <span>He leído y acepto la <a href="/politica-de-privacidad/" class={`underline ${oscuro ? 'text-white' : 'text-brand-ink'}`}>política de privacidad</a>.</span>
   </label>
 
-  <Button type="submit" class="w-full sm:w-auto">Pide información</Button>
+  <Button type="submit" variant={oscuro ? "blanco" : "primary"} class="mt-1 w-full sm:w-auto">Pide información</Button>
 </form>

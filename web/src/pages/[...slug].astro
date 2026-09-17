@@ -1,15 +1,14 @@
 ---
 import { getCollection, render } from 'astro:content';
+import Icon from '../components/ui/Icon.astro';
 import Base from '../layouts/Base.astro';
 import Section from '../components/blocks/Section.astro';
 import Eyebrow from '../components/blocks/Eyebrow.astro';
-import DataBox from '../components/blocks/DataBox.astro';
+import PageHeader from '../components/blocks/PageHeader.astro';
 import LeadForm from '../components/blocks/LeadForm.astro';
 import Faq from '../components/ui/Faq.astro';
 import Card from '../components/ui/Card.astro';
 import Button from '../components/ui/Button.astro';
-import PhotoPlaceholder from '../components/ui/PhotoPlaceholder.astro';
-import { foto } from '../lib/foto';
 
 export async function getStaticPaths() {
   const cursos = await getCollection('cursos');
@@ -26,10 +25,6 @@ const relacionados = d.relacionados
   .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
 const migas = { estudios: 'Estudios', accesos: 'Pruebas de acceso', ingles: 'Inglés' }[d.categoria];
-
-// Convención de nombre: public/fotos/cursos/<slug>.jpg
-const fotoNombre = `cursos/${curso.id}.jpg`;
-const fotoSrc = foto(fotoNombre);
 
 /* Course + hasCourseInstance con fechas reales es lo que permite que
    Google muestre la convocatoria en el propio resultado (doc 05 §4). */
@@ -49,33 +44,18 @@ const schema = {
 };
 ---
 <Base title={d.metaTitulo} description={d.metaDescripcion} schema={schema}>
-  <section class="bg-cream pt-8 pb-12 md:pt-10 md:pb-16">
-    <div class="container-page flex flex-col gap-7">
-      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
-        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> {migas} <span aria-hidden="true">→</span> <span class="text-ink">{d.titulo}</span>
-      </nav>
-      <div class="grid items-start gap-10 md:grid-cols-[1.1fr_0.9fr]">
-        <div class="flex flex-col gap-5">
-          <Eyebrow>{migas}</Eyebrow>
-          <h1 class="text-(length:--text-h1)">{d.h1}</h1>
-          <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">{d.entradilla}</p>
-        </div>
-        {fotoSrc
-          ? <img src={fotoSrc} alt="" width="720" height="480" loading="eager" class="rounded-card aspect-3/2 w-full object-cover" />
-          : <PhotoPlaceholder nombre={fotoNombre} medidas="1200×800 px · proporción 3:2" class="rounded-card aspect-3/2" />}
-      </div>
+  <PageHeader
+    migas={[{ label: migas }, { label: d.titulo }]}
+    eyebrow={migas}
+    titulo={d.h1}
+    beneficios={[d.datos.duracion, d.datos.dias, d.datos.grupo, d.datos.desde, d.datos.convocatoria]}
+  >
+    <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[58ch]">{d.entradilla}</p>
+    <div class="flex flex-wrap gap-3">
+      <Button href="/contacto/" icon="info" variant="blanco">Pide información</Button>
+      <Button href="tel:+34954409696" icon="telefono" variant="blanco-azul" class="tabular">954 40 96 96</Button>
     </div>
-  </section>
-
-  <Section tone="paper">
-    <DataBox items={[
-      { k: 'Duración', v: d.datos.duracion },
-      { k: 'Días y horas', v: d.datos.dias },
-      { k: 'Grupo', v: d.datos.grupo },
-      { k: 'Desde', v: d.datos.desde },
-      { k: 'Próxima convocatoria', v: d.datos.convocatoria },
-    ]} />
-  </Section>
+  </PageHeader>
 
   <div class="bg-cream py-14 md:py-20">
     <div class="container-page grid gap-12 lg:grid-cols-[1fr_340px]">
@@ -113,7 +93,7 @@ const schema = {
             <Eyebrow>También te puede servir</Eyebrow>
             <ul class="flex flex-col gap-2">
               {relacionados.map((r) => (
-                <li><a href={`/${r.id}/`} class="text-[0.95rem] hover:text-brand-ink">{r.data.titulo} →</a></li>
+                <li><a href={`/${r.id}/`} class="group inline-flex items-center gap-1.5 text-[0.95rem] hover:text-brand-ink">{r.data.titulo} <Icon name="flecha-larga" size="sm" class="transition-transform group-hover:translate-x-1" /></a></li>
               ))}
             </ul>
           </Card>
@@ -122,15 +102,15 @@ const schema = {
     </div>
   </div>
 
-  <Section tone="paper">
+  <Section tone="rojo">
     <div class="flex flex-wrap items-center gap-6">
       <div class="flex-1 min-w-[18rem] flex flex-col gap-3">
-        <h2 class="text-(length:--text-h2)">¿Te cuadra? Hablamos.</h2>
-        <p class="leading-relaxed text-slate">Llámanos y en cinco minutos sabes si te encaja.</p>
+        <h2 class="text-(length:--text-h2)">¿Te ayudamos a decidir?</h2>
+        <p class="text-[1.05rem] leading-relaxed text-white/90">Llámanos y en cinco minutos sabes si este curso te encaja.</p>
       </div>
       <div class="flex flex-wrap gap-3">
-        <Button href="/contacto/">Pide información</Button>
-        <Button href="tel:+34954409696" variant="outline">Llamar 954 40 96 96</Button>
+        <Button href="/contacto/" icon="info" variant="blanco">Pide información</Button>
+        <Button href="tel:+34954409696" icon="telefono" variant="blanco-azul" class="tabular">954 40 96 96</Button>
       </div>
     </div>
   </Section>

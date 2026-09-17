@@ -28,14 +28,37 @@
   --color-brand-ink:  #A50D1F;  /* rojo para TEXTO sobre claro · 7,8:1 AAA */
   --color-blue:       #21307F;  /* AZUL DEL LOGOTIPO — superficies grandes */
   --color-blue-deep:  #1A2668;  /* estado hover sobre azul                 */
-  --color-ink:        #141A33;  /* texto y controles · 16,04:1 sobre crema */
+  --color-ink:        #141A33;  /* texto y controles · 16,4:1 sobre crema  */
   --color-ink-soft:   #2A3352;
-  --color-cream:      #F4F2ED;  /* fondo base · más neutro que la dirección A */
+  /* Crema frío (17-09-2026, decisión del cliente: antes era #F4F2ED,
+     cálido). Al acercarse tanto al blanco, la separación con --paper
+     baja a 1,04 y las bandas cream/paper casi dejan de distinguirse:
+     lo que separa las secciones ahora es el borde de las tarjetas.    */
+  --color-cream:      #F9FAFC;  /* fondo base                              */
   --color-paper:      #FFFFFF;
-  --color-amber:      #FFC957;  /* destacados y campaña estacional         */
-  --color-slate:      #4A5568;  /* texto secundario · 7:1 sobre crema      */
+  /* Amarillo de marca (17-09-2026: el cliente pidió #FDCC03 para los
+     botones sobre fondo oscuro). NO se añadió como token aparte porque
+     el amber anterior, #FFC957, estaba a 1,01 de contraste de éste: dos
+     tokens para el mismo tono. Se unifica en uno.
+     Siempre con texto TINTA encima (11,3:1). Blanco da 1,5:1.         */
+  --color-amber:      #FDCC03;  /* destacados, campaña y botón sobre oscuro */
+  /* Hover del botón amarillo. Antes era blanco y perdía el color de
+     marca al pasar el ratón. No puede oscurecerse más que esto: sobre
+     el rojo del CTA la separación cae a 3,25:1 y el mínimo es 3.     */
+  --color-amber-deep: #EDBF02;
+  --color-slate:      #4A5568;  /* texto secundario · 7,2:1 sobre crema    */
   --color-line:       rgb(20 33 47 / 0.14);
   --color-ok:         #1E6B3A;
+
+  /* WhatsApp con su verde corporativo (17-09-2026, petición del
+     cliente). El botón lleva texto TINTA, no blanco: sobre este verde
+     el blanco se queda en 1,98:1 y es ilegible, mientras que la tinta
+     da 8,64:1. Es el mismo criterio que el botón amarillo.           */
+  --color-whatsapp:      #24D366;
+  --color-whatsapp-deep: #1FC25D;  /* hover · ink encima 7,3:1 */
+  /* Verde para el GLIFO sobre blanco. El de marca sólo da 2,35:1 ahí y
+     un icono necesita 3. Éste da 4,14 y se sigue reconociendo. */
+  --color-whatsapp-glifo: #128C7E;
 
   /* ── Tipografía · Dirección C ─────────────────────────────────
      Titulares: Archivo, peso alto, tracking cerrado — contundencia.
@@ -112,6 +135,130 @@
   margin-inline: auto;
   padding-inline: 1.25rem;
   @media (width >= 48rem) { padding-inline: 2.5rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLOR POR FAMILIA DE SERVICIO (propuesta 17-09-2026)
+
+   Se pone `data-servicio` en el <main> o en la sección y todo lo que
+   cuelga hereda su color. Así una plantilla sirve para las tres
+   familias sin duplicar una línea de CSS.
+
+   Los tres troncales están medidos con blanco encima: azul 11,7:1,
+   rojo 5,66:1 y verde azulado 5,66:1. El verde de partida (#228E85)
+   se quedaba en 3,98 y no llegaba al AA, por eso se usa #1A736C.
+
+   `--srv-vivo` es la versión luminosa: sólo para la palabra gigante y
+   acentos sobre fondo claro, nunca para texto pequeño.
+   `--srv-tinte` es el fondo de sección: 94 % blanco, para que domine
+   el blanco como pide el encargo.
+   ═══════════════════════════════════════════════════════════════ */
+@layer base {
+  /* ESTUDIOS. No se usa el azul del logotipo a propósito: al ser el
+     mismo que viste cabecera y pie, el color no se leía como "color de
+     este servicio" sino como cromo del sitio. Éste es más luminoso y se
+     distingue del navy (2,29 entre ambos) sin salirse de la familia. */
+  [data-servicio] {
+    --srv:        #1A6FC4;   /* blanco encima 5,10:1 */
+    --srv-hondo:  #123F73;   /* fondos oscuros y bento */
+    --srv-vivo:   #4A94E0;   /* acentos sobre oscuro */
+    --srv-tinte:  #F1F6FC;
+  }
+  [data-servicio="accesos"] {
+    --srv:        #CD1228;   /* blanco encima 5,66:1 */
+    --srv-hondo:  #6E0714;
+    --srv-vivo:   #F2506A;
+    --srv-tinte:  #FCF1F2;
+  }
+  [data-servicio="ingles"] {
+    --srv:        #1A736C;   /* blanco encima 5,66:1 */
+    --srv-hondo:  #0E3F3B;
+    --srv-vivo:   #3FB3A8;
+    --srv-tinte:  #F2F8F8;
+  }
+}
+
+/* Palabra del servicio a tamaño grande. Ya no va detrás de la foto
+   —ahí competía con ella y con el texto de al lado— sino como marca de
+   agua dentro de las bandas de color, donde no pisa nada. */
+@utility palabra-servicio {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 0.75;
+  font-size: clamp(5rem, 2rem + 16vw, 20rem);
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Cabecera de página con foto de fondo.
+
+   La foto sale en TODAS las páginas interiores, así que tiene que ser
+   neutra: un aula con alumnos escribiendo, sin caras y sin edad
+   reconocible. Vale igual para refuerzo de Primaria que para inglés de
+   adultos o acceso a la universidad para mayores de 25. Para cambiarla
+   sólo se toca la url de aquí abajo (las dos veces).
+
+   Velo medido, no estimado. Quien marca el suelo no es el titular sino
+   el antetítulo en ámbar, que es texto pequeño sobre un amarillo claro:
+   con el velo a 0,82 en el extremo izquierdo se quedaba en 4,31 y no
+   llegaba al AA, así que ese extremo sube a 0,86 (5,92).
+   En la mitad derecha ya no hay texto suelto sino la tarjeta de
+   beneficios, que es opaca y lleva su propio fondo: por eso ahí el velo
+   puede bajar hasta 0,38 y la foto se ve casi limpia.
+   En móvil la tarjeta cae debajo del texto, así que todo el ancho
+   necesita el suelo y el velo se queda plano al 0,78. */
+@utility cabecera-foto {
+  position: relative;
+  background-color: var(--color-blue);
+  background-image:
+    linear-gradient(rgb(23 32 77 / 0.78), rgb(23 32 77 / 0.78)),
+    url("/fotos/fondos/11.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-cream);
+
+  @media (width >= 48rem) {
+    background-image:
+      linear-gradient(100deg,
+        rgb(23 32 77 / 0.86) 0%,
+        rgb(23 32 77 / 0.78) 46%,
+        rgb(20 26 51 / 0.38) 100%),
+      url("/fotos/fondos/11.jpg");
+  }
+}
+
+/* Fondo de foto del CTA grande. La imagen concreta la pasa el
+   componente en --cta-img, para poder reutilizar el bloque con fotos
+   distintas; aquí sólo vive el velo, que es lo delicado.
+
+   El texto del CTA va CENTRADO, así que el velo no puede aliviarse
+   hacia un lado como en las cabeceras: se hace denso en la franja
+   central (28–72 %, que es por donde pasa el texto) y se abre en los
+   dos bordes, donde no hay nada que leer.
+
+   0,78 es el suelo medido: por debajo, el texto pequeño en ámbar baja
+   de 4,5:1 y deja de cumplir el AA. En móvil el texto ocupa todo el
+   ancho, así que el velo se queda plano al 0,80. */
+@utility cta-foto {
+  background-color: var(--color-blue);
+  background-image:
+    linear-gradient(rgb(23 32 77 / 0.80), rgb(23 32 77 / 0.80)),
+    var(--cta-img);
+  background-size: cover;
+  background-position: center 32%;
+  background-repeat: no-repeat;
+
+  @media (width >= 48rem) {
+    background-image:
+      linear-gradient(90deg,
+        rgb(20 26 51 / 0.56) 0%,
+        rgb(23 32 77 / 0.78) 28%,
+        rgb(23 32 77 / 0.78) 72%,
+        rgb(20 26 51 / 0.56) 100%),
+      var(--cta-img);
+  }
 }
 
 /* Aparición discreta: una sola vez, sólo en bloques importantes */

@@ -1,5 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
 /* Cabecera sobre tinta: el logotipo que existe es la versión para
    fondo oscuro, así que sobre navy se ve como debe (doc 02 §1).
 
@@ -79,13 +80,12 @@ const menu = [
               {i.href && (
                 <a href={i.href} class="flex items-center justify-between gap-2 border-b border-line px-4 py-2.5 text-[0.9rem] font-bold text-brand-ink hover:bg-ink/4">
                   {i.hrefLabel}
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <Icon name="flecha" size="sm" />
                 </a>
               )}
               {i.items.map(([l, h]) => (
-                <a href={h} class="flex items-center justify-between gap-2 px-4 py-2.5 text-[0.9rem] hover:bg-ink/4 hover:text-brand-ink">
+                <a href={h} class="flex items-center px-4 py-2.5 text-[0.9rem] hover:bg-ink/4 hover:text-brand-ink">
                   {l}
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="shrink-0 opacity-40"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
               ))}
             </div>
@@ -97,8 +97,11 @@ const menu = [
     </nav>
 
     <div class="ml-auto flex items-center gap-4">
-      <a href="tel:+34954409696" class="hidden xl:inline whitespace-nowrap text-[0.92rem] text-cream/85 hover:text-cream tabular">954 40 96 96</a>
-      <Button href="/contacto/" size="sm" class="hidden sm:inline-flex">Pide información</Button>
+      <a href="tel:+34954409696" class="hidden xl:inline-flex items-center gap-1.5 whitespace-nowrap text-[0.92rem] text-cream/85 hover:text-cream tabular" data-evento="clic-telefono">
+        <Icon name="telefono" size="sm" class="text-amber" />
+        954 40 96 96
+      </a>
+      <Button href="/contacto/" icon="info" size="sm" class="hidden sm:inline-flex">Pide información</Button>
       <button type="button" class="xl:hidden p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil" data-menu-toggle>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -121,13 +124,12 @@ const menu = [
                 {i.href && (
                   <li><a href={i.href} class="flex items-center justify-between gap-2 py-2 pl-3 text-[0.92rem] font-bold text-amber">
                     {i.hrefLabel}
-                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <Icon name="flecha" size="sm" />
                   </a></li>
                 )}
                 {i.items.map(([l, h]) => (
-                  <li><a href={h} class="flex items-center justify-between gap-2 py-2 pl-3 text-[0.92rem] text-cream/85">
+                  <li><a href={h} class="flex items-center py-2 pl-3 text-[0.92rem] text-cream/85">
                     {l}
-                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="opacity-50"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </a></li>
                 ))}
               </ul>
@@ -137,7 +139,7 @@ const menu = [
           )}
         </li>
       ))}
-      <li><a href="/contacto/" class="block py-3.5 font-bold text-amber">Pide información</a></li>
+      <li><a href="/contacto/" class="flex items-center gap-2 py-3.5 font-bold text-amber"><Icon name="info" />Pide información</a></li>
     </ul>
   </nav>
 </header>

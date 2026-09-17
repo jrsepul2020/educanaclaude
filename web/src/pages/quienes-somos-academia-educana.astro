@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Section from '../components/blocks/Section.astro';
 import Eyebrow from '../components/blocks/Eyebrow.astro';
+import PageHeader from '../components/blocks/PageHeader.astro';
 import StatBlock from '../components/blocks/StatBlock.astro';
 import TrinityBand from '../components/blocks/TrinityBand.astro';
 import Card from '../components/ui/Card.astro';
@@ -23,20 +24,19 @@ const galeria = [
   title="Quiénes somos · Academia Educana"
   description="Academia Educana lleva más de 20 años en Sevilla Este, con grupos reducidos e instalaciones climatizadas. Centro examinador oficial de Trinity."
 >
-  <section class="bg-cream pt-8 pb-12 md:pt-10 md:pb-16">
-    <div class="container-page flex flex-col gap-6">
-      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
-        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Quiénes somos</span>
-      </nav>
-      <Eyebrow>La academia</Eyebrow>
-      <h1 class="text-(length:--text-h1) max-w-[18ch]">Veinte años en la misma esquina de Sevilla Este.</h1>
-      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[60ch]">
-        Nuestro centro en Sevilla Este surge de la necesidad que tiene el alumnado de un
-        apoyo continuo. Por aquí han pasado más de 6.700 estudiantes y el objetivo sigue
-        siendo el mismo: que resuelvan sus dificultades y aprueben los exámenes.
-      </p>
-    </div>
-  </section>
+  <PageHeader
+    migas={[{ label: 'Quiénes somos' }]}
+    eyebrow="La academia"
+    titulo="Veinte años en la misma esquina de Sevilla Este."
+    tituloClass="max-w-[18ch]"
+    amplia
+  >
+    <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[60ch]">
+      Nuestro centro en Sevilla Este surge de la necesidad que tiene el alumnado de un
+      apoyo continuo. Por aquí han pasado más de 6.700 estudiantes y el objetivo sigue
+      siendo el mismo: que resuelvan sus dificultades y aprueben los exámenes.
+    </p>
+  </PageHeader>
 
   <Section tone="paper">
     <div class="grid gap-5 sm:grid-cols-3">
@@ -51,10 +51,10 @@ const galeria = [
 
   <Section tone="paper">
     <StatBlock stats={[
-      { n: '20+', label: 'años en el mismo barrio', accent: true },
-      { n: '6.796', label: 'alumnos han pasado por Educana' },
-      { n: '4', label: 'exámenes oficiales: Trinity, Cambridge, EOI y APTIS' },
-      { n: '0 €', label: 'de matrícula, en todos los cursos', accent: true },
+      { n: '20+', label: 'años en el mismo barrio', accent: true, icon: 'anios' },
+      { n: '6.796', label: 'alumnos han pasado por Educana', icon: 'alumnos' },
+      { n: '4', label: 'exámenes oficiales: Trinity, Cambridge, EOI y APTIS', icon: 'examenes' },
+      { n: '0 €', label: 'de matrícula, en todos los cursos', accent: true, icon: 'gratis' },
     ]} />
   </Section>
 
@@ -83,15 +83,15 @@ const galeria = [
     <Testimonios />
   </Section>
 
-  <Section tone="paper">
+  <Section tone="rojo">
     <div class="flex flex-wrap items-center gap-6">
       <div class="flex-1 min-w-[18rem] flex flex-col gap-3">
-        <h2 class="text-(length:--text-h2)">¿Nos conocemos?</h2>
-        <p class="leading-relaxed text-slate">Pásate por la academia o llámanos. Sin compromiso.</p>
+        <h2 class="text-(length:--text-h2)">¿Te ayudamos?</h2>
+        <p class="text-[1.05rem] leading-relaxed text-white/90">Pásate por la academia o llámanos. Sin compromiso.</p>
       </div>
       <div class="flex flex-wrap gap-3">
-        <Button href="/contacto/">Pide información</Button>
-        <Button href="tel:+34954409696" variant="outline">Llamar 954 40 96 96</Button>
+        <Button href="/contacto/" icon="info" variant="blanco">Pide información</Button>
+        <Button href="tel:+34954409696" icon="telefono" variant="blanco-azul" class="tabular">954 40 96 96</Button>
       </div>
     </div>
   </Section>

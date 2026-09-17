@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
+import Icon from '../components/ui/Icon.astro';
 import Section from '../components/blocks/Section.astro';
 import Eyebrow from '../components/blocks/Eyebrow.astro';
+import PageHeader from '../components/blocks/PageHeader.astro';
 import Card from '../components/ui/Card.astro';
 import Button from '../components/ui/Button.astro';
 import { getCollection } from 'astro:content';
@@ -40,19 +42,18 @@ const calendario = [
   title="Fechas y convocatorias · Academia Educana"
   description="Fechas de examen y plazos de matrícula del curso: PEvAU, pruebas de acceso, mayores de 25 y 45, título de ESO y exámenes de inglés."
 >
-  <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
-    <div class="container-page flex flex-col gap-6">
-      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
-        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Fechas y convocatorias</span>
-      </nav>
-      <Eyebrow>Curso 2026–2027</Eyebrow>
-      <h1 class="text-(length:--text-h1) max-w-[18ch]">Todas las fechas del curso, en un sitio.</h1>
-      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[60ch]">
-        Convocatorias, plazos de matrícula y fechas de examen de la PEvAU, las pruebas de
-        acceso y los exámenes oficiales de inglés. Lo actualizamos cada vez que sale la orden.
-      </p>
-    </div>
-  </section>
+  <PageHeader
+    migas={[{ label: 'Fechas y convocatorias' }]}
+    eyebrow="Curso 2026–2027"
+    titulo="Todas las fechas del curso, en un sitio."
+    tituloClass="max-w-[18ch]"
+  >
+    <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[60ch]">
+      Convocatorias, plazos de matrícula y fechas de examen de la PEvAU, las pruebas de
+      acceso y los exámenes oficiales de inglés en Sevilla Este. Lo actualizamos cada vez
+      que sale la orden.
+    </p>
+  </PageHeader>
 
   <Section tone="paper">
     <Eyebrow>Exámenes Trinity 2026</Eyebrow>
@@ -83,7 +84,7 @@ const calendario = [
         </tbody>
       </table>
     </div>
-    <Button href="/academia-de-ingles-en-sevilla-este/trinity/" variant="outline" class="self-start">Cómo preparamos el Trinity</Button>
+    <Button href="/academia-de-ingles-en-sevilla-este/trinity/" icon="globo" variant="outline" class="self-start">Cómo preparamos el Trinity</Button>
   </Section>
 
   <Section tone="cream">
@@ -101,8 +102,8 @@ const calendario = [
       ))}
     </ol>
     <div class="flex flex-wrap gap-3">
-      <Button href="/prueba-acceso-grado-superior-sevilla/" variant="outline" size="sm">Acceso a Grado Superior</Button>
-      <Button href="/acceso-grado-medio-academia-sevilla/" variant="outline" size="sm">Acceso a Grado Medio</Button>
+      <Button href="/prueba-acceso-grado-superior-sevilla/" icon="diploma" variant="outline" size="sm">Acceso a Grado Superior</Button>
+      <Button href="/acceso-grado-medio-academia-sevilla/" icon="diploma" variant="outline" size="sm">Acceso a Grado Medio</Button>
     </div>
   </Section>
 
@@ -114,7 +115,7 @@ const calendario = [
         <Card class="gap-2 p-6">
           <h3 class="text-(length:--text-h3)">{i.t}</h3>
           <p class="tabular text-slate">{i.f}</p>
-          <a href={i.href} class="text-[0.92rem] font-semibold text-brand-ink">Ver el curso →</a>
+          <a href={i.href} class="group inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-brand-ink hover:underline">Ver el curso <Icon name="flecha-larga" size="sm" class="transition-transform group-hover:translate-x-1" /></a>
         </Card>
       ))}
     </div>
@@ -135,15 +136,15 @@ const calendario = [
     </div>
   </Section>
 
-  <Section tone="paper">
+  <Section tone="rojo">
     <div class="flex flex-wrap items-center gap-6">
       <div class="flex-1 min-w-[18rem] flex flex-col gap-3">
-        <h2 class="text-(length:--text-h2)">¿Llegas a tiempo?</h2>
-        <p class="leading-relaxed text-slate">Dinos a qué convocatoria vas y te decimos con franqueza si da tiempo a prepararla.</p>
+        <h2 class="text-(length:--text-h2)">¿Necesitas ayuda con tu convocatoria?</h2>
+        <p class="text-[1.05rem] leading-relaxed text-white/90">Dinos a cuál te presentas y te decimos con franqueza si da tiempo a prepararla.</p>
       </div>
       <div class="flex flex-wrap gap-3">
-        <Button href="/contacto/">Pregúntanos</Button>
-        <Button href="tel:+34954409696" variant="outline">Llamar 954 40 96 96</Button>
+        <Button href="/contacto/" icon="chat" variant="blanco">Pregúntanos</Button>
+        <Button href="tel:+34954409696" icon="telefono" variant="blanco-azul" class="tabular">954 40 96 96</Button>
       </div>
     </div>
   </Section>

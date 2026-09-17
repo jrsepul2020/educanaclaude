@@ -1,21 +1,20 @@
 ---
 import { getCollection } from 'astro:content';
+import Icon from '../../components/ui/Icon.astro';
 import Base from '../../layouts/Base.astro';
 import Section from '../../components/blocks/Section.astro';
 import Eyebrow from '../../components/blocks/Eyebrow.astro';
+import PageHeader from '../../components/blocks/PageHeader.astro';
 import TrinityBand from '../../components/blocks/TrinityBand.astro';
 import LeadForm from '../../components/blocks/LeadForm.astro';
 import Card from '../../components/ui/Card.astro';
 import Badge from '../../components/ui/Badge.astro';
 import Button from '../../components/ui/Button.astro';
-import PhotoPlaceholder from '../../components/ui/PhotoPlaceholder.astro';
-import { foto } from '../../lib/foto';
 
 const BASE = '/academia-de-ingles-en-sevilla-este';
 const pags = (await getCollection('ingles')).sort((a, b) => a.data.orden - b.data.orden);
 const por = (eje: string) => pags.filter((p) => p.data.eje === eje);
 
-const fotoHubSrc = foto('ingles/hub.jpg');
 
 const niveles = [
   { lv: 'A2', t: 'Elemental. El punto de partida de muchos grupos.', href: null },
@@ -28,30 +27,28 @@ const niveles = [
   title="Academia de inglés en Sevilla Este · Educana"
   description="Inglés en Sevilla Este para niños, adolescentes y adultos. Centro examinador oficial Trinity. Preparamos B1, B2, C1, Cambridge y APTIS."
 >
-  <section class="bg-cream pt-8 pb-12 md:pt-10 md:pb-16">
-    <div class="container-page flex flex-col gap-7">
-      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
-        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Inglés</span>
-      </nav>
-      <div class="grid items-center gap-10 md:grid-cols-[1.05fr_1fr]">
-        <div class="flex flex-col gap-6">
-          <Eyebrow>Academia de inglés en Sevilla Este</Eyebrow>
-          <h1 class="text-(length:--text-h1) max-w-[18ch]">Inglés desde los 6 años hasta el C1.</h1>
-          <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">
-            Grupos reducidos, profesores bilingües y preparación específica de cada examen oficial.
-            Somos centro examinador de Trinity College London: preparas y te examinas aquí.
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <Button href="/contacto/">Prueba de nivel gratuita</Button>
-            <Button href="/horarios-cursos/" variant="outline">Ver horarios de inglés</Button>
-          </div>
-        </div>
-        {fotoHubSrc
-          ? <img src={fotoHubSrc} alt="" width="720" height="480" loading="eager" class="rounded-card aspect-3/2 w-full object-cover" />
-          : <PhotoPlaceholder nombre="ingles/hub.jpg" medidas="1600×1067 px · proporción 3:2" class="rounded-card aspect-3/2" />}
-      </div>
+  <PageHeader
+    migas={[{ label: 'Inglés' }]}
+    eyebrow="Academia de inglés en Sevilla Este"
+    titulo="Inglés desde los 6 años hasta el C1."
+    tituloClass="max-w-[18ch]"
+    beneficios={[
+      'Desde los 6 años hasta el C1',
+      'Mañanas o tardes a elegir',
+      'Grupos reducidos',
+      'Profesores titulados y bilingües',
+      'Centro examinador oficial Trinity',
+    ]}
+  >
+    <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[58ch]">
+      Grupos reducidos, profesores bilingües y preparación específica de cada examen oficial.
+      Somos centro examinador de Trinity College London: preparas y te examinas aquí.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <Button href="/contacto/" icon="check" variant="blanco">Prueba de nivel gratuita</Button>
+      <Button href="/horarios-cursos/" icon="reloj" variant="blanco-azul">Ver horarios de inglés</Button>
     </div>
-  </section>
+  </PageHeader>
 
   <TrinityBand />
 
@@ -63,7 +60,7 @@ const niveles = [
         <Card class="gap-3 p-6">
           <h3 class="text-(length:--text-h3)"><a href={`${BASE}/${p.id}/`} class="hover:text-brand-ink">{p.data.titulo}</a></h3>
           <p class="leading-relaxed text-slate">{p.data.entradilla.split('. ')[0]}.</p>
-          <a href={`${BASE}/${p.id}/`} class="text-[0.92rem] font-semibold text-brand-ink">Ver más →</a>
+          <a href={`${BASE}/${p.id}/`} class="group inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-brand-ink hover:underline">Ver más <Icon name="flecha-larga" size="sm" class="transition-transform group-hover:translate-x-1" /></a>
         </Card>
       ))}
     </div>
@@ -78,7 +75,7 @@ const niveles = [
           <p class="font-display text-3xl text-brand">{n.lv}</p>
           <p class="text-[0.92rem] leading-relaxed text-slate">{n.t}</p>
           {n.href
-            ? <a href={n.href} class="mt-1 text-[0.92rem] font-semibold text-brand-ink">Preparar el {n.lv} →</a>
+            ? <a href={n.href} class="group mt-1 inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-brand-ink hover:underline">Preparar el {n.lv} <Icon name="flecha-larga" size="sm" class="transition-transform group-hover:translate-x-1" /></a>
             : <p class="mt-1 text-[0.82rem] text-slate">Se trabaja dentro de los grupos de iniciación.</p>}
         </Card>
       ))}
@@ -96,7 +93,7 @@ const niveles = [
             {p.id === 'trinity' && <Badge tone="amber">Aquí mismo</Badge>}
           </div>
           <p class="text-[0.92rem] leading-relaxed text-slate">{p.data.entradilla.split('. ')[0]}.</p>
-          <a href={`${BASE}/${p.id}/`} class="text-[0.92rem] font-semibold text-brand-ink">Ver más →</a>
+          <a href={`${BASE}/${p.id}/`} class="group inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-brand-ink hover:underline">Ver más <Icon name="flecha-larga" size="sm" class="transition-transform group-hover:translate-x-1" /></a>
         </Card>
       ))}
     </div>

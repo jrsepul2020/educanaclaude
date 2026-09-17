@@ -1,16 +1,22 @@
 ---
+import Icon from './Icon.astro';
+import type { NombreIcono } from './Icon.astro';
+
 interface Props {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'whatsapp' | 'amber' | 'azul' | 'blanco' | 'blanco-azul' | 'trans-claro' | 'trans-rojo' | 'trans-azul' | 'rojo-aro';
   size?: 'md' | 'sm';
   href?: string;
   type?: 'button' | 'submit';
+  /** Icono a la izquierda del texto. Todo botón de acción reconocible
+      (llamar, escribir, WhatsApp, descargar…) debe llevar el suyo. */
+  icon?: NombreIcono;
   class?: string;
   disabled?: boolean;
 }
-const { variant = 'primary', size = 'md', href, type = 'button', class: extra = '', disabled = false } = Astro.props;
+const { variant = 'primary', size = 'md', href, type = 'button', icon, class: extra = '', disabled = false } = Astro.props;
 
 const base =
-  'inline-flex items-center justify-center gap-2 font-semibold rounded-pill transition-colors duration-150 ' +
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold rounded-full transition-colors duration-150 ' +
   'disabled:opacity-45 disabled:pointer-events-none';
 const sizes = {
   md: 'h-13 px-7 text-[0.97rem]',
@@ -21,6 +27,33 @@ const variants = {
   secondary: 'bg-ink text-cream hover:bg-ink-soft',
   outline: 'border-[1.5px] border-ink/30 text-ink hover:border-ink hover:bg-ink/5',
   ghost: 'text-brand-ink hover:bg-brand/8 px-3',
+  /* Verde corporativo de WhatsApp con texto TINTA: sobre este verde el
+     blanco da 1,98:1 y no se lee; la tinta da 8,64:1. */
+  whatsapp: 'bg-whatsapp text-ink hover:bg-whatsapp-deep',
+  /* Para usar sobre azul, sobre rojo o sobre foto. Texto en TINTA,
+     nunca blanco: sobre este amarillo el blanco da 1,5:1 y no se lee.
+     Separación sobre rojo 3,7:1 y sobre azul 7,7:1 — pasa de sobra. */
+  amber: 'bg-amber text-ink hover:bg-amber-deep',
+  /* Azul y rojo macizos: sólo sobre fondo CLARO. Sobre azul, sobre
+     rojo o sobre foto oscura su separación cae entre 1,0 y 2,7:1
+     —el mínimo es 3— y el botón se funde con el fondo. */
+  azul: 'bg-blue text-white hover:bg-blue-deep',
+  /* Sobre fondo OSCURO el color corporativo va en el texto y el icono,
+     no en el relleno: así el botón separa 10:1 del fondo y el rojo y el
+     azul de marca siguen presentes y distinguiendo jerarquía.
+     `blanco` = acción principal (rojo) · `blanco-azul` = secundaria.  */
+  blanco: 'bg-white text-brand-ink hover:bg-cream',
+  'blanco-azul': 'bg-white text-blue hover:bg-cream',
+  /* Transparentes: se alternan con los rellenos para dar jerarquía sin
+     meter un segundo bloque de color. El claro es para fondo oscuro o
+     foto; los otros dos, para fondo claro. */
+  'trans-claro': 'border-[1.5px] border-white/70 text-white hover:bg-white/15 hover:border-white',
+  'trans-rojo': 'border-[1.5px] border-brand text-brand-ink hover:bg-brand/8',
+  'trans-azul': 'border-[1.5px] border-blue text-blue hover:bg-blue/8',
+  /* Rojo corporativo sobre fondo oscuro o foto. El relleno rojo solo se
+     queda en 1,9-2,7:1 contra esos fondos y se funde; el aro blanco es
+     lo que lo separa (10:1) sin renunciar al rojo de marca. */
+  'rojo-aro': 'bg-brand text-white ring-2 ring-white hover:bg-brand-ink',
 };
 const cls = [base, sizes[size], variants[variant], extra].join(' ');
 const Tag = href ? 'a' : 'button';
@@ -31,4 +64,7 @@ const Tag = href ? 'a' : 'button';
   type={href ? undefined : type}
   disabled={href ? undefined : disabled}
   aria-disabled={href && disabled ? 'true' : undefined}
-><slot /></Tag>
+>
+  {icon && <Icon name={icon} size={size === 'sm' ? 'sm' : 'md'} />}
+  <slot />
+</Tag>

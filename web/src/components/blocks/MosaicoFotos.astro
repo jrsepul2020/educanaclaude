@@ -1,0 +1,42 @@
+---
+import { foto } from '../../lib/foto';
+
+/* Banda de fotos a sangre, sin texto encima: cierra la portada
+   enseñando a quién enseñamos. Reutiliza las fotos de curso, que se
+   quedaron sin uso cuando las cabeceras pasaron a listar beneficios en
+   lugar de llevar foto (17-09-2026).
+
+   El orden no es decorativo: recorre las edades de menor a mayor
+   —Primaria, adolescentes, PEvAU, adultos— para que se lea que la
+   academia cubre todas las etapas.
+
+   Cualquier foto que falte se cae sola del mosaico en vez de dejar un
+   hueco, igual que el resto de imágenes del sitio. */
+const piezas = [
+  { f: 'cursos/clases-de-apoyo.jpg',                  alt: 'Alumnos de Primaria haciendo los deberes en clase de apoyo', clase: 'col-span-2 row-span-2' },
+  { f: 'ingles/ninos.jpg',                            alt: 'Niña con sus libros antes de entrar a clase de inglés',      clase: 'col-span-2' },
+  { f: 'ingles/adultos.jpg',                          alt: 'Alumno en una clase de inglés',                              clase: 'col-span-2' },
+  { f: 'cursos/cursos-verano-sevilla.jpg',            alt: 'Grupo de estudiantes celebrando el final de curso',          clase: 'col-span-2 row-span-2' },
+  { f: 'cursos/curso-selectividad-sevilla-pevau.jpg', alt: 'Grupo preparando la selectividad alrededor de una mesa',     clase: '' },
+  { f: 'cursos/conseguir-titulo-eso.jpg',             alt: 'Alumnos leyendo en clase',                                   clase: '' },
+  { f: 'cursos/clases-particulares-sevilla.jpg',      alt: 'Clase con un grupo reducido de adultos',                     clase: '' },
+  { f: 'cursos/acceso-universidad-mayores-25.jpg',    alt: 'Profesora resolviendo dudas a un grupo de adultos',          clase: '' },
+]
+  .map((p) => ({ ...p, src: foto(p.f) }))
+  .filter((p) => p.src);
+---
+{piezas.length > 0 && (
+  <section aria-label="La academia por dentro" class="print:hidden">
+    <div class="grid grid-cols-4 auto-rows-[7.5rem] gap-1 md:grid-cols-8 md:auto-rows-[10rem]">
+      {piezas.map((p) => (
+        <img
+          src={p.src}
+          alt={p.alt}
+          loading="lazy"
+          decoding="async"
+          class={`h-full w-full object-cover ${p.clase}`}
+        />
+      ))}
+    </div>
+  </section>
+)}

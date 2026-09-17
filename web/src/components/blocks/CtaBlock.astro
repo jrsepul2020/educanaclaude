@@ -1,0 +1,53 @@
+---
+import Button from '../ui/Button.astro';
+import Eyebrow from './Eyebrow.astro';
+import Icon from '../ui/Icon.astro';
+
+/* CTA grande con foto de fondo. Sustituye a la franja roja fina que
+   había antes: el cierre de página es donde se decide la llamada, y
+   una barra de 60 px de alto no sostenía ese peso.
+
+   La foto por defecto (fondos/19.jpg) es la única del lote con caras y
+   con la emoción que pide un cierre — alumnos saliendo de clase, no
+   alguien empollando. Se puede cambiar por instancia con `foto`.
+
+   El velo vive en la utilidad `cta-foto` (tokens.css), no aquí: la
+   imagen se le pasa por la variable --cta-img para poder cambiarla por
+   instancia sin duplicar el degradado. */
+interface Props {
+  eyebrow?: string;
+  titulo?: string;
+  /** Párrafo destacado a 22 px */
+  texto?: string;
+  foto?: string;
+}
+const {
+  eyebrow = 'Matrícula abierta',
+  titulo = 'Tu plaza de este curso sigue libre.',
+  texto = 'Matrícula gratuita, material incluido y grupos de seis a ocho alumnos. Llámanos y te decimos con franqueza si podemos ayudarte.',
+  foto = '/fotos/fondos/19.jpg',
+} = Astro.props;
+---
+<section
+  class="cta-foto relative text-cream print:hidden"
+  style={`--cta-img: url("${foto}");`}
+>
+  <div class="container-page flex flex-col items-center gap-6 py-20 text-center md:py-28">
+    <Eyebrow tone="amber">{eyebrow}</Eyebrow>
+
+    <h2 class="text-(length:--text-h1) max-w-[20ch]">{titulo}</h2>
+
+    <p class="max-w-[52ch] text-[1.375rem] leading-relaxed text-cream/85">{texto}</p>
+
+    <div class="mt-2 flex flex-wrap items-center justify-center gap-3">
+      <Button href="/contacto/" icon="info" variant="blanco">Pide información</Button>
+      <Button href="tel:+34954409696" icon="telefono" variant="blanco-azul" class="tabular">954 40 96 96</Button>
+      <Button href="https://wa.me/34686085566" icon="whatsapp" variant="whatsapp">WhatsApp</Button>
+    </div>
+
+    <p class="mt-1 flex items-center gap-2 text-[0.95rem] font-semibold text-amber">
+      <Icon name="check" size="sm" />
+      Matrícula gratuita en todos los cursos
+    </p>
+  </div>
+</section>

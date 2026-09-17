@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/blocks/PageHeader.astro';
+import Button from '../components/ui/Button.astro';
+import Icon from '../components/ui/Icon.astro';
+
+const BASE_ING = '/academia-de-ingles-en-sevilla-este';
+
+const cursos = await getCollection('cursos');
+const ingles = await getCollection('ingles');
+
+const migas = { estudios: 'Estudios', accesos: 'Pruebas de acceso', ingles: 'Inglés' };
+
+const grupos = [
+  ...cursos.map((c) => ({
+    titulo: c.data.titulo,
+    href: `/${c.id}/`,
+    seccion: migas[c.data.categoria],
+    items: c.data.faq,
+  })),
+  ...ingles.map((c) => ({
+    titulo: c.data.titulo,
+    href: `${BASE_ING}/${c.id}/`,
+    seccion: 'Inglés',
+    items: c.data.faq,
+  })),
+].sort((a, b) => a.seccion.localeCompare(b.seccion) || a.titulo.localeCompare(b.titulo));
+
+const todas = grupos.flatMap((g) => g.items);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: todas.map((it) => ({
+    '@type': 'Question',
+    name: it.q,
+    acceptedAnswer: { '@type': 'Answer', text: it.a },
+  })),
+};
+---
+<Base
+  title="Preguntas frecuentes · Academia Educana"
+  description="Todas las dudas sobre clases de apoyo, PEvAU, pruebas de acceso e inglés en Academia Educana, Sevilla Este: horarios, precios, matrícula y convocatorias."
+  schema={schema}
+>
+  <PageHeader migas={[{ label: 'Preguntas frecuentes' }]} eyebrow="Todas las dudas" titulo="Preguntas frecuentes.">
+    <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[58ch]">
+      Reunimos aquí las dudas más habituales sobre cada uno de nuestros cursos.
+      Si no encuentras la tuya, escríbenos o llámanos.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <Button href="/contacto/" icon="chat" variant="blanco">Escríbenos</Button>
+      <Button href="tel:+34954409696" icon="telefono" variant="blanco-azul" class="tabular">954 40 96 96</Button>
+    </div>
+  </PageHeader>
+
+  <section class="bg-paper py-14 md:py-20">
+    <div class="container-page flex flex-col gap-14">
+      {grupos.map((g) => (
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 class="text-(length:--text-h3)">
+              <span class="text-brand-ink">{g.seccion}</span> · {g.titulo}
+            </h2>
+            <a href={g.href} class="group inline-flex items-center gap-1.5 text-[0.9rem] font-semibold text-brand-ink hover:underline whitespace-nowrap">
+              Ver el curso
+              <Icon name="flecha-larga" size="sm" class="transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+          <div class="rounded-card border border-line bg-cream divide-y divide-line">
+            {g.items.map((it) => (
+              <details class="group">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-semibold hover:bg-ink/3">
+                  <span>{it.q}</span>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"
+                       class="shrink-0 text-brand transition-transform duration-200 group-open:rotate-45">
+                    <path d="M10 4.5v11M4.5 10h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 text-slate leading-relaxed">{it.a}</div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

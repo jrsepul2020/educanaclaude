@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Card from '../ui/Card.astro';
 import Eyebrow from './Eyebrow.astro';
 const items = (await getCollection('testimonios')).map((t) => t.data);
+const iniciales = (nombre: string) => nombre.trim().charAt(0).toUpperCase();
 ---
 {items.length > 0 && (
   <>
@@ -11,12 +12,20 @@ const items = (await getCollection('testimonios')).map((t) => t.data);
     <div class="grid gap-6 md:grid-cols-2">
       {items.map((t) => (
         <Card class="gap-4 p-6">
+          <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true" class="text-amber">
+            <path d="M0 22V11.5C0 4.5 4 .5 10 0v4.5C6.5 5 4.5 7 4.5 11.5H10V22H0Z M17.5 22V11.5c0-7 4-11 10-11.5v4.5c-3.5.5-5.5 2.5-5.5 7H27.5V22h-10Z" fill="currentColor"/>
+          </svg>
           <blockquote class="text-(length:--text-lead) leading-relaxed">
-            <p>«{t.texto}»</p>
+            <p>{t.texto}</p>
           </blockquote>
-          <footer class="text-[0.9rem]">
-            <span class="font-semibold">{t.nombre}</span>
-            <span class="text-slate"> · {t.contexto}</span>
+          <footer class="flex items-center gap-3 text-[0.9rem]">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue font-display text-[1.05rem] font-bold text-cream">
+              {iniciales(t.nombre)}
+            </span>
+            <span>
+              <span class="block font-semibold">{t.nombre}</span>
+              <span class="text-slate">{t.contexto}</span>
+            </span>
           </footer>
         </Card>
       ))}

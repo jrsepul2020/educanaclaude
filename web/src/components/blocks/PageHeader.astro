@@ -1,0 +1,79 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import Icon from '../ui/Icon.astro';
+
+/* Cabecera única de todas las páginas interiores: migas, antetítulo,
+   H1 y entradilla sobre la foto de fondo (utilidad `cabecera-foto`).
+
+   Antes este bloque estaba copiado y pegado en diez páginas con
+   pequeñas divergencias. Al centralizarlo, el contraste del texto
+   sobre la foto se decide en un único sitio.
+
+   `media` es la columna derecha opcional: las páginas de curso y de
+   inglés la usan para su foto; el resto no la pasa y el H1 ocupa el
+   ancho cómodo de lectura. */
+interface Props {
+  migas: { label: string; href?: string }[];
+  eyebrow?: string;
+  titulo: string;
+  /** Limita el ancho del H1, p. ej. "max-w-[18ch]" */
+  tituloClass?: string;
+  /** Alto extra cuando la cabecera no lleva columna derecha */
+  amplia?: boolean;
+  /** Lo que decide la matrícula, en la columna derecha: duración,
+      días, grupo, precio y convocatoria. Sustituye a la foto que había
+      antes (17-09-2026): la foto decoraba, esto convence. */
+  beneficios?: string[];
+}
+const { migas, eyebrow, titulo, tituloClass = '', amplia = false, beneficios } = Astro.props;
+const conMedia = Astro.slots.has('media') || Boolean(beneficios?.length);
+const alto = amplia || conMedia ? 'pt-9 pb-12 md:pt-12 md:pb-16' : 'pt-9 pb-11 md:pt-12 md:pb-14';
+---
+<section class={`cabecera-foto ${alto}`}>
+  <div class="container-page flex flex-col gap-7">
+    <nav aria-label="Migas de pan" class="flex flex-wrap items-center gap-1.5 text-[0.78rem] text-cream/80">
+      <a href="/" class="inline-flex items-center gap-1.5 hover:text-cream transition-colors">
+        <Icon name="casa" size="sm" />
+        Inicio
+      </a>
+      {migas.map((m) => (
+        <>
+          <Icon name="flecha" size="sm" class="text-amber" />
+          {m.href
+            ? <a href={m.href} class="hover:text-cream transition-colors">{m.label}</a>
+            : <span class="text-cream">{m.label}</span>}
+        </>
+      ))}
+    </nav>
+
+    {conMedia ? (
+      <div class="grid items-start gap-10 md:grid-cols-[1.1fr_0.9fr]">
+        <div class="flex flex-col gap-5">
+          {eyebrow && <Eyebrow tone="amber">{eyebrow}</Eyebrow>}
+          <h1 class={`text-(length:--text-h1) ${tituloClass}`}>{titulo}</h1>
+          <slot />
+        </div>
+        {beneficios?.length ? (
+          /* Tarjeta opaca a propósito: al no depender del velo de la foto
+             para su contraste, permite que el fondo se vea mucho más. */
+          <ul class="rounded-card border-[1.5px] border-amber bg-paper p-6 flex flex-col gap-3 shadow-lg">
+            {beneficios.map((b) => (
+              <li class="flex items-start gap-3 text-ink">
+                <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber">
+                  <Icon name="check" size="sm" class="text-ink" />
+                </span>
+                <span class="text-[1.05rem] font-semibold leading-snug">{b}</span>
+              </li>
+            ))}
+          </ul>
+        ) : <slot name="media" />}
+      </div>
+    ) : (
+      <div class="flex flex-col gap-5">
+        {eyebrow && <Eyebrow tone="amber">{eyebrow}</Eyebrow>}
+        <h1 class={`text-(length:--text-h1) ${tituloClass}`}>{titulo}</h1>
+        <slot />
+      </div>
+    )}
+  </div>
+</section>

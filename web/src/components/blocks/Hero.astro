@@ -2,16 +2,19 @@
 import Button from '../ui/Button.astro';
 import Eyebrow from './Eyebrow.astro';
 import PhotoPlaceholder from '../ui/PhotoPlaceholder.astro';
+import Icon from '../ui/Icon.astro';
 import { foto } from '../../lib/foto';
 interface Props {
   eyebrow?: string;
   title: string;
   lead: string;
+  /** Micro-confianza bajo los botones, p. ej. "Más de 6.796 alumnos desde 2005" */
+  trust?: string;
   /** Nombre del archivo en public/fotos/, p. ej. "home-hero.jpg" */
   fotoNombre?: string;
   fotoMedidas?: string;
 }
-const { eyebrow, title, lead, fotoNombre, fotoMedidas = '1600×1067 px · proporción 3:2' } = Astro.props;
+const { eyebrow, title, lead, trust, fotoNombre, fotoMedidas = '1600×1067 px · proporción 3:2' } = Astro.props;
 const src = fotoNombre ? foto(fotoNombre) : null;
 ---
 <section class="bg-cream py-12 md:py-20">
@@ -21,13 +24,20 @@ const src = fotoNombre ? foto(fotoNombre) : null;
       <h1 class="text-(length:--text-h1) max-w-[17ch]" set:html={title} />
       <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[56ch]">{lead}</p>
       <div class="flex flex-wrap items-center gap-3">
-        <Button href="/contacto/">Pide información</Button>
-        <Button href="tel:+34954409696" variant="outline">Llamar 954 40 96 96</Button>
+        <Button href="/contacto/" icon="info">Pide información</Button>
+        <Button href="tel:+34954409696" icon="telefono" variant="outline">Llamar 954 40 96 96</Button>
+        <Button href="https://wa.me/34686085566" icon="whatsapp" variant="whatsapp">WhatsApp</Button>
       </div>
+      {trust && (
+        <p class="flex items-center gap-2 text-[0.92rem] font-semibold text-slate">
+          <Icon name="check" class="text-ok" />
+          {trust}
+        </p>
+      )}
     </div>
     {fotoNombre && (
       src
-        ? <img src={src} alt="" width="720" height="480" loading="eager" fetchpriority="high"
+        ? <img src={src} alt="Academia Educana, Sevilla Este" width="720" height="480" loading="eager" fetchpriority="high"
                class="rounded-card aspect-3/2 w-full object-cover" />
         : <PhotoPlaceholder nombre={fotoNombre} medidas={fotoMedidas} class="rounded-card aspect-3/2 w-full" />
     )}

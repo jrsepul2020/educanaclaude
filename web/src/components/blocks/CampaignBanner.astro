@@ -1,15 +1,22 @@
 ---
 import Badge from '../ui/Badge.astro';
 import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
 /* Bloque de campaña estacional: se cambia un archivo de contenido
-   (src/content/campana.json) y cambia la portada. Doc 01 §3. */
+   (src/content/campana.json) y cambia la portada. Doc 01 §3.
+
+   Contraste reforzado (17-09-2026): la versión anterior era una barra
+   blanca casi invisible para lo que suele anunciar (el diferencial de
+   examinador oficial). Fondo ámbar + icono de megáfono para que pese
+   lo que tiene que pesar sin salirse de la paleta de dos colores. */
 interface Props { tag: string; text: string; cta: string; href: string }
 const { tag, text, cta, href } = Astro.props;
 ---
-<div class="bg-paper border-y border-line">
+<div class="bg-amber/25 border-y-[1.5px] border-amber">
   <div class="container-page flex flex-wrap items-center gap-5 py-6">
-    <Badge tone="amber">{tag}</Badge>
+    <Icon name="megafono" size="lg" class="text-brand-ink" />
+    <Badge tone="brand">{tag}</Badge>
     <p class="flex-1 min-w-[16rem] text-[1.05rem] font-semibold">{text}</p>
-    <Button href={href} variant="outline" size="sm">{cta}</Button>
+    <Button href={href} icon="calendario" size="sm">{cta}</Button>
   </div>
 </div>

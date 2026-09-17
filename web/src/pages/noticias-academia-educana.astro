@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Section from '../components/blocks/Section.astro';
-import Eyebrow from '../components/blocks/Eyebrow.astro';
+import PageHeader from '../components/blocks/PageHeader.astro';
 import Card from '../components/ui/Card.astro';
 import Badge from '../components/ui/Badge.astro';
 
@@ -15,19 +15,12 @@ const fmt = (d: Date) => d.toLocaleDateString('es-ES', { day: 'numeric', month: 
   title="Noticias · Academia Educana"
   description="Convocatorias, plazos de matrícula y cambios en las pruebas de acceso y los exámenes oficiales, contados por Academia Educana."
 >
-  <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
-    <div class="container-page flex flex-col gap-6">
-      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
-        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Noticias</span>
-      </nav>
-      <Eyebrow>Noticias</Eyebrow>
-      <h1 class="text-(length:--text-h1)">Lo que pasa en la academia.</h1>
-      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">
-        Convocatorias, plazos y cambios normativos. Lo que de verdad te afecta,
-        sin artículos de relleno sobre cómo estudiar mejor.
-      </p>
-    </div>
-  </section>
+  <PageHeader migas={[{ label: 'Noticias' }]} eyebrow="Noticias" titulo="Lo que pasa en la academia.">
+    <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[58ch]">
+      Convocatorias, plazos y cambios normativos. Lo que de verdad te afecta,
+      sin artículos de relleno sobre cómo estudiar mejor.
+    </p>
+  </PageHeader>
 
   <Section tone="paper">
     {posts.length === 0 ? (

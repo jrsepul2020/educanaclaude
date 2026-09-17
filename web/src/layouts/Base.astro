@@ -13,8 +13,10 @@ interface Props {
   noindex?: boolean;
   schema?: Record<string, unknown> | Record<string, unknown>[];
   chrome?: boolean;
+  /** false en páginas que traen su propio cierre, para no repetirlo */
+  cta?: boolean;
 }
-const { title, description, noindex = false, schema, chrome = true } = Astro.props;
+const { title, description, noindex = false, schema, chrome = true, cta = true } = Astro.props;
 ---
 <!doctype html>
 <html lang="es">
@@ -32,7 +34,7 @@ const { title, description, noindex = false, schema, chrome = true } = Astro.pro
     </a>
     {chrome && <Header />}
     <main id="contenido" class="flex-1"><slot /></main>
-    {chrome && <Footer />}
+    {chrome && <Footer cta={cta} />}
     {chrome && <MobileBar />}
     <Consent />
   </body>

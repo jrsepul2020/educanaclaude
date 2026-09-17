@@ -1,7 +1,10 @@
 ---
-interface Props { tone?: 'cream' | 'paper' | 'azul'; class?: string; id?: string }
+interface Props { tone?: 'cream' | 'paper' | 'azul' | 'rojo'; class?: string; id?: string }
 const { tone = 'cream', class: extra = '', id } = Astro.props;
-const tones = { cream: 'bg-cream', paper: 'bg-paper', azul: 'bg-blue text-cream' };
+/* `rojo` es el cierre de página: blanco sobre el rojo de marca da
+   5,66:1. Dentro sólo caben botones blancos o amarillos — el azul
+   sobre rojo se queda en 2,07:1 de separación y desaparece. */
+const tones = { cream: 'bg-cream', paper: 'bg-paper', azul: 'bg-blue text-cream', rojo: 'bg-brand text-white' };
 ---
 <section id={id} class={`${tones[tone]} py-14 md:py-20 ${extra}`}>
   <div class="container-page flex flex-col gap-7"><slot /></div>

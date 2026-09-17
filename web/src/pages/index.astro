@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/blocks/Hero.astro';
 import Section from '../components/blocks/Section.astro';
@@ -8,16 +9,39 @@ import CampaignBanner from '../components/blocks/CampaignBanner.astro';
 import TrinityBand from '../components/blocks/TrinityBand.astro';
 import LeadForm from '../components/blocks/LeadForm.astro';
 import Card from '../components/ui/Card.astro';
+import Badge from '../components/ui/Badge.astro';
 import Testimonios from '../components/blocks/Testimonios.astro';
+import MosaicoFotos from '../components/blocks/MosaicoFotos.astro';
 import PhotoPlaceholder from '../components/ui/PhotoPlaceholder.astro';
 import { foto } from '../lib/foto';
 
-const puertas = [
-  { t: 'Mi hijo necesita refuerzo', p: 'Va justo en alguna asignatura o se ha descolgado este trimestre.', href: '/clases-de-apoyo/', fotoNombre: 'home-necesita-apoyo.jpg' },
-  { t: 'Me juego la PEvAU', p: 'Necesitas nota y quedan meses. O semanas.', href: '/curso-selectividad-sevilla-pevau/', fotoNombre: 'home-necesita-pevau.jpg' },
-  { t: 'Necesito un título', p: 'Para trabajar, opositar o entrar en un ciclo. Aunque lleves años sin estudiar.', href: '/conseguir-titulo-eso/', fotoNombre: 'home-necesita-titulo.jpg' },
+/* Los servicios salen de la colección, no escritos a mano: así el
+   nombre de cada curso en portada es siempre el mismo que en su página
+   y añadir un curso nuevo lo publica aquí solo. Orden descendente por
+   `orden`, que es el que ya usa el resto del sitio. */
+const cursos = (await getCollection('cursos')).sort((a, b) => b.data.orden - a.data.orden);
+const etiqueta = { estudios: 'Estudios', accesos: 'Pruebas de acceso', ingles: 'Inglés' };
+
+const servicios = [
+  ...cursos.map((c) => ({
+    titulo: c.data.titulo,
+    // Primera frase de la entradilla: resume sin duplicar texto
+    texto: `${c.data.entradilla.split('. ')[0]}.`,
+    href: `/${c.id}/`,
+    grupo: etiqueta[c.data.categoria],
+    fotoNombre: `cursos/${c.id}.jpg`,
+  })),
+  {
+    titulo: 'Inglés y exámenes oficiales',
+    texto: 'De los 6 años al C1, con Trinity, Cambridge, EOI y APTIS. Somos centro examinador oficial de Trinity.',
+    href: '/academia-de-ingles-en-sevilla-este/',
+    grupo: 'Inglés',
+    fotoNombre: 'ingles/hub.jpg',
+  },
 ];
-const medidasPuerta = '800×533 px · proporción 3:2';
+const medidasPuerta = '1200×800 px · proporción 3:2';
+const iconoFlecha = 'M6 4l4 4-4 4';
+const examenes = ['Trinity College London', 'Cambridge', 'EOI', 'APTIS'];
 ---
 <Base
   title="Academia en Sevilla Este · Academia Educana"
@@ -27,9 +51,23 @@ const medidasPuerta = '800×533 px · proporción 3:2';
     eyebrow="Academia en Sevilla Este · desde 2005"
     title="Llevamos 20 años consiguiendo que aprueben."
     lead="Clases de apoyo, pruebas de acceso y exámenes oficiales de inglés. Grupos reducidos, matrícula gratuita y material incluido en el precio."
+    trust="Más de 6.796 alumnos han pasado por Educana"
     fotoNombre="home-hero.jpg"
     fotoMedidas="1600×1067 px · proporción 3:2"
   />
+
+  <Section tone="paper">
+    <StatBlock stats={[
+      { n: '20+', label: 'años en el mismo barrio', accent: true, icon: 'anios' },
+      { n: '6.796', label: 'alumnos han pasado por Educana', icon: 'alumnos' },
+      { n: '4', label: 'exámenes oficiales: Trinity, Cambridge, EOI y APTIS', icon: 'examenes' },
+      { n: '0 €', label: 'de matrícula, en todos los cursos', accent: true, icon: 'gratis' },
+    ]} />
+    <div class="flex flex-wrap items-center gap-3 pt-2">
+      <span class="text-sm font-semibold text-slate">Centro preparador de:</span>
+      {examenes.map((e) => <Badge tone="neutral">{e}</Badge>)}
+    </div>
+  </Section>
 
   <CampaignBanner
     tag="Trinity"
@@ -39,20 +77,29 @@ const medidasPuerta = '800×533 px · proporción 3:2';
   />
 
   <Section tone="cream">
-    <Eyebrow>Por dónde empezar</Eyebrow>
-    <h2 class="text-(length:--text-h2)">¿Qué necesitas?</h2>
-    <div class="grid gap-6 md:grid-cols-3">
-      {puertas.map((p) => {
+    <Eyebrow>Nuestros cursos</Eyebrow>
+    <h2 class="text-(length:--text-h2)">Todo lo que preparamos en Sevilla Este.</h2>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {servicios.map((p) => {
         const src = foto(p.fotoNombre);
         return (
-          <Card class="gap-0">
-            {src
-              ? <img src={src} alt="" width="400" height="267" loading="lazy" class="aspect-3/2 w-full object-cover" />
-              : <PhotoPlaceholder nombre={p.fotoNombre} medidas={medidasPuerta} class="aspect-3/2" />}
-            <div class="flex flex-col gap-3 p-6">
-              <h3 class="text-(length:--text-h3)"><a href={p.href} class="hover:text-brand-ink">{p.t}</a></h3>
-              <p class="text-slate leading-relaxed">{p.p}</p>
-            </div>
+          <Card class="group relative gap-0 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+            <a href={p.href} class="contents">
+              {src
+                ? <img src={src} alt={`${p.titulo} · Academia Educana, Sevilla Este`} width="400" height="267" loading="lazy" class="aspect-3/2 w-full object-cover" />
+                : <PhotoPlaceholder nombre={p.fotoNombre} medidas={medidasPuerta} class="aspect-3/2" />}
+              <div class="flex flex-1 flex-col gap-2.5 p-6">
+                <span class="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slate">{p.grupo}</span>
+                <h3 class="text-(length:--text-h3) text-ink group-hover:text-brand-ink">{p.titulo}</h3>
+                <p class="text-[0.95rem] leading-relaxed text-slate">{p.texto}</p>
+                <span class="mt-auto flex items-center gap-1.5 pt-2 text-[0.9rem] font-bold text-brand-ink">
+                  Ver el curso
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="shrink-0 transition-transform group-hover:translate-x-1">
+                    <path d={iconoFlecha} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
           </Card>
         );
       })}
@@ -61,22 +108,15 @@ const medidasPuerta = '800×533 px · proporción 3:2';
 
   <TrinityBand />
 
-  <Section tone="paper">
-    <StatBlock stats={[
-      { n: '20+', label: 'años en el mismo barrio', accent: true },
-      { n: '6.796', label: 'alumnos han pasado por Educana' },
-      { n: '4', label: 'exámenes oficiales: Trinity, Cambridge, EOI y APTIS' },
-      { n: '0 €', label: 'de matrícula, en todos los cursos', accent: true },
-    ]} />
-  </Section>
-
   <Section tone="cream">
     <Testimonios />
   </Section>
 
   <Section tone="paper">
     <Eyebrow>Contacto</Eyebrow>
-    <h2 class="text-(length:--text-h2)">¿Hablamos?</h2>
+    <h2 class="text-(length:--text-h2)">¿Te ayudamos?</h2>
     <div class="max-w-2xl"><LeadForm context="home" /></div>
   </Section>
+
+  <MosaicoFotos />
 </Base>

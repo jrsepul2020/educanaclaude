@@ -1,0 +1,91 @@
+---
+import LeadForm from './LeadForm.astro';
+import Icon from '../ui/Icon.astro';
+import { NAP } from '../../lib/nap';
+
+/* Cierre general de la web: formulario a la izquierda y contacto a la
+   derecha. Sustituye al CTA de foto como bloque global.
+
+   Degradado con los dos colores del logotipo: azul #21307F a rojo
+   #CD1227. Medido de punta a punta con blanco encima —11,71 en el azul,
+   9,87 en el punto medio y 5,66 en el rojo— así que el texto aguanta en
+   todo el recorrido. El punto medio no se enturbia: da un vino #772153.
+
+   La dirección importa: el degradado ACABA en rojo, que es el borde que
+   toca el pie, y ahí salta 2,07 contra su azul. Al revés, el azul del
+   final se habría empastado con el del pie.
+
+   Los iconos van en círculo BLANCO con el glifo en rojo. Antes eran
+   círculos translúcidos con glifo blanco y sobre el rojo del fondo no
+   se distinguían. WhatsApp mantiene su verde dentro del círculo blanco
+   para no perder el color con el que se reconoce el canal. */
+interface Props { context?: string }
+const { context = 'cierre' } = Astro.props;
+
+const contacto = [
+  { icono: 'telefono', et: 'Llámanos', v: NAP.phoneText, href: `tel:${NAP.phone}`, ev: 'clic-telefono', verde: false },
+  { icono: 'whatsapp', et: 'WhatsApp', v: NAP.mobileText, href: NAP.whatsapp, ev: 'clic-whatsapp', verde: true },
+  { icono: 'email', et: 'Escríbenos', v: NAP.email, href: `mailto:${NAP.email}`, ev: undefined, verde: false },
+] as const;
+---
+<section class="text-white print:hidden"
+         style="background: linear-gradient(135deg, #21307F 0%, #CD1227 100%);">
+  <div class="container-page grid gap-14 py-20 md:py-24 lg:grid-cols-[1fr_1fr]">
+
+    {/* ── Formulario ── */}
+    <div class="flex min-w-0 flex-col gap-6">
+      <h2 class="max-w-[13ch] text-(length:--text-h1) font-extrabold leading-[0.92]">Infórmate sin compromiso</h2>
+      <p class="max-w-[46ch] text-[1.2rem] font-medium leading-relaxed text-white/85">
+        Escríbenos y te decimos en qué grupo encajas, cuándo empieza y cuánto cuesta.
+      </p>
+      <div class="rounded-card border border-white/25 bg-white/8 p-6 md:p-8">
+        <LeadForm context={context} oscuro={true} />
+      </div>
+    </div>
+
+    {/* ── Contacto ── */}
+    <div class="flex min-w-0 flex-col gap-8 lg:pl-6">
+      <div class="flex flex-col gap-4">
+        <h2 class="max-w-[16ch] text-(length:--text-h2) font-extrabold leading-[0.95]">O háblanos directamente</h2>
+        <p class="max-w-[42ch] text-[1.2rem] font-medium leading-relaxed text-white/85">
+          Descuelga quien te va a dar clase, no un centro de llamadas. En cinco minutos
+          sabes si te encaja.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        {contacto.map((c) => (
+          <a href={c.href} rel={c.href.startsWith('http') ? 'noopener' : undefined}
+             data-evento={c.ev}
+             class="group flex items-center gap-4 rounded-card border border-white/20 bg-white/8 p-4 transition-colors hover:bg-white/15">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white">
+              <Icon name={c.icono} size="lg" class={c.verde ? 'text-whatsapp-glifo' : 'text-brand'} />
+            </span>
+            <span class="min-w-0">
+              <span class="block text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white">{c.et}</span>
+              <span class="block break-all text-[1.35rem] font-extrabold leading-tight tabular">{c.v}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      {/* Dirección física */}
+      <div class="flex items-start gap-4 rounded-card border border-white/20 bg-white/8 p-4">
+        <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white">
+          <Icon name="ubicacion" size="lg" class="text-brand" />
+        </span>
+        <span>
+          <span class="block text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white">Dónde estamos</span>
+          <span class="block text-[1.1rem] font-bold leading-snug">
+            {NAP.street}<br />{NAP.postal} {NAP.city}
+          </span>
+        </span>
+      </div>
+
+      <p class="flex items-center gap-2.5 text-[1rem] font-bold text-white/85">
+        <Icon name="check" class="shrink-0" />
+        Más de 6.796 alumnos desde 2005, en el mismo barrio
+      </p>
+    </div>
+  </div>
+</section>

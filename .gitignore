@@ -10,3 +10,17 @@ dist/
 *.log
 .vercel
 .env*.local
+
+# Originales de foto sin optimizar (17-09-2026). Pesan 42 MB entre los
+# tres y no se usan en el código: sólo se publican las versiones
+# reducidas. Se quedan en local; si hace falta alguna, se optimiza
+# primero y esa sí entra en el repositorio.
+web/public/fotos/fondos/estudiar-ingles-sevilla-este.jpg
+web/public/fotos/fondos/trinity-english.jpg
+web/public/fotos/fondos/adult-studying-at-home-with-books-and-pencil-2026-03-24-22-44-12-utc.jpg
+
+# Páginas de trabajo del rediseño. Se mantienen en local hasta cerrar
+# el estilo, para no publicarlas en Vercel todavía.
+web/src/pages/demo-estilo.astro
+web/src/pages/demo-fondos.astro
+web/src/pages/demo-cta-color.astro

@@ -10,8 +10,21 @@ import { foto } from '../../lib/foto';
    Trinity College London. Usa el mismo mecanismo de foto() para que
    aparezca solo en cuanto se suba, sin tocar código. */
 const src = foto('trinity-sello.png');
+
+/* Fondo de bandera británica. El velo es alto (0,86 bajando a 0,74 en
+   la mitad derecha) por dos motivos, no sólo por contraste: las franjas
+   blancas son blanco puro, y el rojo de la bandera está a un paso del
+   rojo de marca, así que si se ve demasiado le roba fuerza al botón
+   principal. A este nivel queda como textura, que es lo que debe ser.
+
+   El original que subió el cliente pesa 13,9 MB a 4928 px: aquí se usa
+   la versión reducida a 1600 px y 277 KB. */
+const fondo = '/fotos/fondos/trinity-english-web.jpg';
 ---
-<section class="bg-blue text-cream py-14 md:py-20">
+<section
+  class="bg-blue bg-cover bg-center text-cream py-14 md:py-20"
+  style={`background-image: linear-gradient(100deg, rgb(23 32 77 / 0.92) 0%, rgb(23 32 77 / 0.86) 55%, rgb(20 26 51 / 0.74) 100%), url("${fondo}");`}
+>
   <div class="container-page grid items-center gap-10 md:grid-cols-[1.1fr_0.7fr]">
     <div class="flex flex-col gap-5">
       <Eyebrow tone="amber">Centro examinador oficial</Eyebrow>
@@ -21,8 +34,8 @@ const src = foto('trinity-sello.png');
         misma aula, sin desplazarte a otro centro el día del examen. B1, B2, C1 y C2.
       </p>
       <div class="flex flex-wrap gap-3">
-        <Button href="/academia-de-ingles-en-sevilla-este/trinity/">Ver preparación Trinity</Button>
-        <Button href="/fechas-y-convocatorias/" variant="outline">Próximas convocatorias</Button>
+        <Button href="/academia-de-ingles-en-sevilla-este/trinity/" icon="globo" variant="blanco">Ver preparación Trinity</Button>
+        <Button href="/fechas-y-convocatorias/" icon="calendario" variant="blanco-azul">Próximas convocatorias</Button>
       </div>
     </div>
     <div class="flex flex-col items-start gap-4">

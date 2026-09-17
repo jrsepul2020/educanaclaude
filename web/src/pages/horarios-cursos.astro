@@ -2,7 +2,8 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Section from '../components/blocks/Section.astro';
-import Eyebrow from '../components/blocks/Eyebrow.astro';
+import PageHeader from '../components/blocks/PageHeader.astro';
+import Icon from '../components/ui/Icon.astro';
 import ScheduleTable from '../components/blocks/ScheduleTable.astro';
 import Card from '../components/ui/Card.astro';
 import Button from '../components/ui/Button.astro';
@@ -14,25 +15,21 @@ const categorias = [...new Set(grupos.map((g) => g.categoria))];
   title="Horarios y precios · Academia Educana"
   description="Todos los horarios del curso en Academia Educana, Sevilla Este: refuerzo escolar, PEvAU, pruebas de acceso e inglés, con las plazas disponibles actualizadas."
 >
-  <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
-    <div class="container-page flex flex-col gap-6">
-      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
-        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Horarios</span>
-      </nav>
-      <Eyebrow>Curso 2026–2027</Eyebrow>
-      <h1 class="text-(length:--text-h1)">Horarios y precios.</h1>
-      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">
-        Estos son los cursos con sus días y su franja horaria. La matrícula es gratuita
-        y el material va incluido en el precio.
-      </p>
-      <p class="rounded-card border-[1.5px] border-amber bg-amber/20 p-5 leading-relaxed max-w-[64ch]">
+  <PageHeader migas={[{ label: 'Horarios' }]} eyebrow="Curso 2026–2027" titulo="Horarios y precios.">
+    <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[58ch]">
+      Estos son los cursos con sus días y su franja horaria. La matrícula es gratuita
+      y el material va incluido en el precio.
+    </p>
+    <p class="flex gap-3 rounded-card border-[1.5px] border-amber bg-amber/15 p-5 leading-relaxed max-w-[64ch] text-cream">
+      <Icon name="info" class="mt-0.5 shrink-0 text-amber" />
+      <span>
         <strong>El cuadrante de horarios del curso está en preparación.</strong> En cuanto se
-        cierren los grupos lo publicamos aquí. Mientras tanto, llámanos al
-        <a href="tel:+34954409696" class="underline tabular">954 40 96 96</a> y te decimos
+        cierren los grupos lo publicamos aquí. Mientras tanto, llámanos y te decimos
         qué grupo te encaja.
-      </p>
-    </div>
-  </section>
+      </span>
+    </p>
+    <Button href="tel:+34954409696" icon="telefono" variant="blanco" class="self-start tabular">954 40 96 96</Button>
+  </PageHeader>
 
   <Section tone="paper">
     <ScheduleTable grupos={grupos} categorias={categorias} />
@@ -47,8 +44,8 @@ const categorias = [...new Set(grupos.map((g) => g.categoria))];
           las clases particulares con horario a medida.
         </p>
         <div class="flex flex-wrap gap-3">
-          <Button href="tel:+34954409696" size="sm">Llamar 954 40 96 96</Button>
-          <Button href="/clases-particulares-sevilla/" size="sm" variant="outline">Clases particulares</Button>
+          <Button href="tel:+34954409696" icon="telefono" size="sm">Llamar 954 40 96 96</Button>
+          <Button href="/clases-particulares-sevilla/" icon="usuarios" size="sm" variant="outline">Clases particulares</Button>
         </div>
       </Card>
       <Card class="gap-4 p-6">
@@ -58,7 +55,7 @@ const categorias = [...new Set(grupos.map((g) => g.categoria))];
           incluido en el precio. El importe final depende de cuántas asignaturas lleves:
           llámanos y te damos el tuyo exacto en un minuto.
         </p>
-        <Button href="/contacto/" size="sm" variant="outline">Pide información</Button>
+        <Button href="/contacto/" icon="info" size="sm" variant="outline">Pide información</Button>
       </Card>
     </div>
   </Section>

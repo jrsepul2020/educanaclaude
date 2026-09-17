@@ -5,25 +5,29 @@ import Eyebrow from '../components/blocks/Eyebrow.astro';
 import LeadForm from '../components/blocks/LeadForm.astro';
 import Card from '../components/ui/Card.astro';
 import Button from '../components/ui/Button.astro';
+import Icon from '../components/ui/Icon.astro';
+import PageHeader from '../components/blocks/PageHeader.astro';
 import { NAP } from '../lib/nap';
 ---
 <Base
   title="Contacto · Academia Educana Sevilla Este"
   description="Academia Educana está en Avenida de las Ciencias 25, Edificio Galileo, Sevilla Este. Llámanos al 954 40 96 96 o escríbenos por WhatsApp."
 >
-  <section class="bg-cream pt-8 pb-10 md:pt-10 md:pb-12">
-    <div class="container-page flex flex-col gap-6">
-      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
-        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">Contacto</span>
-      </nav>
-      <Eyebrow>Contacto</Eyebrow>
-      <h1 class="text-(length:--text-h1) max-w-[20ch]">Estamos en Sevilla Este, en el Edificio Galileo.</h1>
-      <p class="text-(length:--text-lead) leading-relaxed text-slate max-w-[58ch]">
-        Llámanos, escríbenos por WhatsApp o pásate. Te decimos en qué grupo encajas,
-        cuándo empieza y cuánto cuesta.
-      </p>
+  <PageHeader
+    migas={[{ label: 'Contacto' }]}
+    eyebrow="Contacto"
+    titulo="Estamos en Sevilla Este, en el Edificio Galileo."
+    tituloClass="max-w-[20ch]"
+  >
+    <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[58ch]">
+      Llámanos, escríbenos por WhatsApp o pásate. Te decimos en qué grupo encajas,
+      cuándo empieza y cuánto cuesta.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <Button href={`tel:${NAP.phone}`} icon="telefono" variant="blanco" class="tabular">{NAP.phoneText}</Button>
+      <Button href={NAP.whatsapp} icon="whatsapp" variant="whatsapp">WhatsApp</Button>
     </div>
-  </section>
+  </PageHeader>
 
   <Section tone="paper">
     <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
@@ -36,22 +40,34 @@ import { NAP } from '../lib/nap';
       <div class="flex flex-col gap-5">
         <Card class="gap-4 p-6">
           <h2 class="text-(length:--text-h3)">{NAP.name}</h2>
-          <address class="not-italic leading-loose text-slate">
-            {NAP.street}<br />{NAP.postal} {NAP.city}<br />
-            <a href={`tel:${NAP.phone}`} class="tabular text-ink hover:text-brand-ink" data-evento="clic-telefono">{NAP.phoneText}</a><br />
-            <a href={`tel:${NAP.mobile}`} class="tabular text-ink hover:text-brand-ink" data-evento="clic-telefono">{NAP.mobileText}</a><br />
-            <a href={`mailto:${NAP.email}`} class="text-ink hover:text-brand-ink">{NAP.email}</a>
+          <address class="not-italic leading-relaxed text-slate flex flex-col gap-3">
+            <span class="flex gap-2.5">
+              <Icon name="ubicacion" class="mt-0.5 text-brand-ink" />
+              <span>{NAP.street}<br />{NAP.postal} {NAP.city}</span>
+            </span>
+            <a href={`tel:${NAP.phone}`} class="flex items-center gap-2.5 tabular text-ink hover:text-brand-ink" data-evento="clic-telefono">
+              <Icon name="telefono" class="text-brand-ink" />
+              {NAP.phoneText}
+            </a>
+            <a href={`tel:${NAP.mobile}`} class="flex items-center gap-2.5 tabular text-ink hover:text-brand-ink" data-evento="clic-telefono">
+              <Icon name="telefono" class="text-brand-ink" />
+              {NAP.mobileText}
+            </a>
+            <a href={`mailto:${NAP.email}`} class="flex items-center gap-2.5 text-ink hover:text-brand-ink">
+              <Icon name="email" class="text-brand-ink" />
+              {NAP.email}
+            </a>
           </address>
-          <Button href={NAP.whatsapp} variant="outline" size="sm" class="self-start">Escribir por WhatsApp</Button>
+          <Button href={NAP.whatsapp} icon="whatsapp" variant="whatsapp" size="sm" class="self-start">Escribir por WhatsApp</Button>
         </Card>
 
         <Card class="gap-3 p-6">
           <h2 class="text-(length:--text-h3)">Otros contactos</h2>
           <dl class="flex flex-col gap-2 text-[0.95rem]">
             <div><dt class="text-slate">Bolsa de trabajo</dt>
-              <dd><a href={`mailto:${NAP.emailEmpleo}`} class="hover:text-brand-ink">{NAP.emailEmpleo}</a></dd></div>
+              <dd><a href={`mailto:${NAP.emailEmpleo}`} class="flex items-center gap-2 hover:text-brand-ink"><Icon name="email" size="sm" class="text-brand-ink" />{NAP.emailEmpleo}</a></dd></div>
             <div><dt class="text-slate">Administración y asuntos legales</dt>
-              <dd><a href={`mailto:${NAP.emailLegal}`} class="hover:text-brand-ink">{NAP.emailLegal}</a></dd></div>
+              <dd><a href={`mailto:${NAP.emailLegal}`} class="flex items-center gap-2 hover:text-brand-ink"><Icon name="email" size="sm" class="text-brand-ink" />{NAP.emailLegal}</a></dd></div>
           </dl>
         </Card>
       </div>
@@ -66,7 +82,7 @@ import { NAP } from '../lib/nap';
     <button type="button" data-mapa
       class="group relative flex aspect-[21/9] w-full items-center justify-center overflow-hidden rounded-card border border-line bg-paper">
       <span class="flex flex-col items-center gap-2 text-slate">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        <Icon name="ubicacion" size="lg" class="text-brand-ink" />
         <span class="font-semibold text-ink">Ver el mapa</span>
         <span class="text-[0.82rem]">Se carga al pulsar, para no ralentizar la página</span>
       </span>

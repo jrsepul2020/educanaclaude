@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import Icon from '../components/ui/Icon.astro';
 import Base from '../layouts/Base.astro';
 
 export async function getStaticPaths() {
@@ -12,8 +13,8 @@ const { Content } = await render(doc);
 <Base title={doc.data.titulo} description={doc.data.metaDescripcion} noindex={!doc.data.revisado}>
   <div class="bg-cream py-12 md:py-16">
     <div class="container-page flex max-w-[72ch] flex-col gap-6">
-      <nav aria-label="Migas de pan" class="text-[0.78rem] text-slate">
-        <a href="/" class="hover:text-ink">Inicio</a> <span aria-hidden="true">→</span> <span class="text-ink">{doc.data.titulo}</span>
+      <nav aria-label="Migas de pan" class="flex flex-wrap items-center gap-1.5 text-[0.78rem] text-slate">
+        <a href="/" class="inline-flex items-center gap-1.5 hover:text-ink"><Icon name="casa" size="sm" />Inicio</a> <Icon name="flecha" size="sm" class="text-brand-ink" /> <span class="text-ink">{doc.data.titulo}</span>
       </nav>
       <h1 class="text-(length:--text-h1)">{doc.data.titulo}</h1>
       <p class="text-[0.85rem] text-slate">Última actualización: {doc.data.actualizado}</p>
