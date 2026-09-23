@@ -1,14 +1,14 @@
 ---
 titulo: "Cursos de verano"
 h1: "Cursos de verano y refuerzo escolar en Sevilla Este"
-entradilla: "Para preparar las materias pendientes o empezar el curso siguiente con base. Grupos reducidos y homogéneos por etapa y materia, de Primaria a Bachillerato, con dos clases de hora y media de lunes a jueves y exámenes mensuales."
+entradilla: "Para preparar las materias pendientes o empezar el curso siguiente con base. Grupos reducidos y homogéneos por etapa y materia, de Primaria a Bachillerato, con dos clases de hora y media de lunes a viernes y exámenes mensuales."
 metaTitulo: "Cursos de verano en Sevilla Este · Educana"
 metaDescripcion: "Cursos de verano en Sevilla Este para recuperar materias pendientes o coger base. De Primaria a Bachillerato, en grupos reducidos y homogéneos."
 categoria: "estudios"
 orden: 90
 datos:
   duracion: "Verano"
-  dias: "De lunes a jueves · dos clases de 1,5 h"
+  dias: "De lunes a viernes · dos clases de 1,5 h"
   grupo: "Grupos reducidos y homogéneos"
   desde: "Matrícula gratuita"
   convocatoria: "Matrícula desde final de curso"
@@ -27,7 +27,7 @@ faq:
   - q: "¿Qué etapas cubrís?"
     a: "Todas, de Primaria a Bachillerato."
   - q: "¿Cuántas clases a la semana?"
-    a: "Dos clases de hora y media, de lunes a jueves."
+    a: "Dos clases de hora y media, de lunes a viernes."
   - q: "¿Cómo sé cómo va?"
     a: "Hay exámenes mensuales, control de asistencia y trabajo diario, y se pueden consultar los resultados en nuestra plataforma Educaline."
   - q: "¿Los grupos mezclan cursos?"
@@ -49,7 +49,7 @@ temario está reciente y quedan semanas por delante. Es cuando de verdad se recu
 
 - Grupos reducidos y homogéneos por etapas y materias
 - Todas las etapas, de Primaria a Bachillerato
-- Dos clases de hora y media, de lunes a jueves
+- Dos clases de hora y media, de lunes a viernes
 - Exámenes mensuales y control de asistencia y trabajo diario
 - Consulta de resultados y evolución a través de la plataforma Educaline
 - Asesoramiento directo a familiares y responsables

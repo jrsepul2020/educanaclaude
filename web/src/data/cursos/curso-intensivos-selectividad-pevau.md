@@ -1,9 +1,9 @@
 ---
-titulo: "Intensivos PEvAU"
-h1: "Cursos intensivos de selectividad (PEvAU) en Sevilla"
+titulo: "Intensivos PAU"
+h1: "Cursos intensivos de selectividad (PAU) en Sevilla"
 entradilla: "Intensivos teórico-prácticos en las semanas previas al examen, una hora diaria por asignatura y en horario de mañana. Hay intensivo para la convocatoria de junio y otro para la de julio, los dos en grupos reducidos."
-metaTitulo: "Intensivo de selectividad PEvAU en Sevilla"
-metaDescripcion: "Cursos intensivos de PEvAU en Sevilla Este para las convocatorias de junio y julio. Una hora diaria por asignatura en horario de mañana."
+metaTitulo: "Intensivo de selectividad PAU en Sevilla"
+metaDescripcion: "Cursos intensivos de PAU en Sevilla Este para las convocatorias de junio y julio. Una hora diaria por asignatura en horario de mañana."
 categoria: "accesos"
 orden: 20
 datos:

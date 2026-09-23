@@ -1,14 +1,14 @@
 ---
-titulo: "Acceso universidad mayores de 25 y 45"
-h1: "Acceso a la universidad para mayores de 25 y 45 años"
+titulo: "Acceso universidad mayores de 25 o 45 años"
+h1: "Acceso a la universidad para mayores de 25 o 45 años"
 entradilla: "Curso de octubre a abril para entrar en la universidad sin Bachillerato ni Grado Superior. Tres horas semanales por asignatura, en grupos reducidos y con material propio incluido. Preparamos tanto la prueba de mayores de 25 como la de mayores de 45."
 metaTitulo: "Acceso a universidad mayores de 25 · Sevilla"
-metaDescripcion: "Preparamos la prueba de acceso a la universidad para mayores de 25 y 45 años en Sevilla Este. De octubre a abril, en grupos reducidos."
+metaDescripcion: "Preparamos la prueba de acceso a la universidad para mayores de 25 o 45 años en Sevilla Este. De octubre a abril, en grupos reducidos."
 categoria: "accesos"
 orden: 50
 datos:
   duracion: "De octubre a abril"
-  dias: "De lunes a jueves · 3 h/semana por asignatura"
+  dias: "De lunes a viernes · 3 h/semana por asignatura"
   grupo: "Grupos reducidos"
   desde: "180 € · 4 asignaturas"
   convocatoria: "Convocatoria de primavera"
@@ -18,7 +18,7 @@ incluye:
   - titulo: "Material didáctico incluido"
     texto: "Elaborado por cada profesor especializado en su materia."
   - titulo: "Horario de mañana o de tarde"
-    texto: "Clases de lunes a jueves, tres horas semanales por asignatura."
+    texto: "Clases de lunes a viernes, tres horas semanales por asignatura."
   - titulo: "Asesoramiento profesional"
     texto: "Qué rama elegir según el grado al que quieras acceder."
 faq:
@@ -31,7 +31,7 @@ faq:
   - q: "¿Cuándo empieza el curso?"
     a: "En octubre, y termina en abril."
   - q: "¿Puedo compaginarlo con el trabajo?"
-    a: "Sí. Hay horario de mañana y de tarde, y las clases son de lunes a jueves."
+    a: "Sí. Hay horario de mañana y de tarde, y las clases son de lunes a viernes."
   - q: "¿Qué incluye el precio?"
     a: "El material didáctico de cada materia, elaborado por el profesor especializado."
 relacionados:

@@ -8,7 +8,7 @@ categoria: "accesos"
 orden: 60
 datos:
   duracion: "De octubre a abril o mayo"
-  dias: "De lunes a jueves · 3 h/semana por asignatura"
+  dias: "De lunes a viernes · 3 h/semana por asignatura"
   grupo: "Grupos reducidos"
   desde: "Matrícula gratuita"
   convocatoria: "Según convocatoria"
@@ -18,7 +18,7 @@ incluye:
   - titulo: "Material didáctico incluido"
     texto: "Elaborado por cada profesor especializado en su materia."
   - titulo: "Horario de mañana o de tarde"
-    texto: "Clases de lunes a jueves, tres horas semanales por asignatura."
+    texto: "Clases de lunes a viernes, tres horas semanales por asignatura."
   - titulo: "Seguimiento continuado"
     texto: "Con asesoramiento sobre en qué convocatoria te conviene presentarte."
 faq:
@@ -31,7 +31,7 @@ faq:
   - q: "Llevo muchos años sin estudiar, ¿puedo?"
     a: "Es el perfil habitual de estos grupos. Empezamos desde donde estés."
   - q: "¿Puedo compaginarlo con el trabajo?"
-    a: "Sí, hay grupos de mañana y de tarde, de lunes a jueves."
+    a: "Sí, hay grupos de mañana y de tarde, de lunes a viernes."
   - q: "¿Es lo mismo que la prueba de acceso a Grado Medio?"
     a: "No. Esto da el título de la ESO; la prueba de acceso sólo permite entrar en un ciclo de Grado Medio."
 relacionados:

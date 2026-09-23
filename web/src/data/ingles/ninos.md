@@ -45,4 +45,4 @@ Tres horas semanales en dos días de hora y media.
 
 **Curso intensivo de verano** — niveles B1 y B2. Dos meses y una semana: julio, agosto y la
 primera semana de septiembre. Seis horas semanales repartidas en cuatro clases de hora y
-media, de lunes a jueves, sólo por las mañanas.
+media, de lunes a viernes, sólo por las mañanas.

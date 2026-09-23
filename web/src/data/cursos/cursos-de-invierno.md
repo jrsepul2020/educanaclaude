@@ -1,14 +1,14 @@
 ---
 titulo: "Cursos de invierno"
 h1: "Cursos de invierno y refuerzo escolar en Sevilla Este"
-entradilla: "Refuerzo durante el curso escolar para recuperar una materia o mejorar la nota y el expediente. De Primaria a Bachillerato, todas las materias, dos clases de hora y media de lunes a jueves y horarios amplios de 16:00 a 22:00."
+entradilla: "Refuerzo durante el curso escolar para recuperar una materia o mejorar la nota y el expediente. De Primaria a Bachillerato, todas las materias, dos clases de hora y media de lunes a viernes y horarios amplios de 16:00 a 22:00."
 metaTitulo: "Cursos de invierno en Sevilla Este · Educana"
-metaDescripcion: "Cursos de invierno y refuerzo escolar en Sevilla Este, de Primaria a Bachillerato. Dos clases de hora y media, de lunes a jueves, de 16:00 a 22:00."
+metaDescripcion: "Cursos de invierno y refuerzo escolar en Sevilla Este, de Primaria a Bachillerato. Dos clases de hora y media, de lunes a viernes, de 16:00 a 22:00."
 categoria: "estudios"
 orden: 100
 datos:
   duracion: "Durante el curso escolar"
-  dias: "De lunes a jueves · dos clases de 1,5 h"
+  dias: "De lunes a viernes · dos clases de 1,5 h"
   grupo: "Grupos reducidos"
   desde: "Matrícula gratuita"
   convocatoria: "Matrícula abierta"
@@ -25,7 +25,7 @@ faq:
   - q: "¿Cuándo puedo empezar?"
     a: "Durante todo el curso escolar. Lo más habitual es empezar después de la primera evaluación."
   - q: "¿Qué horarios hay?"
-    a: "Amplios, de 16:00 a 22:00, de lunes a jueves."
+    a: "Amplios, de 16:00 a 22:00, de lunes a viernes."
   - q: "¿Cuántas clases a la semana?"
     a: "Dos clases de hora y media."
   - q: "¿Qué materias dais?"

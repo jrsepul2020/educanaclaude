@@ -92,7 +92,7 @@ const noticias = defineCollection({
     entradilla: z.string().max(300),
     metaDescripcion: z.string().min(60).max(160),
     fecha: z.coerce.date(),
-    categoria: z.enum(['Convocatorias', 'PEvAU', 'Accesos', 'Inglés', 'Academia']),
+    categoria: z.enum(['Convocatorias', 'PAU', 'Accesos', 'Inglés', 'Academia']),
     autor: z.string(),
     borrador: z.boolean().default(false),
   }),

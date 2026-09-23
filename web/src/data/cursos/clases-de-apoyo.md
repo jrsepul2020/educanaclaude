@@ -1,14 +1,14 @@
 ---
 titulo: "Clases de apoyo"
 h1: "Clases de apoyo y refuerzo escolar en Sevilla Este"
-entradilla: "Refuerzo escolar desde Primaria hasta Bachillerato, en todas las materias. Dos clases de hora y media a la semana, de lunes a jueves, con horarios de 16:00 a 22:00 para que encaje con el instituto y las extraescolares."
+entradilla: "Refuerzo escolar desde Primaria hasta Bachillerato, en todas las materias. Dos clases de hora y media a la semana, de lunes a viernes, con horarios de 16:00 a 22:00 para que encaje con el instituto y las extraescolares."
 metaTitulo: "Clases de apoyo en Sevilla Este · Educana"
-metaDescripcion: "Refuerzo escolar de Primaria a Bachillerato en Sevilla Este. Dos clases de hora y media, de lunes a jueves, con horarios de 16:00 a 22:00."
+metaDescripcion: "Refuerzo escolar de Primaria a Bachillerato en Sevilla Este. Dos clases de hora y media, de lunes a viernes, con horarios de 16:00 a 22:00."
 categoria: "estudios"
 orden: 80
 datos:
   duracion: "Todo el curso escolar"
-  dias: "De lunes a jueves · dos clases de 1,5 h"
+  dias: "De lunes a viernes · dos clases de 1,5 h"
   grupo: "Grupos reducidos"
   desde: "Matrícula gratuita"
   convocatoria: "Matrícula abierta"
@@ -25,7 +25,7 @@ faq:
   - q: "¿Desde qué curso cogéis alumnos?"
     a: "Desde Primaria hasta Bachillerato, en todas las materias."
   - q: "¿Cuántos días a la semana?"
-    a: "Dos clases de hora y media, de lunes a jueves."
+    a: "Dos clases de hora y media, de lunes a viernes."
   - q: "¿Qué horarios hay?"
     a: "Amplios, desde las 16:00 hasta las 22:00, para adaptarnos a las necesidades de cada uno."
   - q: "¿Se puede entrar con el curso empezado?"
