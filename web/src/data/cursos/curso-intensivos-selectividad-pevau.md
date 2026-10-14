@@ -1,9 +1,9 @@
 ---
 titulo: "Intensivos PAU"
 h1: "Cursos intensivos de selectividad (PAU) en Sevilla"
-entradilla: "Intensivos teórico-prácticos en las semanas previas al examen, una hora diaria por asignatura y en horario de mañana. Hay intensivo para la convocatoria de junio y otro para la de julio, los dos en grupos reducidos."
+entradilla: "Intensivos teórico-prácticos en las semanas previas al examen, una hora diaria por asignatura y en horario de mañana (de 8:30 a 13:30). Hay intensivo para la convocatoria de junio y otro para la de julio, los dos en grupos reducidos."
 metaTitulo: "Intensivo de selectividad PAU en Sevilla"
-metaDescripcion: "Cursos intensivos de PAU en Sevilla Este para las convocatorias de junio y julio. Una hora diaria por asignatura en horario de mañana."
+metaDescripcion: "Cursos intensivos de PAU en Sevilla Este para las convocatorias de junio y julio. Una hora diaria por asignatura, de 8:30 a 13:30."
 categoria: "accesos"
 orden: 20
 datos:
@@ -18,7 +18,7 @@ incluye:
   - titulo: "Intensivo de julio"
     texto: "Del 17 al 29 de junio, para la convocatoria extraordinaria. De lunes a viernes."
   - titulo: "Una hora diaria por asignatura"
-    texto: "En horario de mañana, para que la tarde quede libre para estudiar."
+    texto: "De 8:30 a 13:30, para que la tarde quede libre para estudiar."
   - titulo: "Si suspendes 2º de Bachillerato, se devuelve la reserva"
     texto: "Como los grupos son reducidos hay que reservar plaza. Si al final no te presentas porque no has aprobado 2º, se te devuelve el importe."
 faq:
@@ -27,7 +27,7 @@ faq:
   - q: "¿Y el de julio?"
     a: "Del 17 al 29 de junio, también hasta el día antes de los exámenes de la convocatoria extraordinaria. De lunes a viernes."
   - q: "¿Cuántas horas al día?"
-    a: "Una hora diaria por asignatura, en horario de mañana."
+    a: "Una hora diaria por asignatura, de 8:30 a 13:30."
   - q: "¿Hay que reservar plaza?"
     a: "Sí, porque los grupos son reducidos. Y si no apruebas 2º de Bachillerato y no llegas a presentarte, se te devuelve el importe de la reserva."
   - q: "¿Puedo ir sólo a una asignatura?"
@@ -46,5 +46,5 @@ empiecen los exámenes.
 
 **Julio.** Del 17 al 29 de junio, de lunes a viernes, para la convocatoria extraordinaria.
 
-En los dos casos es una hora diaria por asignatura y por la mañana, de forma que la tarde
+En los dos casos es una hora diaria por asignatura, de 8:30 a 13:30, de forma que la tarde
 queda libre para estudiar lo que se ha visto en clase.

@@ -1,31 +1,31 @@
 ---
 titulo: "Trinity"
 h1: "Preparar el Trinity en Sevilla Este"
-entradilla: "Somos centro examinador oficial de Trinity College London: lo gestionamos todo y el examen lo haces en nuestro propio centro, sin desplazarte. El ISE tiene dos partes independientes, la escrita (Reading & Writing) y la oral (Speaking & Listening)."
+entradilla: "Somos centro examinador oficial de Trinity College London: lo gestionamos todo y el examen lo haces en nuestro propio centro, sin desplazarte. Preparamos el ISE presencial y el ISE Digital, desde A1 hasta C2."
 metaTitulo: "Academia Trinity en Sevilla Este · Centro examinador"
-metaDescripcion: "Centro examinador oficial de Trinity College London en Sevilla Este. Preparamos el ISE de B1 a C2 y el examen se hace en nuestro propio centro."
+metaDescripcion: "Centro examinador oficial de Trinity en Sevilla Este. Preparamos ISE e ISE Digital (A1 a C2) y te examinas en nuestro propio centro."
 eje: "examen"
 orden: 40
 datos:
   partida: "Según tu nivel"
   duracion: "9 meses · de octubre a junio"
-  dias: "2 días de 1,5 h · mañanas o tardes"
+  dias: "2 días de 1,5 h · 8:30–13:30 o 16:00–22:00"
   grupo: "Grupos reducidos"
   desde: "62 € · matrícula gratuita"
 puntos:
   - titulo: "El examen lo haces aquí"
     texto: "Somos centro examinador oficial de Trinity College London. Lo gestionamos todo y no tienes que desplazarte."
-  - titulo: "Dos partes independientes"
-    texto: "La escrita (Reading & Writing) y la oral (Speaking & Listening) son independientes entre sí."
+  - titulo: "ISE e ISE Digital"
+    texto: "Preparamos el ISE presencial y el ISE Digital. Te orientamos sobre qué formato te conviene."
   - titulo: "Test Trialling gratuito"
     texto: "Un examen de prueba sin coste, en condiciones reales de examen. Sirve para coger confianza antes del examen de verdad y para que un examinador con experiencia nos diga cómo va el grupo."
 faq:
   - q: "¿De verdad me examino en la academia?"
-    a: "Sí. Somos centro examinador oficial de Trinity College London y las dos partes del examen se realizan en nuestro propio centro."
+    a: "Sí. Somos centro examinador oficial de Trinity College London y el examen se realiza en nuestro propio centro."
   - q: "¿Qué niveles puedo acreditar?"
-    a: "B1, B2, C1 y C2, con un título oficial válido en todo el mundo."
-  - q: "¿Cómo es el examen?"
-    a: "Se compone de dos partes independientes: la escrita, Reading & Writing, y la oral, Speaking & Listening."
+    a: "A1, A2, B1, B2, C1 y C2, con ISE o ISE Digital, y un título oficial válido en todo el mundo."
+  - q: "¿Cómo es el examen ISE?"
+    a: "El ISE presencial tiene dos partes independientes: la escrita, Reading & Writing, y la oral, Speaking & Listening. También ofrecemos ISE Digital."
   - q: "¿Qué es el Test Trialling?"
     a: "Un examen de prueba gratuito en condiciones reales. Sirve para practicar el formato y coger confianza antes del examen de verdad."
   - q: "¿Cuándo son las convocatorias?"
@@ -33,9 +33,10 @@ faq:
   - q: "¿Qué es Trinity College London?"
     a: "Una institución británica cuyas prácticas se basan en el Marco Común de Referencia del Consejo de Europa."
 relacionados:
+  - "ise-digital"
+  - "a1"
+  - "a2"
   - "b1"
-  - "b2"
-  - "c1"
 ---
 
 ## Por qué esto cambia las cosas
@@ -46,12 +47,14 @@ todo y te examinas donde has estudiado todo el año.
 
 ## Cómo es el examen ISE
 
-Se compone de **dos partes independientes**:
+El **ISE presencial** se compone de **dos partes independientes**:
 
 - **Parte escrita (Reading & Writing)** — miércoles, por la mañana.
 - **Parte oral (Speaking & Listening)** — en los días próximos a la parte escrita.
 
 Al ser independientes, si una no sale no arrastra a la otra.
+
+También preparamos el **ISE Digital**, la versión por ordenador del mismo título Trinity.
 
 ## Test Trialling: el examen de prueba
 

@@ -33,7 +33,7 @@ faq:
   - q: "¿Tengo que examinarme de todo?"
     a: "Puede que no. Existe la posibilidad de que estés exento de alguna competencia. Pregúntanos."
   - q: "¿Qué horarios hay?"
-    a: "Mañana con clases lunes y miércoles, o tarde con clases martes y jueves."
+    a: "De lunes a viernes de 8:30 a 13:30 y de 16:00 a 22:00. Mañana con clases lunes y miércoles, o tarde con clases martes y jueves."
 relacionados:
   - "conseguir-titulo-eso"
   - "prueba-acceso-grado-superior-sevilla"

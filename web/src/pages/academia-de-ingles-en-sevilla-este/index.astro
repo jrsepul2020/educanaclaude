@@ -17,7 +17,8 @@ const por = (eje: string) => pags.filter((p) => p.data.eje === eje);
 
 
 const niveles = [
-  { lv: 'A2', t: 'Elemental. El punto de partida de muchos grupos.', href: null },
+  { lv: 'A1', t: 'Principiante. Ideal si empiezas de cero.', href: `${BASE}/a1/` },
+  { lv: 'A2', t: 'Elemental. El punto de partida de muchos grupos.', href: `${BASE}/a2/` },
   { lv: 'B1', t: 'El que piden la mayoría de grados y muchas oposiciones.', href: `${BASE}/b1/` },
   { lv: 'B2', t: 'El más pedido para trabajar.', href: `${BASE}/b2/` },
   { lv: 'C1', t: 'Para docencia y perfiles cualificados.', href: `${BASE}/c1/` },
@@ -25,7 +26,7 @@ const niveles = [
 ---
 <Base
   title="Academia de inglés en Sevilla Este · Educana"
-  description="Inglés en Sevilla Este para niños, adolescentes y adultos. Centro examinador oficial Trinity. Preparamos B1, B2, C1, Cambridge y APTIS."
+  description="Inglés en Sevilla Este para niños, adolescentes y adultos. Centro examinador oficial Trinity. Preparamos A1, A2, B1, B2, C1, ISE Digital, Cambridge y APTIS."
 >
   <PageHeader
     migas={[{ label: 'Inglés' }]}
@@ -34,7 +35,7 @@ const niveles = [
     tituloClass="max-w-[18ch]"
     beneficios={[
       'Desde los 6 años hasta el C1',
-      'Mañanas o tardes a elegir',
+      'De lunes a viernes de 8:30 a 13:30 y de 16:00 a 22:00',
       'Grupos reducidos',
       'Profesores titulados y bilingües',
       'Centro examinador oficial Trinity',
@@ -69,14 +70,12 @@ const niveles = [
   <Section tone="cream">
     <Eyebrow>Por título</Eyebrow>
     <h2 class="text-(length:--text-h2)">¿Qué nivel necesitas acreditar?</h2>
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
       {niveles.map((n) => (
         <Card class="gap-2 p-5">
           <p class="font-display text-3xl text-brand">{n.lv}</p>
           <p class="text-[0.92rem] leading-relaxed text-slate">{n.t}</p>
-          {n.href
-            ? <a href={n.href} class="group mt-1 inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-brand-ink hover:underline">Preparar el {n.lv} <Icon name="flecha-larga" size="sm" class="transition-transform group-hover:translate-x-1" /></a>
-            : <p class="mt-1 text-[0.82rem] text-slate">Se trabaja dentro de los grupos de iniciación.</p>}
+          <a href={n.href} class="group mt-1 inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-brand-ink hover:underline">Preparar el {n.lv} <Icon name="flecha-larga" size="sm" class="transition-transform group-hover:translate-x-1" /></a>
         </Card>
       ))}
     </div>

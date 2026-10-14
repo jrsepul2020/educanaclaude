@@ -15,7 +15,7 @@ datos:
 incluye:
   - titulo: "Material didáctico incluido"
     texto: "Elaborado por cada profesor especializado en su materia. No son fotocopias de editorial."
-  - titulo: "Horario de mañana o de tarde"
+  - titulo: "De lunes a viernes de 8:30 a 13:30 y de 16:00 a 22:00"
     texto: "Eliges el que te encaje. Las clases son de lunes a viernes."
   - titulo: "Seguimiento continuado"
     texto: "Sabemos cómo vas en cada asignatura y te lo decimos, no esperamos al final."
@@ -27,7 +27,7 @@ faq:
   - q: "¿Cuándo empieza y cuándo acaba?"
     a: "Empieza en octubre y termina en mayo, justo antes de la convocatoria de junio."
   - q: "¿Cuántas horas de clase hay por asignatura?"
-    a: "Tres horas semanales por asignatura, de lunes a viernes, en horario de mañana o de tarde."
+    a: "Tres horas semanales por asignatura, de lunes a viernes de 8:30 a 13:30 y de 16:00 a 22:00."
   - q: "¿Puedo llevar sólo algunas asignaturas?"
     a: "Sí. Muchos alumnos vienen sólo a las dos o tres que llevan peor."
   - q: "¿El material está incluido?"

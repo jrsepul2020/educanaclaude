@@ -1,11 +1,25 @@
 ---
 interface Props { tone?: 'cream' | 'paper' | 'azul' | 'rojo'; class?: string; id?: string }
 const { tone = 'cream', class: extra = '', id } = Astro.props;
-/* `rojo` es el cierre de página: blanco sobre el rojo de marca da
-   5,66:1. Dentro sólo caben botones blancos o amarillos — el azul
-   sobre rojo se queda en 2,07:1 de separación y desaparece. */
-const tones = { cream: 'bg-cream', paper: 'bg-paper', azul: 'bg-blue text-cream', rojo: 'bg-brand text-white' };
+/* `rojo` es el cierre de página. Va en degradado de rojo oscuro a rojo
+   de marca, no en plano.
+
+   El extremo CLARO se queda exactamente en #CD1227: es el rojo de la
+   casa y ahí el blanco da 5,66:1. Cualquier tono más claro bajaría del
+   mínimo, así que el degradado sólo puede crecer hacia el lado oscuro.
+   El oscuro es #6E0714, que ya es un token del sitio —el fondo hondo
+   de la familia de accesos—, y con blanco encima da 12,79:1.
+
+   Dentro sólo caben botones blancos o amarillos: el azul sobre rojo se
+   queda en 2,07:1 de separación y desaparece, y un botón rojo se funde
+   con el fondo. */
+const tones = { cream: 'bg-cream', paper: 'bg-paper', azul: 'bg-blue text-cream', rojo: 'text-white' };
+const fondoRojo = 'linear-gradient(135deg, #6E0714 0%, #CD1227 100%)';
 ---
-<section id={id} class={`${tones[tone]} py-14 md:py-20 ${extra}`}>
+<section
+  id={id}
+  class={`${tones[tone]} py-14 md:py-20 ${extra}`}
+  style={tone === 'rojo' ? `background: ${fondoRojo};` : undefined}
+>
   <div class="container-page flex flex-col gap-7"><slot /></div>
 </section>

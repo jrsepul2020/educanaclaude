@@ -14,9 +14,9 @@ datos:
   desde: "62 € · matrícula gratuita"
 puntos:
   - titulo: "Intensivo de invierno (B1)"
-    texto: "Seis meses, de enero a junio. Tres horas semanales en dos días de hora y media, mañanas o tardes."
+    texto: "Seis meses, de enero a junio. Tres horas semanales en dos días de hora y media, de 8:30 a 13:30 o de 16:00 a 22:00."
   - titulo: "Intensivo de verano (B1 y B2)"
-    texto: "Dos meses y una semana: julio, agosto y la primera semana de septiembre. Seis horas semanales en cuatro clases de hora y media, de lunes a viernes y sólo por las mañanas."
+    texto: "Dos meses y una semana: julio, agosto y la primera semana de septiembre. Seis horas semanales en cuatro clases de hora y media, de lunes a viernes y sólo por las mañanas (de 8:30 a 13:30)."
   - titulo: "Test Trialling gratuito"
     texto: "Un examen de prueba sin coste, en condiciones reales de examen. Sirve para coger confianza antes del examen de verdad y para que un examinador con experiencia nos diga cómo va el grupo."
 faq:
@@ -25,7 +25,7 @@ faq:
   - q: "¿Cuándo es el intensivo de invierno?"
     a: "De enero a junio, seis meses, con tres horas semanales."
   - q: "¿Y el de verano?"
-    a: "Julio, agosto y la primera semana de septiembre. Seis horas semanales en cuatro clases de hora y media, de lunes a viernes, sólo por las mañanas."
+    a: "Julio, agosto y la primera semana de septiembre. Seis horas semanales en cuatro clases de hora y media, de lunes a viernes, sólo por las mañanas (de 8:30 a 13:30)."
   - q: "¿Se puede acreditar el nivel al terminar?"
     a: "Sí. El intensivo de verano acaba justo antes de las convocatorias de Trinity de septiembre."
 relacionados:
@@ -37,11 +37,11 @@ relacionados:
 ## Dos intensivos, dos momentos
 
 **Intensivo de invierno — B1.** Seis meses, de enero a junio. Tres horas semanales
-repartidas en dos días de hora y media, mañanas o tardes.
+repartidas en dos días de hora y media, de 8:30 a 13:30 o de 16:00 a 22:00.
 
 **Intensivo de verano — B1 y B2.** Dos meses y una semana: julio, agosto y la primera
 semana de septiembre. Seis horas semanales repartidas en cuatro clases de hora y media, de
-lunes a viernes y sólo por las mañanas.
+lunes a viernes y sólo por las mañanas (de 8:30 a 13:30).
 
 El de verano termina justo antes de la convocatoria de Trinity de septiembre, así que se
 puede encadenar curso y examen.

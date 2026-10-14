@@ -33,7 +33,7 @@ faq:
   - q: "¿Cuánto dura el curso?"
     a: "El curso de invierno va de octubre hasta el examen de abril: unos seis meses y medio."
   - q: "¿Hay grupos de mañana?"
-    a: "Sí. Las clases son lunes y miércoles o martes y jueves según asignaturas, en horario de mañana o de tarde."
+    a: "Sí. De lunes a viernes de 8:30 a 13:30 y de 16:00 a 22:00. Las clases son lunes y miércoles o martes y jueves según asignaturas."
 relacionados:
   - "acceso-grado-medio-academia-sevilla"
   - "conseguir-titulo-eso"
@@ -70,7 +70,7 @@ La Junta de Andalucía convoca esta prueba una vez al año, en abril.
 ## Dos formas de prepararlo
 
 **Curso de invierno.** De octubre hasta el examen de abril, unos seis meses y medio.
-Clases lunes y miércoles o martes y jueves según asignaturas, en horario de mañana o de tarde.
+Clases lunes y miércoles o martes y jueves según asignaturas, de 8:30 a 13:30 o de 16:00 a 22:00.
 
 **Curso semipresencial.** Clases online o presenciales de lunes a viernes, con horario
 flexible. Para quien no puede comprometerse a un horario fijo.

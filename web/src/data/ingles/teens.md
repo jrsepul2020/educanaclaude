@@ -9,19 +9,21 @@ orden: 20
 datos:
   partida: "Según tu nivel"
   duracion: "9 meses · de octubre a junio"
-  dias: "2 días de 1,5 h · mañanas o tardes"
+  dias: "2 días de 1 h · solo tardes"
   grupo: "Grupos reducidos"
-  desde: "62 € · matrícula gratuita"
+  desde: "50 € · matrícula gratuita"
 puntos:
   - titulo: "Oral y escrito"
     texto: "Se trabajan las dos cosas: aprenderás lenguaje oral y escrito, no sólo gramática de examen."
   - titulo: "Test Trialling gratuito"
     texto: "Un examen de prueba sin coste, en condiciones reales de examen. Sirve para coger confianza antes del examen de verdad y para que un examinador con experiencia nos diga cómo va el grupo."
-  - titulo: "Profesores titulados y bilingües"
-    texto: "Con experiencia, muy conocedores de la estructura del examen y con formación anual para reciclar sus conocimientos."
+  - titulo: "Matrícula gratuita"
+    texto: "No se paga por matricularse. El precio del curso Teens es de 50 €."
 faq:
   - q: "¿Qué niveles hay?"
-    a: "A2, B1, B2 y C1 en el curso de invierno."
+    a: "A1, A2, B1, B2 y C1 en el curso de invierno."
+  - q: "¿Cuántas horas de clase a la semana?"
+    a: "Dos horas semanales: dos días de una hora, solo por la tarde."
   - q: "¿Cómo sé en qué nivel entra?"
     a: "Hazle el Test Trialling, que es gratuito, o llámanos y lo vemos."
   - q: "¿Sirve para subir la nota del instituto?"
@@ -30,6 +32,8 @@ faq:
     a: "Cuando esté preparado. El Test Trialling sirve justo para saberlo."
   - q: "¿Se examina aquí?"
     a: "Con Trinity sí: somos centro examinador oficial."
+  - q: "¿Cuánto cuesta?"
+    a: "50 €, y la matrícula es gratuita."
 relacionados:
   - "b1"
   - "trinity"
@@ -38,12 +42,5 @@ relacionados:
 
 ## Los cursos que ofrecemos
 
-**Curso de invierno** — niveles A2, B1, B2 y C1. Nueve meses, de octubre a junio.
-Tres horas semanales repartidas en dos días de hora y media. Mañanas o tardes, tú eliges.
-
-**Curso intensivo de invierno** — nivel B1. Seis meses, de enero a junio.
-Tres horas semanales en dos días de hora y media.
-
-**Curso intensivo de verano** — niveles B1 y B2. Dos meses y una semana: julio, agosto y la
-primera semana de septiembre. Seis horas semanales repartidas en cuatro clases de hora y
-media, de lunes a viernes, sólo por las mañanas.
+**Curso de invierno** — niveles A1, A2, B1, B2 y C1. Nueve meses, de octubre a junio.
+Dos días de una hora a la semana, solo por la tarde.

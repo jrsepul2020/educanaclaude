@@ -114,7 +114,8 @@ import { NAP } from '../lib/nap';
   const btn = document.querySelector<HTMLButtonElement>('[data-mapa]');
   btn?.addEventListener('click', () => {
     const f = document.createElement('iframe');
-    f.src = 'https://www.google.com/maps?q=Avenida+de+las+Ciencias+25+Sevilla&output=embed';
+    /* Pin exacto de Academia Educana (maps.app.goo.gl/kb1vnMA9dj6Ai5eFA). */
+    f.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d792!2d-5.9236771!3d37.3968631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126f312c1888a1%3A0x8a7355c1f9773ff8!2sAcademia%20Educana!5e0!3m2!1ses!2ses';
     f.title = 'Mapa de la academia';
     f.loading = 'lazy';
     f.className = 'h-full w-full border-0';
