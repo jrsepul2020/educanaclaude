@@ -28,8 +28,30 @@ interface Props {
 const { migas, eyebrow, titulo, tituloClass = '', amplia = false, beneficios } = Astro.props;
 const conMedia = Astro.slots.has('media') || Boolean(beneficios?.length);
 const alto = amplia || conMedia ? 'pt-9 pb-12 md:pt-12 md:pb-16' : 'pt-9 pb-11 md:pt-12 md:pb-14';
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const crumbs = [
+  { name: 'Inicio', item: new URL('/', Astro.site).href },
+  ...migas.map((m, i) => ({
+    name: m.label,
+    item: m.href
+      ? new URL(m.href, Astro.site).href
+      : (i === migas.length - 1 ? pageUrl : undefined),
+  })),
+];
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.name,
+    ...(c.item ? { item: c.item } : {}),
+  })),
+};
 ---
 <section class={`cabecera-foto ${alto}`}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
   <div class="container-page flex flex-col gap-7">
     <nav aria-label="Migas de pan" class="flex flex-wrap items-center gap-1.5 text-[0.78rem] text-cream/80">
       <a href="/" class="inline-flex items-center gap-1.5 hover:text-cream transition-colors">

@@ -4,6 +4,8 @@ import { NAP } from '../../lib/nap';
 interface Props { extra?: Record<string, unknown> | Record<string, unknown>[] }
 const { extra } = Astro.props;
 
+const dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
 const org = {
   '@context': 'https://schema.org',
   '@type': ['EducationalOrganization', 'LocalBusiness'],
@@ -14,6 +16,7 @@ const org = {
   url: Astro.site,
   telephone: NAP.phone,
   email: NAP.email,
+  image: new URL('/fotos/home-hero.jpg', Astro.site).href,
   address: {
     '@type': 'PostalAddress',
     streetAddress: NAP.street,
@@ -22,7 +25,20 @@ const org = {
     addressRegion: NAP.region,
     addressCountry: 'ES',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: NAP.geo.lat,
+    longitude: NAP.geo.lng,
+  },
+  hasMap: NAP.mapsUrl,
+  sameAs: [NAP.mapsUrl],
   areaServed: { '@type': 'Place', name: 'Sevilla Este, Sevilla' },
+  openingHoursSpecification: NAP.openingHours.map((franja) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: dias,
+    opens: franja.opens,
+    closes: franja.closes,
+  })),
 };
 
 const blocks = extra ? [org, ...(Array.isArray(extra) ? extra : [extra])] : [org];

@@ -6,8 +6,9 @@ interface Props {
   noindex?: boolean;
   image?: string;
 }
-const { title, description, canonical, noindex = false, image = '/og-default.jpg' } = Astro.props;
+const { title, description, canonical, noindex = false, image = '/fotos/home-hero.jpg' } = Astro.props;
 const url = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+const imageUrl = new URL(image, Astro.site).href;
 /* El título que llega es el definitivo. No se le añade nada: el sufijo
    de marca empujaba los títulos por encima de los ~60 caracteres que
    Google muestra, y lo que se cortaba era justo la palabra clave. */
@@ -16,11 +17,18 @@ const full = title;
 <title>{full}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={url} />
-{noindex && <meta name="robots" content="noindex, nofollow" />}
+{noindex
+  ? <meta name="robots" content="noindex, nofollow" />
+  : <meta name="robots" content="index, follow, max-image-preview:large" />}
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="Academia Educana" />
 <meta property="og:title" content={full} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={url} />
 <meta property="og:locale" content="es_ES" />
-<meta property="og:image" content={new URL(image, Astro.site).href} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content="Academia Educana en Sevilla Este" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={full} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />

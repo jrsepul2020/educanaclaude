@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /design-system/
+Disallow: /demo-
 Disallow: /gracias/
 
 Sitemap: https://www.academiaeducana.com/sitemap-index.xml

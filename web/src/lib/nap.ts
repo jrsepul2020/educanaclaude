@@ -16,4 +16,12 @@ export const NAP = {
   email: 'secretaria@academiaeducana.com',   // general y matrículas
   emailLegal: 'info@academiaeducana.com',     // titular del sitio, RGPD y reclamaciones
   emailEmpleo: 'rrhh@academiaeducana.com',    // bolsa de trabajo
+  /* Pin de Google Maps (GBP): maps.app.goo.gl/kb1vnMA9dj6Ai5eFA */
+  mapsUrl: 'https://maps.app.goo.gl/kb1vnMA9dj6Ai5eFA',
+  geo: { lat: 37.3968631, lng: -5.9236771 },
+  /* Lunes a viernes: mañana y tarde */
+  openingHours: [
+    { opens: '08:30', closes: '13:30' },
+    { opens: '16:00', closes: '22:00' },
+  ],
 } as const;

@@ -9,7 +9,13 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/design-system'),
+      /* Noindex y demos internas no deben aparecer en el sitemap. */
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        return !path.startsWith('/design-system')
+          && !path.startsWith('/demo-')
+          && !path.startsWith('/gracias');
+      },
     }),
   ],
   /* Estático por defecto: las 33 páginas se sirven desde CDN.
