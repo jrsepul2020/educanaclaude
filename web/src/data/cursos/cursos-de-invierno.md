@@ -3,7 +3,7 @@ titulo: "Cursos de invierno"
 h1: "Cursos de invierno y refuerzo escolar en Sevilla Este"
 entradilla: "Refuerzo durante el curso escolar para recuperar una materia o mejorar la nota y el expediente. De Primaria a Bachillerato, todas las materias, dos clases de hora y media de lunes a viernes, de 8:30 a 13:30 y de 16:00 a 22:00."
 metaTitulo: "Cursos de invierno en Sevilla Este · Educana"
-metaDescripcion: "Cursos de invierno y refuerzo escolar en Sevilla Este, de Primaria a Bachillerato. Dos clases de hora y media, de lunes a viernes, de 8:30 a 13:30 y de 16:00 a 22:00."
+metaDescripcion: "Cursos de invierno en Sevilla Este, de Primaria a Bachillerato. Dos clases de 1,5 h, de lunes a viernes, de 8:30 a 13:30 y de 16:00 a 22:00."
 categoria: "estudios"
 orden: 100
 datos:
