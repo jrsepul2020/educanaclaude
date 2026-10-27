@@ -1,14 +1,14 @@
 ---
 titulo: "Acceso a Grado Medio"
 h1: "Preparar la prueba de acceso a Grado Medio en Sevilla"
-entradilla: "¿Quieres cursar un ciclo de Grado Medio pero no tienes el título de la ESO? Esta prueba es la vía. Preparamos las tres competencias de octubre a abril, con matrícula gratuita y todo el material actualizado incluido en el precio."
+entradilla: "¿Quieres cursar un ciclo de Grado Medio pero no tienes el título de la ESO? Esta prueba es la vía. Preparamos las tres competencias en curso de invierno, con matrícula gratuita y todo el material actualizado incluido en el precio."
 metaTitulo: "Acceso a Grado Medio en Sevilla · Preparación"
-metaDescripcion: "Preparamos la prueba de acceso a Grado Medio en Sevilla Este de octubre a abril. Matrícula gratuita, material incluido y exámenes mensuales."
+metaDescripcion: "Preparamos la prueba de acceso a Grado Medio en Sevilla Este en Sevilla Este. Matrícula gratuita, material incluido y exámenes mensuales."
 categoria: "accesos"
 orden: 40
 datos:
-  duracion: "6 meses y medio · de octubre a abril"
-  dias: "Mañana lunes y miércoles · tarde martes y jueves"
+  duracion: "Curso de invierno"
+  dias: "Horario según grupo · pregúntanos"
   grupo: "Grupos reducidos"
   desde: "Matrícula gratuita"
   convocatoria: "Pruebas del 6 al 30 de abril de 2026"
@@ -20,7 +20,7 @@ incluye:
   - titulo: "Exámenes mensuales"
     texto: "Con seguimiento del profesor sobre la evolución de cada alumno."
   - titulo: "Curso semipresencial como alternativa"
-    texto: "Clases online o presenciales de lunes a viernes, con horario flexible."
+    texto: "Clases online o presenciales, según te venga mejor. Pregúntanos."
 faq:
   - q: "¿Qué requisitos hay?"
     a: "Tener 17 años cumplidos o cumplirlos en el año de la prueba. Y no poseer el título de la ESO ni otras condiciones que te permitan acceder directamente al ciclo."
@@ -32,8 +32,8 @@ faq:
     a: "No. Superar la prueba te permite entrar en un ciclo de Grado Medio, pero no te da el título de la ESO. Si quieres el título, mira nuestro curso de Título de ESO."
   - q: "¿Tengo que examinarme de todo?"
     a: "Puede que no. Existe la posibilidad de que estés exento de alguna competencia. Pregúntanos."
-  - q: "¿Qué horarios hay?"
-    a: "De lunes a viernes de 8:30 a 13:30 y de 16:00 a 22:00. Mañana con clases lunes y miércoles, o tarde con clases martes y jueves."
+  - q: "¿Cómo elijo grupo?"
+    a: "Llámanos y te decimos cuál te encaja."
 relacionados:
   - "conseguir-titulo-eso"
   - "prueba-acceso-grado-superior-sevilla"

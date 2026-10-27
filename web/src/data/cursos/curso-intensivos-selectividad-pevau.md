@@ -1,39 +1,39 @@
 ---
 titulo: "Intensivos PAU"
 h1: "Cursos intensivos de selectividad (PAU) en Sevilla"
-entradilla: "Intensivos teórico-prácticos en las semanas previas al examen, una hora diaria por asignatura y en horario de mañana (de 8:30 a 13:30). Hay intensivo para la convocatoria de junio y otro para la de julio, los dos en grupos reducidos."
+entradilla: "Intensivos teórico-prácticos previos al examen, por asignatura. Hay intensivo para la convocatoria ordinaria y otro para la extraordinaria, los dos en grupos reducidos. Pregúntanos fechas."
 metaTitulo: "Intensivo de selectividad PAU en Sevilla"
-metaDescripcion: "Cursos intensivos de PAU en Sevilla Este para las convocatorias de junio y julio. Una hora diaria por asignatura, de 8:30 a 13:30."
+metaDescripcion: "Cursos intensivos de PAU en Sevilla Este para las convocatorias ordinaria y extraordinaria. Pregúntanos."
 categoria: "accesos"
 orden: 20
 datos:
-  duracion: "2 semanas"
-  dias: "De lunes a sábado · 1 h diaria por asignatura"
+  duracion: "Intensivo previo al examen"
+  dias: "Horario según grupo · pregúntanos"
   grupo: "Grupos reducidos"
   desde: "Reserva de plaza"
   convocatoria: "Intensivo de junio y de julio"
 incluye:
   - titulo: "Intensivo de junio"
-    texto: "Del 18 de mayo al 1 de junio, el día antes de que empiecen los exámenes. De lunes a sábado."
+    texto: "Antes de la convocatoria ordinaria. Pregúntanos las fechas exactas."
   - titulo: "Intensivo de julio"
-    texto: "Del 17 al 29 de junio, para la convocatoria extraordinaria. De lunes a viernes."
-  - titulo: "Una hora diaria por asignatura"
-    texto: "De 8:30 a 13:30, para que la tarde quede libre para estudiar."
+    texto: "Antes de la convocatoria extraordinaria. Pregúntanos las fechas exactas."
+  - titulo: "Repaso concentrado"
+    texto: "Para concentrar el repaso sin saturar el día. Pregúntanos el ritmo."
   - titulo: "Si suspendes 2º de Bachillerato, se devuelve la reserva"
     texto: "Como los grupos son reducidos hay que reservar plaza. Si al final no te presentas porque no has aprobado 2º, se te devuelve el importe."
 faq:
   - q: "¿Cuándo es el intensivo de junio?"
-    a: "Del 18 de mayo al 1 de junio, el día anterior al comienzo de los exámenes. De lunes a sábado."
+    a: "Antes de la convocatoria ordinaria. Llámanos y te decimos las fechas."
   - q: "¿Y el de julio?"
-    a: "Del 17 al 29 de junio, también hasta el día antes de los exámenes de la convocatoria extraordinaria. De lunes a viernes."
+    a: "Antes de la convocatoria extraordinaria. Llámanos y te decimos las fechas."
   - q: "¿Cuántas horas al día?"
-    a: "Una hora diaria por asignatura, de 8:30 a 13:30."
+    a: "Llámanos y te decimos el ritmo por asignatura."
   - q: "¿Hay que reservar plaza?"
     a: "Sí, porque los grupos son reducidos. Y si no apruebas 2º de Bachillerato y no llegas a presentarte, se te devuelve el importe de la reserva."
-  - q: "¿Puedo ir sólo a una asignatura?"
+  - q: "¿Puedo ir a una asignatura?"
     a: "Sí, es lo más habitual."
   - q: "¿Sirve si no he dado clase aquí durante el curso?"
-    a: "Sí, aunque cuanto peor sea la base menos se puede arreglar en dos semanas. Te lo diremos con franqueza antes de que reserves."
+    a: "Sí, aunque cuanto peor sea la base menos se puede arreglar en poco tiempo. Te lo diremos con franqueza antes de que reserves."
 relacionados:
   - "curso-selectividad-sevilla-pevau"
   - "clases-particulares-sevilla"
@@ -41,10 +41,8 @@ relacionados:
 
 ## Dos intensivos, dos convocatorias
 
-**Junio.** Del 18 de mayo al 1 de junio, de lunes a sábado. Termina el día antes de que
-empiecen los exámenes.
+**Junio.** Antes de la convocatoria ordinaria. Pregúntanos las fechas.
 
-**Julio.** Del 17 al 29 de junio, de lunes a viernes, para la convocatoria extraordinaria.
+**Julio.** Antes de la convocatoria extraordinaria. Pregúntanos las fechas.
 
-En los dos casos es una hora diaria por asignatura, de 8:30 a 13:30, de forma que la tarde
-queda libre para estudiar lo que se ha visto en clase.
+En los dos casos el ritmo se concentra para repasar sin saturar el día. Llámanos y te lo concretamos.

@@ -8,8 +8,8 @@ eje: "publico"
 orden: 10
 datos:
   partida: "Desde cero"
-  duracion: "9 meses · de octubre a junio"
-  dias: "2 días de 1 h · solo tardes"
+  duracion: "Curso de invierno"
+  dias: "Horario según grupo · pregúntanos"
   grupo: "Grupos reducidos"
   desde: "50 € · matrícula gratuita"
 puntos:
@@ -23,11 +23,13 @@ faq:
   - q: "¿Desde qué edad?"
     a: "Los cursos Kids están pensados para los más pequeños de la casa. Llámanos y vemos el grupo que le encaja."
   - q: "¿Cuántas horas de clase a la semana?"
-    a: "Dos horas semanales: dos días de una hora, solo por la tarde."
+    a: "Llámanos y te decimos el ritmo del grupo."
   - q: "¿Puede examinarse de algo?"
     a: "Sí. Cuando llegue el momento puede presentarse a un examen oficial de Trinity, y el examen se hace en nuestro propio centro."
   - q: "¿Cuánto cuesta?"
     a: "50 €, y la matrícula es gratuita."
+  - q: "¿Hay clases individuales de inglés?"
+    a: "Sí. Si el grupo no te encaja o necesitas un refuerzo concreto, tenemos clases particulares de inglés. Llámanos y lo vemos."
 relacionados:
   - "trinity"
   - "teens"
@@ -35,5 +37,9 @@ relacionados:
 
 ## Los cursos que ofrecemos
 
-**Curso de invierno** — nueve meses, de octubre a junio. Dos días de una hora a la semana,
-solo por la tarde. Grupos reducidos para que los más pequeños aprendan divirtiéndose.
+**Curso de invierno** — durante el curso escolar. Clases semanales en grupos reducidos
+para que los más pequeños aprendan divirtiéndose. Llámanos y te decimos qué grupo le encaja.
+
+## También en individual
+
+Si el grupo no te encaja o quieres centrarte en un punto concreto, [tenemos clases particulares de inglés](/clases-particulares-sevilla/).

@@ -8,16 +8,11 @@ import { foto } from '../../lib/foto';
    el rojo sobre tinta da 2,88:1 y falla el contraste (doc 02 §2).
    El logotipo Trinity NO es una foto: es un archivo que autoriza
    Trinity College London. Usa el mismo mecanismo de foto() para que
-   aparezca solo en cuanto se suba, sin tocar código. */
+   aparezca en cuanto se suba, sin tocar código. */
 const src = foto('trinity-sello.png');
 
-/* Segunda acreditación: centro de pilotaje de pruebas. Llega en JPG con
-   el logotipo en negro sobre blanco, así que va sobre plancha clara —
-   sobre el azul de la banda se perdería. */
-const srcPilotaje = foto('test-trialling-centre-logo.jpg');
-
 /* Fondo de bandera británica. El velo es alto (0,86 bajando a 0,74 en
-   la mitad derecha) por dos motivos, no sólo por contraste: las franjas
+   la mitad derecha) por dos motivos, no por contraste: las franjas
    blancas son blanco puro, y el rojo de la bandera está a un paso del
    rojo de marca, así que si se ve demasiado le roba fuerza al botón
    principal. A este nivel queda como textura, que es lo que debe ser.
@@ -26,28 +21,23 @@ const srcPilotaje = foto('test-trialling-centre-logo.jpg');
    la versión reducida a 1600 px y 277 KB. */
 const fondo = '/fotos/fondos/trinity-english-web.jpg';
 
-/* Ventajas del pilotaje de pruebas, en el castellano que usa la
-   academia: el original del cliente venía traducido del inglés
-   ("maestros", "están invitados a comentarios"). */
 const ventajas = [
-  'Los alumnos practican los formatos de examen en condiciones reales.',
-  'Ganan confianza antes de presentarse al examen de verdad.',
-  'Profesores y alumnos comentan las pruebas después de hacerlas.',
-  'Los profesores reciben la valoración de un examinador con experiencia sobre el rendimiento del grupo.',
+  'Preparas y te examinas en el mismo centro: sin desplazarte el día del examen.',
+  'Mismos profesores, misma aula y el mismo ritmo de todo el curso.',
+  'Gestionamos la inscripción y las convocatorias de Trinity por ti.',
+  'A1, A2, B1, B2, C1, C2 e ISE Digital, con título oficial válido en todo el mundo.',
 ];
 ---
 <section
   class="bg-blue bg-cover bg-center text-cream py-24 md:py-36"
   style={`background-image: linear-gradient(100deg, rgb(23 32 77 / 0.92) 0%, rgb(23 32 77 / 0.86) 55%, rgb(20 26 51 / 0.74) 100%), url("${fondo}");`}
 >
-  {/* A 1600px: con las cuatro ventajas y los dos logotipos, a 1200 la
-      banda se estiraba a lo alto y perdía la forma de franja. */}
-  <div class="container-pie grid items-start gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14 xl:grid-cols-[1fr_1fr_15rem]">
+  <div class="container-page grid items-start gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14 xl:grid-cols-[1fr_1fr_15rem]">
 
     <div class="flex flex-col gap-5">
       <Eyebrow tone="amber">Centro oficial Trinity</Eyebrow>
       {/* Un escalón por debajo del H2 del resto del sitio: aquí el
-          titular convive con cuatro ventajas y dos logotipos, y a
+          titular convive con cuatro ventajas y el logotipo, y a
           tamaño completo se comía la franja. */}
       <h2 class="text-[clamp(1.5rem,1.15rem+1.5vw,2.2rem)] leading-[1.05]">Estudia inglés en nuestra academia en Sevilla Este.</h2>
       <p class="text-(length:--text-lead) leading-relaxed text-cream/75 max-w-[54ch]">
@@ -60,8 +50,6 @@ const ventajas = [
       </div>
     </div>
 
-    {/* Qué aporta ser centro de pilotaje de pruebas: es la parte que
-        distingue a la academia y hasta ahora no se contaba. */}
     <ul class="flex flex-col gap-4 lg:border-l lg:border-cream/20 lg:pl-10">
       {ventajas.map((v) => (
         <li class="flex items-start gap-3">
@@ -77,10 +65,6 @@ const ventajas = [
         : <PhotoPlaceholder nombre="trinity-sello.png" medidas="Logotipo oficial en PNG con fondo transparente"
             nota="No es una foto: pídelo a Trinity College London junto con tu nº de centro examinador."
             class="w-full rounded-card border-cream/30 bg-transparent text-cream/70" />}
-      {srcPilotaje && (
-        <img src={srcPilotaje} alt="Trinity College London · Test Trialling Centre 2017"
-             width="283" height="168" class="w-48 rounded-card bg-paper p-4 xl:w-full" />
-      )}
     </div>
   </div>
 </section>

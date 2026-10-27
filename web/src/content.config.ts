@@ -38,7 +38,6 @@ const horarios = defineCollection({
     curso: z.string(),
     nivel: z.string(),
     dias: z.string(),
-    horario: z.string(),
     grupo: z.string(),
     desde: z.string(),
     plazas: z.number().int().min(0),

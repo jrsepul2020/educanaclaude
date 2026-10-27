@@ -1,14 +1,14 @@
 ---
 titulo: "Acceso a Grado Superior"
 h1: "Preparar la prueba de acceso a Grado Superior en Sevilla"
-entradilla: "Si no tienes el Bachillerato ni un Grado Medio, esta prueba es la vía para entrar en el ciclo que quieres. Preparamos la parte general y la específica de octubre a abril, con matrícula gratuita, material incluido y exámenes mensuales de seguimiento."
+entradilla: "Si no tienes el Bachillerato ni un Grado Medio, esta prueba es la vía para entrar en el ciclo que quieres. Preparamos la parte general y la específica en curso de invierno, con matrícula gratuita, material incluido y exámenes mensuales de seguimiento."
 metaTitulo: "Acceso a Grado Superior en Sevilla · Preparación"
-metaDescripcion: "Preparamos la prueba de acceso a Grado Superior en Sevilla Este de octubre a abril. Matrícula gratuita, material incluido y exámenes mensuales."
+metaDescripcion: "Preparamos la prueba de acceso a Grado Superior en Sevilla Este en Sevilla Este. Matrícula gratuita, material incluido y exámenes mensuales."
 categoria: "accesos"
 orden: 30
 datos:
-  duracion: "6 meses y medio · de octubre a abril"
-  dias: "Lunes y miércoles o martes y jueves"
+  duracion: "Curso de invierno"
+  dias: "Horario según grupo · pregúntanos"
   grupo: "Grupos reducidos"
   desde: "120 € · 3 asignaturas"
   convocatoria: "Pruebas del 6 al 30 de abril de 2026"
@@ -20,7 +20,7 @@ incluye:
   - titulo: "Exámenes mensuales"
     texto: "Con recomendaciones del profesor sobre cómo va evolucionando cada alumno."
   - titulo: "Curso semipresencial como alternativa"
-    texto: "Clases online o presenciales de lunes a viernes, con horario flexible."
+    texto: "Clases online o presenciales, según te venga mejor. Pregúntanos."
 faq:
   - q: "¿Qué requisitos hay para presentarse?"
     a: "Tener 19 años cumplidos, o cumplirlos en el año de la prueba. Y no poseer un Grado Medio, el título de Bachillerato ni haber superado la prueba de acceso a la universidad para mayores de 25 años."
@@ -31,9 +31,9 @@ faq:
   - q: "¿Tengo que examinarme de todo?"
     a: "No necesariamente. Existe la posibilidad de que estés exento de alguna parte. Pregúntanos y lo miramos con tu caso."
   - q: "¿Cuánto dura el curso?"
-    a: "El curso de invierno va de octubre hasta el examen de abril: unos seis meses y medio."
-  - q: "¿Hay grupos de mañana?"
-    a: "Sí. De lunes a viernes de 8:30 a 13:30 y de 16:00 a 22:00. Las clases son lunes y miércoles o martes y jueves según asignaturas."
+    a: "Curso de invierno hasta la prueba. Llámanos y te concretamos."
+  - q: "¿Cómo elijo grupo?"
+    a: "Llámanos y te decimos cuál te encaja."
 relacionados:
   - "acceso-grado-medio-academia-sevilla"
   - "conseguir-titulo-eso"
@@ -69,8 +69,6 @@ La Junta de Andalucía convoca esta prueba una vez al año, en abril.
 
 ## Dos formas de prepararlo
 
-**Curso de invierno.** De octubre hasta el examen de abril, unos seis meses y medio.
-Clases lunes y miércoles o martes y jueves según asignaturas, de 8:30 a 13:30 o de 16:00 a 22:00.
+**Curso de invierno.** Hasta la prueba. Llámanos y te decimos grupo y ritmo.
 
-**Curso semipresencial.** Clases online o presenciales de lunes a viernes, con horario
-flexible. Para quien no puede comprometerse a un horario fijo.
+**Curso semipresencial.** Clases online o presenciales, según te venga mejor. Para quien necesita más flexibilidad.

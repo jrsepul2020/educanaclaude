@@ -1,33 +1,35 @@
 ---
 titulo: "Intensivos de inglés"
 h1: "Cursos intensivos de inglés en Sevilla Este"
-entradilla: "Dos intensivos según el momento del año: el de invierno para el B1, de enero a junio, y el de verano para B1 y B2, en julio, agosto y la primera semana de septiembre con seis horas semanales de lunes a viernes."
+entradilla: "Dos intensivos según el momento del año: el de invierno para el B1 y el de verano para B1 y B2. Grupos reducidos. Llámanos y te decimos fechas, ritmo y qué te encaja."
 metaTitulo: "Inglés intensivo en Sevilla Este · B1 y B2"
 metaDescripcion: "Cursos intensivos de inglés en Sevilla Este: intensivo de invierno para el B1 e intensivo de verano para B1 y B2. Grupos reducidos."
 eje: "formato"
 orden: 100
 datos:
   partida: "Según tu nivel"
-  duracion: "6 meses o 2 meses y 1 semana"
-  dias: "2 o 4 días de 1,5 h"
+  duracion: "Intensivo de invierno o de verano"
+  dias: "Horario según grupo · pregúntanos"
   grupo: "Grupos reducidos"
   desde: "62 € · matrícula gratuita"
 puntos:
   - titulo: "Intensivo de invierno (B1)"
-    texto: "Seis meses, de enero a junio. Tres horas semanales en dos días de hora y media, de 8:30 a 13:30 o de 16:00 a 22:00."
+    texto: "Para concentrar el B1 en menos tiempo. Pregúntanos fechas y grupos."
   - titulo: "Intensivo de verano (B1 y B2)"
-    texto: "Dos meses y una semana: julio, agosto y la primera semana de septiembre. Seis horas semanales en cuatro clases de hora y media, de lunes a viernes y sólo por las mañanas (de 8:30 a 13:30)."
-  - titulo: "Test Trialling gratuito"
-    texto: "Un examen de prueba sin coste, en condiciones reales de examen. Sirve para coger confianza antes del examen de verdad y para que un examinador con experiencia nos diga cómo va el grupo."
+    texto: "Ritmo intensivo en verano. Llámanos y te decimos cómo encaja con las convocatorias."
+  - titulo: "Acreditación al terminar"
+    texto: "El intensivo de verano se plantea para encadenar con las convocatorias de Trinity. Pregúntanos."
 faq:
   - q: "¿Qué niveles se pueden hacer en intensivo?"
     a: "El B1 en el intensivo de invierno, y el B1 y el B2 en el de verano."
   - q: "¿Cuándo es el intensivo de invierno?"
-    a: "De enero a junio, seis meses, con tres horas semanales."
+    a: "Llámanos y te decimos fechas y grupos."
   - q: "¿Y el de verano?"
-    a: "Julio, agosto y la primera semana de septiembre. Seis horas semanales en cuatro clases de hora y media, de lunes a viernes, sólo por las mañanas (de 8:30 a 13:30)."
+    a: "En verano, con ritmo intensivo. Llámanos y te decimos fechas y cómo encaja con las convocatorias."
   - q: "¿Se puede acreditar el nivel al terminar?"
-    a: "Sí. El intensivo de verano acaba justo antes de las convocatorias de Trinity de septiembre."
+    a: "Sí. Pregúntanos para encadenar curso y convocatoria."
+  - q: "¿Hay clases individuales de inglés?"
+    a: "Sí. Si el grupo no te encaja o necesitas un refuerzo concreto, tenemos clases particulares de inglés. Llámanos y lo vemos."
 relacionados:
   - "b1"
   - "b2"
@@ -36,12 +38,12 @@ relacionados:
 
 ## Dos intensivos, dos momentos
 
-**Intensivo de invierno — B1.** Seis meses, de enero a junio. Tres horas semanales
-repartidas en dos días de hora y media, de 8:30 a 13:30 o de 16:00 a 22:00.
+**Intensivo de invierno — B1.** Para quien quiere concentrar el trabajo. Pregúntanos
+fechas y grupos.
 
-**Intensivo de verano — B1 y B2.** Dos meses y una semana: julio, agosto y la primera
-semana de septiembre. Seis horas semanales repartidas en cuatro clases de hora y media, de
-lunes a viernes y sólo por las mañanas (de 8:30 a 13:30).
+**Intensivo de verano — B1 y B2.** Ritmo intensivo en verano, pensado para encadenar con
+las convocatorias. Llámanos y te lo concretamos.
 
-El de verano termina justo antes de la convocatoria de Trinity de septiembre, así que se
-puede encadenar curso y examen.
+## También en individual
+
+Si el grupo no te encaja o quieres centrarte en un punto concreto, [tenemos clases particulares de inglés](/clases-particulares-sevilla/).

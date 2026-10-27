@@ -1,9 +1,9 @@
 ---
 titulo: "Clases particulares"
 h1: "Clases particulares en Sevilla Este"
-entradilla: "Clases individuales para resolver temas concretos de una asignatura, con seguimiento personalizado y relación directa con la familia. Desde Primaria hasta estudios universitarios, en el centro o en clases online según lo que necesites."
+entradilla: "Clases individuales para resolver temas concretos de una asignatura —incluido el inglés—, con seguimiento personalizado y relación directa con la familia. Desde Primaria hasta estudios universitarios, en el centro o en clases online según lo que necesites."
 metaTitulo: "Clases particulares en Sevilla Este · Educana"
-metaDescripcion: "Clases particulares individuales en Sevilla Este desde Primaria hasta universidad. Presenciales u online, con seguimiento personalizado."
+metaDescripcion: "Clases particulares individuales en Sevilla Este, también de inglés, desde Primaria hasta universidad. Presenciales u online."
 categoria: "estudios"
 orden: 70
 datos:
@@ -26,10 +26,12 @@ faq:
     a: "Primaria, ESO, Bachillerato y estudios universitarios."
   - q: "¿Se pueden dar online?"
     a: "Sí. Se hacen online o en el centro, según las necesidades de cada alumno."
-  - q: "¿Puedo venir sólo para un examen concreto?"
+  - q: "¿Puedo venir para un examen concreto?"
     a: "Sí. Mucha gente viene para un tema puntual que se le ha atragantado."
   - q: "¿Qué asignaturas cubrís?"
-    a: "Prácticamente todas las de Primaria, ESO y Bachillerato, y varias de primeros cursos universitarios. Si es muy específica, pregúntanos."
+    a: "Prácticamente todas las de Primaria, ESO y Bachillerato, inglés incluido, y varias de primeros cursos universitarios. Si es muy específica, pregúntanos."
+  - q: "¿Hay particulares de inglés?"
+    a: "Sí. Para reforzar un nivel, preparar un examen oficial o si el grupo no te encaja. Llámanos y lo vemos."
   - q: "¿Cuánto cuesta?"
     a: "Depende de las horas y el nivel. Llámanos al 954 40 96 96 y te lo decimos en un minuto."
 relacionados:

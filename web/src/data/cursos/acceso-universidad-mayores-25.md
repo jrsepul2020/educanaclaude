@@ -1,14 +1,14 @@
 ---
 titulo: "Universidad Mayores 25 o 45 años"
 h1: "Universidad Mayores 25 o 45 años"
-entradilla: "Curso de octubre a abril para entrar en la universidad sin Bachillerato ni Grado Superior. Tres horas semanales por asignatura, en grupos reducidos y con material propio incluido. Preparamos tanto la prueba de mayores de 25 como la de mayores de 45."
+entradilla: "Curso de invierno para entrar en la universidad sin Bachillerato ni Grado Superior. Por asignatura, en grupos reducidos y con material propio incluido. Preparamos la prueba de mayores de 25 y la de mayores de 45. Pregúntanos."
 metaTitulo: "Universidad Mayores 25 o 45 · Sevilla"
-metaDescripcion: "Universidad Mayores 25 o 45 años en Sevilla Este. De octubre a abril, en grupos reducidos."
+metaDescripcion: "Universidad Mayores 25 o 45 años en Sevilla Este. Grupos reducidos. Pregúntanos."
 categoria: "accesos"
 orden: 50
 datos:
-  duracion: "De octubre a abril"
-  dias: "De lunes a viernes · 3 h/semana por asignatura"
+  duracion: "Curso de invierno"
+  dias: "Horario según grupo · pregúntanos"
   grupo: "Grupos reducidos"
   desde: "180 € · 4 asignaturas + comentario de texto"
   convocatoria: "Convocatoria de primavera"
@@ -17,8 +17,8 @@ incluye:
     texto: "Las dos partes de la prueba de mayores de 25, y las dos fases de la de mayores de 45."
   - titulo: "Material didáctico incluido"
     texto: "Elaborado por cada profesor especializado en su materia."
-  - titulo: "De lunes a viernes de 8:30 a 13:30 y de 16:00 a 22:00"
-    texto: "Clases de lunes a viernes, tres horas semanales por asignatura."
+  - titulo: "Horario según grupo"
+    texto: "Llámanos y te decimos qué grupo te viene mejor."
   - titulo: "Asesoramiento profesional"
     texto: "Qué rama elegir según el grado al que quieras acceder."
 faq:
@@ -29,9 +29,9 @@ faq:
   - q: "Llevo años sin estudiar, ¿voy a poder?"
     a: "Es el perfil normal de estos grupos. Casi nadie llega con el temario fresco."
   - q: "¿Cuándo empieza el curso?"
-    a: "En octubre, y termina en abril."
+    a: "Durante el curso de invierno. Llámanos y te concretamos."
   - q: "¿Puedo compaginarlo con el trabajo?"
-    a: "Sí. De lunes a viernes de 8:30 a 13:30 y de 16:00 a 22:00."
+    a: "Sí. Llámanos y te decimos qué grupo te encaja."
   - q: "¿Qué incluye el precio?"
     a: "El material didáctico de cada materia, elaborado por el profesor especializado."
 relacionados:

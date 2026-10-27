@@ -100,8 +100,11 @@
   /* ── Movimiento ───────────────────────────────────────────── */
   --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* ── Layout ───────────────────────────────────────────────── */
-  --container-page: 1200px;
+  /* ── Layout ─────────────────────────────────────────────────
+     Ancho de contenido centrado (referencia Qode ~1562px).
+     NO usar el prefijo --container-*: Tailwind v4 lo reserva para
+     @container y pisaba el token (el sitio quedaba a 1200 / 1600). */
+  --layout-max: 1560px;
 }
 
 @layer base {
@@ -140,22 +143,27 @@
   }
 }
 
+/* Contenedor único del sitio (~1560px, como Qode).
+   En pantallas anchas el aire lateral lo da el centrado
+   ((viewport − 1560) / 2), no un padding grande: así el contenido
+   útil es ~1560 y alinea header, hero, rejillas y pie.
+   El padding solo evita que el texto roce el borde en móvil/tablet.
+   Fondos a sangre (cifras, Trinity, mosaico) van fuera de esta caja. */
 @utility container-page {
   width: 100%;
-  max-width: var(--container-page);
+  max-width: var(--layout-max);
   margin-inline: auto;
   padding-inline: 1.25rem;
-  @media (width >= 48rem) { padding-inline: 2.5rem; }
+  @media (width >= 48rem) { padding-inline: 2rem; }
 }
 
-/* El pie respira más ancho que el contenido: son cinco columnas de
-   índice, no texto corrido, y a 1200px se apretaban unas contra otras. */
+/* Alias histórico: mismo layout que container-page. */
 @utility container-pie {
   width: 100%;
-  max-width: 1600px;
+  max-width: var(--layout-max);
   margin-inline: auto;
   padding-inline: 1.25rem;
-  @media (width >= 48rem) { padding-inline: 2.5rem; }
+  @media (width >= 48rem) { padding-inline: 2rem; }
 }
 
 /* ═══════════════════════════════════════════════════════════════

@@ -83,7 +83,7 @@ remitiendo un correo electrónico a **info@academiaeducana.com** indicando su no
 el servicio contratado y exponiendo los motivos de su reclamación.
 
 Si lo desea, puede adjuntar el siguiente formulario de reclamación: servicio contratado, fecha
-de contratación, nombre del usuario, domicilio del usuario, firma del usuario —sólo si se
+de contratación, nombre del usuario, domicilio del usuario, firma del usuario —si se
 presenta en papel—, fecha y motivo de la reclamación.
 
 ## Plataforma de resolución de conflictos

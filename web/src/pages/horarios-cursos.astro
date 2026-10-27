@@ -12,20 +12,20 @@ const grupos = (await getCollection('horarios')).map((h) => h.data);
 const categorias = [...new Set(grupos.map((g) => g.categoria))];
 ---
 <Base
-  title="Horarios y precios · Academia Educana"
-  description="Todos los horarios del curso en Academia Educana, Sevilla Este: refuerzo escolar, PAU, pruebas de acceso e inglés, con las plazas disponibles actualizadas."
+  title="Cursos y precios · Academia Educana"
+  description="Cursos de Academia Educana en Sevilla Este: refuerzo escolar, PAU, pruebas de acceso e inglés, con precios orientativos. Llámanos para ver qué grupo te encaja."
 >
-  <PageHeader migas={[{ label: 'Horarios' }]} eyebrow="Curso 2026–2027" titulo="Horarios y precios.">
+  <PageHeader migas={[{ label: 'Cursos y precios' }]} eyebrow="Curso 2026–2027" titulo="Cursos y precios.">
     <p class="text-(length:--text-lead) leading-relaxed text-cream/80 max-w-[58ch]">
-      Estos son los cursos con sus días y su franja horaria. La matrícula es gratuita
-      y el material va incluido en el precio.
+      Estos son los cursos y una orientación de precios. La matrícula es gratuita
+      y el material va incluido. Los grupos se cierran según la demanda:
+      llámanos y te decimos qué te encaja.
     </p>
     <p class="flex gap-3 rounded-card border-[1.5px] border-amber bg-amber/15 p-5 leading-relaxed max-w-[64ch] text-cream">
       <Icon name="info" class="mt-0.5 shrink-0 text-amber" />
       <span>
-        <strong>El cuadrante de horarios del curso está en preparación.</strong> En cuanto se
-        cierren los grupos lo publicamos aquí. Mientras tanto, llámanos y te decimos
-        qué grupo te encaja.
+        <strong>Los grupos del curso se van cerrando según se matricula gente.</strong>
+        Llámanos y te decimos qué te encaja ahora mismo.
       </span>
     </p>
     <Button href="tel:+34954409696" icon="telefono" variant="rojo-aro" class="self-start tabular">954 40 96 96</Button>
@@ -38,10 +38,10 @@ const categorias = [...new Set(grupos.map((g) => g.categoria))];
   <Section tone="cream">
     <div class="grid gap-6 md:grid-cols-2">
       <Card class="gap-4 p-6">
-        <h2 class="text-(length:--text-h3)">¿Ningún horario te encaja?</h2>
+        <h2 class="text-(length:--text-h3)">¿No te encaja ningún grupo?</h2>
         <p class="leading-relaxed text-slate">
           Llámanos. Con grupos de seis a ocho solemos poder mover cosas, y siempre quedan
-          las clases particulares con horario a medida.
+          las clases particulares a medida.
         </p>
         <div class="flex flex-wrap gap-3">
           <Button href="tel:+34954409696" icon="telefono" size="sm">Llamar 954 40 96 96</Button>

@@ -19,7 +19,7 @@ const grupos = horarios.map((h) => h.data);
 const categorias = [...new Set(grupos.map((g) => g.categoria))];
 
 const colores = [
-  { n: 'brand',     hex: '#CD1228', t: 'Rojo del logotipo. Sólo la acción principal.', fg: '#fff', logo: true },
+  { n: 'brand',     hex: '#CD1228', t: 'Rojo del logotipo. La acción principal.', fg: '#fff', logo: true },
   { n: 'blue',      hex: '#21307F', t: 'Azul del logotipo. Superficies grandes de marca.', fg: '#fff', logo: true },
   { n: 'brand-ink', hex: '#A50D1F', t: 'Rojo para TEXTO sobre claro · 7,8:1 AAA', fg: '#fff' },
   { n: 'ink',       hex: '#141A33', t: 'Texto y controles · 16,04:1 sobre crema', fg: '#fff' },
@@ -51,7 +51,7 @@ const logos = [
 
   <Section tone="cream">
     <Eyebrow>Cómo funciona esto</Eyebrow>
-    <h2 class="text-(length:--text-h2)">Se actualiza sola.</h2>
+    <h2 class="text-(length:--text-h2)">Se actualiza al instante.</h2>
     <p class="max-w-[70ch] leading-relaxed text-slate">
       Esta página renderiza los componentes <strong>reales</strong> de la web, no una copia.
       Si alguien cambia un botón, aquí se ve cambiado. Todo sale de
@@ -63,7 +63,7 @@ const logos = [
 
   <Section tone="paper">
     <Eyebrow>Logotipo</Eyebrow>
-    <h2 class="text-(length:--text-h2)">Cuatro archivos, un solo dibujo.</h2>
+    <h2 class="text-(length:--text-h2)">Cuatro archivos, el mismo dibujo.</h2>
     <p class="max-w-[70ch] leading-relaxed text-slate">
       El cliente aportó la versión para fondo claro. Las otras tres están generadas a partir
       de ella recoloreando y recortando: <strong>el dibujo no se ha tocado</strong>.
@@ -118,7 +118,7 @@ const logos = [
     </div>
 
     <Card class="border-2 border-brand p-6 gap-3">
-      <h3 class="text-(length:--text-h3)">La regla que se incumple sola</h3>
+      <h3 class="text-(length:--text-h3)">La regla que se incumple sin querer</h3>
       <div class="flex flex-wrap items-center gap-5">
         <div class="flex h-16 w-64 items-center rounded-field bg-blue px-4">
           <span class="font-semibold text-brand">Rojo sobre tinta</span>
@@ -147,9 +147,9 @@ const logos = [
           matrícula gratuita y material incluido en el precio.</p></div>
       <div class="grid gap-4 sm:grid-cols-2">
         <Card class="p-5 gap-2"><code class="text-[0.72rem] text-ok">CON tabular-nums ✓</code>
-          <p class="tabular text-lg leading-loose">17:00 – 18:30<br />19:30 – 21:00<br />11:15 – 12:45</p></Card>
+          <p class="tabular text-lg leading-loose">62 € · por nivel<br />120 € · 3 asignaturas<br />180 € · 4 asignaturas</p></Card>
         <Card class="p-5 gap-2"><code class="text-[0.72rem] text-brand-ink">SIN tabular-nums ✗</code>
-          <p class="text-lg leading-loose" style="font-variant-numeric:normal">17:00 – 18:30<br />19:30 – 21:00<br />11:15 – 12:45</p></Card>
+          <p class="text-lg leading-loose" style="font-variant-numeric:normal">62 € · por nivel<br />120 € · 3 asignaturas<br />180 € · 4 asignaturas</p></Card>
       </div>
     </div>
   </Section>
@@ -161,7 +161,7 @@ const logos = [
       <Button>Pide información</Button>
       <Button variant="secondary">Ver metodología</Button>
       <Button variant="outline">Llamar 954 40 96 96</Button>
-      <Button variant="ghost">Ver horarios →</Button>
+      <Button variant="ghost">Ver cursos →</Button>
       <Button size="sm">Secundario pequeño</Button>
       <Button disabled>Deshabilitado</Button>
     </div>
@@ -185,8 +185,8 @@ const logos = [
     <Eyebrow>Caja de datos duros</Eyebrow>
     <h2 class="text-(length:--text-h2)">Lo que decide la conversión.</h2>
     <DataBox items={[
-      { k: 'Duración', v: 'De octubre a mayo' },
-      { k: 'Días y horas', v: 'L a J · 3 h/semana' },
+      { k: 'Duración', v: 'Curso de invierno' },
+      { k: 'Horario', v: 'Según grupo · pregúntanos' },
       { k: 'Grupo', v: 'Grupos reducidos' },
       { k: 'Desde', v: '120 € · 3 asignaturas' },
       { k: 'Próxima convocatoria', v: 'Del 6 al 30 de abril' },
@@ -199,7 +199,7 @@ const logos = [
     <StatBlock stats={[
       { n: '20+', label: 'años en Sevilla Este', accent: true, icon: 'anios' },
       { n: '6.796', label: 'alumnos han pasado por Educana', icon: 'alumnos' },
-      { n: '4', label: 'exámenes oficiales preparados aquí', icon: 'examenes' },
+      { n: '+', label: 'exámenes oficiales de inglés · pregúntanos', icon: 'examenes' },
       { n: '0 €', label: 'de matrícula', accent: true, icon: 'gratis' },
     ]} />
   </Section>
@@ -209,7 +209,7 @@ const logos = [
   <TrinityBand />
 
   <Section tone="cream">
-    <Eyebrow>Tabla de horarios</Eyebrow>
+    <Eyebrow>Tabla de cursos</Eyebrow>
     <h2 class="text-(length:--text-h2)">Filtrable, y legible sin JavaScript.</h2>
     <ScheduleTable grupos={grupos} categorias={categorias} />
   </Section>
@@ -226,7 +226,7 @@ const logos = [
         <Field label="Campo con error" name="ds-err" error="Escribe un teléfono de 9 cifras para que podamos llamarte." />
         <Field label="Cuéntanos" name="ds-msg" multiline />
         <p class="text-[0.85rem] leading-relaxed text-slate">
-          El error se describe en <strong>texto</strong>, no sólo en color: hay quien no lo distingue.
+          El error se describe en <strong>texto</strong>, además del color: hay quien no lo distingue.
           El foco es visible en todo el sitio — requisito de la AA.
         </p>
       </div>
@@ -237,7 +237,7 @@ const logos = [
     <Eyebrow>Preguntas frecuentes</Eyebrow>
     <h2 class="text-(length:--text-h2)">Acordeón sin JavaScript.</h2>
     <Faq items={[
-      { q: '¿Cuándo empieza el curso?', a: 'En octubre, y termina en mayo.' },
+      { q: '¿Cuándo empieza el curso?', a: 'Durante el curso de invierno. Llámanos y te concretamos.' },
       { q: '¿Qué incluye el precio?', a: 'La matrícula es gratuita y el material va incluido, elaborado por el profesor de cada materia.' },
       { q: '¿Cuánto cuesta?', a: 'Depende de cuántas asignaturas lleves. Llámanos y te lo decimos en un minuto.' },
     ]} />

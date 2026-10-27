@@ -15,7 +15,7 @@ import { foto } from '../lib/foto';
 
    Cabecera con panel de color partido en diagonal, barra roja de
    cifras, bloque de texto con los cuatro pilares y el formulario, y
-   la rejilla de cursos a 1600px y cuatro columnas.
+   la rejilla de cursos a cuatro columnas dentro del contenedor.
 
    Cada tarjeta se pinta con el color de su familia. Como los cursos
    salen ordenados de la colección, las familias caen agrupadas y el
@@ -43,7 +43,7 @@ const servicios = [
   })),
   {
     titulo: 'Inglés y exámenes oficiales',
-    texto: 'De los 6 años al C1: A1, A2, B1, B2 y C1, con Trinity (ISE e ISE Digital), Cambridge, EOI y APTIS. Somos centro examinador oficial de Trinity.',
+    texto: 'De los 6 años al C1. Preparamos Trinity, Cambridge, EOI, APTIS y más —pregúntanos cuál te conviene—. Somos centro examinador oficial de Trinity.',
     href: `${BASE_ING}/`,
     familia: 'ingles' as const,
     fotoNombre: 'ingles/hub.jpg',
@@ -54,7 +54,7 @@ const servicios = [
 const cifras = [
   { n: '20+',   label: 'años en Sevilla Este', icono: 'reloj' as const },
   { n: '6.796', label: 'alumnos desde 2005',   icono: 'usuarios' as const },
-  { n: '4',     label: 'exámenes oficiales',   icono: 'diploma' as const },
+  { n: '+',     label: 'exámenes oficiales',   icono: 'diploma' as const },
 ];
 
 /* Cuatro pilares para la rejilla 2x2. Los textos llevan la carga de SEO
@@ -68,7 +68,7 @@ const pilares = [
   { icono: 'globo' as const, t: 'Inglés y exámenes oficiales',
     d: 'De los 6 años al C1. Centro examinador Trinity: preparas y te examinas en la misma academia, sin desplazarte.' },
   { icono: 'usuarios' as const, t: 'Clases particulares',
-    d: 'Una asignatura concreta, un profesor para ti y el horario que te encaje.' },
+    d: 'Una asignatura concreta, un profesor para ti y el ritmo que necesites.' },
 ];
 
 const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
@@ -89,7 +89,9 @@ const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
          style="background: linear-gradient(120deg, #141A33 0%, var(--color-blue) 100%);"></div>
 
     <div class="container-page py-16 md:py-24">
-      <div class="flex max-w-[34rem] flex-col gap-6 text-white">
+      {/* Mismo borde izquierdo que el header (padding del container-page).
+          En lg el ancho llega casi al corte diagonal, sin pasarlo. */}
+      <div class="flex w-full max-w-[48rem] flex-col gap-6 text-white lg:max-w-[min(48rem,58%)]">
         {/* El antetítulo ya no repite la palabra clave: la lleva el H1,
             que es donde cuenta. Aquí va la prueba de arraigo. */}
         <p class="text-(length:--text-eyebrow) font-bold uppercase tracking-[0.2em] text-white/80">
@@ -178,7 +180,7 @@ const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
         <hr class="border-line" />
 
         <div class="flex flex-wrap gap-3">
-          <Button href="/horarios-cursos/" icon="reloj" variant="primary">Horarios y precios</Button>
+          <Button href="/horarios-cursos/" icon="reloj" variant="primary">Cursos y precios</Button>
           <Button href="/quienes-somos-academia-educana/" icon="academia" variant="outline">Conócenos</Button>
         </div>
       </div>
@@ -188,7 +190,7 @@ const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
         <div class="bg-brand px-7 py-8 text-white">
           <p class="text-[1.15rem] font-semibold leading-snug">
             Lo que mejor sabemos hacer es sentarnos al lado de un alumno hasta que
-            el temario deja de darle miedo. Lo demás viene solo.
+            el temario deja de darle miedo. Lo demás se encaja.
           </p>
           <hr class="my-5 border-white/30" />
           <p class="text-(length:--text-eyebrow) font-bold uppercase tracking-[0.14em]">Academia Educana</p>
@@ -207,10 +209,9 @@ const fotoHero = foto('home-hero.jpg') ?? '/fotos/1200x800/16.jpg';
       Vuelve a la rejilla de la portada actual, pero cada tarjeta lleva
       el color de su familia: con once fichas iguales en gris no se veía
       a qué grupo pertenecía cada una y el color hace ese trabajo sin
-      añadir una sola palabra. A 1600px y cuatro columnas las once
-      caben en tres filas en vez de cuatro. */}
+      añadir una sola palabra. Cuatro columnas: las once caben en tres filas. */}
   <section class="bg-cream py-16 md:py-24">
-    <div class="container-pie flex flex-col gap-8">
+    <div class="container-page flex flex-col gap-8">
       <div class="flex flex-col gap-3">
         <p class="text-(length:--text-eyebrow) font-bold uppercase tracking-[0.2em] text-brand">Nuestros cursos</p>
         <h2 class="text-(length:--text-h1) leading-[0.95]">Todo lo que preparamos en Sevilla Este.</h2>

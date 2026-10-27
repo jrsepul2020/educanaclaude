@@ -1,24 +1,24 @@
 ---
 titulo: "APTIS"
 h1: "Preparar el APTIS en Sevilla Este"
-entradilla: "Preparamos el APTIS junto con los exámenes de Trinity, Cambridge y la Escuela Oficial de Idiomas. Con profesores titulados y bilingües que conocen bien la estructura de cada examen, en grupos reducidos y con matrícula gratuita."
+entradilla: "Preparamos el APTIS y muchos más títulos oficiales: Trinity, Cambridge, la Escuela Oficial de Idiomas y otros según lo que necesites. Pregúntanos. Profesores titulados y bilingües, grupos reducidos y matrícula gratuita."
 metaTitulo: "Academia APTIS en Sevilla Este · Preparación"
-metaDescripcion: "Preparamos el examen APTIS en Sevilla Este con profesores titulados y bilingües. Grupos reducidos, matrícula gratuita y examen de prueba sin coste."
+metaDescripcion: "Preparamos el examen APTIS en Sevilla Este con profesores titulados y bilingües. Grupos reducidos y matrícula gratuita."
 eje: "examen"
 orden: 60
 datos:
   partida: "Según tu nivel"
-  duracion: "9 meses · de octubre a junio"
-  dias: "2 días de 1,5 h · 8:30–13:30 o 16:00–22:00"
+  duracion: "Curso de invierno"
+  dias: "Horario según grupo · pregúntanos"
   grupo: "Grupos reducidos"
   desde: "62 € · matrícula gratuita"
 puntos:
-  - titulo: "Uno de los cuatro que preparamos"
-    texto: "Trinity (ISE e ISE Digital), Cambridge, Escuela Oficial de Idiomas y APTIS."
+  - titulo: "Uno de los muchos que preparamos"
+    texto: "Trinity, Cambridge, EOI, APTIS y más. Depende de para qué lo necesites: pregúntanos y te orientamos."
   - titulo: "Profesores titulados y bilingües"
     texto: "Con experiencia, muy conocedores de la estructura del examen y con formación anual para reciclar sus conocimientos."
-  - titulo: "Test Trialling gratuito"
-    texto: "Un examen de prueba sin coste, en condiciones reales de examen. Sirve para coger confianza antes del examen de verdad y para que un examinador con experiencia nos diga cómo va el grupo."
+  - titulo: "Matrícula gratuita"
+    texto: "No se paga por matricularse. El precio de los cursos de inglés es de 62 € a tu nivel."
 faq:
   - q: "¿Qué es el APTIS?"
     a: "Un examen oficial de inglés que mide las cuatro destrezas y acredita un nivel del Marco Común Europeo."
@@ -28,8 +28,10 @@ faq:
     a: "A1, A2, B1, B2 y C1, dentro de los cursos de invierno."
   - q: "¿Cuánto cuesta?"
     a: "62 € a tu nivel, con matrícula gratuita. La tasa del examen va aparte."
-  - q: "¿Hay examen de prueba?"
-    a: "Sí, el Test Trialling, sin coste alguno."
+  - q: "¿Cómo sé mi nivel?"
+    a: "Llámanos y lo vemos. Hay prueba de nivel gratuita."
+  - q: "¿Hay clases individuales de inglés?"
+    a: "Sí. Si el grupo no te encaja o necesitas un refuerzo concreto, tenemos clases particulares de inglés. Llámanos y lo vemos."
 relacionados:
   - "adultos"
   - "b2"
@@ -38,12 +40,15 @@ relacionados:
 
 ## Los cursos que ofrecemos
 
-**Curso de invierno** — niveles A1, A2, B1, B2 y C1. Nueve meses, de octubre a junio.
-Tres horas semanales repartidas en dos días de hora y media. De 8:30 a 13:30 o de 16:00 a 22:00, tú eliges.
+**Curso de invierno** — niveles A1, A2, B1, B2 y C1. Durante el curso escolar, en grupos
+reducidos. Llámanos y te decimos grupo y ritmo.
 
-**Curso intensivo de invierno** — nivel B1. Seis meses, de enero a junio.
-Tres horas semanales en dos días de hora y media.
+**Curso intensivo de invierno** — nivel B1. Para quien quiere concentrar el trabajo en
+menos tiempo. Pregúntanos fechas y grupos.
 
-**Curso intensivo de verano** — niveles B1 y B2. Dos meses y una semana: julio, agosto y la
-primera semana de septiembre. Seis horas semanales repartidas en cuatro clases de hora y
-media, de lunes a viernes, sólo por las mañanas (de 8:30 a 13:30).
+**Curso intensivo de verano** — niveles B1 y B2. En verano, con ritmo intensivo.
+Llámanos y te decimos cómo encaja con las convocatorias.
+
+## También en individual
+
+Si el grupo no te encaja o quieres centrarte en un punto concreto, [tenemos clases particulares de inglés](/clases-particulares-sevilla/).

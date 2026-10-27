@@ -38,7 +38,7 @@ desde tu navegador.
 Esta cookie es imprescindible para respetar tu decisión y, conforme al artículo 22.2 de la LSSI,
 está exenta del deber de consentimiento.
 
-### Cookies de analítica — sólo si las aceptas
+### Cookies de analítica — si las aceptas
 
 | Nombre | Titular | Caducidad | Finalidad |
 |---|---|---|---|

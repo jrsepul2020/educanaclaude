@@ -1,14 +1,14 @@
 ---
 titulo: "Cursos de verano"
 h1: "Cursos de verano y refuerzo escolar en Sevilla Este"
-entradilla: "Para preparar las materias pendientes o empezar el curso siguiente con base. Grupos reducidos y homogéneos por etapa y materia, de Primaria a Bachillerato, con dos clases de hora y media de lunes a viernes y exámenes mensuales."
+entradilla: "Para preparar las materias pendientes o empezar el curso siguiente con base. Grupos reducidos y homogéneos por etapa y materia, de Primaria a Bachillerato, con seguimiento y exámenes mensuales. Pregúntanos."
 metaTitulo: "Cursos de verano en Sevilla Este · Educana"
 metaDescripcion: "Cursos de verano en Sevilla Este para recuperar materias pendientes o coger base. De Primaria a Bachillerato, en grupos reducidos y homogéneos."
 categoria: "estudios"
 orden: 90
 datos:
   duracion: "Verano"
-  dias: "De lunes a viernes · dos clases de 1,5 h"
+  dias: "Horario según grupo · pregúntanos"
   grupo: "Grupos reducidos y homogéneos"
   desde: "Matrícula gratuita"
   convocatoria: "Matrícula desde final de curso"
@@ -27,7 +27,7 @@ faq:
   - q: "¿Qué etapas cubrís?"
     a: "Todas, de Primaria a Bachillerato."
   - q: "¿Cuántas clases a la semana?"
-    a: "Dos clases de hora y media, de lunes a viernes."
+    a: "Llámanos y te decimos el ritmo del grupo."
   - q: "¿Cómo sé cómo va?"
     a: "Hay exámenes mensuales, control de asistencia y trabajo diario, y se pueden consultar los resultados en nuestra plataforma Educaline."
   - q: "¿Los grupos mezclan cursos?"
@@ -43,13 +43,13 @@ A veces los resultados del curso no son los que esperábamos. Es entonces cuando
 necesidad de buscar un sitio que ayude de verdad.
 
 Si has suspendido o necesitas reforzar materias, el verano no se puede dejar pasar: el
-temario está reciente y quedan semanas por delante. Es cuando de verdad se recupera una asignatura.
+temario está reciente. Es cuando de verdad se recupera una asignatura.
 
 ## Qué incluye
 
 - Grupos reducidos y homogéneos por etapas y materias
 - Todas las etapas, de Primaria a Bachillerato
-- Dos clases de hora y media, de lunes a viernes
+- Horario a medida · pregúntanos
 - Exámenes mensuales y control de asistencia y trabajo diario
 - Consulta de resultados y evolución a través de la plataforma Educaline
 - Asesoramiento directo a familiares y responsables
