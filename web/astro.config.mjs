@@ -2,7 +2,6 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://www.academiaeducana.com',
@@ -18,13 +17,14 @@ export default defineConfig({
       },
     }),
   ],
-  /* Estático por defecto: las 33 páginas se sirven desde CDN.
-     Sólo los endpoints de formulario marcan prerender = false y se
-     ejecutan como función serverless. */
-  adapter: vercel(),
-  /* Las 301 NO van aquí: Astro no admite redirigir un comodín a una
-     ruta fija (/alumno/* → /contacto/). Se generan en vercel.json
+  /* Sitio 100 % estático: se sube por FTP a un alojamiento clásico.
+     Sin adaptador no hay funciones de servidor, así que los formularios
+     los atienden dos endpoints PHP en public/api/ (ver ahí el porqué).
+
+     Las 301 NO van aquí: Astro no admite redirigir un comodín a una
+     ruta fija (/alumno/* → /contacto/). Se generan como .htaccess
      desde redirecciones.mjs con scripts/generar-config-host.mjs. */
+  output: 'static',
 
   vite: { plugins: [tailwindcss()] },
   build: { inlineStylesheets: 'auto' },

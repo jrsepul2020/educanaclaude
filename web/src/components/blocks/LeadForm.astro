@@ -7,7 +7,7 @@ import Button from '../ui/Button.astro';
 interface Props { context?: string; compact?: boolean; oscuro?: boolean }
 const { context = '', compact = false, oscuro = false } = Astro.props;
 ---
-<form method="POST" action="/api/contacto" class="flex flex-col gap-3" data-evento="envio-formulario">
+<form method="POST" action="/api/contacto.php" class="flex flex-col gap-3" data-evento="envio-formulario">
   <input type="hidden" name="contexto" value={context} />
   <div class="absolute left-[-9999px]" aria-hidden="true">
     <label>No rellenes esto <input type="text" name="empresa" tabindex="-1" autocomplete="off" /></label>

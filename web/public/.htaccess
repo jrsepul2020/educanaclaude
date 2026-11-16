@@ -1,0 +1,81 @@
+# ────────────────────────────────────────────────────────────
+# GENERADO AUTOMÁTICAMENTE · no editar a mano.
+# Fuente: redirecciones.mjs · se regenera en cada build.
+# ────────────────────────────────────────────────────────────
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ── Canónico: todo a https://www y con barra final ──────────
+  # El sitio declara www en el canonical y en el sitemap. Sin esto,
+  # Google ve cuatro URLs para cada página y reparte la autoridad.
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^(.*)$ https://www.academiaeducana.com/$1 [R=301,L]
+
+  # ── Barra final ─────────────────────────────────────────────
+  # Astro genera /pagina/index.html y el sitio usa trailingSlash
+  # siempre. Sin esta regla, /pagina y /pagina/ serían dos URLs.
+  # Se excluyen los archivos reales para no tocar .css, .jpg ni .php.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,5}$
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+  # ── 301 de la web antigua ───────────────────────────────────
+  # CONTRASTADAS CONTRA SEARCH CONSOLE. Ver redirecciones.mjs.
+  RewriteRule ^preparacion-selectividad-sevilla/?$ /curso-selectividad-sevilla-pevau/ [R=301,L]
+  RewriteRule ^pruebas-acceso-universidad/?$ /acceso-universidad-mayores-25/ [R=301,L]
+  RewriteRule ^horarios-2/?$ /horarios-cursos/ [R=301,L]
+  RewriteRule ^educaline\.html/?$ / [R=301,L]
+  RewriteRule ^educaline-mantenimiento/?$ / [R=301,L]
+  RewriteRule ^tienda/?$ /contacto/ [R=301,L]
+  RewriteRule ^carrito/?$ /contacto/ [R=301,L]
+  RewriteRule ^finalizar-compra/?$ /contacto/ [R=301,L]
+  RewriteRule ^mi-cuenta/?$ /contacto/ [R=301,L]
+  RewriteRule ^mi-perfil/?$ /contacto/ [R=301,L]
+  RewriteRule ^producto/reserva/?$ /contacto/ [R=301,L]
+  RewriteRule ^reserva-clases/?$ /contacto/ [R=301,L]
+  RewriteRule ^alumno(/.*)?$ /contacto/ [R=301,L]
+  RewriteRule ^lessons(/.*)?$ / [R=301,L]
+  RewriteRule ^courses(/.*)?$ / [R=301,L]
+</IfModule>
+
+# ── Caché ─────────────────────────────────────────────────────
+# Los archivos de /_astro/ llevan un hash en el nombre: si cambian,
+# cambia el nombre, así que se pueden cachear para siempre.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                 "access plus 1 year"
+  ExpiresByType application/javascript   "access plus 1 year"
+  ExpiresByType image/jpeg               "access plus 6 months"
+  ExpiresByType image/png                "access plus 6 months"
+  ExpiresByType image/webp               "access plus 6 months"
+  ExpiresByType font/woff2               "access plus 1 year"
+  ExpiresByType text/html                "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ── Compresión ────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript
+  AddOutputFilterByType DEFLATE application/json image/svg+xml
+</IfModule>
+
+# ── El .env con la clave de Resend NO se sirve nunca ──────────
+# Está dentro de public_html porque los endpoints PHP lo leen, así
+# que esta regla es lo único que impide descargarlo desde el navegador.
+<FilesMatch "^\.env">
+  Require all denied
+</FilesMatch>

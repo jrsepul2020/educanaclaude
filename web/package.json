@@ -9,13 +9,13 @@
     "preview": "astro preview",
     "verificar": "astro build && node scripts/verificar-migracion.mjs",
     "probar": "node scripts/probar-formulario.mjs",
-    "desplegar": "npm run verificar && npx vercel deploy --prod",
-    "prebuild": "node scripts/generar-config-host.mjs"
+    "desplegar": "npm run build",
+    "prebuild": "node scripts/generar-config-host.mjs",
+    "postbuild": "node scripts/limpiar-dist.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
     "@astrojs/sitemap": "^3.7.4",
-    "@astrojs/vercel": "^11.0.10",
     "@fontsource-variable/archivo": "^5.3.0",
     "@fontsource-variable/public-sans": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
